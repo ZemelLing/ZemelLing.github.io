@@ -28,5 +28,5 @@ jobs:
         with:
           github_token: ${{ secrets.HUGO_TOKEN }}
           publish_branch: gh-pages  # 推送到当前 gh-pages 分支
-          publish_dir: ./public
+          publish_dir: ./docs
           commit_message: ${{ github.event.head_commit.message }}
