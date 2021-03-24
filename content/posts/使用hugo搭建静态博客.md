@@ -65,7 +65,7 @@ jobs:
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
-          # extended: true
+          extended: true
 
       - name: Build
         run: hugo --minify
@@ -75,6 +75,6 @@ jobs:
         with:
           github_token: ${{ secrets.HUGO_TOKEN }}
           publish_branch: gh-pages  # 推送到当前 gh-pages 分支
-          publish_dir: ./docs
+          publish_dir: ./public # 推送生成的public文件下的内容到 gh-pages 分支
           commit_message: ${{ github.event.head_commit.message }}
 ```
