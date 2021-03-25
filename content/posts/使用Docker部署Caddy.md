@@ -42,6 +42,15 @@ localhost
 
 respond "Hello, world!"
 ```
+
+#### 反向代理
+
+```
+your_domain {
+    reverse_proxy your_server_ip:port
+}
+```
+
 ### Compare
 以下是Json格式和Caddyfile格式的区别：
 | JSON                                  | Caddyfile                                |
