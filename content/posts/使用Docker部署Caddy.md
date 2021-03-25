@@ -17,7 +17,7 @@ services:
       - "443:443"
     volumes:
       - /data/caddy/Caddyfile:/etc/caddy/Caddyfile
-      - /data/caddy/stie:/srv
+      - /data/caddy/site:/srv
       - caddy_data:/data
       - caddy_config:/config
     container_name: caddy
@@ -41,6 +41,15 @@ Caddy有两种配置格式：1. json 2. Caddyfile，由于Caddyfile较为简洁�
 localhost
 
 respond "Hello, world!"
+```
+
+#### 静态内容
+
+```
+your_domain {
+    root * /var/www
+    file_server
+}
 ```
 
 #### 反向代理
