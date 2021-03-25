@@ -45,4 +45,30 @@ git submodule add https://github.com/dataCobra/hugo-vitae
 </span><span style=color:#bbb>          </span><span style=color:#070>publish_branch</span>:<span style=color:#bbb> </span>gh-pages <span style=color:#bbb> </span><span style=color:#888># 推送到当前 gh-pages 分支</span><span style=color:#bbb>
 </span><span style=color:#bbb>          </span><span style=color:#070>publish_dir</span>:<span style=color:#bbb> </span>./public<span style=color:#bbb> </span><span style=color:#888># 推送生成的public文件下的内容到 gh-pages 分支</span><span style=color:#bbb>
 </span><span style=color:#bbb>          </span><span style=color:#070>commit_message</span>:<span style=color:#bbb> </span>${{ github.event.head_commit.message }}<span style=color:#bbb>
-</span></code></pre></div></div><div class=tags><div class=taxosfloating_left><p>Tags</p></div><div class=termsfloating_right><p><a href=/tags/hugo/>hugo</a></p></div><div class=clearit></div></div></div></main><footer>© Copyright notice | <a href=https://github.com/dataCobra/hugo-vitae>Vitae</a> theme for <a href=https://gohugo.io>Hugo</a></footer></body></html>
+</span><span style=color:#bbb></span><span style=color:#888># 开始部署到VPS上的工作流</span><span style=color:#bbb>
+</span><span style=color:#bbb>      </span>- <span style=color:#070>name</span>:<span style=color:#bbb> </span>Cache Private Key<span style=color:#bbb>
+</span><span style=color:#bbb>        </span><span style=color:#070>uses</span>:<span style=color:#bbb> </span>webfactory/ssh-agent@v0.4.1<span style=color:#bbb>
+</span><span style=color:#bbb>        </span><span style=color:#070>with</span>:<span style=color:#bbb>
+</span><span style=color:#bbb>          </span><span style=color:#070>ssh-private-key</span>:<span style=color:#bbb> </span>${{ secrets.BLOG_DEPLOY_KEY }}<span style=color:#bbb>
+</span><span style=color:#bbb>      </span>- <span style=color:#070>name</span>:<span style=color:#bbb> </span>Scan public keys<span style=color:#bbb>
+</span><span style=color:#bbb>        </span><span style=color:#070>run</span>:<span style=color:#bbb> </span>ssh-keyscan zling.site &gt;&gt; ~/.ssh/known_hosts<span style=color:#bbb>
+</span><span style=color:#bbb>      </span>- <span style=color:#070>name</span>:<span style=color:#bbb> </span>Deploy<span style=color:#bbb>
+</span><span style=color:#bbb>        </span><span style=color:#070>run</span>:<span style=color:#bbb> </span>rsync -av --delete ./public root@zling.site:/data/caddy/site/hugo-web<span style=color:#bbb>
+</span></code></pre></div><h2 id=自动部署至腾讯云>自动部署至腾讯云</h2><p>前提条件，在CVM上已安装好Caddy</p><p>基本思路是：通过rsync将生成的静态内容复制到VPS上</p><ol><li>生成无密码的密钥</li></ol><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>ssh-keygen -t ed25519 -f ~/.ssh/blog_deploy_key
+</code></pre></div><ol start=2><li>将生成的公钥内容添加到VPS上</li></ol><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>~/.ssh/authorized_keys
+</code></pre></div><ol start=3><li><p>将生成的私钥内容添加到项目的Secrets中，命名为 blog_deploy_key</p></li><li><p>工作流文件中使用 webfactory/ssh-agent 实现私钥的缓存</p></li></ol><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>- name: Cache Private Key
+  uses: webfactory/ssh-agent@v0.4.1
+  with:
+    ssh-private-key: |
+      ${{ secrets.BLOG_DEPLOY_KEY }}
+</code></pre></div><ol start=5><li>工作流文件中还使用 ssh-keyscan 命令扫描 VPS 的公钥并保存到虚拟环境的 ~/.ssh/known_hosts 中</li></ol><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>- name: Scan public keys
+  run: |
+    ssh-keyscan your_vps_ip_or_domain &gt;&gt; ~/.ssh/known_hosts
+</code></pre></div><ol start=6><li>部署到VPS</li></ol><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>- name: Deploy
+  run: |
+    rsync -av --delete public ./public root@your_vps_ip_or_domain:/data/caddy/site/hugo-web
+</code></pre></div><ol start=7><li>Caddyfile配置</li></ol><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>blog.zling.site {
+    root * /srv/hugo-web
+    file_server
+}
+</code></pre></div></div><div class=tags><div class=taxosfloating_left><p>Tags</p></div><div class=termsfloating_right><p><a href=/tags/hugo/>hugo</a></p></div><div class=clearit></div></div></div></main><footer>© Copyright notice | <a href=https://github.com/dataCobra/hugo-vitae>Vitae</a> theme for <a href=https://gohugo.io>Hugo</a></footer></body></html>
