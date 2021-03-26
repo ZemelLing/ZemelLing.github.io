@@ -84,7 +84,7 @@ jobs:
           ssh-private-key: ${{ secrets.BLOG_DEPLOY_KEY }}
       - name: Scan public keys
         run: ssh-keyscan zling.site >> ~/.ssh/known_hosts
-      - name: Deploy
+      - name: Deploy To VPS
         run: rsync -av --delete ./public root@zling.site:/data/caddy/site/hugo-web
 ```
 
@@ -131,7 +131,7 @@ ssh-keygen -t ed25519 -f ~/.ssh/blog_deploy_key
 
 ```
 blog.zling.site {
-    root * /srv/hugo-web
+    root * /srv/hugo-web/public
     file_server
 }
 ```
