@@ -2,6 +2,8 @@
 title: "AspNetCore学习记录(1)"
 date: 2021-03-26T22:19:59+08:00
 draft: false
+tags: ["aspnetcore",]
+categories: ["aspnetcore",]
 ---
 
 ## 配置MVC
@@ -22,7 +24,8 @@ namespace MockSchool
         {
             // 设置 EnableEndpointRouting 为 false 是为了使用 MVC 默认路由
             //services.AddMvc(a => a.EnableEndpointRouting = false);
-            // 使用 AddControllersWithViews 而不使用 AddMvc 是为了不引入 RazorPages 等未用到的服务
+            // 使用 AddControllersWithViews 而不使用 AddMvc 是为了不引入 RazorPages 
+            // 等未用到的服务
             services.AddControllersWithViews(a => a.EnableEndpointRouting = false);
         }
 
