@@ -24,7 +24,7 @@ Unity 中包含两类全局光照系统，烘培全局光照和实时全局光�
 
 ### The Scene Tab
 
-![Lighting-scene](./images/unity-lighting-scene-20210402.png)
+![Lighting-scene](/images/unity-lighting-scene-20210402.png)
 
 该界面展示当前打开的场景的光照设置信息。光照设置信息来自 Lighting Settings 指定的 Lighting Settings Asset ，如果未指定则使用默认的光照设置资源（只读，不可修改）。
 
@@ -63,7 +63,7 @@ Lighting Settings Asset 标识 LightingSettings  类的实例，该实例保存�
 
 ### The Environment Tab
 
-![Lighting-environment](./images/unity-lighting-environment-20210402.png)
+![Lighting-environment](/images/unity-lighting-environment-20210402.png)
 
 ### The Realtime Lightmaps Tab
 
@@ -71,4 +71,4 @@ Lighting Settings Asset 标识 LightingSettings  类的实例，该实例保存�
 
 ### The Backed Lightmaps Tab
 
-![Lighting-scene](./images/unity-lighting-backed-lightmaps-20210402.png)
+![Lighting-scene](/images/unity-lighting-backed-lightmaps-20210402.png)
