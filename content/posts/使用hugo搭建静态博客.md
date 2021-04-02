@@ -135,3 +135,17 @@ blog.zling.site {
     file_server
 }
 ```
+
+## Hugo用法
+
+### 创建文章
+
+```
+hugo new posts\xxx.md
+```
+
+### 删除文章
+
+```
+hugo delete posts\xxx.md
+```

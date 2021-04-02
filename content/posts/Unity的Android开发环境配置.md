@@ -2,6 +2,8 @@
 title: "Unity的Android开发环境配置"
 date: 2021-04-02T14:47:36+08:00
 draft: false
+tags: ["unity", "android"]
+categories: ["unity",]
 ---
 
 ## Android环境配置
