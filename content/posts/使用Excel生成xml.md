@@ -2,6 +2,8 @@
 title: "使用Excel生成xml"
 date: 2021-04-04T22:45:07+08:00
 draft: false
+tags: ["excel", "xml"]
+categories: ["excel",]
 ---
 
 1. 制作 XML 模板
