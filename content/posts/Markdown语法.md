@@ -2,7 +2,8 @@
 title: "Markdown语法"
 date: 2021-03-26T10:16:51+08:00
 draft: false
-tags: ["Markdown",]
+tags: ["markdown", ]
+categories: ["markdown",]
 ---
 
 ## 标题（Headings）
@@ -65,3 +66,17 @@ tags: ["Markdown",]
 * 第二项
 
 子项前空 4 格
+
+## 加粗与斜体
+
+```
+*斜体*
+**加粗**
+***斜体与加粗***
+
+*与内容间无空白字符
+```
+
+*斜体*  
+**加粗**  
+***斜体与加粗***  
