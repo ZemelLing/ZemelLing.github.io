@@ -26,3 +26,7 @@ private $classname$ ()
     $END$
 }
 ```
+
+## 关闭 Ctrl+S 时自动同步到 Unity 的功能，避免卡顿
+
+Settings -> Languages&Frameworks -> Unity Engine -> 取消勾选 Automatically refresh assets in Unity
