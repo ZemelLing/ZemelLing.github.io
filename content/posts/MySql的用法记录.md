@@ -40,6 +40,8 @@ categories: ["mysql", ]
 
 ```sql
 CREATE DATABASE databaseName;
+
+CREATE DATABASE databaseName CHARACTER SET utf8 COLLATE utf8_general_ci;
 ```
 
 ***注意:*** 数据库名区分大小写
@@ -64,6 +66,8 @@ SELECT DATABASE(); # 当前使用的数据库
 CREATE TABLE tableName ( columnName1 dataType1, columnName2 dataType2,columnName3 dataType3, ...); # 无法替换同名表
 
 CREATE TABLE tableName ( columnName1 dataType1, columnName2 dataType2,columnName3 dataType3, ...) CHARSET=utf8; # CHAESET 指定数据表的字符集
+
+CREATE TABLE tableName ( columnName1 dataType1 PRIMARY KEY, columnName2 dataType2,columnName3 dataType3, ...); # 创建表时同时指定主键
 ```
 
 ***注意：*** 数据库名、表名、列名可用反引号 **``** 包裹起来。
@@ -108,10 +112,115 @@ SELECT 'Test'; # 输出与数据库无关的值
 
 ### 修改表结构
 
-
+* 修改列定义：ALTER TABLE ... MODIFY ...
+* 添加列：ALTER TABLE ... ADD ...
+* 修改列名和定义：ALTER TABLE ... CHANGE ...
+* 删除列：ALTER TABLE ... DROP ...
 
 ### 修改列数据类型
 
+```sql
+ALTER TABLE tableName MODIFY columnName VARCHAR(100); # 将 tableName 表的 columnName 列的类型改为 VARCHAR(100)
+```
+
+### 增加列
+
+```sql
+ALTER TABLE tableName ADD columnName dataType; # 添加在表的末尾
+
+ALTER TABLE tableName ADD columnName dataType FIRST; # 添加在表的前面
+
+ALTER TABLE tableName ADD columnName dataType AFTER anotherColumnName; # 添加在表的 anotherColumnName 列的后边
+```
+
+### 更改列的位置
+
+```sql
+ALTER TABLE tableName MODIFY columnName dataType FIRST; # 修改到表的前面
+
+ALTER TABLE tableName MODIFY columnName dataType AFTER anotherColumnName; # 修改到 anotherColumnName 列的后边
+```
+
+### 修改列名同时修改数据类型
+
+```sql
+ALTER TABLE tableName CHANGE columnNameBeforeModify columnNameAfterModify dataTypeAfterModify; # 也可以同时修改列约束
+```
+
+### 删除列
+
+```sql
+ALTER TABLE tableName DROP columnName;
+```
+
+### 设置主键
+
+主键（Primary Key）特点：
+
+* 不允许重复
+* 不允许为空
+
+```sql
+CREATE TABLE tableName ( columnName1 dataType1 PRIMARY KEY, columnName2 dataType2,columnName3 dataType3, ...); # 创建表时同时指定主键
+
+ALTER TABLE tableName DROP PRIMARY KEY; # 删除主键
+
+ALTER TABLE 表名 ADD PRIMARY KEY (columnName1, columnName2, ...);  # 添加主键
+
+```
+
+### 设置唯一键
+
+***注意：*** 唯一键（Unique Key）不是主键
+
+```sql
+CREATE TABLE tableName ( columnName1 dataType1 UNIQUE, columnName2 dataType2,columnName3 dataType3, ...); # 创建表时同时指定唯一键
+
+ALTER TABLE tableName DROP INDEX columnName; # 移除唯一键
+
+ALTER TABLE tableName ADD UNIQUE (columnName); # 添加唯一键
+```
+
+### 设置列自动编号
+
+***注意：*** 设置自动编号的列具备以下特点
+* 为整型类型
+* 需要 AUTO_INCREMENT 约束
+* 需要有 PRIMARY KEY 约束
+
+```sql
+CREATE TABLE tableName (columnName1 dataType1 PRIMARY KEY AUTO_INCREMENT, columnName2 dataType2); # 在创建表时指定自动编号, dataType1 要为整型
+
+ALTER TABLE tableName MODIFY columnName dataType PRIMARY KEY AUTO_INCREMENT;
+
+ALTER TABLE tableName AUTO_INCREMENT=1; # 重新从1开始编号
+```
+
+### 设置列的默认值
+
+```sql
+CREATE TABLE tableName (columnName1 dataType1 DEFAULT defaultValue, columnName2 dataType2); # 在创建表时指定列的默认值
+
+ALTER TABLE tableName MODIFY columnName dataType DEFAULT defaultValue; # 设置或修改列的默认值
+```
+
+### 通过 MODIFY 变更约束
+
+```sql
+ALTER TABLE tableName MODIFY columnName dataType NULL; # 设置列可空，NULL 可以替换为其他约束
+```
+
+### 索引操作
+
+***注意：*** 在设置主键后，会自动创建索引
+
+```sql
+CREATE INDEX indexName ON tableName (columnName); # 创建索引
+
+SHOW INDEX FROM tableName; # 显示索引
+
+DROP INDEX indexName ON tableName; # 删除索引
+```
 
 ## 遇到的错误
 
