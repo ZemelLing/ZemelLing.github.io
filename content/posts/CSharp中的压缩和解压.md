@@ -2,8 +2,8 @@
 title: "CSharp中的压缩和解压"
 date: 2021-04-05T17:28:17+08:00
 draft: false
-tags: ["c#", "io", "compression", "decompression"]
-categories: ["c#",]
+tags: ["CSharp", "io", "compression", "decompression"]
+categories: ["CSharp",]
 ---
 
 ## 压缩和解压相关类
