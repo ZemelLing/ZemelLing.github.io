@@ -30,3 +30,12 @@ private $classname$ ()
 ## 关闭 Ctrl+S 时自动同步到 Unity 的功能，避免卡顿
 
 Settings -> Languages&Frameworks -> Unity Engine -> 取消勾选 Automatically refresh assets in Unity
+
+##  折叠和展开
+
+Ctrl+”+/-”，当前方法展开、折叠
+Ctrl+Shift+”+/-”，全部展开、折叠
+
+## 恢复默认设置
+
+删除这个目录下的 Rider 文件夹C:\Users\用户名\AppData\Roaming\JetBrains
