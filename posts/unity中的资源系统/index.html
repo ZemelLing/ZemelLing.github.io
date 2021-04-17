@@ -1,0 +1,101 @@
+<!doctype html><html lang=en><head><meta name=generator content="Hugo 0.82.0"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta property="og:title" content="Unity中的资源系统"><meta name=keywords content="unity,assetbundle"><meta name=description content="资源  Unity通过将资源的唯一 ID 写入与资源同名的 .meta 文件来确保对资源的唯一引用。 新增的资源 Unity 都会创建与之对应的 .meta 文件 Unity 读取并处理 Assets 文件夹中的任何文件，并将其转换成可直接用于游戏内容的数据格式， …"><meta property="og:title" content="Unity中的资源系统"><meta property="og:description" content="资源  Unity通过将资源的唯一 ID 写入与资源同名的 .meta 文件来确保对资源的唯一引用。 新增的资源 Unity 都会创建与之对应的 .meta 文件 Unity 读取并处理 Assets 文件夹中的任何文件，并将其转换成可直接用于游戏内容的数据格式，存储在 Libraray 文件夹中，而原文件仍然保留在 Assets 文件夹中 .meta 文件不止包含资源 ID 同时也包含资源导入设置的数据。 备份项目或将项目添加到版本控制库时，应包括 Unity 主项目文件夹，其中包含 Assets 和 ProjectSettings 文件夹。Unity 依靠这些文件夹中的信息来重新导入您的资源并重新构建您的游戏或应用程序。不得备份 Library 和 Temp 文件夹，也不要将其置于版本控制下。  源资源和 Artifact Unity 在 Library 文件夹中保留两个数据库文件，它们统称为资源数据库。这两个数据库可以跟踪有关源资源文件和 Artifact（这是有关导入结果的信息）的信息。
+源资源数据库 源资源数据库包含有关源资源文件的元数据信息，Unity 将这些信息用来确定文件是否被修改，从而决定是否应该重新导入文件。这些信息中包括诸如上次修改日期、文件内容哈希、GUID 和其他元数据信息之类的信息。
+Artifact 数据库 Artifact 是导入过程的结果。Artifact 数据库包含有关每个源资源的导入结果的信息。每个 Artifact 都包含导入依赖项信息、Artifact 元数据信息和 Artifact 文件列表。
+注意：数据库文件位于项目的 Library 文件夹中，因此应从版本控制系统中将这些文件排除。可以在以下位置找到它们：
+源资源数据库：Library\SourceAssetDB Artifact 数据库：Library\ArtifactDB
+AssetBundle AssetBundle 是一个存档文件，包含可在运行时由 Unity 加载的特定于平台的非代码资源（比如模型、纹理、预制件、音频剪辑甚至整个场景）。AssetBundle 可以表示彼此之间的依赖关系；例如，一个 AssetBundle 中的材质可以引用另一个 AssetBundle 中的纹理。为了提高通过网络传输的效率，可以根据用例要求（LZMA 和 LZ4）选用内置算法选择来压缩 AssetBundle。AssetBundle 可用于可下载内容（DLC），减小初始安装大小，加载针对最终用户平台优化的资源，以及减轻运行时内存压力。"><meta property="og:type" content="article"><meta property="og:url" content="http://blog.zling.site/posts/unity%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90%E7%B3%BB%E7%BB%9F/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-04-15T12:15:15+08:00"><meta property="article:modified_time" content="2021-04-15T12:15:15+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Unity中的资源系统"><meta name=twitter:description content="资源  Unity通过将资源的唯一 ID 写入与资源同名的 .meta 文件来确保对资源的唯一引用。 新增的资源 Unity 都会创建与之对应的 .meta 文件 Unity 读取并处理 Assets 文件夹中的任何文件，并将其转换成可直接用于游戏内容的数据格式，存储在 Libraray 文件夹中，而原文件仍然保留在 Assets 文件夹中 .meta 文件不止包含资源 ID 同时也包含资源导入设置的数据。 备份项目或将项目添加到版本控制库时，应包括 Unity 主项目文件夹，其中包含 Assets 和 ProjectSettings 文件夹。Unity 依靠这些文件夹中的信息来重新导入您的资源并重新构建您的游戏或应用程序。不得备份 Library 和 Temp 文件夹，也不要将其置于版本控制下。  源资源和 Artifact Unity 在 Library 文件夹中保留两个数据库文件，它们统称为资源数据库。这两个数据库可以跟踪有关源资源文件和 Artifact（这是有关导入结果的信息）的信息。
+源资源数据库 源资源数据库包含有关源资源文件的元数据信息，Unity 将这些信息用来确定文件是否被修改，从而决定是否应该重新导入文件。这些信息中包括诸如上次修改日期、文件内容哈希、GUID 和其他元数据信息之类的信息。
+Artifact 数据库 Artifact 是导入过程的结果。Artifact 数据库包含有关每个源资源的导入结果的信息。每个 Artifact 都包含导入依赖项信息、Artifact 元数据信息和 Artifact 文件列表。
+注意：数据库文件位于项目的 Library 文件夹中，因此应从版本控制系统中将这些文件排除。可以在以下位置找到它们：
+源资源数据库：Library\SourceAssetDB Artifact 数据库：Library\ArtifactDB
+AssetBundle AssetBundle 是一个存档文件，包含可在运行时由 Unity 加载的特定于平台的非代码资源（比如模型、纹理、预制件、音频剪辑甚至整个场景）。AssetBundle 可以表示彼此之间的依赖关系；例如，一个 AssetBundle 中的材质可以引用另一个 AssetBundle 中的纹理。为了提高通过网络传输的效率，可以根据用例要求（LZMA 和 LZ4）选用内置算法选择来压缩 AssetBundle。AssetBundle 可用于可下载内容（DLC），减小初始安装大小，加载针对最终用户平台优化的资源，以及减轻运行时内存压力。"><link rel=stylesheet type=text/css media=screen href=/css/normalize.css><link rel=stylesheet type=text/css media=screen href=/css/main.css><link rel=stylesheet type=text/css media=screen href=/css/all.css><link rel=stylesheet href=/css/katex.min.css crossorigin=anonymous><script defer src=/js/katex.min.js integrity=sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz crossorigin=anonymous></script><script defer src=/js/auto-render.min.js integrity=sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI crossorigin=anonymous onload=renderMathInElement(document.body)></script><title>Unity中的资源系统 | Zemel'Blog</title></head><body><header><div id=avatar><a href=http://blog.zling.site/><img src=/images/%e5%a4%a7%e6%88%b7%e7%88%b1.jpg alt="Zemel'Blog"></a></div><div id=titletext><h2 id=title><a href=http://blog.zling.site/>Zemel'Blog</a></h2></div><div id=title-description><p id=subtitle>Later equals never.</p><div id=social><nav><ul><li><a href=https://github.com/ZemelLing><i title=Github class="icons fab fa-github"></i></a></li><li><a href=/index.xml><i title=RSS class="icons fas fa-rss"></i></a></li></ul></nav></div></div><div id=mainmenu><nav><ul><li><a href=/>Home</a></li><li><a href=/posts>Blogs</a></li><li><a href=/about>About</a></li><li><a href=/tags>Tags</a></li><li><a href=/categories>Categories</a></li></ul></nav></div></header><main><div class=post><div class=author></div><div class=post-header><div class=meta><div class=date><span class=day>15</span>
+<span class=rest>Apr 2021</span></div></div><div class=matter><h1 class=title>Unity中的资源系统</h1></div></div><div class=markdown><h2 id=资源>资源</h2><ul><li>Unity通过将资源的唯一 ID 写入与资源同名的 .meta 文件来确保对资源的唯一引用。</li><li>新增的资源 Unity 都会创建与之对应的 .meta 文件</li><li>Unity 读取并处理 Assets 文件夹中的任何文件，并将其转换成可直接用于游戏内容的数据格式，存储在 Libraray 文件夹中，而原文件仍然保留在 Assets 文件夹中</li><li>.meta 文件不止包含资源 ID 同时也包含资源导入设置的数据。</li><li>备份项目或将项目添加到版本控制库时，应包括 Unity 主项目文件夹，其中包含 Assets 和 ProjectSettings 文件夹。Unity 依靠这些文件夹中的信息来重新导入您的资源并重新构建您的游戏或应用程序。不得备份 Library 和 Temp 文件夹，也不要将其置于版本控制下。</li></ul><h2 id=源资源和-artifact>源资源和 Artifact</h2><p>Unity 在 Library 文件夹中保留两个数据库文件，它们统称为资源数据库。这两个数据库可以跟踪有关源资源文件和 Artifact（这是有关导入结果的信息）的信息。</p><h3 id=源资源数据库>源资源数据库</h3><p>源资源数据库包含有关源资源文件的元数据信息，Unity 将这些信息用来确定文件是否被修改，从而决定是否应该重新导入文件。这些信息中包括诸如上次修改日期、文件内容哈希、GUID 和其他元数据信息之类的信息。</p><h3 id=artifact-数据库>Artifact 数据库</h3><p>Artifact 是导入过程的结果。Artifact 数据库包含有关每个源资源的导入结果的信息。每个 Artifact 都包含导入依赖项信息、Artifact 元数据信息和 Artifact 文件列表。</p><p>注意：数据库文件位于项目的 Library 文件夹中，因此应从版本控制系统中将这些文件排除。可以在以下位置找到它们：</p><p>源资源数据库：Library\SourceAssetDB
+Artifact 数据库：Library\ArtifactDB</p><h2 id=assetbundle>AssetBundle</h2><p>AssetBundle 是一个存档文件，包含可在运行时由 Unity 加载的特定于平台的非代码资源（比如模型、纹理、预制件、音频剪辑甚至整个场景）。AssetBundle 可以表示彼此之间的依赖关系；例如，一个 AssetBundle 中的材质可以引用另一个 AssetBundle 中的纹理。为了提高通过网络传输的效率，可以根据用例要求（LZMA 和 LZ4）选用内置算法选择来压缩 AssetBundle。AssetBundle 可用于可下载内容（DLC），减小初始安装大小，加载针对最终用户平台优化的资源，以及减轻运行时内存压力。</p><ul><li>AssetBundle 可以包含类的实例序列化后的数据，例如 ScriptableObject。AssetBundle 在加载时可查找类然后使用序列化的数据去赋值（反序列化）。</li></ul><h3 id=assetbundle-工作流程>AssetBundle 工作流程</h3><h4 id=为-assetbundle-分配资源>为 AssetBundle 分配资源</h4><ol><li>从 Project 视图中选择要为捆绑包分配的资源。</li><li>在 Inspector 中检查对象。</li><li>在 Inspector 底部，有一个用于分配 AssetBundle 和变体的部分。可使用左侧下拉选单分配 AssetBundle，而使用右侧下拉选单分配变量（变体）。</li><li>单击左侧下拉选单的 None 以显示当前注册的 AssetBundle 名称。</li><li>单击 New 以创建新的 AssetBundle</li><li>输入所需的 AssetBundle 名称。注意：AssetBundle 名称支持某种类型的文件夹结构，具体取决于您输入的内容。要添加子文件夹，请用 / 分隔文件夹名称。例如，使用 AssetBundle 名称 environment/forest 在 environment 子文件夹下创建名为 forest 的捆绑包</li><li>一旦选择或创建了 AssetBundle 名称，便可以重复此过程在右侧下拉选单中分配或创建变体名称（如果需要）。构建 AssetBundle 不需要变体名称</li></ol><h4 id=构建-assetbundle>构建 AssetBundle</h4><p>在 Assets 文件夹中创建一个名为 Editor 的文件夹，并将包含以下内容的脚本放在该文件夹中：</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#><span style=color:#080;font-weight:700>using</span> <span style=color:#0e84b5;font-weight:700>UnityEditor</span>;
+<span style=color:#080;font-weight:700>using</span> <span style=color:#0e84b5;font-weight:700>System.IO</span>;
+
+<span style=color:#080;font-weight:700>public</span> <span style=color:#080;font-weight:700>class</span> <span style=color:#b06;font-weight:700>CreateAssetBundles</span>
+{
+<span style=color:#00c>    [MenuItem(&#34;Assets/Build AssetBundles&#34;)]</span>
+    <span style=color:#080;font-weight:700>static</span> <span style=color:#080;font-weight:700>void</span> BuildAllAssetBundles()
+    {
+        <span style=color:#339;font-weight:700>string</span> assetBundleDirectory = <span style=background-color:#fff0f0>&#34;Assets/AssetBundles&#34;</span>;
+        <span style=color:#080;font-weight:700>if</span>(!Directory.Exists(assetBundleDirectory))
+        {
+            Directory.CreateDirectory(assetBundleDirectory);
+        }
+        BuildPipeline.BuildAssetBundles(assetBundleDirectory, 
+                                        BuildAssetBundleOptions.None, 
+                                        BuildTarget.StandaloneWindows);
+    }
+}
+</code></pre></div><h4 id=加载-assetbundle-和资源>加载 AssetBundle 和资源</h4><p>如果您想从本地存储中加载，请使用 AssetBundles.LoadFromFile API，如下所示：</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#><span style=color:#080;font-weight:700>public</span> <span style=color:#080;font-weight:700>class</span> <span style=color:#b06;font-weight:700>LoadFromFileExample</span> : MonoBehaviour {
+    <span style=color:#080;font-weight:700>void</span> Start() {
+        <span style=color:#339;font-weight:700>var</span> myLoadedAssetBundle 
+            = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, <span style=background-color:#fff0f0>&#34;myassetBundle&#34;</span>));
+        <span style=color:#080;font-weight:700>if</span> (myLoadedAssetBundle == <span style=color:#080;font-weight:700>null</span>) {
+            Debug.Log(<span style=background-color:#fff0f0>&#34;Failed to load AssetBundle!&#34;</span>);
+            <span style=color:#080;font-weight:700>return</span>;
+        }
+        <span style=color:#339;font-weight:700>var</span> prefab = myLoadedAssetBundle.LoadAsset&lt;GameObject&gt;(<span style=background-color:#fff0f0>&#34;MyObject&#34;</span>);
+        Instantiate(prefab);
+    }
+}
+</code></pre></div><p>从远处服务器加载:</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>IEnumerator InstantiateObject()
+{
+    <span style=color:#339;font-weight:700>string</span> url = <span style=background-color:#fff0f0>&#34;file:///&#34;</span> + Application.dataPath + <span style=background-color:#fff0f0>&#34;/AssetBundles/&#34;</span> + assetBundleName;        
+    <span style=color:#339;font-weight:700>var</span> request 
+        = UnityEngine.Networking.UnityWebRequestAssetBundle.GetAssetBundle(url, <span style=color:#60e;font-weight:700>0</span>);
+    <span style=color:#080;font-weight:700>yield</span> <span style=color:#080;font-weight:700>return</span> request.Send();
+    AssetBundle bundle = UnityEngine.Networking.DownloadHandlerAssetBundle.GetContent(request);
+    GameObject cube = bundle.LoadAsset&lt;GameObject&gt;(<span style=background-color:#fff0f0>&#34;Cube&#34;</span>);
+    GameObject sprite = bundle.LoadAsset&lt;GameObject&gt;(<span style=background-color:#fff0f0>&#34;Sprite&#34;</span>);
+    Instantiate(cube);
+    Instantiate(sprite);
+}
+</code></pre></div><h3 id=加载-assetbundle-的-api>加载 AssetBundle 的 API</h3><h4 id=assetbundleloadfrommemoryasync>AssetBundle.LoadFromMemoryAsync</h4><p>此函数采用包含 AssetBundle 数据的字节数组。也可以根据需要传递 CRC 值。如果捆绑包采用的是 LZMA 压缩方式，将在加载时解压缩 AssetBundle。LZ4 压缩包则会以压缩状态加载。</p><p>以下是如何使用此方法的一个示例：</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#><span style=color:#080;font-weight:700>using</span> <span style=color:#0e84b5;font-weight:700>UnityEngine</span>;
+<span style=color:#080;font-weight:700>using</span> <span style=color:#0e84b5;font-weight:700>System.Collections</span>;
+<span style=color:#080;font-weight:700>using</span> <span style=color:#0e84b5;font-weight:700>System.IO</span>;
+
+<span style=color:#080;font-weight:700>public</span> <span style=color:#080;font-weight:700>class</span> <span style=color:#b06;font-weight:700>Example</span> : MonoBehaviour
+{
+    IEnumerator LoadFromMemoryAsync(<span style=color:#339;font-weight:700>string</span> path)
+    {
+        AssetBundleCreateRequest createRequest = AssetBundle.LoadFromMemoryAsync(File.ReadAllBytes(path));
+        <span style=color:#080;font-weight:700>yield</span> <span style=color:#080;font-weight:700>return</span> createRequest;
+        AssetBundle bundle = createRequest.assetBundle;
+        <span style=color:#339;font-weight:700>var</span> prefab = bundle.LoadAsset&lt;GameObject&gt;(<span style=background-color:#fff0f0>&#34;MyObject&#34;</span>);
+        Instantiate(prefab);
+    }
+}
+</code></pre></div><h4 id=assetbundleloadfromfile>AssetBundle.LoadFromFile</h4><p>从本地存储中加载未压缩的捆绑包时，此 API 非常高效。如果捆绑包未压缩或采用了数据块 (LZ4) 压缩方式，LoadFromFile 将直接从磁盘加载捆绑包。使用此方法加载完全压缩的 (LZMA) 捆绑包将首先解压缩捆绑包，然后再将其加载到内存中。</p><p>如何使用 LoadFromFile 的一个示例：</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#><span style=color:#080;font-weight:700>using</span> <span style=color:#0e84b5;font-weight:700>System.IO</span>;
+<span style=color:#080;font-weight:700>using</span> <span style=color:#0e84b5;font-weight:700>UnityEngine</span>;
+
+<span style=color:#080;font-weight:700>public</span> <span style=color:#080;font-weight:700>class</span> <span style=color:#b06;font-weight:700>LoadFromFileExample</span> : MonoBehaviour
+{
+    <span style=color:#080;font-weight:700>void</span> Start()
+    {
+        <span style=color:#339;font-weight:700>var</span> myLoadedAssetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, <span style=background-color:#fff0f0>&#34;myassetBundle&#34;</span>));
+
+        <span style=color:#080;font-weight:700>if</span> (myLoadedAssetBundle == <span style=color:#080;font-weight:700>null</span>)
+        {
+            Debug.Log(<span style=background-color:#fff0f0>&#34;Failed to load AssetBundle!&#34;</span>);
+            <span style=color:#080;font-weight:700>return</span>;
+        }
+        <span style=color:#339;font-weight:700>var</span> prefab = myLoadedAssetBundle.LoadAsset&lt;GameObject&gt;(<span style=background-color:#fff0f0>&#34;MyObject&#34;</span>);
+        Instantiate(prefab);
+    }
+}
+</code></pre></div><h4 id=unitywebrequestassetbundle>UnityWebRequestAssetBundle</h4><p>使用此 API 时，先要使用 UnityWebRequestAssetBundle.GetAssetBundle 创建 Web 请求。然后将请求传递给 DownloadHandlerAssetBundle.GetContent(UnityWebRequestAssetBundle) 以获取 AssetBundle 对象。</p><p>下载捆绑包后，还可以在 DownloadHandlerAssetBundle 类上使用 assetBundle 属性，从而以 AssetBundle.LoadFromFile 的效率加载 AssetBundle。</p><p>以下示例说明了如何加载包含两个游戏对象的 AssetBundle 并实例化这些游戏对象。要开始这个过程，我们只需要调用 StartCoroutine(InstantiateObject());</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>IEnumerator InstantiateObject()
+{
+    <span style=color:#339;font-weight:700>string</span> uri = <span style=background-color:#fff0f0>&#34;file:///&#34;</span> + Application.dataPath + <span style=background-color:#fff0f0>&#34;/AssetBundles/&#34;</span> + assetBundleName; 
+    UnityEngine.Networking.UnityWebRequestAssetBundle request 
+        = UnityEngine.Networking.UnityWebRequestAssetBundle.GetAssetBundle(uri, <span style=color:#60e;font-weight:700>0</span>);
+    <span style=color:#080;font-weight:700>yield</span> <span style=color:#080;font-weight:700>return</span> request.SendWebRequest();
+    AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(request);
+    GameObject cube = bundle.LoadAsset&lt;GameObject&gt;(<span style=background-color:#fff0f0>&#34;Cube&#34;</span>);
+    GameObject sprite = bundle.LoadAsset&lt;GameObject&gt;(<span style=background-color:#fff0f0>&#34;Sprite&#34;</span>);
+    Instantiate(cube);
+    Instantiate(sprite);
+}
+</code></pre></div><h5 id=从-assetbundle-处加载资源>从 AssetBundle 处加载资源</h5><p>LoadAsset、LoadAllAssets、LoadAssetAsync 和 LoadAllAssetsAsync 用于加载资源。</p><h5 id=从-assetbundle-处加载清单>从 AssetBundle 处加载清单</h5><p>清单类型为 AssetBundleManifest，可使用加载资源的接口加载清单。清单用于加载 AssetBundle 依赖的其他资源。</p><h3 id=管理已加载的-assetbundle>管理已加载的 AssetBundle</h3><p>建议使用 Addressable Asset system 管理 AssetBundle</p><h3 id=assetbundle-的原理>AssetBundle 的原理</h3><p>AssetBundle 有 head 和 body ，head 存放 AB 的描述信息，body 存放打包的资源，根据不同的打包格式，其解压行为不同。</p></div><div class=tags><div class=taxosfloating_left><p>Categories</p></div><div class=termsfloating_right><p><a href=/categories/unity/>unity</a></p></div><div class=clearit></div><div class=tags><div class=taxosfloating_left><p>Tags</p></div><div class=termsfloating_right><p><a href=/tags/assetbundle/>assetbundle</a>
+<a href=/tags/unity/>unity</a></p></div><div class=clearit></div></div></div></main><footer>© Copyright notice | <a href=https://github.com/dataCobra/hugo-vitae>Vitae</a> theme for <a href=https://gohugo.io>Hugo</a></footer></body></html>
