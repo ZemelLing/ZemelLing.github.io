@@ -76,7 +76,7 @@ public class CreateAssetBundles
 
 #### 加载 AssetBundle 和资源
 
-如果您想从本地存储中加载，请使用 AssetBundles.LoadFromFile API，如下所示：
+如果您想从本地存储中加载，请使用 AssetBundle.LoadFromFile API，如下所示：
 
 ```c#
 public class LoadFromFileExample : MonoBehaviour {
@@ -201,3 +201,10 @@ LoadAsset、LoadAllAssets、LoadAssetAsync 和 LoadAllAssetsAsync 用于加载�
 ### AssetBundle 的原理
 
 AssetBundle 有 head 和 body ，head 存放 AB 的描述信息，body 存放打包的资源，根据不同的打包格式，其解压行为不同。
+
+### AssetBundle 分组策略
+
+1. 经常更新的资源放一个包，与不经常更新的包分离。
+2. 把需要同时更新的资源放同一包。
+3. 共享资源放一包
+4. 同一资源的不同版本，通过后缀区分
