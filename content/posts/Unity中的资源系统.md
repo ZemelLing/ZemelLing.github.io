@@ -194,6 +194,16 @@ LoadAsset、LoadAllAssets、LoadAssetAsync 和 LoadAllAssetsAsync 用于加载�
 
 清单类型为 AssetBundleManifest，可使用加载资源的接口加载清单。清单用于加载 AssetBundle 依赖的其他资源。
 
+首先要加载AssetBundle所在根目录同名的AssetBundle，例如：打包时将所有AB放到 AssetBundles 文件夹下，此时就要先加载名为 AssetBundles 的 AB。
+
+然后，通过以下语句加载清单, LoadAsset 的参数必须是 AssetBundleManifest
+
+```c#
+var manifest = ab.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
+```
+
+最后就可以通过 manifest 获取指定 AB 包的依赖
+
 ### 管理已加载的 AssetBundle
 
 建议使用 Addressable Asset system 管理 AssetBundle
