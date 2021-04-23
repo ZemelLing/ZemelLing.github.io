@@ -204,6 +204,15 @@ var manifest = ab.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
 
 最后就可以通过 manifest 获取指定 AB 包的依赖
 
+##### AssetBundle 的卸载
+
+```c#
+AssetBundle.Unload(true);
+```
+
+* true 表示现在AB包所有资源，推荐使用true。
+* false 表示只卸载未使用的资源，但这容易导致内存泄漏。
+
 ### 管理已加载的 AssetBundle
 
 建议使用 Addressable Asset system 管理 AssetBundle
