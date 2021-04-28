@@ -136,6 +136,8 @@ blog.zling.site {
 }
 ```
 
+***注意：VPS上也要安装 rsync***
+
 ## Hugo用法
 
 ### 创建文章
