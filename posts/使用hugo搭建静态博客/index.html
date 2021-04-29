@@ -73,4 +73,31 @@ git submodule add https://github.com/dataCobra/hugo-vitae
 }
 </code></pre></div><p><em><strong>注意：VPS上也要安装 rsync</strong></em></p><h2 id=hugo用法>Hugo用法</h2><h3 id=创建文章-1>创建文章</h3><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>hugo new posts\xxx.md
 </code></pre></div><h3 id=删除文章>删除文章</h3><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>hugo delete posts\xxx.md
-</code></pre></div></div><div class=tags><div class=taxosfloating_left><p>Tags</p></div><div class=termsfloating_right><p><a href=/tags/hugo/>hugo</a></p></div><div class=clearit></div></div></div></main><footer>© Copyright notice | <a href=https://github.com/dataCobra/hugo-vitae>Vitae</a> theme for <a href=https://gohugo.io>Hugo</a></footer></body></html>
+</code></pre></div><h3 id=使用-mathjax-支持数学公式>使用 MathJax 支持数学公式</h3><p>layouts/partials/mathjax.html文件：</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>{{ if .Params.math }}
+&lt;<span style=color:#070>script</span>&gt;
+  MathJax <span style=color:#333>=</span> {
+    tex<span style=color:#333>:</span> {
+      inlineMath<span style=color:#333>:</span> [[<span style=background-color:#fff0f0>&#34;$&#34;</span>, <span style=background-color:#fff0f0>&#34;$&#34;</span>]],
+    },
+    displayMath<span style=color:#333>:</span> [
+      [<span style=background-color:#fff0f0>&#34;$$&#34;</span>, <span style=background-color:#fff0f0>&#34;$$&#34;</span>],
+      [<span style=background-color:#fff0f0>&#34;\[\[&#34;</span>, <span style=background-color:#fff0f0>&#34;\]\]&#34;</span>],
+    ],
+    svg<span style=color:#333>:</span> {
+      fontCache<span style=color:#333>:</span> <span style=background-color:#fff0f0>&#34;global&#34;</span>,
+    },
+  };
+&lt;/<span style=color:#070>script</span>&gt;
+&lt;<span style=color:#070>script</span> <span style=color:#00c>src</span><span style=color:#333>=</span><span style=background-color:#fff0f0>&#34;https://polyfill.io/v3/polyfill.min.js?features=es6&#34;</span>&gt;&lt;/<span style=color:#070>script</span>&gt;
+&lt;<span style=color:#070>script</span>
+  <span style=color:#00c>id</span><span style=color:#333>=</span><span style=background-color:#fff0f0>&#34;MathJax-script&#34;</span>
+  <span style=color:#00c>async</span>
+  <span style=color:#00c>src</span><span style=color:#333>=</span><span style=background-color:#fff0f0>&#34;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&#34;</span>
+&gt;&lt;/<span style=color:#070>script</span>&gt;
+{{ end }}
+</code></pre></div><p>博文页面头加入以下内容</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>---
+math: true
+---
+</code></pre></div><h3 id=使用默认的-katex-显示数学公式>使用默认的 KaTex 显示数学公式</h3><p>行内数学公式</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$ E=mc^2 $
+</code></pre></div><p>这是内嵌$ E=mc^2 $效果</p><p>单独一行</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>$$E=mc^2$$
+</code></pre></div><p>$$E=mc^2$$</p></div><div class=tags><div class=taxosfloating_left><p>Tags</p></div><div class=termsfloating_right><p><a href=/tags/hugo/>hugo</a></p></div><div class=clearit></div></div></div></main><footer>© Copyright notice | <a href=https://github.com/dataCobra/hugo-vitae>Vitae</a> theme for <a href=https://gohugo.io>Hugo</a></footer></body></html>
