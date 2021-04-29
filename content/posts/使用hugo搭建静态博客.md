@@ -151,3 +151,58 @@ hugo new posts\xxx.md
 ```
 hugo delete posts\xxx.md
 ```
+
+### 使用 MathJax 支持数学公式
+
+layouts/partials/mathjax.html文件：
+
+```html
+{{ if .Params.math }}
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+{{ end }}
+```
+
+博文页面头加入以下内容
+
+```
+---
+math: true
+---
+```
+
+### 使用默认的 KaTex 显示数学公式
+
+行内数学公式
+
+```
+$ E=mc^2 $
+```
+
+这是内嵌$ E=mc^2 $效果
+
+单独一行
+
+```
+$$E=mc^2$$
+```
+
+$$E=mc^2$$
