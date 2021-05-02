@@ -38,4 +38,4 @@ jobs:
       - name: Scan public keys
         run: ssh-keyscan zling.site >> ~/.ssh/known_hosts
       - name: Deploy
-        run: rsync -av --delete ./public root@zling.site:/data/caddy/site/hugo-web
+        run: rsync -av --delete ./public ubuntu@zling.site:/data/caddy/site/hugo-web
