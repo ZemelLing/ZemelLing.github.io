@@ -1,7 +1,9 @@
 ---
 title: "使用Serilog作为日志系统"
 date: 2021-05-03T22:21:58+08:00
-draft: true
+draft: false
+tags: ["serilog", "log"]
+categories: ["serilog",]
 ---
 
 ## 使用
