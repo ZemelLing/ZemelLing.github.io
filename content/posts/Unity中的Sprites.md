@@ -27,3 +27,4 @@ Sprites 是 2D 图形对象，在 3D 中本质是标准纹理。
 ## 设置 Sprite
 
 如果项目的模式是 2D，那么导入的图片都将作为 Sprite 存在。3D 项目中默认是 Texture, 可将 Texture 类型改为 Sprite(2D and UI).
+
