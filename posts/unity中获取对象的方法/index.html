@@ -1,2 +1,51 @@
-<!doctype html><html lang=en><head><meta name=generator content="Hugo 0.83.1"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta property="og:title" content="Unity中获取对象的方法"><meta name=keywords content="unity"><meta name=description content><meta property="og:title" content="Unity中获取对象的方法"><meta property="og:description" content><meta property="og:type" content="article"><meta property="og:url" content="http://blog.zling.site/posts/unity%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-04-04T17:39:33+08:00"><meta property="article:modified_time" content="2021-04-04T17:39:33+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Unity中获取对象的方法"><meta name=twitter:description content><link rel=stylesheet type=text/css media=screen href=/css/normalize.css><link rel=stylesheet type=text/css media=screen href=/css/main.css><link rel=stylesheet type=text/css media=screen href=/css/all.css><link rel=stylesheet href=/css/katex.min.css crossorigin=anonymous><script defer src=/js/katex.min.js integrity=sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz crossorigin=anonymous></script><script defer src=/js/auto-render.min.js integrity=sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI crossorigin=anonymous onload=renderMathInElement(document.body)></script><title>Unity中获取对象的方法 | Zemel'Blog</title></head><body><header><div id=avatar><a href=http://blog.zling.site/><img src=/images/%e5%a4%a7%e6%88%b7%e7%88%b1.jpg alt="Zemel'Blog"></a></div><div id=titletext><h2 id=title><a href=http://blog.zling.site/>Zemel'Blog</a></h2></div><div id=title-description><p id=subtitle>Later equals never.</p><div id=social><nav><ul><li><a href=https://github.com/ZemelLing><i title=Github class="icons fab fa-github"></i></a></li><li><a href=/index.xml><i title=RSS class="icons fas fa-rss"></i></a></li></ul></nav></div></div><div id=mainmenu><nav><ul><li><a href=/>Home</a></li><li><a href=/posts>Blogs</a></li><li><a href=/about>About</a></li><li><a href=/tags>Tags</a></li><li><a href=/categories>Categories</a></li></ul></nav></div></header><main><div class=post><div class=author></div><div class=post-header><div class=meta><div class=date><span class=day>04</span>
-<span class=rest>Apr 2021</span></div></div><div class=matter><h1 class=title>Unity中获取对象的方法</h1></div></div><div class=markdown></div><div class=tags><div class=taxosfloating_left><p>Categories</p></div><div class=termsfloating_right><p><a href=/categories/unity/>unity</a></p></div><div class=clearit></div><div class=tags><div class=taxosfloating_left><p>Tags</p></div><div class=termsfloating_right><p><a href=/tags/unity/>unity</a></p></div><div class=clearit></div></div></div></main><footer>© Copyright notice | <a href=https://github.com/dataCobra/hugo-vitae>Vitae</a> theme for <a href=https://gohugo.io>Hugo</a></footer></body></html>
+<!doctype html><html lang=en><head><meta name=generator content="Hugo 0.83.1"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta property="og:title" content="Unity中获取对象的方法"><meta name=keywords content="unity"><meta name=description content="直接关联 在脚本中创建public的想要关联的游戏对象类型的变量，随后在inspector中关联对应的游戏对象即可
+public class Enemy : MonoBehaviour { public GameObject player; // 其他变量和函数... }  
+子 …"><meta property="og:title" content="Unity中获取对象的方法"><meta property="og:description" content="直接关联 在脚本中创建public的想要关联的游戏对象类型的变量，随后在inspector中关联对应的游戏对象即可
+public class Enemy : MonoBehaviour { public GameObject player; // 其他变量和函数... }  
+子游戏对象 使用父游戏对象的变换组件来检索子游戏对象（因为所有游戏对象都具有隐式变换）
+using UnityEngine; public class WaypointManager : MonoBehaviour { public Transform[] waypoints; void Start() { waypoints = new Transform[transform.childCount]; int i = 0; foreach (Transform t in transform) { waypoints[i++] = t; } } } 还可以使用 Transform.Find 函数按名称查找特定子对象： transform.Find(&ldquo;Gun&rdquo;);
+通过Tag 可使用 GameObject.Find GameObject.FindWithTag 和 GameObject.FindGameObjectsWithTag 函数按名称或Tag检索各个对象
+GameObject player; void Start() { player = GameObject."><meta property="og:type" content="article"><meta property="og:url" content="http://blog.zling.site/posts/unity%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-04-04T17:39:33+08:00"><meta property="article:modified_time" content="2021-04-04T17:39:33+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Unity中获取对象的方法"><meta name=twitter:description content="直接关联 在脚本中创建public的想要关联的游戏对象类型的变量，随后在inspector中关联对应的游戏对象即可
+public class Enemy : MonoBehaviour { public GameObject player; // 其他变量和函数... }  
+子游戏对象 使用父游戏对象的变换组件来检索子游戏对象（因为所有游戏对象都具有隐式变换）
+using UnityEngine; public class WaypointManager : MonoBehaviour { public Transform[] waypoints; void Start() { waypoints = new Transform[transform.childCount]; int i = 0; foreach (Transform t in transform) { waypoints[i++] = t; } } } 还可以使用 Transform.Find 函数按名称查找特定子对象： transform.Find(&ldquo;Gun&rdquo;);
+通过Tag 可使用 GameObject.Find GameObject.FindWithTag 和 GameObject.FindGameObjectsWithTag 函数按名称或Tag检索各个对象
+GameObject player; void Start() { player = GameObject."><link rel=stylesheet type=text/css media=screen href=/css/normalize.css><link rel=stylesheet type=text/css media=screen href=/css/main.css><link rel=stylesheet type=text/css media=screen href=/css/all.css><link rel=stylesheet href=/css/katex.min.css crossorigin=anonymous><script defer src=/js/katex.min.js integrity=sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz crossorigin=anonymous></script><script defer src=/js/auto-render.min.js integrity=sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI crossorigin=anonymous onload=renderMathInElement(document.body)></script><title>Unity中获取对象的方法 | Zemel'Blog</title></head><body><header><div id=avatar><a href=http://blog.zling.site/><img src=/images/%e5%a4%a7%e6%88%b7%e7%88%b1.jpg alt="Zemel'Blog"></a></div><div id=titletext><h2 id=title><a href=http://blog.zling.site/>Zemel'Blog</a></h2></div><div id=title-description><p id=subtitle>Later equals never.</p><div id=social><nav><ul><li><a href=https://github.com/ZemelLing><i title=Github class="icons fab fa-github"></i></a></li><li><a href=/index.xml><i title=RSS class="icons fas fa-rss"></i></a></li></ul></nav></div></div><div id=mainmenu><nav><ul><li><a href=/>Home</a></li><li><a href=/posts>Blogs</a></li><li><a href=/about>About</a></li><li><a href=/tags>Tags</a></li><li><a href=/categories>Categories</a></li></ul></nav></div></header><main><div class=post><div class=author></div><div class=post-header><div class=meta><div class=date><span class=day>04</span>
+<span class=rest>Apr 2021</span></div></div><div class=matter><h1 class=title>Unity中获取对象的方法</h1></div></div><div class=markdown><h1 id=直接关联>直接关联</h1><p>在脚本中创建public的想要关联的游戏对象类型的变量，随后在inspector中关联对应的游戏对象即可</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#><span style=color:#080;font-weight:700>public</span> <span style=color:#080;font-weight:700>class</span> <span style=color:#b06;font-weight:700>Enemy</span> : MonoBehaviour
+{
+    <span style=color:#080;font-weight:700>public</span> GameObject player;
+    
+    <span style=color:#888>// 其他变量和函数...
+</span><span style=color:#888></span>}
+</code></pre></div><p><figure><img src=https://docs.unity.cn/cn/2020.1/uploads/Main/GameObjectPublicVar.png alt=inspector></figure></p><h1 id=子游戏对象>子游戏对象</h1><p>使用父游戏对象的变换组件来检索子游戏对象（因为所有游戏对象都具有隐式变换）</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C# data-lang=C#><span style=color:#080;font-weight:700>using</span> <span style=color:#0e84b5;font-weight:700>UnityEngine</span>;
+
+<span style=color:#080;font-weight:700>public</span> <span style=color:#080;font-weight:700>class</span> <span style=color:#b06;font-weight:700>WaypointManager</span> : MonoBehaviour {
+    <span style=color:#080;font-weight:700>public</span> Transform[] waypoints;
+    
+    <span style=color:#080;font-weight:700>void</span> Start() 
+    {
+        waypoints = <span style=color:#080;font-weight:700>new</span> Transform[transform.childCount];
+        <span style=color:#339;font-weight:700>int</span> i = <span style=color:#60e;font-weight:700>0</span>;
+        
+        <span style=color:#080;font-weight:700>foreach</span> (Transform t <span style=color:#080;font-weight:700>in</span> transform)
+        {
+            waypoints[i++] = t;
+        }
+    }
+}
+</code></pre></div><p>还可以使用 Transform.Find 函数按名称查找特定子对象： transform.Find(&ldquo;Gun&rdquo;);</p><h1 id=通过tag>通过Tag</h1><p>可使用 GameObject.Find GameObject.FindWithTag 和 GameObject.FindGameObjectsWithTag 函数按名称或Tag检索各个对象</p><div class=highlight><pre style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C# data-lang=C#>GameObject player;
+
+<span style=color:#080;font-weight:700>void</span> Start() 
+{
+    player = GameObject.Find(<span style=background-color:#fff0f0>&#34;MainHeroCharacter&#34;</span>);
+}
+
+GameObject player;
+GameObject[] enemies;
+
+<span style=color:#080;font-weight:700>void</span> Start() 
+{
+    player = GameObject.FindWithTag(<span style=background-color:#fff0f0>&#34;Player&#34;</span>);
+    enemies = GameObject.FindGameObjectsWithTag(<span style=background-color:#fff0f0>&#34;Enemy&#34;</span>);
+}
+</code></pre></div></div><div class=tags><div class=taxosfloating_left><p>Categories</p></div><div class=termsfloating_right><p><a href=/categories/unity/>unity</a></p></div><div class=clearit></div><div class=tags><div class=taxosfloating_left><p>Tags</p></div><div class=termsfloating_right><p><a href=/tags/unity/>unity</a></p></div><div class=clearit></div></div></div></main><footer>© Copyright notice | <a href=https://github.com/dataCobra/hugo-vitae>Vitae</a> theme for <a href=https://gohugo.io>Hugo</a></footer></body></html>
