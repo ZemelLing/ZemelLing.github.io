@@ -2,7 +2,7 @@
 title: "Unity中实现存档的方式"
 date: 2021-04-04T13:23:06+08:00
 draft: false
-tags: ["unity", "数据保存"]
+tags: ["unity", "data save"]
 categories: ["unity",]
 ---
 
