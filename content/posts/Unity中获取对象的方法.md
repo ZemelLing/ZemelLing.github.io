@@ -38,16 +38,19 @@ public class WaypointManager : MonoBehaviour {
 }
 ```
 还可以使用 Transform.Find 函数按名称查找特定子对象： transform.Find("Gun");
-# 通过Tag
-可使用 GameObject.Find  GameObject.FindWithTag 和 GameObject.FindGameObjectsWithTag  函数按名称或Tag检索各个对象
-```C#
+
+```c#
 GameObject player;
 
 void Start() 
 {
     player = GameObject.Find("MainHeroCharacter");
 }
+```
 
+# 通过Tag
+可使用 GameObject.Find  GameObject.FindWithTag 和 GameObject.FindGameObjectsWithTag  函数按名称或Tag检索各个对象
+```C#
 GameObject player;
 GameObject[] enemies;
 
