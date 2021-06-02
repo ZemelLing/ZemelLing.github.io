@@ -10,6 +10,17 @@ categories: ["unity",]
 
 ## 阶段
 
+### 主要阶段
+
+1. 初始化阶段，包含 Awake() Start()
+2. 物理系统更新阶段，包含 FixedUpdate()、动画更新、OnTriggerXXX、OnCollisionXXX，物理系统可能一帧内更新多次。
+3. 输入事件，OnMouseXXX
+4. 游戏逻辑阶段，Update、从协程恢复、动画更新、LateUpdate
+5. 游戏渲染阶段，OnWillRenderObject、OnPreCull、。。。
+6. Gizmo 渲染阶段
+7. GUI 渲染阶段
+8. 
+
 ### 加载第一个场景
 
 场景开始时将调用一下函数，且场景中的每个对象调用一次

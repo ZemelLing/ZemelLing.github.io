@@ -44,13 +44,24 @@ GameObject player;
 
 void Start() 
 {
-    player = GameObject.Find("MainHeroCharacter");
+    player = transform.Find("MainHeroCharacter");
 }
 ```
 
 # 通过Tag
 可使用 GameObject.Find  GameObject.FindWithTag 和 GameObject.FindGameObjectsWithTag  函数按名称或Tag检索各个对象
+
+```c#
+GameObject player;
+
+void Start() 
+{
+    player = GameObject.Find("MainHeroCharacter");
+}
+```
+
 ```C#
+
 GameObject player;
 GameObject[] enemies;
 
