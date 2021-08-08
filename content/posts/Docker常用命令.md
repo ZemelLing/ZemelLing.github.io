@@ -28,6 +28,4 @@ sudo nano /etc/docker/daemon.json
 {
   "data-root": "/www/docker"
 }
-
-sudo systemctl restart docker
 ```
