@@ -37,7 +37,13 @@ Unity 使用程序集定义和程序集引用（Assembly References）组织代�
 
 ![默认引用关系](https://docs.unity3d.com/cn/2020.3/uploads/Main/AssemblyDependencies.png)
 
-通过关闭 ***自动引用选项（Auto Referenced Option）*** 可以避免自定义程序集引用预定义程序集。
+引用关系也决定了编译顺序，所以要避免自定义程序集使用预定义程序集中的类。
+
+通过关闭 ***自动引用选项（Auto Referenced Option）*** 可以避免预定义程序集引用相应的自定义程序集。
 同样的，可以通过关闭自动引用选项避免插件程序集被自定程序集引用。
 
 *注意避免循环引用*
+
+### 程序集定义引用（Assembly Definition Reference）
+
+"程序集定义引用"用于将指定文件夹下的所有脚本关联至由其指定的"程序集定义（Assembly Definition）"的自定义程序集下，并从原有的程序集下移除。
