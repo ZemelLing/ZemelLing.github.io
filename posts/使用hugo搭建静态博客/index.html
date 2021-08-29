@@ -1,0 +1,329 @@
+<!doctype html><html lang=zh class=dark><meta charset=utf-8>
+<meta name=viewport content="width=device-width">
+<title>使用hugo搭建静态博客 | 🐉泽梅尔的驻留地</title>
+<meta name=generator content="Hugo Eureka 0.8.2">
+<link rel=stylesheet href=https://blog.zling.site/css/eureka.min.css>
+<script defer src=https://blog.zling.site/js/eureka.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+<script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
+<link rel=icon type=image/png sizes=32x32 href=https://blog.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_32x32_fill_box_center_3.png>
+<link rel=apple-touch-icon sizes=180x180 href=https://blog.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
+<meta name=description content="安装Go Go安装地址，下载相应版本的Go安装器，按步骤安装即可。 安装Hugo 去Hugo的Github上下载，hugo_extended版的压缩包，然后">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://blog.zling.site/posts/"},{"@type":"ListItem","position":2,"name":"使用hugo搭建静态博客","item":"https://blog.zling.site/posts/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zling.site/posts/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"},"headline":"使用hugo搭建静态博客 | 🐉泽梅尔的驻留地","datePublished":"2021-03-23T22:36:20+08:00","dateModified":"2021-08-29T13:09:56+08:00","wordCount":900,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://blog.zling.site/dahuai_samll.png"}},"description":"安装Go Go安装地址，下载相应版本的Go安装器，按步骤安装即可。 安装Hugo 去Hugo的Github上下载，hugo_extended版的压缩包，然后"}</script><meta property="og:title" content="使用hugo搭建静态博客 | 🐉泽梅尔的驻留地">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://blog.zling.site/dahuai_samll.png">
+<meta property="og:url" content="https://blog.zling.site/posts/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/">
+<meta property="og:description" content="安装Go Go安装地址，下载相应版本的Go安装器，按步骤安装即可。 安装Hugo 去Hugo的Github上下载，hugo_extended版的压缩包，然后">
+<meta property="og:locale" content="zh">
+<meta property="og:site_name" content="🐉泽梅尔的驻留地">
+<meta property="article:published_time" content="2021-03-23T22:36:20+08:00">
+<meta property="article:modified_time" content="2021-08-29T13:09:56+08:00">
+<meta property="article:section" content="posts">
+<meta property="article:tag" content="hugo">
+<body class="flex flex-col min-h-screen">
+<header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+<div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");(storageColorScheme=='Auto'&&window.matchMedia("(prefers-color-scheme: light)").matches||storageColorScheme=="Light")&&document.getElementsByTagName('html')[0].classList.remove('dark')</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+<a href=/ class="mr-6 text-primary-text text-xl font-bold">🐉泽梅尔的驻留地</a>
+<button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+<i class="fas fa-bars"></i>
+</button>
+<div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+<div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+<a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">👨‍🚀关于我</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">📕文章</a>
+<a href=/docs/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">📁文档</a>
+</div>
+<div class=flex>
+<div class="relative pt-4 md:pt-0">
+<div class="cursor-pointer hover:text-eureka" id=lightDarkMode>
+<i class="fas fa-moon"></i>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open>
+</div>
+<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions>
+<span class="px-4 py-1 hover:text-eureka" name=Light>浅色</span>
+<span class="px-4 py-1 hover:text-eureka" name=Dark>深色</span>
+<span class="px-4 py-1 hover:text-eureka" name=Auto>自动</span>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile>
+</div>
+</nav>
+<script>let element=document.getElementById('lightDarkMode');storageColorScheme=='Auto'?(element.firstElementChild.classList.remove('fa-moon'),element.firstElementChild.setAttribute("data-icon",'adjust'),element.firstElementChild.classList.add('fa-adjust'),document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)})):storageColorScheme=="Light"&&(element.firstElementChild.classList.remove('fa-moon'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script>
+</div>
+</header>
+<main class="flex-grow pt-16">
+<div class=pl-scrollbar>
+<div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+<div class="col-span-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+<h1 class="font-bold text-3xl text-primary-text">使用hugo搭建静态博客</h1>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2021-03-23</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>2分钟阅读时长</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=https://blog.zling.site/categories/hugo/ class=hover:text-eureka>hugo</a>
+</div>
+</div>
+<div class=content>
+<h2 id=安装go>安装Go</h2>
+<p><a href=https://golang.org/dl/>Go安装地址</a>，下载相应版本的Go安装器，按步骤安装即可。</p>
+<h2 id=安装hugo>安装Hugo</h2>
+<p>去<a href=https://github.com/gohugoio/hugo/releases>Hugo的Github</a>上下载，hugo_extended版的压缩包，然后解压到指定目录，并将Hugo执行文件所在目录加入到Path环境变量中。
+在终端中执行以下命令判断Hugo是否安装成功：</p>
+<pre><code class=language-shell>hugo version
+</code></pre>
+<h2 id=创建hugo-site>创建Hugo Site</h2>
+<pre><code class=language-shell>hugo new site yoursitename
+</code></pre>
+<h2 id=安装hugo-vitae主题>安装Hugo-Vitae主题</h2>
+<ol>
+<li>切换至站点的themes目录并将hugo-vitae添加为当前工程的子模块</li>
+</ol>
+<pre><code class=language-shell>cd themes
+git submodule add https://github.com/dataCobra/hugo-vitae
+</code></pre>
+<ol start=2>
+<li>将hugo-vitae的exampleSite config.toml 复制到根目录稍作改动</li>
+</ol>
+<h2 id=创建文章>创建文章</h2>
+<pre><code class=language-shell>hugo new post/first.md
+</code></pre>
+<h2 id=运行hugo-server>运行Hugo Server</h2>
+<pre><code class=language-shell>hugo server
+</code></pre>
+<h2 id=创建github仓库>创建GitHub仓库</h2>
+<p>创建GitHub仓库时需要注意仓库名称必须为：yourgithubusername.github.io</p>
+<h2 id=使用github-actions自动部署>使用GitHub Actions自动部署</h2>
+<ol>
+<li>创建部署用的Token</li>
+<li>在刚刚创建的仓库的设置中添加 Secrets</li>
+<li>在仓库下创建文件 .github/workflows/gh-pages.yml</li>
+</ol>
+<pre><code class=language-yaml>name: github pages
+
+on:
+  push:
+    branches:
+      - main  # Set a branch to deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.HUGO_TOKEN }}
+          publish_branch: gh-pages  # 推送到当前 gh-pages 分支
+          publish_dir: ./public # 推送生成的public文件下的内容到 gh-pages 分支
+          commit_message: ${{ github.event.head_commit.message }}
+# 开始部署到VPS上的工作流
+      - name: Cache Private Key
+        uses: webfactory/ssh-agent@v0.4.1
+        with:
+          ssh-private-key: ${{ secrets.BLOG_DEPLOY_KEY }}
+      - name: Scan public keys
+        run: ssh-keyscan zling.site &gt;&gt; ~/.ssh/known_hosts
+      - name: Deploy To VPS
+        run: rsync -av --delete ./public root@zling.site:/data/caddy/site/hugo-web
+</code></pre>
+<h2 id=自动部署至腾讯云>自动部署至腾讯云</h2>
+<p>前提条件，在CVM上已安装好Caddy</p>
+<p>基本思路是：通过rsync将生成的静态内容复制到VPS上</p>
+<ol>
+<li>生成无密码的密钥</li>
+</ol>
+<pre><code>ssh-keygen -t ed25519 -f ~/.ssh/blog_deploy_key
+</code></pre>
+<ol start=2>
+<li>将生成的公钥内容添加到VPS上</li>
+</ol>
+<pre><code>~/.ssh/authorized_keys
+</code></pre>
+<ol start=3>
+<li>
+<p>将生成的私钥内容添加到项目的Secrets中，命名为 blog_deploy_key</p>
+</li>
+<li>
+<p>工作流文件中使用 webfactory/ssh-agent 实现私钥的缓存</p>
+</li>
+</ol>
+<pre><code>- name: Cache Private Key
+  uses: webfactory/ssh-agent@v0.4.1
+  with:
+    ssh-private-key: |
+      ${{ secrets.BLOG_DEPLOY_KEY }}
+</code></pre>
+<ol start=5>
+<li>工作流文件中还使用 ssh-keyscan 命令扫描 VPS 的公钥并保存到虚拟环境的 ~/.ssh/known_hosts 中</li>
+</ol>
+<pre><code>- name: Scan public keys
+  run: |
+    ssh-keyscan your_vps_ip_or_domain &gt;&gt; ~/.ssh/known_hosts
+</code></pre>
+<ol start=6>
+<li>部署到VPS</li>
+</ol>
+<pre><code>- name: Deploy
+  run: |
+    rsync -av --delete public ./public root@your_vps_ip_or_domain:/data/caddy/site/hugo-web
+</code></pre>
+<ol start=7>
+<li>Caddyfile配置</li>
+</ol>
+<pre><code>blog.zling.site {
+    root * /srv/hugo-web/public
+    file_server
+}
+</code></pre>
+<p><em><strong>注意：VPS上也要安装 rsync</strong></em></p>
+<h2 id=hugo用法>Hugo用法</h2>
+<h3 id=创建文章-1>创建文章</h3>
+<pre><code>hugo new posts\xxx.md
+</code></pre>
+<h3 id=删除文章>删除文章</h3>
+<pre><code>hugo delete posts\xxx.md
+</code></pre>
+<h3 id=使用-mathjax-支持数学公式>使用 MathJax 支持数学公式</h3>
+<p>layouts/partials/mathjax.html文件：</p>
+<pre><code class=language-html>{{ if .Params.math }}
+&lt;script&gt;
+  MathJax = {
+    tex: {
+      inlineMath: [[&quot;$&quot;, &quot;$&quot;]],
+    },
+    displayMath: [
+      [&quot;$$&quot;, &quot;$$&quot;],
+      [&quot;\[\[&quot;, &quot;\]\]&quot;],
+    ],
+    svg: {
+      fontCache: &quot;global&quot;,
+    },
+  };
+&lt;/script&gt;
+&lt;script src=&quot;https://polyfill.io/v3/polyfill.min.js?features=es6&quot;&gt;&lt;/script&gt;
+&lt;script
+  id=&quot;MathJax-script&quot;
+  async
+  src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&quot;
+&gt;&lt;/script&gt;
+{{ end }}
+</code></pre>
+<p>博文页面头加入以下内容</p>
+<pre><code>---
+math: true
+---
+</code></pre>
+<h3 id=使用默认的-katex-显示数学公式>使用默认的 KaTex 显示数学公式</h3>
+<p>行内数学公式</p>
+<pre><code>$ E=mc^2 $
+</code></pre>
+<p>这是内嵌$ E=mc^2 $效果</p>
+<p>单独一行</p>
+<pre><code>$$E=mc^2$$
+</code></pre>
+<p>$$E=mc^2$$</p>
+</div>
+<div class=my-4>
+<a href=https://blog.zling.site/tags/hugo/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#hugo</a>
+</div>
+<div class=py-2>
+<div class="flex flex-col md:flex-row items-center my-8">
+<a href=https://blog.zling.site/authors/zemelling/ class="w-24 h-24 md:mr-4">
+<img src=https://blog.zling.site/images/%E5%A4%A7%E6%88%B7%E7%88%B1.jpg class="w-full bg-primary-bg rounded-full" alt=Avatar>
+</a>
+<div class="w-full md:w-auto mt-4 md:mt-0">
+<a href=https://blog.zling.site/authors/zemelling/ class="block font-bold text-lg pb-1 mb-2 border-b">Zemel Ling</a>
+<span class="block pb-2">Late equals never.</span>
+<a href=https://github.com/ZemelLing class=mr-1>
+<i class="fab fa-github"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+<div>
+<span class="block font-bold">上一页</span>
+<a href=https://blog.zling.site/posts/%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2caddy/ class=block>使用Docker部署Caddy</a>
+</div>
+<div class="md:text-right mt-4 md:mt-0">
+</div>
+</div>
+</div>
+<div class=col-span-2>
+<div class="sticky top-16 z-10 hidden lg:block px-6 py-4 bg-primary-bg">
+<span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#安装go>安装Go</a></li>
+<li><a href=#安装hugo>安装Hugo</a></li>
+<li><a href=#创建hugo-site>创建Hugo Site</a></li>
+<li><a href=#安装hugo-vitae主题>安装Hugo-Vitae主题</a></li>
+<li><a href=#创建文章>创建文章</a></li>
+<li><a href=#运行hugo-server>运行Hugo Server</a></li>
+<li><a href=#创建github仓库>创建GitHub仓库</a></li>
+<li><a href=#使用github-actions自动部署>使用GitHub Actions自动部署</a></li>
+<li><a href=#自动部署至腾讯云>自动部署至腾讯云</a></li>
+<li><a href=#hugo用法>Hugo用法</a>
+<ul>
+<li><a href=#创建文章-1>创建文章</a></li>
+<li><a href=#删除文章>删除文章</a></li>
+<li><a href=#使用-mathjax-支持数学公式>使用 MathJax 支持数学公式</a></li>
+<li><a href=#使用默认的-katex-显示数学公式>使用默认的 KaTex 显示数学公式</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<script>window.addEventListener('DOMContentLoaded',()=>{enableStickyToc()})</script>
+</div>
+</div>
+<script>document.addEventListener('DOMContentLoaded',()=>{hljs.initHighlightingOnLoad()})</script>
+</div>
+</div>
+</main>
+<footer class=pl-scrollbar>
+<div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+<p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://blog.zling.site/>Zemel Ling</a>
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p>
+</div></div>
+</footer>
+</body>
+</html>

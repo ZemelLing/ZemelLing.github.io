@@ -1,0 +1,218 @@
+<!doctype html><html lang=zh class=dark><meta charset=utf-8>
+<meta name=viewport content="width=device-width">
+<title>Markdown语法 | 🐉泽梅尔的驻留地</title>
+<meta name=generator content="Hugo Eureka 0.8.2">
+<link rel=stylesheet href=https://blog.zling.site/css/eureka.min.css>
+<script defer src=https://blog.zling.site/js/eureka.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+<script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
+<link rel=icon type=image/png sizes=32x32 href=https://blog.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_32x32_fill_box_center_3.png>
+<link rel=apple-touch-icon sizes=180x180 href=https://blog.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
+<meta name=description content="标题（Headings） 要创建标题，请在单词或短语前面添加井号 (#) 。井号的数量代表了标题的级别。例如，添加三个井号即创建一个三级标题 ### My Header My Header 段落 在每行">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://blog.zling.site/posts/"},{"@type":"ListItem","position":2,"name":"Markdown语法","item":"https://blog.zling.site/posts/markdown%E8%AF%AD%E6%B3%95/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zling.site/posts/markdown%E8%AF%AD%E6%B3%95/"},"headline":"Markdown语法 | 🐉泽梅尔的驻留地","datePublished":"2021-03-26T10:16:51+08:00","dateModified":"2021-08-29T13:09:56+08:00","wordCount":314,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://blog.zling.site/dahuai_samll.png"}},"description":"标题（Headings） 要创建标题，请在单词或短语前面添加井号 (#) 。井号的数量代表了标题的级别。例如，添加三个井号即创建一个三级标题 ### My Header My Header 段落 在每行"}</script><meta property="og:title" content="Markdown语法 | 🐉泽梅尔的驻留地">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://blog.zling.site/dahuai_samll.png">
+<meta property="og:url" content="https://blog.zling.site/posts/markdown%E8%AF%AD%E6%B3%95/">
+<meta property="og:description" content="标题（Headings） 要创建标题，请在单词或短语前面添加井号 (#) 。井号的数量代表了标题的级别。例如，添加三个井号即创建一个三级标题 ### My Header My Header 段落 在每行">
+<meta property="og:locale" content="zh">
+<meta property="og:site_name" content="🐉泽梅尔的驻留地">
+<meta property="article:published_time" content="2021-03-26T10:16:51+08:00">
+<meta property="article:modified_time" content="2021-08-29T13:09:56+08:00">
+<meta property="article:section" content="posts">
+<meta property="article:tag" content="markdown">
+<body class="flex flex-col min-h-screen">
+<header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+<div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");(storageColorScheme=='Auto'&&window.matchMedia("(prefers-color-scheme: light)").matches||storageColorScheme=="Light")&&document.getElementsByTagName('html')[0].classList.remove('dark')</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+<a href=/ class="mr-6 text-primary-text text-xl font-bold">🐉泽梅尔的驻留地</a>
+<button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+<i class="fas fa-bars"></i>
+</button>
+<div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+<div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+<a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">👨‍🚀关于我</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">📕文章</a>
+<a href=/docs/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">📁文档</a>
+</div>
+<div class=flex>
+<div class="relative pt-4 md:pt-0">
+<div class="cursor-pointer hover:text-eureka" id=lightDarkMode>
+<i class="fas fa-moon"></i>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open>
+</div>
+<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions>
+<span class="px-4 py-1 hover:text-eureka" name=Light>浅色</span>
+<span class="px-4 py-1 hover:text-eureka" name=Dark>深色</span>
+<span class="px-4 py-1 hover:text-eureka" name=Auto>自动</span>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile>
+</div>
+</nav>
+<script>let element=document.getElementById('lightDarkMode');storageColorScheme=='Auto'?(element.firstElementChild.classList.remove('fa-moon'),element.firstElementChild.setAttribute("data-icon",'adjust'),element.firstElementChild.classList.add('fa-adjust'),document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)})):storageColorScheme=="Light"&&(element.firstElementChild.classList.remove('fa-moon'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script>
+</div>
+</header>
+<main class="flex-grow pt-16">
+<div class=pl-scrollbar>
+<div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+<div class="col-span-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+<h1 class="font-bold text-3xl text-primary-text">Markdown语法</h1>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2021-03-26</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>1分钟阅读时长</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=https://blog.zling.site/categories/markdown/ class=hover:text-eureka>markdown</a>
+</div>
+</div>
+<div class=content>
+<h2 id=标题headings>标题（Headings）</h2>
+<p>要创建标题，请在单词或短语前面添加井号 (#) 。井号的数量代表了标题的级别。例如，添加三个井号即创建一个三级标题</p>
+<pre><code>### My Header
+</code></pre>
+<h3 id=my-header>My Header</h3>
+<hr>
+<h2 id=段落>段落</h2>
+<p>在每行的的末尾空格两下并回车或是直接在两行间间隔一行空白行，这样就可以形成换行效果。</p>
+<h2 id=图片>图片</h2>
+<h3 id=本地图片>本地图片</h3>
+<pre><code>![图片描述](/iii.png)
+</code></pre>
+<h3 id=网络图片>网络图片</h3>
+<pre><code>![图片描述](http://baidu.com/pic/doge.png)
+</code></pre>
+<h3 id=以base64编码插入图片>以Base64编码插入图片</h3>
+<ol>
+<li>将图片转为Base64字符串</li>
+<li>插入图片</li>
+</ol>
+<pre><code>![avatar][base64str]
+[base64str]:data:image/png;base64,iVBORw0......
+</code></pre>
+<h2 id=列表>列表</h2>
+<h3 id=有序列表>有序列表</h3>
+<pre><code>1. 第一项
+2. 第二项
+</code></pre>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+</ol>
+<h3 id=无序列表>无序列表</h3>
+<pre><code>* 第一项
+    * 第一项第一项
+* 第二项
+</code></pre>
+<ul>
+<li>第一项
+<ul>
+<li>第一项第一项</li>
+</ul>
+</li>
+<li>第二项</li>
+</ul>
+<p>子项前空 4 格</p>
+<h2 id=加粗与斜体>加粗与斜体</h2>
+<pre><code>*斜体*
+**加粗**
+***斜体与加粗***
+
+*与内容间无空白字符
+</code></pre>
+<p><em>斜体</em><br>
+<strong>加粗</strong><br>
+<em><strong>斜体与加粗</strong></em></p>
+</div>
+<div class=my-4>
+<a href=https://blog.zling.site/tags/markdown/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#markdown</a>
+</div>
+<div class=py-2>
+<div class="flex flex-col md:flex-row items-center my-8">
+<a href=https://blog.zling.site/authors/zemelling/ class="w-24 h-24 md:mr-4">
+<img src=https://blog.zling.site/images/%E5%A4%A7%E6%88%B7%E7%88%B1.jpg class="w-full bg-primary-bg rounded-full" alt=Avatar>
+</a>
+<div class="w-full md:w-auto mt-4 md:mt-0">
+<a href=https://blog.zling.site/authors/zemelling/ class="block font-bold text-lg pb-1 mb-2 border-b">Zemel Ling</a>
+<span class="block pb-2">Late equals never.</span>
+<a href=https://github.com/ZemelLing class=mr-1>
+<i class="fab fa-github"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+<div>
+<span class="block font-bold">上一页</span>
+<a href=https://blog.zling.site/posts/aspnetcore%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%951/ class=block>AspNetCore学习记录(1)</a>
+</div>
+<div class="md:text-right mt-4 md:mt-0">
+<span class="block font-bold">下一页</span>
+<a href=https://blog.zling.site/posts/%E5%AD%90%E5%BC%B9%E7%AC%94%E8%AE%B0/ class=block>子弹笔记</a>
+</div>
+</div>
+</div>
+<div class=col-span-2>
+<div class="sticky top-16 z-10 hidden lg:block px-6 py-4 bg-primary-bg">
+<span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#标题headings>标题（Headings）</a>
+<ul>
+<li><a href=#my-header>My Header</a></li>
+</ul>
+</li>
+<li><a href=#段落>段落</a></li>
+<li><a href=#图片>图片</a>
+<ul>
+<li><a href=#本地图片>本地图片</a></li>
+<li><a href=#网络图片>网络图片</a></li>
+<li><a href=#以base64编码插入图片>以Base64编码插入图片</a></li>
+</ul>
+</li>
+<li><a href=#列表>列表</a>
+<ul>
+<li><a href=#有序列表>有序列表</a></li>
+<li><a href=#无序列表>无序列表</a></li>
+</ul>
+</li>
+<li><a href=#加粗与斜体>加粗与斜体</a></li>
+</ul>
+</nav>
+</div>
+<script>window.addEventListener('DOMContentLoaded',()=>{enableStickyToc()})</script>
+</div>
+</div>
+<script>document.addEventListener('DOMContentLoaded',()=>{hljs.initHighlightingOnLoad()})</script>
+</div>
+</div>
+</main>
+<footer class=pl-scrollbar>
+<div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+<p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://blog.zling.site/>Zemel Ling</a>
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p>
+</div></div>
+</footer>
+</body>
+</html>
