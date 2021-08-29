@@ -19,7 +19,7 @@
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
 <meta name=description content="简述 单例模式用于生成特定类在程序的完整生命周期中唯一的实例化对象。 实现方式 方式一 public class Singleton { private static Singleton _instance; public static Singleton Instance { get { if(_instance == null) _instance = new Singleton(); return _instance; } } private Singleton() { //TODO anything } } 懒汉">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://blog.zling.site/posts/"},{"@type":"ListItem","position":2,"name":"设计模式之单例模式","item":"https://blog.zling.site/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zling.site/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"},"headline":"设计模式之单例模式 | 🐉泽梅尔的驻留地","datePublished":"2021-04-13T20:54:49+08:00","dateModified":"2021-08-29T13:09:56+08:00","wordCount":726,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://blog.zling.site/dahuai_samll.png"}},"description":"简述 单例模式用于生成特定类在程序的完整生命周期中唯一的实例化对象。 实现方式 方式一 public class Singleton { private static Singleton _instance; public static Singleton Instance { get { if(_instance == null) _instance = new Singleton(); return _instance; } } private Singleton() { \/\/TODO anything } } 懒汉"}</script><meta property="og:title" content="设计模式之单例模式 | 🐉泽梅尔的驻留地">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zling.site/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"},"headline":"设计模式之单例模式 | 🐉泽梅尔的驻留地","datePublished":"2021-04-13T20:54:49+08:00","dateModified":"2021-08-29T13:09:56+08:00","wordCount":1027,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://blog.zling.site/dahuai_samll.png"}},"description":"简述 单例模式用于生成特定类在程序的完整生命周期中唯一的实例化对象。 实现方式 方式一 public class Singleton { private static Singleton _instance; public static Singleton Instance { get { if(_instance == null) _instance = new Singleton(); return _instance; } } private Singleton() { \/\/TODO anything } } 懒汉"}</script><meta property="og:title" content="设计模式之单例模式 | 🐉泽梅尔的驻留地">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://blog.zling.site/dahuai_samll.png">
 <meta property="og:url" content="https://blog.zling.site/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
@@ -78,7 +78,7 @@
 </div>
 <div class="mr-6 my-2">
 <i class="fas fa-clock mr-1"></i>
-<span>2分钟阅读时长</span>
+<span>3分钟阅读时长</span>
 </div>
 <div class="mr-6 my-2">
 <i class="fas fa-folder mr-1"></i>
@@ -214,6 +214,61 @@ public class Singleton {
 <p>此方式自.Net 4.0 起支持。线程安全。</p>
 <h2 id=总结>总结</h2>
 <p>在 .Net 4.0 及以上的环境中，方式六或许是个不错的选择，其他情况下方式四和方式五可能更好。单例模式违反了开闭原则，因为它产生的对象是一个具体实现，暴露了太多接口同时一旦需要变更实现将很难修改，因此需要避免单例模式的滥用。</p>
+<h1 id=泛型方式实现>泛型方式实现</h1>
+<h2 id=net版>.Net版</h2>
+<pre><code class=language-c#>public class Singleton&lt;T&gt; where T : class, new()
+{
+    private static T instance;
+    private static readonly object lockObj = new object();
+
+    public static T Instance
+    {
+        get 
+        {
+            if(instance == null)
+            {
+                lock(lockObj)
+                {
+                    if(instance == null) instance = new T();
+                }
+            }
+
+            return instance;
+        }
+    }
+}
+</code></pre>
+<h2 id=unity-中的单例>Unity 中的单例</h2>
+<pre><code class=language-c#>public class UnitySingleton&lt;T&gt; : MonoBehaviour where T : MonoSingleton&lt;T&gt;
+{
+    private static T instance;
+    public static T Instance =&gt; instance;
+
+    protected virtual void Awake()
+    {
+        if(instance == null)
+        {
+            instance = (T)this;
+        }
+        else 
+        {
+            Debug.LogError($&quot;Get a second instance of this class: {this.GetType()}&quot;);
+        }
+    }
+}
+</code></pre>
+<h1 id=补充>补充</h1>
+<h2 id=少用单例模式>少用单例模式</h2>
+<h3 id=原因>原因</h3>
+<p>因为单例破坏了“开闭原则”，单例返回的实现类不是接口，当要变更功能时，无法替换为其它类。</p>
+<h3 id=避免方法>避免方法</h3>
+<p>通常使用单例模式，是看重了两点：1. 对象唯一 2. 容易获取</p>
+<p>想要避免使用单例，但又想同时拥有这两个特点，比较难以实现，但只取其一，倒是有以下方式可以实现:</p>
+<ol>
+<li>让类具有计数器，以此限制对象数量</li>
+<li>设置为类的引用，让对象可以被取用（1. 分别设置；2.指定类的静态成员）</li>
+<li>使用类的静态方法</li>
+</ol>
 </div>
 <div class=my-4>
 <a href=https://blog.zling.site/tags/design-pattern/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#design pattern</a>
@@ -262,6 +317,18 @@ public class Singleton {
 </ul>
 </li>
 <li><a href=#总结>总结</a></li>
+</ul>
+<ul>
+<li><a href=#net版>.Net版</a></li>
+<li><a href=#unity-中的单例>Unity 中的单例</a></li>
+</ul>
+<ul>
+<li><a href=#少用单例模式>少用单例模式</a>
+<ul>
+<li><a href=#原因>原因</a></li>
+<li><a href=#避免方法>避免方法</a></li>
+</ul>
+</li>
 </ul>
 </nav>
 </div>
