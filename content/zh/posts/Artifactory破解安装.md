@@ -2,6 +2,13 @@
 title: "Artifactory破解安装"
 date: 2021-07-02T12:39:58+08:00
 draft: false
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 1. 使用Docker安装Artifactory

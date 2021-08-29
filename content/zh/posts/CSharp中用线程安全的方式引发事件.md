@@ -4,6 +4,13 @@ date: 2021-05-29T23:47:02+08:00
 draft: false
 tags: ["csharp", "event", "thread"]
 categories: ["csharp",]
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 在不考虑线程安全的情况下常常会写如下引发事件的代码:

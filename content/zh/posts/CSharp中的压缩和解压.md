@@ -4,6 +4,13 @@ date: 2021-04-05T17:28:17+08:00
 draft: false
 tags: ["CSharp", "io", "compression", "decompression"]
 categories: ["CSharp",]
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 ## 压缩和解压相关类

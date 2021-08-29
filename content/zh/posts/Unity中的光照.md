@@ -4,6 +4,13 @@ date: 2021-04-02T16:11:55+08:00
 draft: false
 tags: ["unity", "lighting"]
 categories: ["unity",]
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 ## Unity中的光照类型

@@ -4,6 +4,13 @@ date: 2021-04-29T22:20:45+08:00
 draft: false
 tags: ["design pattern", "facade"]
 categories: ["design pattern",]
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 # 外观模式

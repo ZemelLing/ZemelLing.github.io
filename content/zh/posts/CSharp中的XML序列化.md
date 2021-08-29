@@ -4,6 +4,13 @@ date: 2021-04-24T22:04:09+08:00
 draft: false
 tags: ["csharp", "xml"]
 categories: ["csharp",]
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 ## 可 XML 序列化的内容

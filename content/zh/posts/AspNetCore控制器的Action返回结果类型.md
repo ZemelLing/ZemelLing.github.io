@@ -2,6 +2,13 @@
 title: "AspNetCore控制器的Action返回结果类型"
 date: 2021-07-02T12:48:31+08:00
 draft: false
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 # 特定类型(Specific type)

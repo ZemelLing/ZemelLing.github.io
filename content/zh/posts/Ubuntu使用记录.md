@@ -2,6 +2,13 @@
 title: "Ubuntu使用记录"
 date: 2021-07-12T12:55:26+08:00
 draft: false
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 ## 查看硬盘状况

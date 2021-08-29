@@ -4,6 +4,13 @@ date: 2021-06-01T17:18:09+08:00
 draft: false
 tags: ["unity",]
 categories: ["unity",]
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 在 Unity 有两种方式用于表示旋转，欧拉角和四元数。其中欧拉角用于查看和编辑，引擎内部使用四元数来表示。

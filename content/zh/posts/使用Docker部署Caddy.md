@@ -4,6 +4,13 @@ date: 2021-03-24T18:32:49+08:00
 draft: false
 tags: ["docker", "caddy"]
 categories: ["docker",]
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 ## docker-compose.yml
 

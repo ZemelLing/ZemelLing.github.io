@@ -4,6 +4,13 @@ date: 2021-04-26T22:27:49+08:00
 draft: false
 tags: ["unity", "unity api", "attribute"]
 categories: ["unity",]
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 被此特性标注的方法将在 Awake 方法之后被 Unity 循环调用，而且被此特性标记的所有方法，它们之间的执行顺序不是固定的。

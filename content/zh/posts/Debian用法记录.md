@@ -4,6 +4,13 @@ date: 2021-05-01T10:17:40+08:00
 draft: false
 tags: ["linux", "debian"]
 categories: ["linux",]
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 ## 关机

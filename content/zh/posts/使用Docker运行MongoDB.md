@@ -4,6 +4,13 @@ date: 2021-04-23T12:37:29+08:00
 draft: false
 tags: ["docker", "mongodb"]
 categories: ["docker",]
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 ## Use Docker-Compose

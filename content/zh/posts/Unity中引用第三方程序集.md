@@ -4,6 +4,13 @@ date: 2021-04-05T22:32:04+08:00
 draft: false
 tags: ["unity",]
 categories: ["unity",]
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 在 Unity 中是通过插件（注意，此处的插件特指预编译的程序集或原生库，与编辑器插件代码区分开）的形式引用第三方程序集或原生库，其中引用的 .NET 程序集称作托管插件，原生库为原生插件。

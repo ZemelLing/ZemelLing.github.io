@@ -2,6 +2,13 @@
 title: "使用acmesh申请LetsEncrypt泛域名证书"
 date: 2021-07-02T12:43:35+08:00
 draft: false
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 # 使用 acme.sh 申请 Let's Encrypt 泛域名证书

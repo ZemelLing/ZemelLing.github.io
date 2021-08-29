@@ -4,6 +4,13 @@ date: 2021-04-14T09:37:25+08:00
 draft: false
 tags: ["unity",]
 categories: ["unity",]
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 ![脚本生命周期流程图](https://docs.unity3d.com/cn/2020.3/uploads/Main/monobehaviour_flowchart.svg)

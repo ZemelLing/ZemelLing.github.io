@@ -4,6 +4,13 @@ date: 2021-06-07T16:36:57+08:00
 draft: false
 tags: ["c++", "CSharp"]
 categories: ["CSharp", "c++"]
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 1. 如果该回调函数会被定时调用时，C#代码需要将回调函数对应的委托实例化成一个静态变量后使用，以避免 GC 将委托释放导致的异常问题。

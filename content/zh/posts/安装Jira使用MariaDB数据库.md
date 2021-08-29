@@ -2,6 +2,13 @@
 title: "安装Jira使用MariaDB数据库"
 date: 2021-07-02T12:40:56+08:00
 draft: false
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 # Jira 安装

@@ -2,6 +2,13 @@
 title: "CSharp中发送HTTP请求的方法"
 date: 2021-07-02T12:49:27+08:00
 draft: false
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 # 发送 Get 请求

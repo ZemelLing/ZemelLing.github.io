@@ -4,6 +4,13 @@ date: 2021-06-22T22:29:17+08:00
 draft: false
 tags: ["unity",]
 categories: ["unity",]
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 其中至少一个物体（必须运动的）必须带有碰撞器（collider）+刚体(Rigidbody)，另一个物体（可以静止也可以运动）也必须至少带有collider

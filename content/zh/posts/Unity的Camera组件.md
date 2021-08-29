@@ -4,6 +4,13 @@ date: 2021-03-27T14:04:16+08:00
 draft: false
 tags: ["unity", "camera"]
 categories: ["unity",]
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 ## 透视模式和正交模式

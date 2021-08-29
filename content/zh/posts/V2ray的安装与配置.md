@@ -2,6 +2,13 @@
 title: "V2ray的安装与配置"
 date: 2021-07-02T12:54:57+08:00
 draft: true
+series:
+description:
+toc: true
+authors:
+  - zemelling
+lastmod: 2021-08-29T13:09:56+08:00
+featuredImage:
 ---
 
 # V2ray的安装与配置
