@@ -1,6 +1,6 @@
 <!doctype html><html lang=zh class=dark><meta charset=utf-8>
 <meta name=viewport content="width=device-width">
-<title>Lua学习记录（二） | 🐉泽梅尔的驻留地</title>
+<title>Lua学习记录（三） | 🐉泽梅尔的驻留地</title>
 <meta name=generator content="Hugo Eureka 0.8.2">
 <link rel=stylesheet href=https://blog.zling.site/css/eureka.min.css>
 <script defer src=https://blog.zling.site/js/eureka.min.js></script>
@@ -17,19 +17,20 @@
 <script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_32x32_fill_box_center_3.png>
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
-<meta name=description content="模式匹配 函数 string.find 返回匹配的开始和结束索引 string.match 返回匹配的字符串 string.gsub 返回替换后的字符串和发生替换的次数 string.gmatch 返回函数，此函数可遍历一个字符串中所匹配的所有字串 模式 Lua">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://blog.zling.site/posts/"},{"@type":"ListItem","position":2,"name":"Lua学习记录（二）","item":"https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/"},"headline":"Lua学习记录（二） | 🐉泽梅尔的驻留地","datePublished":"2021-08-28T10:53:56+08:00","dateModified":"2021-08-29T13:09:56+08:00","wordCount":748,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://blog.zling.site/dahuai_samll.png"}},"description":"模式匹配 函数 string.find 返回匹配的开始和结束索引 string.match 返回匹配的字符串 string.gsub 返回替换后的字符串和发生替换的次数 string.gmatch 返回函数，此函数可遍历一个字符串中所匹配的所有字串 模式 Lua"}</script><meta property="og:title" content="Lua学习记录（二） | 🐉泽梅尔的驻留地">
+<meta name=description content="位和字节 位运算 运算符 操作 & 按位与 | 按位或 ~ 按位异或 &#171; 逻辑左移 &#187; 逻辑右移 ~ 按位取反（一元运算） Lua 中没有提供算术右移和左移，只提供了逻辑的。 无符号整数 Lua 中">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://blog.zling.site/posts/"},{"@type":"ListItem","position":2,"name":"Lua学习记录（三）","item":"https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%89/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%89/"},"headline":"Lua学习记录（三） | 🐉泽梅尔的驻留地","datePublished":"2021-08-29T14:44:11+08:00","dateModified":"2021-08-29T14:44:11+08:00","wordCount":904,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://blog.zling.site/dahuai_samll.png"}},"description":"位和字节 位运算 运算符 操作 \u0026amp; 按位与 | 按位或 ~ 按位异或 \u0026laquo; 逻辑左移 \u0026raquo; 逻辑右移 ~ 按位取反（一元运算） Lua 中没有提供算术右移和左移，只提供了逻辑的。 无符号整数 Lua 中"}</script><meta property="og:title" content="Lua学习记录（三） | 🐉泽梅尔的驻留地">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://blog.zling.site/dahuai_samll.png">
-<meta property="og:url" content="https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/">
-<meta property="og:description" content="模式匹配 函数 string.find 返回匹配的开始和结束索引 string.match 返回匹配的字符串 string.gsub 返回替换后的字符串和发生替换的次数 string.gmatch 返回函数，此函数可遍历一个字符串中所匹配的所有字串 模式 Lua">
+<meta property="og:url" content="https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%89/">
+<meta property="og:description" content="位和字节 位运算 运算符 操作 & 按位与 | 按位或 ~ 按位异或 &#171; 逻辑左移 &#187; 逻辑右移 ~ 按位取反（一元运算） Lua 中没有提供算术右移和左移，只提供了逻辑的。 无符号整数 Lua 中">
 <meta property="og:locale" content="zh">
 <meta property="og:site_name" content="🐉泽梅尔的驻留地">
-<meta property="article:published_time" content="2021-08-28T10:53:56+08:00">
-<meta property="article:modified_time" content="2021-08-29T13:09:56+08:00">
+<meta property="article:published_time" content="2021-08-29T14:44:11+08:00">
+<meta property="article:modified_time" content="2021-08-29T14:44:11+08:00">
 <meta property="article:section" content="posts">
 <meta property="article:tag" content="lua">
+<meta property="og:see_also" content="https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/">
 <meta property="og:see_also" content="https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%80/">
 <body class="flex flex-col min-h-screen">
 <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
@@ -71,11 +72,11 @@
 <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
 <div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
 <div class="col-span-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
-<h1 class="font-bold text-3xl text-primary-text">Lua学习记录（二）</h1>
+<h1 class="font-bold text-3xl text-primary-text">Lua学习记录（三）</h1>
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
 <div class="mr-6 my-2">
 <i class="fas fa-calendar mr-1"></i>
-<span>2021-08-28</span>
+<span>2021-08-29</span>
 </div>
 <div class="mr-6 my-2">
 <i class="fas fa-clock mr-1"></i>
@@ -87,236 +88,251 @@
 </div>
 </div>
 <div class=content>
-<h1 id=模式匹配>模式匹配</h1>
-<h2 id=函数>函数</h2>
-<p>string.find 返回匹配的开始和结束索引
-string.match 返回匹配的字符串
-string.gsub 返回替换后的字符串和发生替换的次数
-string.gmatch 返回函数，此函数可遍历一个字符串中所匹配的所有字串</p>
-<h2 id=模式>模式</h2>
-<p>Lua 中模式使用百分号做转义字符。</p>
+<h1 id=位和字节>位和字节</h1>
+<h2 id=位运算>位运算</h2>
 <table>
 <thead>
 <tr>
-<th>字符分类</th>
+<th>运算符</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&</td>
+<td>按位与</td>
+</tr>
+<tr>
+<td>|</td>
+<td>按位或</td>
+</tr>
+<tr>
+<td>~</td>
+<td>按位异或</td>
+</tr>
+<tr>
+<td>&#171;</td>
+<td>逻辑左移</td>
+</tr>
+<tr>
+<td>&#187;</td>
+<td>逻辑右移</td>
+</tr>
+<tr>
+<td>~</td>
+<td>按位取反（一元运算）</td>
+</tr>
+</tbody>
+</table>
+<p>Lua 中没有提供算术右移和左移，只提供了逻辑的。</p>
+<h2 id=无符号整数>无符号整数</h2>
+<p>Lua 中使用 math.ult 函数比较两个无符号整数的大小。</p>
+<h2 id=打包和解包二进制数据>打包和解包二进制数据</h2>
+<p>string.pack 函数会把值打包成二进制数据
+string.unpack 则反之</p>
+<p>string.pack 和 string.unpack 的第一个参数是格式化字符串，函数将根据这个字符串打包或解包。</p>
+<p>string.unpack 还会返回最后一个读取的元素在字符串中的位置。其第三个参数用于指定开始读取的位置。</p>
+<h3 id=整型数相关>整型数相关</h3>
+<table>
+<thead>
+<tr>
+<th>格式字符串</th>
 <th>含义</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>.</td>
-<td>任意字符</td>
+<td>b</td>
+<td>char</td>
 </tr>
 <tr>
-<td>%a</td>
-<td>任意字母</td>
+<td>h</td>
+<td>short</td>
 </tr>
 <tr>
-<td>%c</td>
-<td>控制字符</td>
+<td>i</td>
+<td>int</td>
 </tr>
 <tr>
-<td>%d</td>
-<td>数字</td>
+<td>l</td>
+<td>long</td>
 </tr>
 <tr>
-<td>%g</td>
-<td>除空格外的可打印字符</td>
+<td>j</td>
+<td>Lua中整型数的大小</td>
 </tr>
 <tr>
-<td>%l</td>
-<td>小写字母</td>
+<td>in</td>
+<td>n为1~16的数，表示会产生n字节的整型数</td>
 </tr>
 <tr>
-<td>%p</td>
-<td>标点符号</td>
-</tr>
-<tr>
-<td>%s</td>
-<td>空白字符</td>
-</tr>
-<tr>
-<td>%u</td>
-<td>大写字母</td>
-</tr>
-<tr>
-<td>%w</td>
-<td>字母和数字</td>
-</tr>
-<tr>
-<td>%x</td>
-<td>十六进制数字</td>
+<td>以上有关整数的部分，都有对应的大写表示，用于表示无符号整型数</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<p>字符分类的大写形式表示对应的补集</p>
-<p>使用方括号可创建字符集，例如：<code>[%w_]</code> 表示所有字母数字以及下划线。</p>
+<pre><code class=language-lua>s = &quot;\xFF&quot;
+string.unpack(&quot;b&quot;, s) --&gt; -1 2
+string.unpack(&quot;B&quot;, s) --&gt; 255 2
+</code></pre>
+<h3 id=字符串相关>字符串相关</h3>
 <table>
 <thead>
 <tr>
-<th>修饰符</th>
+<th>格式字符串</th>
 <th>含义</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>+</td>
-<td>重复一次或多次</td>
+<td>z</td>
+<td>以\0结尾的字符串</td>
 </tr>
 <tr>
-<td>*</td>
-<td>重复零次或多次</td>
+<td>cn</td>
+<td>定长字符串，n表示打包字符串的长度</td>
 </tr>
 <tr>
-<td>-</td>
-<td>重复零次或多次（最小匹配）</td>
-</tr>
-<tr>
-<td>?</td>
-<td>可选（零次或一次）</td>
+<td>sn</td>
+<td>显式长度的字符串(会在字符串前加上字符串的长度)，n是用于保存字符串长度的无符号整数的大小</td>
 </tr>
 </tbody>
 </table>
-<p><code>%b</code> 用于匹配成对的字符串，写法是 <code>'%bxy'</code> x和y是任意不同字符
-<code>%f[char-set]</code> 前置模式，表示这个模式的前一个字符不在 char-set（字符集）内且，后一个字符在 char-set 内时，返回空字符串。</p>
-<h2 id=捕获>捕获</h2>
-<p>在进行匹配时可以在模式中将想要捕获的内容使用圆括号包围。</p>
-<p>函数 string.match 在匹配具有捕获的模式时，会将匹配的捕获返回。</p>
-<pre><code class=language-lua>string.match(&quot;name = Anna&quot;, &quot;(%a+)%s*=%s*(%a+)&quot;) --&gt; name    Anna  具有捕获
-string.match(&quot;name = Anna&quot;, &quot;%a+%s*=%s*%a+&quot;)  --&gt; name = Anna 没有指定捕获
+<pre><code class=language-lua>s = string.pack(&quot;s1&quot;, &quot;hello&quot;)
+for i = 1, #s do print((string.unpack(&quot;B&quot;, s, i))) end
+--&gt; 5 (length)
+--&gt; 104 ('h')
+--&gt; 101 ('e')
+--&gt; 108 ('l')
+--&gt; 108 ('l')
+--&gt; 111 ('o')
 </code></pre>
-<p><code>%n</code> 其中 n 为数字，表示匹配第n个捕获的副本。其中 <code>%0</code> 表示整个匹配。</p>
-<pre><code class=language-lua>s = [[then he said: &quot;it's all right&quot;!]]
-q1, quotedPart, q2 = string.match(s, &quot;([\&quot;'])(.-)(%1)&quot;)
-print(quotedPart) --&gt; it's all right
-print(q1) --&gt; &quot;
-print(q2) --&gt; &quot;
-</code></pre>
-<p>捕获也可用用于替换</p>
-<pre><code class=language-lua>print((string.gsub(&quot;hello Lua!&quot;, &quot;%a&quot;, &quot;%0-%0&quot;)))
---&gt; h-he-el-ll-lo-o L-Lu-ua-a!
+<h3 id=浮点型数>浮点型数</h3>
+<table>
+<thead>
+<tr>
+<th>格式字符串</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>f</td>
+<td>单精度浮点数</td>
+</tr>
+<tr>
+<td>d</td>
+<td>双精度浮点数</td>
+</tr>
+<tr>
+<td>n</td>
+<td>Lua语言浮点数</td>
+</tr>
+</tbody>
+</table>
+<h2 id=二进制文件>二进制文件</h2>
+<p>io.open(&ldquo;file path&rdquo;,&ldquo;rb&rdquo;) 使用字母b表示操作的是二进制文件</p>
+<h1 id=数据结构>数据结构</h1>
+<h2 id=数组>数组</h2>
+<pre><code class=language-lua>local a = {} -- 数组
+for i = 1, 1000 do
+  a[i] = 0
+end
 
-print((string.gsub(&quot;hello Lua!&quot;, &quot;(.)(.)&quot;, &quot;%2%1&quot;)))
---&gt; ehll ouL!a
+squares = {1, 4, 9, 16, 25} -- 使用表构造器创建数组
 </code></pre>
-<h1 id=时间和日期>时间和日期</h1>
-<h2 id=表示方式>表示方式</h2>
-<ol>
-<li>数值</li>
-</ol>
-<p>自 Jan 01, 1970, 0:00 UTC 起的秒数</p>
-<ol start=2>
-<li>表</li>
-</ol>
-<p>包含字段：year, month, day, hour, min, sec, wday, yday, isdst
-其中 wday 表示一周中的第几天，yday表示一年中的第几天，isdist表示是否使用夏时令。</p>
-<h2 id=函数-1>函数</h2>
-<h3 id=ostime>os.time</h3>
-<pre><code class=language-lua>os.time() --&gt; 1630150137
-os.time({year=2021, month=8, day=28, hour=19, min=32, sec=23}) --&gt; 1630150343
- os.time({year=1970, month=1, day=1})  --&gt; 14400
+<h2 id=矩阵及多维数组>矩阵及多维数组</h2>
+<h3 id=表示矩阵的方式1>表示矩阵的方式1</h3>
+<pre><code class=language-lua>-- N x M 矩阵 元素都为0
+local mt = {}
+for i = 1, N do
+  local row = {}
+  mt[i] = row
+  for j = 1, M do
+    row[j] = 0
+  end
+end
 </code></pre>
-<h3 id=osdate>os.date</h3>
-<p>os.date 像是 os.time 的反函数</p>
-<p>os.date的指示符</p>
-<table>
-<thead>
-<tr>
-<th>指示符</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%a</td>
-<td>星期几的缩写</td>
-</tr>
-<tr>
-<td>%A</td>
-<td>星期几的全名</td>
-</tr>
-<tr>
-<td>%b</td>
-<td>月份的缩写</td>
-</tr>
-<tr>
-<td>%B</td>
-<td>月份的全名</td>
-</tr>
-<tr>
-<td>%c</td>
-<td>时间和日期</td>
-</tr>
-<tr>
-<td>%d</td>
-<td>一个月中的第几天</td>
-</tr>
-<tr>
-<td>%H</td>
-<td>24小时制中的小时数</td>
-</tr>
-<tr>
-<td>%I</td>
-<td>12小时制中的小时数</td>
-</tr>
-<tr>
-<td>%j</td>
-<td>一年中的第几天</td>
-</tr>
-<tr>
-<td>%m</td>
-<td>月份</td>
-</tr>
-<tr>
-<td>%M</td>
-<td>分钟</td>
-</tr>
-<tr>
-<td>%p</td>
-<td>am or pm</td>
-</tr>
-<tr>
-<td>%S</td>
-<td>秒</td>
-</tr>
-<tr>
-<td>%w</td>
-<td>星期</td>
-</tr>
-<tr>
-<td>%W</td>
-<td>一年中的第几周</td>
-</tr>
-<tr>
-<td>%x</td>
-<td>日期</td>
-</tr>
-<tr>
-<td>%X</td>
-<td>时间</td>
-</tr>
-<tr>
-<td>%y</td>
-<td>两位数的年份</td>
-</tr>
-<tr>
-<td>%Y</td>
-<td>完整的年份</td>
-</tr>
-<tr>
-<td>%z</td>
-<td>时区</td>
-</tr>
-<tr>
-<td>%%</td>
-<td>百分号</td>
-</tr>
-<tr>
-<td>*t</td>
-<td>返回时间的Table</td>
-</tr>
-</tbody>
-</table>
+<h3 id=表示矩阵的方式2>表示矩阵的方式2</h3>
+<pre><code class=language-lua>-- 使用一维表示二维
+local mt = {}
+for i = 1, N do
+  local aux = (i - 1) * M
+  for j = 1, M do
+    mt = [aux + j] = 0
+  end
+end
+</code></pre>
+<h2 id=链表>链表</h2>
+<h3 id=单链表>单链表</h3>
+<pre><code class=language-lua>list = nil -- 根节点
+list = {next = list, value = v} -- 在表头处插入节点
+
+-- 遍历
+local l = list
+while l do
+  visit l.value
+  l = l.next
+end
+</code></pre>
+<h2 id=队列>队列</h2>
+<h3 id=双端队列>双端队列</h3>
+<pre><code class=language-lua>function listNew()
+  return {first = 0, list = -1}
+end
+
+function pushFirst(list, value)
+  local first = list.first - 1
+  list.first = first
+  list[first] = value
+end
+
+function pushLast(list, value)
+  local last = list.last + 1
+  list.last = last
+  list[last] = value
+end
+
+function popFirst(list)
+  local first = list.first
+  if first &gt; list.last then error(&quot;list is empty&quot;) end
+  local value = list[first]
+  list[first] = nil
+  list.first = first + 1
+  return value
+end
+
+function popLast(list)
+  local last = list.last
+  if list.first &gt; last then error(&quot;list is empty&quot;) end
+  local value = list[last]
+  last[first] = nil
+  list.last = last - 1
+  return value
+end
+</code></pre>
+<h2 id=反向表>反向表</h2>
+<pre><code class=language-lua>days = {&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;}
+
+revDays = {}
+for k, v in pairs(days) do
+  revDays[v] = k
+end
+</code></pre>
+<h2 id=集合和包>集合和包</h2>
+<p>集合里元素不可重复，包可重复，且没有元素有对应的计数器。</p>
+<h2 id=字符串缓冲区>字符串缓冲区</h2>
+<p>将表用作字符缓冲区</p>
+<pre><code class=language-lua>
+local t = {}
+for line in io.lines() do
+  t[#t + 1] = line .. &quot;\n&quot;
+end
+local s = table.concat(t)
+
+</code></pre>
+<h2 id=图>图</h2>
+<p>通常使用由两个字段组成的表来表示图，即name（节点名称）和adj（与节点相邻节点的集合）。</p>
 </div>
 <div class=my-4>
 <a href=https://blog.zling.site/tags/lua/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#lua</a>
@@ -337,12 +353,10 @@ os.time({year=2021, month=8, day=28, hour=19, min=32, sec=23}) --&gt; 1630150343
 </div>
 <div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
 <div>
-<span class="block font-bold">上一页</span>
-<a href=https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%89/ class=block>Lua学习记录（三）</a>
 </div>
 <div class="md:text-right mt-4 md:mt-0">
 <span class="block font-bold">下一页</span>
-<a href=https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%80/ class=block>Lua学习记录（一）</a>
+<a href=https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/ class=block>Lua学习记录（二）</a>
 </div>
 </div>
 </div>
@@ -353,18 +367,39 @@ os.time({year=2021, month=8, day=28, hour=19, min=32, sec=23}) --&gt; 1630150343
 <div class="sticky-toc hidden lg:block px-6 pb-6">
 <nav id=TableOfContents>
 <ul>
-<li><a href=#函数>函数</a></li>
-<li><a href=#模式>模式</a></li>
-<li><a href=#捕获>捕获</a></li>
-</ul>
+<li><a href=#位运算>位运算</a></li>
+<li><a href=#无符号整数>无符号整数</a></li>
+<li><a href=#打包和解包二进制数据>打包和解包二进制数据</a>
 <ul>
-<li><a href=#表示方式>表示方式</a></li>
-<li><a href=#函数-1>函数</a>
-<ul>
-<li><a href=#ostime>os.time</a></li>
-<li><a href=#osdate>os.date</a></li>
+<li><a href=#整型数相关>整型数相关</a></li>
+<li><a href=#字符串相关>字符串相关</a></li>
+<li><a href=#浮点型数>浮点型数</a></li>
 </ul>
 </li>
+<li><a href=#二进制文件>二进制文件</a></li>
+</ul>
+<ul>
+<li><a href=#数组>数组</a></li>
+<li><a href=#矩阵及多维数组>矩阵及多维数组</a>
+<ul>
+<li><a href=#表示矩阵的方式1>表示矩阵的方式1</a></li>
+<li><a href=#表示矩阵的方式2>表示矩阵的方式2</a></li>
+</ul>
+</li>
+<li><a href=#链表>链表</a>
+<ul>
+<li><a href=#单链表>单链表</a></li>
+</ul>
+</li>
+<li><a href=#队列>队列</a>
+<ul>
+<li><a href=#双端队列>双端队列</a></li>
+</ul>
+</li>
+<li><a href=#反向表>反向表</a></li>
+<li><a href=#集合和包>集合和包</a></li>
+<li><a href=#字符串缓冲区>字符串缓冲区</a></li>
+<li><a href=#图>图</a></li>
 </ul>
 </nav>
 </div>
@@ -373,6 +408,8 @@ os.time({year=2021, month=8, day=28, hour=19, min=32, sec=23}) --&gt; 1630150343
 <div class="col-span-2 lg:col-span-6 bg-secondary-bg rounded p-6">
 <h2 class="text-lg font-semibold mb-4">相关</h2>
 <div class=content>
+<a href=https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/>Lua学习记录（二）</a>
+<br>
 <a href=https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%80/>Lua学习记录（一）</a>
 <br>
 </div>

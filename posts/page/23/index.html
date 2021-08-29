@@ -1,6 +1,6 @@
 <!doctype html><html lang=zh class=dark><meta charset=utf-8>
 <meta name=viewport content="width=device-width">
-<title>lua | 🐉泽梅尔的驻留地</title>
+<title>文章 | 🐉泽梅尔的驻留地</title>
 <meta name=generator content="Hugo Eureka 0.8.2">
 <link rel=stylesheet href=https://blog.zling.site/css/eureka.min.css>
 <script defer src=https://blog.zling.site/js/eureka.min.js></script>
@@ -18,17 +18,17 @@
 <link rel=icon type=image/png sizes=32x32 href=https://blog.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_32x32_fill_box_center_3.png>
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
 <meta name=description content="Zemel Ling's blog in web.">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Categories","item":"https://blog.zling.site/categories/"},{"@type":"ListItem","position":2,"name":"lua","item":"https://blog.zling.site/categories/lua/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Lua学习记录（三）","description":"位和字节 位运算 运算符 操作 \u0026amp; 按位与 | 按位或 ~ 按位异或 \u0026laquo; 逻辑左移 \u0026raquo; 逻辑右移 ~ 按位取反（一元运算） Lua 中没有提供算术右移和左移，只提供了逻辑的。 无符号整数 Lua 中","url":"https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%89/"},{"@type":"ListItem","position":2,"name":"Lua学习记录（二）","description":"模式匹配 函数 string.find 返回匹配的开始和结束索引 string.match 返回匹配的字符串 string.gsub 返回替换后的字符串和发生替换的次数 string.gmatch 返回函数，此函数可遍历一个字符串中所匹配的所有字串 模式 Lua","url":"https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/"},{"@type":"ListItem","position":3,"name":"Lua学习记录（一）","description":"标识符 由任意字母、数字和下划线组成，同时首字符不能是数字，大小写敏感。 下划线加全大写字母（例如：_VERSION）组成的标识符，通常是特殊标识符（最好","url":"https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%80/"}]}</script><meta property="og:title" content="lua | 🐉泽梅尔的驻留地">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"使用hugo搭建静态博客","description":"安装Go Go安装地址，下载相应版本的Go安装器，按步骤安装即可。 安装Hugo 去Hugo的Github上下载，hugo_extended版的压缩包，然后","url":"https://blog.zling.site/posts/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"}]}</script><meta property="og:title" content="文章 | 🐉泽梅尔的驻留地">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://blog.zling.site/dahuai_samll.png">
-<meta property="og:url" content="https://blog.zling.site/categories/lua/">
+<meta property="og:url" content="https://blog.zling.site/posts/">
 <meta property="og:description" content="Zemel Ling's blog in web.">
 <meta property="og:locale" content="zh">
+<meta property="og:locale:alternate" content="en">
 <meta property="og:site_name" content="🐉泽梅尔的驻留地">
 <meta property="og:updated_time" content="2021-08-29T14:44:11+08:00">
-<meta property="article:section" content="categories">
-<link rel=alternate type=application/rss+xml href=https://blog.zling.site/categories/lua/index.xml title=🐉泽梅尔的驻留地>
+<meta property="article:section" content="posts">
+<link rel=alternate type=application/rss+xml href=https://blog.zling.site/posts/index.xml title=🐉泽梅尔的驻留地>
 <body class="flex flex-col min-h-screen">
 <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
 <div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");(storageColorScheme=='Auto'&&window.matchMedia("(prefers-color-scheme: light)").matches||storageColorScheme=="Light")&&document.getElementsByTagName('html')[0].classList.remove('dark')</script>
@@ -40,7 +40,7 @@
 <div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
 <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
 <a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">👨‍🚀关于我</a>
-<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">📕文章</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">📕文章</a>
 <a href=/docs/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">📁文档</a>
 </div>
 <div class=flex>
@@ -56,19 +56,31 @@
 <span class="px-4 py-1 hover:text-eureka" name=Auto>自动</span>
 </div>
 </div>
+<div class="relative pt-4 pl-4 md:pt-0">
+<div class="cursor-pointer hover:text-eureka" id=languageMode>
+<i class="fas fa-globe"></i>
+<span class=pl-1>简体中文</span>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open-lang>
+</div>
+<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=languageOptions>
+<a class="px-4 py-1 hover:text-eureka" href=https://blog.zling.site/posts/>简体中文</a>
+<a class="px-4 py-1 hover:text-eureka" href=https://blog.zling.site/en/posts/>English</a>
+</div>
+</div>
 </div>
 </div>
 <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile>
 </div>
 </nav>
-<script>let element=document.getElementById('lightDarkMode');storageColorScheme=='Auto'?(element.firstElementChild.classList.remove('fa-moon'),element.firstElementChild.setAttribute("data-icon",'adjust'),element.firstElementChild.classList.add('fa-adjust'),document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)})):storageColorScheme=="Light"&&(element.firstElementChild.classList.remove('fa-moon'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script>
+<script>let element=document.getElementById('lightDarkMode');storageColorScheme=='Auto'?(element.firstElementChild.classList.remove('fa-moon'),element.firstElementChild.setAttribute("data-icon",'adjust'),element.firstElementChild.classList.add('fa-adjust'),document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)})):storageColorScheme=="Light"&&(element.firstElementChild.classList.remove('fa-moon'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger(),switchLanguage()})</script>
 </div>
 </header>
 <main class="flex-grow pt-16">
 <div class=pl-scrollbar>
 <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
 <article class="mx-6 my-8">
-<h1 class="font-bold text-3xl text-primary-text">lua</h1>
+<h1 class="font-bold text-3xl text-primary-text">文章</h1>
 </article>
 <div class="bg-secondary-bg rounded px-6">
 <div class="overflow-hidden divide-y">
@@ -76,15 +88,15 @@
 <div class="flex flex-col-reverse lg:flex-row justify-between">
 <div class=w-full>
 <div class=mb-4>
-<a href=https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%89/ class="font-bold text-xl hover:text-eureka">Lua学习记录（三）</a>
+<a href=https://blog.zling.site/posts/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/ class="font-bold text-xl hover:text-eureka">使用hugo搭建静态博客</a>
 </div>
 <div class=content>
-位和字节 位运算 运算符 操作 & 按位与 | 按位或 ~ 按位异或 « 逻辑左移 » 逻辑右移 ~ 按位取反（一元运算） Lua 中没有提供算术右移和左移，只提供了逻辑的。 无符号整数 Lua 中
+安装Go Go安装地址，下载相应版本的Go安装器，按步骤安装即可。 安装Hugo 去Hugo的Github上下载，hugo_extended版的压缩包，然后
 </div>
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
 <div class="mr-6 my-2">
 <i class="fas fa-calendar mr-1"></i>
-<span>2021-08-29</span>
+<span>2021-03-23</span>
 </div>
 <div class="mr-6 my-2">
 <i class="fas fa-clock mr-1"></i>
@@ -92,59 +104,7 @@
 </div>
 <div class="mr-6 my-2">
 <i class="fas fa-folder mr-1"></i>
-<a href=https://blog.zling.site/categories/lua/ class=hover:text-eureka>lua</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%BA%8C/ class="font-bold text-xl hover:text-eureka">Lua学习记录（二）</a>
-</div>
-<div class=content>
-模式匹配 函数 string.find 返回匹配的开始和结束索引 string.match 返回匹配的字符串 string.gsub 返回替换后的字符串和发生替换的次数 string.gmatch 返回函数，此函数可遍历一个字符串中所匹配的所有字串 模式 Lua
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-08-28</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>2分钟阅读时长</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=https://blog.zling.site/categories/lua/ class=hover:text-eureka>lua</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://blog.zling.site/posts/lua%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B8%80/ class="font-bold text-xl hover:text-eureka">Lua学习记录（一）</a>
-</div>
-<div class=content>
-标识符 由任意字母、数字和下划线组成，同时首字符不能是数字，大小写敏感。 下划线加全大写字母（例如：_VERSION）组成的标识符，通常是特殊标识符（最好
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-08-18</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>5分钟阅读时长</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=https://blog.zling.site/categories/lua/ class=hover:text-eureka>lua</a>
+<a href=https://blog.zling.site/categories/hugo/ class=hover:text-eureka>hugo</a>
 </div>
 </div>
 </div>
@@ -152,6 +112,35 @@
 </div>
 </div>
 </div>
+<ul class="pagination pagination-default">
+<li class=page-item>
+<a href=/posts/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a>
+</li>
+<li class=page-item>
+<a href=/posts/page/22/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a>
+</li>
+<li class=page-item>
+<a href=/posts/page/19/ aria-label="Page 19" class=page-link role=button>19</a>
+</li>
+<li class=page-item>
+<a href=/posts/page/20/ aria-label="Page 20" class=page-link role=button>20</a>
+</li>
+<li class=page-item>
+<a href=/posts/page/21/ aria-label="Page 21" class=page-link role=button>21</a>
+</li>
+<li class=page-item>
+<a href=/posts/page/22/ aria-label="Page 22" class=page-link role=button>22</a>
+</li>
+<li class="page-item active">
+<a href=# aria-current=page aria-label="Page 23" class=page-link role=button>23</a>
+</li>
+<li class="page-item disabled">
+<a href=# aria-disabled=true aria-label=Next class=page-link role=button tabindex=-1><span aria-hidden=true>&#187;</span></a>
+</li>
+<li class="page-item disabled">
+<a href=# aria-disabled=true aria-label=Last class=page-link role=button tabindex=-1><span aria-hidden=true>&#187;&#187;</span></a>
+</li>
+</ul>
 </div>
 </div>
 </main>
