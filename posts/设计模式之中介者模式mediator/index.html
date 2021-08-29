@@ -17,13 +17,13 @@
 <script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
 <link rel=icon type=image/png sizes=32x32 href=https://blog.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_32x32_fill_box_center_3.png>
 <link rel=apple-touch-icon sizes=180x180 href=https://blog.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
-<meta name=description content="定义 将子系统间的互动委托给中介者，减少子系统相互调用的耦合，子系统通过中介者交互。 UML">
+<meta name=description content="中介者模式 定义 将子系统间的互动委托给中介者，减少子系统相互调用的耦合，子系统通过中介者交互。 UML 代码 public abstract class Mediator { public abstract void SendMessage(Colleague colleague, string message); } public class ConcreteMediator : Mediator { private ConcreteColleague1 _colleague1 = null; private ConcreteColleague2">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://blog.zling.site/posts/"},{"@type":"ListItem","position":2,"name":"设计模式之中介者模式（Mediator）","item":"https://blog.zling.site/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8Fmediator/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zling.site/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8Fmediator/"},"headline":"设计模式之中介者模式（Mediator） | 🐉泽梅尔的驻留地","datePublished":"2021-05-01T12:15:01+08:00","dateModified":"2021-08-29T13:09:56+08:00","wordCount":42,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://blog.zling.site/dahuai_samll.png"}},"description":"定义 将子系统间的互动委托给中介者，减少子系统相互调用的耦合，子系统通过中介者交互。 UML"}</script><meta property="og:title" content="设计模式之中介者模式（Mediator） | 🐉泽梅尔的驻留地">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zling.site/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8Fmediator/"},"headline":"设计模式之中介者模式（Mediator） | 🐉泽梅尔的驻留地","datePublished":"2021-05-01T12:15:01+08:00","dateModified":"2021-08-29T13:09:56+08:00","wordCount":293,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://blog.zling.site/dahuai_samll.png"}},"description":"中介者模式 定义 将子系统间的互动委托给中介者，减少子系统相互调用的耦合，子系统通过中介者交互。 UML 代码 public abstract class Mediator { public abstract void SendMessage(Colleague colleague, string message); } public class ConcreteMediator : Mediator { private ConcreteColleague1 _colleague1 = null; private ConcreteColleague2"}</script><meta property="og:title" content="设计模式之中介者模式（Mediator） | 🐉泽梅尔的驻留地">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://blog.zling.site/dahuai_samll.png">
 <meta property="og:url" content="https://blog.zling.site/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8Fmediator/">
-<meta property="og:description" content="定义 将子系统间的互动委托给中介者，减少子系统相互调用的耦合，子系统通过中介者交互。 UML">
+<meta property="og:description" content="中介者模式 定义 将子系统间的互动委托给中介者，减少子系统相互调用的耦合，子系统通过中介者交互。 UML 代码 public abstract class Mediator { public abstract void SendMessage(Colleague colleague, string message); } public class ConcreteMediator : Mediator { private ConcreteColleague1 _colleague1 = null; private ConcreteColleague2">
 <meta property="og:locale" content="zh">
 <meta property="og:site_name" content="🐉泽梅尔的驻留地">
 <meta property="article:published_time" content="2021-05-01T12:15:01+08:00">
@@ -91,9 +91,91 @@
 </div>
 </div>
 <div class=content>
+<h1 id=中介者模式>中介者模式</h1>
 <h2 id=定义>定义</h2>
 <p>将子系统间的互动委托给中介者，减少子系统相互调用的耦合，子系统通过中介者交互。</p>
 <h2 id=uml>UML</h2>
+<p><img src=images/designPattern/Mediator.jpg alt=中介者模式UML></p>
+<h2 id=代码>代码</h2>
+<pre><code class=language-c#>public abstract class Mediator
+    {
+        public abstract void SendMessage(Colleague colleague, string message);
+    }
+
+    public class ConcreteMediator : Mediator
+    {
+        private ConcreteColleague1 _colleague1 = null;
+        private ConcreteColleague2 _colleague2 = null;
+
+        public void SetConcreteColleague1(ConcreteColleague1 colleague1)
+        {
+            _colleague1 = colleague1;
+        }
+        
+        public void SetConcreteColleague2(ConcreteColleague2 colleague2)
+        {
+            _colleague2 = colleague2;
+        }
+        
+        public override void SendMessage(Colleague colleague, string message)
+        {
+            if (colleague == _colleague1)
+            {
+                _colleague2.Request(message);
+            }
+            
+            if (colleague == _colleague2)
+            {
+                _colleague1.Request(message);
+            }
+        }
+    }
+    
+    public abstract class Colleague
+    {
+        protected Mediator Mediator;
+
+        public Colleague(Mediator mediator)
+        {
+            Mediator = mediator;
+        }
+
+        public abstract void Request(string message);
+    }
+
+    public class ConcreteColleague1 : Colleague
+    {
+        public ConcreteColleague1(Mediator mediator) : base(mediator)
+        {
+        }
+
+        public void Action()
+        {
+            Mediator.SendMessage(this, $&quot;{nameof(ConcreteColleague1)}发送通知&quot;);
+        }
+
+        public override void Request(string message)
+        {
+            Debug.Log($&quot;{nameof(ConcreteColleague1)}.Request: {message}&quot;);
+        }
+    }
+    
+    public class ConcreteColleague2 : Colleague
+    {
+        public ConcreteColleague2(Mediator mediator) : base(mediator)
+        {
+        }
+
+        public void Action()
+        {
+            Mediator.SendMessage(this, $&quot;{nameof(ConcreteColleague2)}发送通知&quot;);
+        }
+
+        public override void Request(string message)
+        {
+            Debug.Log($&quot;{nameof(ConcreteColleague2)}.Request: {message}&quot;);
+        }
+</code></pre>
 </div>
 <div class=my-4>
 <a href=https://blog.zling.site/tags/design-pattern/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#design pattern</a>
@@ -133,6 +215,7 @@
 <ul>
 <li><a href=#定义>定义</a></li>
 <li><a href=#uml>UML</a></li>
+<li><a href=#代码>代码</a></li>
 </ul>
 </nav>
 </div>
