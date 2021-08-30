@@ -105,3 +105,12 @@ public abstract class Mediator
             Debug.Log($"{nameof(ConcreteColleague2)}.Request: {message}");
         }
 ```
+
+## 优点
+
+* 对于子系统或子模块而言，减少了互相间的依赖，只需依赖中介者类就可以与其他子系统交互。
+* 同时子系统被依赖的程度也降低了（只被中介者依赖），当子系统变动时，只会影响中介者类。
+
+## 注意事项
+
+* 通过结合其他设计模式以避免中介者过于臃肿。
