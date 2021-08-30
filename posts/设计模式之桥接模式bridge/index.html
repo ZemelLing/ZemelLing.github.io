@@ -17,13 +17,13 @@
 <script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
 <link rel=icon type=image/png sizes=32x32 href=https://zemelling.github.io/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_32x32_fill_box_center_3.png>
 <link rel=apple-touch-icon sizes=180x180 href=https://zemelling.github.io/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
-<meta name=description content="定义 将抽象和实现分离，以达到二者独立进化的目的。">
+<meta name=description content="桥接模式 定义 将抽象和实现分离，以达到二者独立进化的目的。 UML 代码 public abstract class Implementor { public abstract void OperatorImp(); } public class ConcreteImplementor1 : Implementor { public override void OperatorImp() { Debug.Log($&#34;执行{nam">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://zemelling.github.io/posts/"},{"@type":"ListItem","position":2,"name":"设计模式之桥接模式（Bridge）","item":"https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8Fbridge/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8Fbridge/"},"headline":"设计模式之桥接模式（Bridge） | 🐉泽梅尔的驻留地","datePublished":"2021-05-02T10:39:22+08:00","dateModified":"2021-08-29T13:09:56+08:00","wordCount":24,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://zemelling.github.io/dahuai_samll.png"}},"description":"定义 将抽象和实现分离，以达到二者独立进化的目的。"}</script><meta property="og:title" content="设计模式之桥接模式（Bridge） | 🐉泽梅尔的驻留地">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8Fbridge/"},"headline":"设计模式之桥接模式（Bridge） | 🐉泽梅尔的驻留地","datePublished":"2021-05-02T10:39:22+08:00","dateModified":"2021-08-29T13:09:56+08:00","wordCount":447,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://zemelling.github.io/dahuai_samll.png"}},"description":"桥接模式 定义 将抽象和实现分离，以达到二者独立进化的目的。 UML 代码 public abstract class Implementor { public abstract void OperatorImp(); } public class ConcreteImplementor1 : Implementor { public override void OperatorImp() { Debug.Log($\u0026quot;执行{nam"}</script><meta property="og:title" content="设计模式之桥接模式（Bridge） | 🐉泽梅尔的驻留地">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://zemelling.github.io/dahuai_samll.png">
 <meta property="og:url" content="https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8Fbridge/">
-<meta property="og:description" content="定义 将抽象和实现分离，以达到二者独立进化的目的。">
+<meta property="og:description" content="桥接模式 定义 将抽象和实现分离，以达到二者独立进化的目的。 UML 代码 public abstract class Implementor { public abstract void OperatorImp(); } public class ConcreteImplementor1 : Implementor { public override void OperatorImp() { Debug.Log($&#34;执行{nam">
 <meta property="og:locale" content="zh">
 <meta property="og:site_name" content="🐉泽梅尔的驻留地">
 <meta property="article:published_time" content="2021-05-02T10:39:22+08:00">
@@ -92,8 +92,71 @@
 </div>
 </div>
 <div class=content>
+<h1 id=桥接模式>桥接模式</h1>
 <h2 id=定义>定义</h2>
 <p>将抽象和实现分离，以达到二者独立进化的目的。</p>
+<h2 id=uml>UML</h2>
+<p><img src=images/designPattern/Bridge.jpg alt=中介者模式UML></p>
+<h2 id=代码>代码</h2>
+<pre><code class=language-c#>public abstract class Implementor
+    {
+        public abstract void OperatorImp();
+    }
+
+    public class ConcreteImplementor1 : Implementor
+    {
+        public override void OperatorImp()
+        {
+            Debug.Log($&quot;执行{nameof(ConcreteImplementor1)}.{nameof(OperatorImp)}&quot;);
+        }
+    }
+    
+    public class ConcreteImplementor2 : Implementor
+    {
+        public override void OperatorImp()
+        {
+            Debug.Log($&quot;执行{nameof(ConcreteImplementor2)}.{nameof(OperatorImp)}&quot;);
+        }
+    }
+
+    public abstract class Abstraction
+    {
+        private Implementor _implementor;
+
+        public void SetImplementor(Implementor imp)
+        {
+            _implementor = imp;
+        }
+
+        public virtual void Operation()
+        {
+            _implementor?.OperatorImp();
+        }
+    }
+
+    public class RefinedAbstraction1 : Abstraction
+    {
+        public override void Operation()
+        {
+            Debug.Log($&quot;物件{nameof(RefinedAbstraction1)}&quot;);
+            base.Operation();
+        }
+    }
+    
+    public class RefinedAbstraction2 : Abstraction
+    {
+        public override void Operation()
+        {
+            Debug.Log($&quot;物件{nameof(RefinedAbstraction2)}&quot;);
+            base.Operation();
+        }
+    }
+</code></pre>
+<h2 id=应用场景>应用场景</h2>
+<ul>
+<li>需要抽象和实现的分离时。</li>
+<li>当两个群组因为功能的需求，想要连接合作，但又希望两组类能够各自发展不受彼此影响时。</li>
+</ul>
 </div>
 <div class=my-4>
 <a href=https://zemelling.github.io/tags/design-pattern/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#design pattern</a>
@@ -132,6 +195,9 @@
 <nav id=TableOfContents>
 <ul>
 <li><a href=#定义>定义</a></li>
+<li><a href=#uml>UML</a></li>
+<li><a href=#代码>代码</a></li>
+<li><a href=#应用场景>应用场景</a></li>
 </ul>
 </nav>
 </div>
