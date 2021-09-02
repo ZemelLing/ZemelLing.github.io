@@ -1,6 +1,6 @@
 <!doctype html><html lang=zh class=dark><meta charset=utf-8>
 <meta name=viewport content="width=device-width">
-<title>Unity中的特殊文件夹和脚本编译顺序 | 🐉泽梅尔的驻留地</title>
+<title>Unity中的特殊文件夹和脚本编译顺序 | 🦁泽梅尔的驻留地</title>
 <meta name=generator content="Hugo Eureka 0.8.2">
 <link rel=stylesheet href=https://zemelling.github.io/css/eureka.min.css>
 <script defer src=https://zemelling.github.io/js/eureka.min.js></script>
@@ -19,13 +19,13 @@
 <link rel=apple-touch-icon sizes=180x180 href=https://zemelling.github.io/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
 <meta name=description content="特殊文件夹 Assets Assets 文件夹是包含 Unity 项目使用的资源的主文件夹。Editor 中的 Project 窗口的内容直接对应于 Assets 文件夹的内容。大多数 API 函数都假定所有内容都位于 Assets 文件夹中">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://zemelling.github.io/posts/"},{"@type":"ListItem","position":2,"name":"Unity中的特殊文件夹和脚本编译顺序","item":"https://zemelling.github.io/posts/unity%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E5%92%8C%E8%84%9A%E6%9C%AC%E7%BC%96%E8%AF%91%E9%A1%BA%E5%BA%8F/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://zemelling.github.io/posts/unity%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E5%92%8C%E8%84%9A%E6%9C%AC%E7%BC%96%E8%AF%91%E9%A1%BA%E5%BA%8F/"},"headline":"Unity中的特殊文件夹和脚本编译顺序 | 🐉泽梅尔的驻留地","datePublished":"2021-04-05T13:24:47+08:00","dateModified":"2021-08-29T13:09:56+08:00","wordCount":1071,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://zemelling.github.io/dahuai_samll.png"}},"description":"特殊文件夹 Assets Assets 文件夹是包含 Unity 项目使用的资源的主文件夹。Editor 中的 Project 窗口的内容直接对应于 Assets 文件夹的内容。大多数 API 函数都假定所有内容都位于 Assets 文件夹中"}</script><meta property="og:title" content="Unity中的特殊文件夹和脚本编译顺序 | 🐉泽梅尔的驻留地">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://zemelling.github.io/posts/unity%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E5%92%8C%E8%84%9A%E6%9C%AC%E7%BC%96%E8%AF%91%E9%A1%BA%E5%BA%8F/"},"headline":"Unity中的特殊文件夹和脚本编译顺序 | 🦁泽梅尔的驻留地","datePublished":"2021-04-05T13:24:47+08:00","dateModified":"2021-08-29T13:09:56+08:00","wordCount":1071,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://zemelling.github.io/dahuai_samll.png"}},"description":"特殊文件夹 Assets Assets 文件夹是包含 Unity 项目使用的资源的主文件夹。Editor 中的 Project 窗口的内容直接对应于 Assets 文件夹的内容。大多数 API 函数都假定所有内容都位于 Assets 文件夹中"}</script><meta property="og:title" content="Unity中的特殊文件夹和脚本编译顺序 | 🦁泽梅尔的驻留地">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://zemelling.github.io/dahuai_samll.png">
 <meta property="og:url" content="https://zemelling.github.io/posts/unity%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E5%92%8C%E8%84%9A%E6%9C%AC%E7%BC%96%E8%AF%91%E9%A1%BA%E5%BA%8F/">
 <meta property="og:description" content="特殊文件夹 Assets Assets 文件夹是包含 Unity 项目使用的资源的主文件夹。Editor 中的 Project 窗口的内容直接对应于 Assets 文件夹的内容。大多数 API 函数都假定所有内容都位于 Assets 文件夹中">
 <meta property="og:locale" content="zh">
-<meta property="og:site_name" content="🐉泽梅尔的驻留地">
+<meta property="og:site_name" content="🦁泽梅尔的驻留地">
 <meta property="article:published_time" content="2021-04-05T13:24:47+08:00">
 <meta property="article:modified_time" content="2021-08-29T13:09:56+08:00">
 <meta property="article:section" content="posts">
@@ -40,7 +40,7 @@
 <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
 <div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");(storageColorScheme=='Auto'&&window.matchMedia("(prefers-color-scheme: light)").matches||storageColorScheme=="Light")&&document.getElementsByTagName('html')[0].classList.remove('dark')</script>
 <nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
-<a href=/ class="mr-6 text-primary-text text-xl font-bold">🐉泽梅尔的驻留地</a>
+<a href=/ class="mr-6 text-primary-text text-xl font-bold">🦁泽梅尔的驻留地</a>
 <button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
 <i class="fas fa-bars"></i>
 </button>
