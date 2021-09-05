@@ -1,6 +1,6 @@
 <!doctype html><html lang=zh class=dark><meta charset=utf-8>
 <meta name=viewport content="width=device-width">
-<title>Unity中的Transform组件 | 🦁泽梅尔的驻留地</title>
+<title>设计模式之工厂方法模式 | 🦁泽梅尔的驻留地</title>
 <meta name=generator content="Hugo Eureka 0.8.2">
 <link rel=stylesheet href=https://zemelling.github.io/css/eureka.min.css>
 <script defer src=https://zemelling.github.io/js/eureka.min.js></script>
@@ -17,26 +17,25 @@
 <script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
 <link rel=icon type=image/png sizes=32x32 href=https://zemelling.github.io/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_32x32_fill_box_center_3.png>
 <link rel=apple-touch-icon sizes=180x180 href=https://zemelling.github.io/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
-<meta name=description content="Transform组件 在 Unity 场景中的游戏对象都有 Transform 组件，用于存储和操作对象的位置、旋转和缩放，同时 Transform 支持枚举。 重要的属性 属性 说明 childCount 该transform的">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://zemelling.github.io/posts/"},{"@type":"ListItem","position":2,"name":"Unity中的Transform组件","item":"https://zemelling.github.io/posts/unity%E4%B8%AD%E7%9A%84transform%E7%BB%84%E4%BB%B6/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://zemelling.github.io/posts/unity%E4%B8%AD%E7%9A%84transform%E7%BB%84%E4%BB%B6/"},"headline":"Unity中的Transform组件 | 🦁泽梅尔的驻留地","datePublished":"2021-09-05T11:24:21+08:00","dateModified":"2021-09-05T11:24:21+08:00","wordCount":233,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://zemelling.github.io/dahuai_samll.png"}},"description":"Transform组件 在 Unity 场景中的游戏对象都有 Transform 组件，用于存储和操作对象的位置、旋转和缩放，同时 Transform 支持枚举。 重要的属性 属性 说明 childCount 该transform的"}</script><meta property="og:title" content="Unity中的Transform组件 | 🦁泽梅尔的驻留地">
+<meta name=description content="工厂方法模式 定义 定义一个可以产生对象的接口，但是让子类决定要产生哪个类的对象。工厂方法模式让类的实例化程序推迟到子类中实现。 UML 实现方式 由子类决定生产哪">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://zemelling.github.io/posts/"},{"@type":"ListItem","position":2,"name":"设计模式之工厂方法模式","item":"https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"},"headline":"设计模式之工厂方法模式 | 🦁泽梅尔的驻留地","datePublished":"2021-09-05T16:09:25+08:00","dateModified":"2021-09-05T16:09:25+08:00","wordCount":118,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://zemelling.github.io/dahuai_samll.png"}},"description":"工厂方法模式 定义 定义一个可以产生对象的接口，但是让子类决定要产生哪个类的对象。工厂方法模式让类的实例化程序推迟到子类中实现。 UML 实现方式 由子类决定生产哪"}</script><meta property="og:title" content="设计模式之工厂方法模式 | 🦁泽梅尔的驻留地">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://zemelling.github.io/dahuai_samll.png">
-<meta property="og:url" content="https://zemelling.github.io/posts/unity%E4%B8%AD%E7%9A%84transform%E7%BB%84%E4%BB%B6/">
-<meta property="og:description" content="Transform组件 在 Unity 场景中的游戏对象都有 Transform 组件，用于存储和操作对象的位置、旋转和缩放，同时 Transform 支持枚举。 重要的属性 属性 说明 childCount 该transform的">
+<meta property="og:url" content="https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/">
+<meta property="og:description" content="工厂方法模式 定义 定义一个可以产生对象的接口，但是让子类决定要产生哪个类的对象。工厂方法模式让类的实例化程序推迟到子类中实现。 UML 实现方式 由子类决定生产哪">
 <meta property="og:locale" content="zh">
 <meta property="og:site_name" content="🦁泽梅尔的驻留地">
-<meta property="article:published_time" content="2021-09-05T11:24:21+08:00">
-<meta property="article:modified_time" content="2021-09-05T11:24:21+08:00">
+<meta property="article:published_time" content="2021-09-05T16:09:25+08:00">
+<meta property="article:modified_time" content="2021-09-05T16:09:25+08:00">
 <meta property="article:section" content="posts">
-<meta property="article:tag" content="unity">
-<meta property="article:tag" content="component">
-<meta property="og:see_also" content="https://zemelling.github.io/posts/unity%E7%9A%84runtimeinitializeonloadmethodattribute%E7%89%B9%E6%80%A7/">
-<meta property="og:see_also" content="https://zemelling.github.io/posts/unity%E4%B8%AD%E4%BD%BF%E7%94%A8null%E5%90%88%E5%B9%B6%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%92%8Cnull%E6%9D%A1%E4%BB%B6%E6%93%8D%E4%BD%9C%E7%AC%A6%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
-<meta property="og:see_also" content="https://zemelling.github.io/posts/%E8%87%AA%E5%BB%BAunitypackageserver/">
-<meta property="og:see_also" content="https://zemelling.github.io/posts/unity%E4%B8%AD%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%BA%A7%E7%94%9F%E7%A2%B0%E6%92%9E%E7%9A%84%E6%9D%A1%E4%BB%B6/">
-<meta property="og:see_also" content="https://zemelling.github.io/posts/unity%E4%B8%AD%E7%9A%84%E6%AC%A7%E6%8B%89%E8%A7%92%E5%92%8C%E5%9B%9B%E5%85%83%E6%95%B0/">
-<meta property="og:see_also" content="https://zemelling.github.io/posts/unity%E4%B8%AD%E7%9A%84tilemap/">
+<meta property="article:tag" content="design pattern">
+<meta property="og:see_also" content="https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8Ftemplatemethod/">
+<meta property="og:see_also" content="https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8Fstrategy/">
+<meta property="og:see_also" content="https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8Fbridge/">
+<meta property="og:see_also" content="https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8Fmediator/">
+<meta property="og:see_also" content="https://zemelling.github.io/posts/%E8%AE%BE%E7%BD%AE%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8Ffacade/">
+<meta property="og:see_also" content="https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8Fstate/">
 <body class="flex flex-col min-h-screen">
 <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
 <div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");(storageColorScheme=='Auto'&&window.matchMedia("(prefers-color-scheme: light)").matches||storageColorScheme=="Light")&&document.getElementsByTagName('html')[0].classList.remove('dark')</script>
@@ -77,7 +76,7 @@
 <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
 <div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
 <div class="col-span-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
-<h1 class="font-bold text-3xl text-primary-text">Unity中的Transform组件</h1>
+<h1 class="font-bold text-3xl text-primary-text">设计模式之工厂方法模式</h1>
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
 <div class="mr-6 my-2">
 <i class="fas fa-calendar mr-1"></i>
@@ -89,78 +88,25 @@
 </div>
 <div class="mr-6 my-2">
 <i class="fas fa-folder mr-1"></i>
-<a href=https://zemelling.github.io/categories/unity/ class=hover:text-eureka>unity</a>
+<a href=https://zemelling.github.io/categories/design-pattern/ class=hover:text-eureka>design pattern</a>
 </div>
 </div>
 <div class=content>
-<h1 id=transform组件>Transform组件</h1>
-<p>在 Unity 场景中的游戏对象都有 Transform 组件，用于存储和操作对象的位置、旋转和缩放，同时 Transform 支持枚举。</p>
-<h2 id=重要的属性>重要的属性</h2>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>childCount</td>
-<td>该transform的直接孩子个数</td>
-</tr>
-<tr>
-<td>forward</td>
-<td>返回归一化向量，该向量在世界空间中为蓝色轴表示</td>
-</tr>
-<tr>
-<td>right</td>
-<td>红色轴</td>
-</tr>
-<tr>
-<td>up</td>
-<td>绿色轴</td>
-</tr>
-</tbody>
-</table>
-<h2 id=重要的方法>重要的方法</h2>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DetachChildren</td>
-<td>将当前 Transform 下的孩子与其脱钩</td>
-</tr>
-<tr>
-<td>Find</td>
-<td>根据给定的游戏对象名称查找孩子（非递归查找）</td>
-</tr>
-<tr>
-<td>GetSiblingIndex</td>
-<td>获取当前 transform 在父亲的孩子中的索引（兄弟索引）。</td>
-</tr>
-<tr>
-<td>TransformDirection</td>
-<td>将方向从局部空间坐标转为世界空间坐标</td>
-</tr>
-<tr>
-<td>LookAt</td>
-<td>将forward方向指向目标</td>
-</tr>
-<tr>
-<td>Translate</td>
-<td>将游戏对象按照给的的方向和距离移动</td>
-</tr>
-</tbody>
-</table>
+<h1 id=工厂方法模式>工厂方法模式</h1>
+<h2 id=定义>定义</h2>
+<p>定义一个可以产生对象的接口，但是让子类决定要产生哪个类的对象。工厂方法模式让类的实例化程序推迟到子类中实现。</p>
+<h2 id=uml>UML</h2>
+<h2 id=实现方式>实现方式</h2>
+<ul>
+<li>由子类决定生产哪个类的对象</li>
+<li>在工厂方法中增加参数，由参数决定生产哪个类对象</li>
+<li>使用泛型类</li>
+<li>使用泛型工厂方法</li>
+</ul>
+<h2 id=注意>注意</h2>
 </div>
 <div class=my-4>
-<a href=https://zemelling.github.io/tags/unity/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#unity</a>
-<a href=https://zemelling.github.io/tags/component/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#component</a>
+<a href=https://zemelling.github.io/tags/design-pattern/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#design pattern</a>
 </div>
 <div class=py-2>
 <div class="flex flex-col md:flex-row items-center my-8">
@@ -178,12 +124,10 @@
 </div>
 <div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
 <div>
-<span class="block font-bold">上一页</span>
-<a href=https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/ class=block>设计模式之工厂方法模式</a>
 </div>
 <div class="md:text-right mt-4 md:mt-0">
 <span class="block font-bold">下一页</span>
-<a href=https://zemelling.github.io/posts/unity%E7%9A%84runtimeinitializeonloadmethodattribute%E7%89%B9%E6%80%A7/ class=block>Unity的RuntimeInitializeOnLoadMethodAttribute特性</a>
+<a href=https://zemelling.github.io/posts/unity%E4%B8%AD%E7%9A%84transform%E7%BB%84%E4%BB%B6/ class=block>Unity中的Transform组件</a>
 </div>
 </div>
 </div>
@@ -194,8 +138,10 @@
 <div class="sticky-toc hidden lg:block px-6 pb-6">
 <nav id=TableOfContents>
 <ul>
-<li><a href=#重要的属性>重要的属性</a></li>
-<li><a href=#重要的方法>重要的方法</a></li>
+<li><a href=#定义>定义</a></li>
+<li><a href=#uml>UML</a></li>
+<li><a href=#实现方式>实现方式</a></li>
+<li><a href=#注意>注意</a></li>
 </ul>
 </nav>
 </div>
@@ -204,17 +150,17 @@
 <div class="col-span-2 lg:col-span-6 bg-secondary-bg rounded p-6">
 <h2 class="text-lg font-semibold mb-4">相关</h2>
 <div class=content>
-<a href=https://zemelling.github.io/posts/unity%E7%9A%84runtimeinitializeonloadmethodattribute%E7%89%B9%E6%80%A7/>Unity的RuntimeInitializeOnLoadMethodAttribute特性</a>
+<a href=https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8Ftemplatemethod/>设计模式之模板方法模式（TemplateMethod）</a>
 <br>
-<a href=https://zemelling.github.io/posts/unity%E4%B8%AD%E4%BD%BF%E7%94%A8null%E5%90%88%E5%B9%B6%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%92%8Cnull%E6%9D%A1%E4%BB%B6%E6%93%8D%E4%BD%9C%E7%AC%A6%E6%97%B6%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/>Unity中使用Null合并操作符和Null条件操作符时的注意事项</a>
+<a href=https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8Fstrategy/>设计模式之策略模式（Strategy）</a>
 <br>
-<a href=https://zemelling.github.io/posts/%E8%87%AA%E5%BB%BAunitypackageserver/>自建UnityPackageServer</a>
+<a href=https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8Fbridge/>设计模式之桥接模式（Bridge）</a>
 <br>
-<a href=https://zemelling.github.io/posts/unity%E4%B8%AD%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%BA%A7%E7%94%9F%E7%A2%B0%E6%92%9E%E7%9A%84%E6%9D%A1%E4%BB%B6/>Unity中游戏对象产生碰撞的条件</a>
+<a href=https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8Fmediator/>设计模式之中介者模式（Mediator）</a>
 <br>
-<a href=https://zemelling.github.io/posts/unity%E4%B8%AD%E7%9A%84%E6%AC%A7%E6%8B%89%E8%A7%92%E5%92%8C%E5%9B%9B%E5%85%83%E6%95%B0/>Unity中的欧拉角和四元数</a>
+<a href=https://zemelling.github.io/posts/%E8%AE%BE%E7%BD%AE%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8Ffacade/>设置模式之外观模式（Facade）</a>
 <br>
-<a href=https://zemelling.github.io/posts/unity%E4%B8%AD%E7%9A%84tilemap/>Unity中的Tilemap</a>
+<a href=https://zemelling.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8Fstate/>设计模式之状态模式（State）</a>
 <br>
 </div>
 </div>
