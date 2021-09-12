@@ -19,14 +19,14 @@
 <link rel=apple-touch-icon sizes=180x180 href=https://www.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
 <meta name=description content="Zemel Ling's blog in web.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Categories","item":"https://www.zling.site/categories/"},{"@type":"ListItem","position":2,"name":"unity","item":"https://www.zling.site/categories/unity/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Unity中使用Addressable","description":"使用步骤 标记资源为Addressable 方式一：在资源的Inspector界面 方式二：在 Addressables Groups 窗口 构建可寻址内容(Addressable Content) 方式一：使用 Editor","url":"https://www.zling.site/posts/unity%E4%B8%AD%E4%BD%BF%E7%94%A8addressable/"},{"@type":"ListItem","position":2,"name":"Unity代码修改Prefab未能保存的问题","description":"解决办法 使用 EditorUtility.SetDirty(thePrefabObjectOrComponent); 将其设置为Dirty，之后就可以保存了。","url":"https://www.zling.site/posts/unity%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9prefab%E6%9C%AA%E8%83%BD%E4%BF%9D%E5%AD%98%E7%9A%84%E9%97%AE%E9%A2%98/"},{"@type":"ListItem","position":3,"name":"Unity中使用CustomEditor自定义脚本的Inspector面板","description":"自定义脚本 using UnityEngine; public class LookAtPoint : MonoBehaviour { public Vector3 lookAtPoint = Vector3.zero; void Update() { transform.LookAt(lookAtPoint); } } 使用 CustomEditor 特性 using UnityEngine; using UnityEditor; [CustomEditor(typeof(LookAtPoint))] // 指定为哪个组件自定义编辑器界面 [CanEditMultipleObjects] // 指示Unity可以为多个对象的同一组件同时编辑","url":"https://www.zling.site/posts/unity%E4%B8%AD%E4%BD%BF%E7%94%A8customeditor%E8%87%AA%E5%AE%9A%E4%B9%89%E8%84%9A%E6%9C%AC%E7%9A%84inspector%E9%9D%A2%E6%9D%BF/"},{"@type":"ListItem","position":4,"name":"Unity中的Transform组件","description":"Transform组件 在 Unity 场景中的游戏对象都有 Transform 组件，用于存储和操作对象的位置、旋转和缩放，同时 Transform 支持枚举。 重要的属性 属性 说明 childCount 该transform的","url":"https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84transform%E7%BB%84%E4%BB%B6/"}]}</script><meta property="og:title" content="unity | 🦁泽梅尔的驻留地">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Unity之动态将场景添加到BuildSettings中","description":"代码 #region 将场景添加到 Build Settings // 场景存放目录 var sceneDir = $\u0026quot;{Application.dataPath}/Scenes\u0026quot;; var sceneFiles = Directory.GetFiles(sceneDir, \u0026quot;*.unity\u0026quot;, SearchOption.AllDirectories); var scenes = new EditorBuildSettingsScene[sceneFiles.Length]; for (var i = 0; i \u0026lt; sceneFiles.Length; i++) { // 替换斜杠 var sceneFile = sceneFiles[i].Replace(\u0026quot;\\\\\u0026quot;, \u0026quot;/\u0026quot;); // 使用相对路径 var assetsFolderIndex = sceneFile.IndexOf(\u0026quot;Assets\u0026quot;, StringComparison.Ordinal); sceneFile = sceneFile.Substring(assetsFolderIndex); var scene = new EditorBuildSettingsScene(sceneFile, true); scenes[i]","url":"https://www.zling.site/posts/unity%E4%B9%8B%E5%8A%A8%E6%80%81%E5%B0%86%E5%9C%BA%E6%99%AF%E6%B7%BB%E5%8A%A0%E5%88%B0buildsettings%E4%B8%AD/"},{"@type":"ListItem","position":2,"name":"UGUI之Canvas","description":"Canvas Canvas 是UGUI中用于显示其他UI元素的基础，其附加了 Canvas 组件，在场景中可以有多个 Canvas 游戏对象，同时允许 Canvas 嵌套。 Canvas 组件的重要属性 渲染模式 Screen Space - Overlay 此模式下UI","url":"https://www.zling.site/posts/ugui%E4%B9%8Bcanvas/"},{"@type":"ListItem","position":3,"name":"Unity中使用Addressable","description":"使用步骤 标记资源为Addressable 方式一：在资源的Inspector界面 方式二：在 Addressables Groups 窗口 构建可寻址内容(Addressable Content) 方式一：使用 Editor","url":"https://www.zling.site/posts/unity%E4%B8%AD%E4%BD%BF%E7%94%A8addressable/"},{"@type":"ListItem","position":4,"name":"Unity代码修改Prefab未能保存的问题","description":"解决办法 使用 EditorUtility.SetDirty(thePrefabObjectOrComponent); 将其设置为Dirty，之后就可以保存了。","url":"https://www.zling.site/posts/unity%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9prefab%E6%9C%AA%E8%83%BD%E4%BF%9D%E5%AD%98%E7%9A%84%E9%97%AE%E9%A2%98/"}]}</script><meta property="og:title" content="unity | 🦁泽梅尔的驻留地">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://www.zling.site/dahuai_samll.png">
 <meta property="og:url" content="https://www.zling.site/categories/unity/">
 <meta property="og:description" content="Zemel Ling's blog in web.">
 <meta property="og:locale" content="zh">
 <meta property="og:site_name" content="🦁泽梅尔的驻留地">
-<meta property="og:updated_time" content="2021-09-06T18:56:37+08:00">
+<meta property="og:updated_time" content="2021-09-11T19:07:09+08:00">
 <meta property="article:section" content="categories">
 <link rel=alternate type=application/rss+xml href=https://www.zling.site/categories/unity/index.xml title=🦁泽梅尔的驻留地>
 <body class="flex flex-col min-h-screen">
@@ -76,6 +76,60 @@
 <div class="flex flex-col-reverse lg:flex-row justify-between">
 <div class=w-full>
 <div class=mb-4>
+<a href=https://www.zling.site/posts/unity%E4%B9%8B%E5%8A%A8%E6%80%81%E5%B0%86%E5%9C%BA%E6%99%AF%E6%B7%BB%E5%8A%A0%E5%88%B0buildsettings%E4%B8%AD/ class="font-bold text-xl hover:text-eureka">Unity之动态将场景添加到BuildSettings中</a>
+</div>
+<div class=content>
+代码 #region 将场景添加到 Build Settings // 场景存放目录 var sceneDir = $"{Application.dataPath}/Scenes"; var sceneFiles = Directory.GetFiles(sceneDir, "*.unity", SearchOption.AllDirectories); var scenes = new EditorBuildSettingsScene[sceneFiles.Length]; for (var i = 0; i &lt; sceneFiles.Length; i++) { // 替换斜杠 var sceneFile = sceneFiles[i].Replace("\\", "/"); // 使用相对路径 var assetsFolderIndex = sceneFile.IndexOf("Assets", StringComparison.Ordinal); sceneFile = sceneFile.Substring(assetsFolderIndex); var scene = new EditorBuildSettingsScene(sceneFile, true); scenes[i]
+</div>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2021-09-11</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>1分钟阅读时长</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=https://www.zling.site/categories/unity/ class=hover:text-eureka>unity</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
+<a href=https://www.zling.site/posts/ugui%E4%B9%8Bcanvas/ class="font-bold text-xl hover:text-eureka">UGUI之Canvas</a>
+</div>
+<div class=content>
+Canvas Canvas 是UGUI中用于显示其他UI元素的基础，其附加了 Canvas 组件，在场景中可以有多个 Canvas 游戏对象，同时允许 Canvas 嵌套。 Canvas 组件的重要属性 渲染模式 Screen Space - Overlay 此模式下UI
+</div>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2021-09-08</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>1分钟阅读时长</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=https://www.zling.site/categories/unity/ class=hover:text-eureka>unity</a>
+<span>, </span>
+<a href=https://www.zling.site/categories/ugui/ class=hover:text-eureka>ugui</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
 <a href=https://www.zling.site/posts/unity%E4%B8%AD%E4%BD%BF%E7%94%A8addressable/ class="font-bold text-xl hover:text-eureka">Unity中使用Addressable</a>
 </div>
 <div class=content>
@@ -111,58 +165,6 @@
 <div class="mr-6 my-2">
 <i class="fas fa-calendar mr-1"></i>
 <span>2021-09-06</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>1分钟阅读时长</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=https://www.zling.site/categories/unity/ class=hover:text-eureka>unity</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://www.zling.site/posts/unity%E4%B8%AD%E4%BD%BF%E7%94%A8customeditor%E8%87%AA%E5%AE%9A%E4%B9%89%E8%84%9A%E6%9C%AC%E7%9A%84inspector%E9%9D%A2%E6%9D%BF/ class="font-bold text-xl hover:text-eureka">Unity中使用CustomEditor自定义脚本的Inspector面板</a>
-</div>
-<div class=content>
-自定义脚本 using UnityEngine; public class LookAtPoint : MonoBehaviour { public Vector3 lookAtPoint = Vector3.zero; void Update() { transform.LookAt(lookAtPoint); } } 使用 CustomEditor 特性 using UnityEngine; using UnityEditor; [CustomEditor(typeof(LookAtPoint))] // 指定为哪个组件自定义编辑器界面 [CanEditMultipleObjects] // 指示Unity可以为多个对象的同一组件同时编辑
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-09-05</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>1分钟阅读时长</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=https://www.zling.site/categories/unity/ class=hover:text-eureka>unity</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84transform%E7%BB%84%E4%BB%B6/ class="font-bold text-xl hover:text-eureka">Unity中的Transform组件</a>
-</div>
-<div class=content>
-Transform组件 在 Unity 场景中的游戏对象都有 Transform 组件，用于存储和操作对象的位置、旋转和缩放，同时 Transform 支持枚举。 重要的属性 属性 说明 childCount 该transform的
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-09-05</span>
 </div>
 <div class="mr-6 my-2">
 <i class="fas fa-clock mr-1"></i>

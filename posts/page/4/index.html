@@ -18,7 +18,7 @@
 <link rel=icon type=image/png sizes=32x32 href=https://www.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_32x32_fill_box_center_3.png>
 <link rel=apple-touch-icon sizes=180x180 href=https://www.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
 <meta name=description content="Zemel Ling's blog in web.">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"日志依赖注入报错的问题","description":"依赖注入时报如下错误的解决办法 System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'Some.Class'. 解决办法: 主要是由于构造函数依赖注入时使用了 ILogger 而不是 ILogger\u0026lt;\u0026gt; 导致的，故改为 ILogger\u0026lt;\u0026gt; 即可。","url":"https://www.zling.site/posts/%E6%97%A5%E5%BF%97%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/"},{"@type":"ListItem","position":2,"name":"Ubuntu使用记录","description":"查看硬盘状况 sudo fdisk -l 使用 fdisk 分区 sudo fdisk /dev/sdb 格式化分区 sudo mkfs -t ext4 /dev/sdb1 挂载硬盘 创建挂载点，新建目录 mkdir ~/disk1 挂载 sudo mount /dev/sdb1 ~/disk1 自动挂载 查找硬盘 UUID ls -l /dev/disk/by-uuid/ 修改 /etc/fstab 文件，实现自动挂载 UUID=b543f8f7-579c-45b5-96d6-31de6fa1a55e /home/lgd/disk1","url":"https://www.zling.site/posts/ubuntu%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/"},{"@type":"ListItem","position":3,"name":"MariaDB中文数据问号解决办法","description":"在/etc/mysql/conf.d文件夹下修改如下文件的内容，若文件不存在的话就新建： server.cnf [mysqld] character-set-server=utf8 collation-server=utf8_general_ci client.cnf [client] default-character-set=utf8 最后重启MariaDB服务","url":"https://www.zling.site/posts/mariadb%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E9%97%AE%E5%8F%B7%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"},{"@type":"ListItem","position":4,"name":"CSharp中发送HTTP请求的方法","description":"发送 Get 请求 // HttpClient is intended to be instantiated once per application, rather than per-use. See Remarks. static readonly HttpClient client = new HttpClient(); static async Task Main() { // Call asynchronous network methods in a try/catch block to handle exceptions. try { HttpResponseMessage response = await client.GetAsync(\u0026quot;http://www.contoso.com/\u0026quot;); response.EnsureSuccessStatusCode(); string responseBody = await response.Content.ReadAsStringAsync(); // Above three lines can be replaced with new helper method below // string responseBody = await client.GetStringAsync(uri);","url":"https://www.zling.site/posts/csharp%E4%B8%AD%E5%8F%91%E9%80%81http%E8%AF%B7%E6%B1%82%E7%9A%84%E6%96%B9%E6%B3%95/"}]}</script><meta property="og:title" content="文章 | 🦁泽梅尔的驻留地">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"将引用的NuGet包dll输出到生成目录","description":"修改项目文件，在 \u0026lt;PropertyGroup\u0026gt; 处添加如下片段： \u0026lt;CopyLocalLockFileAssemblies\u0026gt;true\u0026lt;/CopyLocalLockFileAssemblies\u0026gt;","url":"https://www.zling.site/posts/%E5%B0%86%E5%BC%95%E7%94%A8%E7%9A%84nuget%E5%8C%85dll%E8%BE%93%E5%87%BA%E5%88%B0%E7%94%9F%E6%88%90%E7%9B%AE%E5%BD%95/"},{"@type":"ListItem","position":2,"name":"自建UnityPackageServer","description":"docker 安装 verdaccio","url":"https://www.zling.site/posts/%E8%87%AA%E5%BB%BAunitypackageserver/"},{"@type":"ListItem","position":3,"name":"日志依赖注入报错的问题","description":"依赖注入时报如下错误的解决办法 System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'Some.Class'. 解决办法: 主要是由于构造函数依赖注入时使用了 ILogger 而不是 ILogger\u0026lt;\u0026gt; 导致的，故改为 ILogger\u0026lt;\u0026gt; 即可。","url":"https://www.zling.site/posts/%E6%97%A5%E5%BF%97%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/"},{"@type":"ListItem","position":4,"name":"Ubuntu使用记录","description":"查看硬盘状况 sudo fdisk -l 使用 fdisk 分区 sudo fdisk /dev/sdb 格式化分区 sudo mkfs -t ext4 /dev/sdb1 挂载硬盘 创建挂载点，新建目录 mkdir ~/disk1 挂载 sudo mount /dev/sdb1 ~/disk1 自动挂载 查找硬盘 UUID ls -l /dev/disk/by-uuid/ 修改 /etc/fstab 文件，实现自动挂载 UUID=b543f8f7-579c-45b5-96d6-31de6fa1a55e /home/lgd/disk1","url":"https://www.zling.site/posts/ubuntu%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/"}]}</script><meta property="og:title" content="文章 | 🦁泽梅尔的驻留地">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://www.zling.site/dahuai_samll.png">
 <meta property="og:url" content="https://www.zling.site/posts/">
@@ -26,7 +26,7 @@
 <meta property="og:locale" content="zh">
 <meta property="og:locale:alternate" content="en">
 <meta property="og:site_name" content="🦁泽梅尔的驻留地">
-<meta property="og:updated_time" content="2021-09-06T18:56:37+08:00">
+<meta property="og:updated_time" content="2021-09-11T19:07:09+08:00">
 <meta property="article:section" content="posts">
 <link rel=alternate type=application/rss+xml href=https://www.zling.site/posts/index.xml title=🦁泽梅尔的驻留地>
 <body class="flex flex-col min-h-screen">
@@ -88,6 +88,58 @@
 <div class="flex flex-col-reverse lg:flex-row justify-between">
 <div class=w-full>
 <div class=mb-4>
+<a href=https://www.zling.site/posts/%E5%B0%86%E5%BC%95%E7%94%A8%E7%9A%84nuget%E5%8C%85dll%E8%BE%93%E5%87%BA%E5%88%B0%E7%94%9F%E6%88%90%E7%9B%AE%E5%BD%95/ class="font-bold text-xl hover:text-eureka">将引用的NuGet包dll输出到生成目录</a>
+</div>
+<div class=content>
+修改项目文件，在 &lt;PropertyGroup> 处添加如下片段： &lt;CopyLocalLockFileAssemblies>true&lt;/CopyLocalLockFileAssemblies>
+</div>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2021-08-10</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>1分钟阅读时长</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=https://www.zling.site/categories/nuget/ class=hover:text-eureka>nuget</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
+<a href=https://www.zling.site/posts/%E8%87%AA%E5%BB%BAunitypackageserver/ class="font-bold text-xl hover:text-eureka">自建UnityPackageServer</a>
+</div>
+<div class=content>
+docker 安装 verdaccio
+</div>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2021-08-10</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>1分钟阅读时长</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=https://www.zling.site/categories/unity/ class=hover:text-eureka>unity</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
 <a href=https://www.zling.site/posts/%E6%97%A5%E5%BF%97%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/ class="font-bold text-xl hover:text-eureka">日志依赖注入报错的问题</a>
 </div>
 <div class=content>
@@ -132,50 +184,6 @@
 </div>
 </div>
 </div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://www.zling.site/posts/mariadb%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E9%97%AE%E5%8F%B7%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/ class="font-bold text-xl hover:text-eureka">MariaDB中文数据问号解决办法</a>
-</div>
-<div class=content>
-在/etc/mysql/conf.d文件夹下修改如下文件的内容，若文件不存在的话就新建： server.cnf [mysqld] character-set-server=utf8 collation-server=utf8_general_ci client.cnf [client] default-character-set=utf8 最后重启MariaDB服务
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-07-02</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>1分钟阅读时长</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://www.zling.site/posts/csharp%E4%B8%AD%E5%8F%91%E9%80%81http%E8%AF%B7%E6%B1%82%E7%9A%84%E6%96%B9%E6%B3%95/ class="font-bold text-xl hover:text-eureka">CSharp中发送HTTP请求的方法</a>
-</div>
-<div class=content>
-发送 Get 请求 // HttpClient is intended to be instantiated once per application, rather than per-use. See Remarks. static readonly HttpClient client = new HttpClient(); static async Task Main() { // Call asynchronous network methods in a try/catch block to handle exceptions. try { HttpResponseMessage response = await client.GetAsync("http://www.contoso.com/"); response.EnsureSuccessStatusCode(); string responseBody = await response.Content.ReadAsStringAsync(); // Above three lines can be replaced with new helper method below // string responseBody = await client.GetStringAsync(uri);
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-07-02</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>1分钟阅读时长</span>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 <ul class="pagination pagination-default">
@@ -204,7 +212,7 @@
 <a href=/posts/page/5/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
 </li>
 <li class=page-item>
-<a href=/posts/page/24/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+<a href=/posts/page/25/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
 </li>
 </ul>
 </div>

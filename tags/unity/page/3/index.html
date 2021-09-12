@@ -19,14 +19,14 @@
 <link rel=apple-touch-icon sizes=180x180 href=https://www.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
 <meta name=description content="Zemel Ling's blog in web.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Tags","item":"https://www.zling.site/tags/"},{"@type":"ListItem","position":2,"name":"unity","item":"https://www.zling.site/tags/unity/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Unity中的欧拉角和四元数","description":"在 Unity 有两种方式用于表示旋转，欧拉角和四元数。其中欧拉角用于查看和编辑，引擎内部使用四元数来表示。 欧拉角 欧拉角具有三个数字，分别表示绕 x 轴、y 轴和 z 轴旋","url":"https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84%E6%AC%A7%E6%8B%89%E8%A7%92%E5%92%8C%E5%9B%9B%E5%85%83%E6%95%B0/"},{"@type":"ListItem","position":2,"name":"Unity中的Tilemap","description":"用法 导入图片资源，并将其 Texture Type 设置为 (2D Sprite and UI) 创建 Tilemap 打开 TilePalette 窗口，创建 Palette Grid Grid 对象用于对齐瓦片等对象。 TileMap Tile RuleTile RuleTile的Inspection界面存在一个","url":"https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84tilemap/"},{"@type":"ListItem","position":3,"name":"Unity中的Sprites","description":"什么是 Sprites Sprites 是 2D 图形对象，在 3D 中本质是标准纹理。 Unity 中的 Sprite 工具 Sprite Creator 用于创建占位用的 Sprite，之后有具体的素材后再替换。 Sprite Editor 用于从一张图片或纹理中切割出","url":"https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84sprites/"},{"@type":"ListItem","position":4,"name":"Unity中的RuntimeRuntimeInitializeOnLoadMethodAttribute","description":"被此特性标注的方法将在 Awake 方法之后被 Unity 循环调用，而且被此特性标记的所有方法，它们之间的执行顺序不是固定的。 示例： using UnityEngine; public class MyTest : MonoBehaviour { [RuntimeInitializeOnLoadMethod] static void OnRuntimeMethodLoad() { Debug.Log(\u0026quot;After Scene is loaded and game is","url":"https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84runtimeruntimeinitializeonloadmethodattribute/"}]}</script><meta property="og:title" content="unity | 🦁泽梅尔的驻留地">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"自建UnityPackageServer","description":"docker 安装 verdaccio","url":"https://www.zling.site/posts/%E8%87%AA%E5%BB%BAunitypackageserver/"},{"@type":"ListItem","position":2,"name":"Unity中游戏对象产生碰撞的条件","description":"其中至少一个物体（必须运动的）必须带有碰撞器（collider）+刚体(Rigidbody)，另一个物体（可以静止也可以运动）也必须至少带有colli","url":"https://www.zling.site/posts/unity%E4%B8%AD%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%BA%A7%E7%94%9F%E7%A2%B0%E6%92%9E%E7%9A%84%E6%9D%A1%E4%BB%B6/"},{"@type":"ListItem","position":3,"name":"Unity中的欧拉角和四元数","description":"在 Unity 有两种方式用于表示旋转，欧拉角和四元数。其中欧拉角用于查看和编辑，引擎内部使用四元数来表示。 欧拉角 欧拉角具有三个数字，分别表示绕 x 轴、y 轴和 z 轴旋","url":"https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84%E6%AC%A7%E6%8B%89%E8%A7%92%E5%92%8C%E5%9B%9B%E5%85%83%E6%95%B0/"},{"@type":"ListItem","position":4,"name":"Unity中的Tilemap","description":"用法 导入图片资源，并将其 Texture Type 设置为 (2D Sprite and UI) 创建 Tilemap 打开 TilePalette 窗口，创建 Palette Grid Grid 对象用于对齐瓦片等对象。 TileMap Tile RuleTile RuleTile的Inspection界面存在一个","url":"https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84tilemap/"}]}</script><meta property="og:title" content="unity | 🦁泽梅尔的驻留地">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://www.zling.site/dahuai_samll.png">
 <meta property="og:url" content="https://www.zling.site/tags/unity/">
 <meta property="og:description" content="Zemel Ling's blog in web.">
 <meta property="og:locale" content="zh">
 <meta property="og:site_name" content="🦁泽梅尔的驻留地">
-<meta property="og:updated_time" content="2021-09-06T18:56:37+08:00">
+<meta property="og:updated_time" content="2021-09-11T19:07:09+08:00">
 <meta property="article:section" content="tags">
 <link rel=alternate type=application/rss+xml href=https://www.zling.site/tags/unity/index.xml title=🦁泽梅尔的驻留地>
 <body class="flex flex-col min-h-screen">
@@ -76,6 +76,58 @@
 <div class="flex flex-col-reverse lg:flex-row justify-between">
 <div class=w-full>
 <div class=mb-4>
+<a href=https://www.zling.site/posts/%E8%87%AA%E5%BB%BAunitypackageserver/ class="font-bold text-xl hover:text-eureka">自建UnityPackageServer</a>
+</div>
+<div class=content>
+docker 安装 verdaccio
+</div>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2021-08-10</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>1分钟阅读时长</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=https://www.zling.site/categories/unity/ class=hover:text-eureka>unity</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
+<a href=https://www.zling.site/posts/unity%E4%B8%AD%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%BA%A7%E7%94%9F%E7%A2%B0%E6%92%9E%E7%9A%84%E6%9D%A1%E4%BB%B6/ class="font-bold text-xl hover:text-eureka">Unity中游戏对象产生碰撞的条件</a>
+</div>
+<div class=content>
+其中至少一个物体（必须运动的）必须带有碰撞器（collider）+刚体(Rigidbody)，另一个物体（可以静止也可以运动）也必须至少带有colli
+</div>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2021-06-22</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>1分钟阅读时长</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=https://www.zling.site/categories/unity/ class=hover:text-eureka>unity</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
 <a href=https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84%E6%AC%A7%E6%8B%89%E8%A7%92%E5%92%8C%E5%9B%9B%E5%85%83%E6%95%B0/ class="font-bold text-xl hover:text-eureka">Unity中的欧拉角和四元数</a>
 </div>
 <div class=content>
@@ -111,58 +163,6 @@
 <div class="mr-6 my-2">
 <i class="fas fa-calendar mr-1"></i>
 <span>2021-05-18</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>1分钟阅读时长</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=https://www.zling.site/categories/unity/ class=hover:text-eureka>unity</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84sprites/ class="font-bold text-xl hover:text-eureka">Unity中的Sprites</a>
-</div>
-<div class=content>
-什么是 Sprites Sprites 是 2D 图形对象，在 3D 中本质是标准纹理。 Unity 中的 Sprite 工具 Sprite Creator 用于创建占位用的 Sprite，之后有具体的素材后再替换。 Sprite Editor 用于从一张图片或纹理中切割出
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-05-17</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>1分钟阅读时长</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=https://www.zling.site/categories/unity/ class=hover:text-eureka>unity</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84runtimeruntimeinitializeonloadmethodattribute/ class="font-bold text-xl hover:text-eureka">Unity中的RuntimeRuntimeInitializeOnLoadMethodAttribute</a>
-</div>
-<div class=content>
-被此特性标注的方法将在 Awake 方法之后被 Unity 循环调用，而且被此特性标记的所有方法，它们之间的执行顺序不是固定的。 示例： using UnityEngine; public class MyTest : MonoBehaviour { [RuntimeInitializeOnLoadMethod] static void OnRuntimeMethodLoad() { Debug.Log("After Scene is loaded and game is
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-04-26</span>
 </div>
 <div class="mr-6 my-2">
 <i class="fas fa-clock mr-1"></i>
