@@ -1,0 +1,417 @@
+<!doctype html><html lang=zh class=dark><meta charset=utf-8>
+<meta name=viewport content="width=device-width">
+<title>CSharp查缺补漏20210928 | 🦁泽梅尔的驻留地</title>
+<meta name=generator content="Hugo Eureka 0.8.2">
+<link rel=stylesheet href=https://www.zling.site/css/eureka.min.css>
+<script defer src=https://www.zling.site/js/eureka.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+<script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
+<link rel=icon type=image/png sizes=32x32 href=https://www.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_32x32_fill_box_center_3.png>
+<link rel=apple-touch-icon sizes=180x180 href=https://www.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
+<meta name=description content="c# 7.0 特性 数字字面量的改进 数字字面量可以使用下划线来改善可读性、它们称为数字分隔符而被编译器忽略 int million = 1_000_000; var b = 0b1010_1011_1100_1101_1110_1111; // 二进制字面量可以使用0b前缀进行标识 解">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://www.zling.site/posts/"},{"@type":"ListItem","position":2,"name":"CSharp查缺补漏20210928","item":"https://www.zling.site/posts/csharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F20210928/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.zling.site/posts/csharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F20210928/"},"headline":"CSharp查缺补漏20210928 | 🦁泽梅尔的驻留地","datePublished":"2021-09-28T15:52:28+08:00","dateModified":"2021-09-28T15:52:28+08:00","wordCount":1936,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://www.zling.site/dahuai_samll.png"}},"description":"c# 7.0 特性 数字字面量的改进 数字字面量可以使用下划线来改善可读性、它们称为数字分隔符而被编译器忽略 int million = 1_000_000; var b = 0b1010_1011_1100_1101_1110_1111; \/\/ 二进制字面量可以使用0b前缀进行标识 解"}</script><meta property="og:title" content="CSharp查缺补漏20210928 | 🦁泽梅尔的驻留地">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.zling.site/dahuai_samll.png">
+<meta property="og:url" content="https://www.zling.site/posts/csharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F20210928/">
+<meta property="og:description" content="c# 7.0 特性 数字字面量的改进 数字字面量可以使用下划线来改善可读性、它们称为数字分隔符而被编译器忽略 int million = 1_000_000; var b = 0b1010_1011_1100_1101_1110_1111; // 二进制字面量可以使用0b前缀进行标识 解">
+<meta property="og:locale" content="zh">
+<meta property="og:site_name" content="🦁泽梅尔的驻留地">
+<meta property="article:published_time" content="2021-09-28T15:52:28+08:00">
+<meta property="article:modified_time" content="2021-09-28T15:52:28+08:00">
+<meta property="article:section" content="posts">
+<meta property="article:tag" content="CSharp">
+<meta property="og:see_also" content="https://www.zling.site/posts/%E4%BD%BF%E7%94%A8activator%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B/">
+<meta property="og:see_also" content="https://www.zling.site/posts/csharp%E8%B0%83%E7%94%A8%E9%9D%9E%E6%89%98%E7%AE%A1c++%E6%97%B6%E4%BD%BF%E7%94%A8%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
+<meta property="og:see_also" content="https://www.zling.site/posts/csharp%E7%9A%84environment%E7%B1%BB/">
+<meta property="og:see_also" content="https://www.zling.site/posts/csharp%E8%BF%9E%E6%8E%A5mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%96%B9%E6%B3%95/">
+<meta property="og:see_also" content="https://www.zling.site/posts/csharp%E4%B8%AD%E7%9A%84socket%E7%BC%96%E7%A8%8B/">
+<meta property="og:see_also" content="https://www.zling.site/posts/csharp%E4%B8%AD%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B/">
+<body class="flex flex-col min-h-screen">
+<header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+<div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");(storageColorScheme=='Auto'&&window.matchMedia("(prefers-color-scheme: light)").matches||storageColorScheme=="Light")&&document.getElementsByTagName('html')[0].classList.remove('dark')</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+<a href=/ class="mr-6 text-primary-text text-xl font-bold">🦁泽梅尔的驻留地</a>
+<button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+<i class="fas fa-bars"></i>
+</button>
+<div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+<div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+<a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">👨‍🚀关于我</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">📕文章</a>
+<a href=/docs/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">📁文档</a>
+</div>
+<div class=flex>
+<div class="relative pt-4 md:pt-0">
+<div class="cursor-pointer hover:text-eureka" id=lightDarkMode>
+<i class="fas fa-moon"></i>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open>
+</div>
+<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions>
+<span class="px-4 py-1 hover:text-eureka" name=Light>浅色</span>
+<span class="px-4 py-1 hover:text-eureka" name=Dark>深色</span>
+<span class="px-4 py-1 hover:text-eureka" name=Auto>自动</span>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile>
+</div>
+</nav>
+<script>let element=document.getElementById('lightDarkMode');storageColorScheme=='Auto'?(element.firstElementChild.classList.remove('fa-moon'),element.firstElementChild.setAttribute("data-icon",'adjust'),element.firstElementChild.classList.add('fa-adjust'),document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)})):storageColorScheme=="Light"&&(element.firstElementChild.classList.remove('fa-moon'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script>
+</div>
+</header>
+<main class="flex-grow pt-16">
+<div class=pl-scrollbar>
+<div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+<div class="col-span-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+<h1 class="font-bold text-3xl text-primary-text">CSharp查缺补漏20210928</h1>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2021-09-28</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>4分钟阅读时长</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=https://www.zling.site/categories/csharp/ class=hover:text-eureka>CSharp</a>
+</div>
+</div>
+<div class=content>
+<h1 id=c-70-特性>c# 7.0 特性</h1>
+<h2 id=数字字面量的改进>数字字面量的改进</h2>
+<p>数字字面量可以使用下划线来改善可读性、它们称为数字分隔符而被编译器忽略</p>
+<pre><code class=language-C#>int million = 1_000_000;
+
+var b = 0b1010_1011_1100_1101_1110_1111; // 二进制字面量可以使用0b前缀进行标识
+</code></pre>
+<h2 id=解构器>解构器</h2>
+<p>解构方法的名字必须为Deconstruct，并且拥有一个或多个out参数</p>
+<pre><code class=language-c#>class Rectangle
+{
+    public readonly float Width, Height;
+    public Rectangle(float width, float height)
+    {
+        Width = width;
+        Height = height;
+    }
+
+    public void Deconstruct(out float width, out float height)
+    {
+        width = Width;
+        height = Height;
+    }
+}
+</code></pre>
+<p>若要调用解构器，则需使用如下的特殊语法</p>
+<pre><code class=language-c#>
+var rect = new Rectangle(3, 4);
+(float width, float height) = rect; // width = 3, height = 4
+(var w, var h) = rect; // 解构器支持隐式推断
+
+</code></pre>
+<h1 id=类>类</h1>
+<h2 id=重载构造器>重载构造器</h2>
+<p>当构造器调用另一个构造器时，被调用的构造器先执行。</p>
+<h2 id=当构造器调用另一个构造器时被调用的构造器先执行>当构造器调用另一个构造器时，被调用的构造器先执行。</h2>
+<p>当构造器调用另一个构造器时，被调用的构造器先执行。</p>
+<h2 id=参量>参量</h2>
+<p>常量是一种值永远不会改变的静态字段。常量会在编译时静态赋值，编译器会在常量使用点上直接替换该值（类似于C++的宏）。</p>
+<pre><code class=language-c#>public static double Circumference(double radius)
+{
+    return 2 * System.Math.PI * radius;
+}
+
+// 编译后等价于
+
+public static double Circumference(double radius)
+{
+    return 6.2831583071795862 * radius;
+}
+</code></pre>
+<h2 id=静态构造器>静态构造器</h2>
+<p>每个类型的静态构造器只会执行一次，而不是每个实例执行一次。一个类型只能定义一个静态构造器，名称必须和类型同名，且没有参数</p>
+<p>运行时将在类型使用之前调用静态构造器，以下两种行为可以触发静态构造器执行：</p>
+<ul>
+<li>实例化类型</li>
+<li>访问类型的静态成员</li>
+</ul>
+<p>静态构造器只支持两个修饰符：unsafe和extern</p>
+<h3 id=静态构造器和字段初始化顺序>静态构造器和字段初始化顺序</h3>
+<p>静态字段初始化器会在调用静态构造器前运行。如果类型没有静态构造器，字段会在类型被使用之前或者在运行时中更早的时间进行初始化。</p>
+<p>静态字段初始化器按照字段声明的先后顺序运行。</p>
+<h1 id=继承>继承</h1>
+<h2 id=new和重写的区别>new和重写的区别</h2>
+<pre><code class=language-c#>public class BaseClass
+{
+    public virtual void Foo() {Console.WriteLine(&quot;BaseClass.Foo&quot;);}
+}
+
+public class Overrider : BaseClass
+{
+    public override void Foo() {Console.WriteLine(&quot;Overrider.Foo&quot;);}
+}
+
+public class Hider : BaseClass
+{
+    public new void Foo() {Console.WriteLine(&quot;Hider.Foo&quot;);}
+}
+
+// test
+Overrider over = new Overrider();
+BaseClass b1 = over;
+over.Foo();    // Overrider.Foo
+b1.Foo();     // Overrider.Foo
+
+Hider h = new Hider();
+BaseClass b2 = h;
+h.Foo();    // Hider.Foo
+b2.Foo();    // BaseClass.Foo
+</code></pre>
+<h2 id=构造器和继承>构造器和继承</h2>
+<p>子类必须声明自己的构造器。派生类可以访问基类的构造器，但是并非自动继承。</p>
+<p>基类的构造器总是先执行，这保证了基类的初始化发生在子类特定的初始化之前。</p>
+<p>如果子类的构造器省略base关键字，那么基类的无参数构造器将被隐式调用。</p>
+<p>如果基类没有可访问的无参数的构造器，子类的构造器中就必须使用base关键字。</p>
+<h3 id=构造器和字段初始化的顺序>构造器和字段初始化的顺序</h3>
+<ul>
+<li>1 从子类到基类
+<ul>
+<li>1.1 初始化字段</li>
+<li>1.2 计算被调用的基类构造器中的参数</li>
+</ul>
+</li>
+<li>2 从基类到子类
+<ul>
+<li>2.1 构造器方法体的执行</li>
+</ul>
+</li>
+</ul>
+<p>例如：</p>
+<pre><code class=language-c#>public class BaseClass
+{
+    int x = 1;  // 第三步
+    public BaseClass(int x)
+    {
+        //something // 第四步
+    }
+}
+
+public class SubClass : BaseClass
+{
+    int y = 1;  // 第一步
+    public SubClass(int x) :
+        base(x + 1) // 第二步
+    {
+        // something // 第五步
+    }
+}
+</code></pre>
+<h1 id=object类型>Object类型</h1>
+<h2 id=装箱和拆箱的缺点>装箱和拆箱的缺点</h2>
+<ul>
+<li>开销大，存在内存复制操作</li>
+<li>拆箱时如果类型错误，只会在运行时发现</li>
+</ul>
+<h2 id=gettype和typeof>GetType和typeof</h2>
+<ul>
+<li>GetType在运行时计算而typeof在编译时静态计算（如果是用泛型类型参数，那么它将由即时编译器解析）</li>
+</ul>
+<h1 id=结构体>结构体</h1>
+<h2 id=结构体的构造语义>结构体的构造语义</h2>
+<ul>
+<li>结构体隐式包含一个无法重写的无参数构造器，将字段按位置为0。</li>
+<li>定义结构体的构造器时，必须显式为每一个字段赋值</li>
+</ul>
+<h2 id=其他>其他</h2>
+<ul>
+<li>结构体不支持字段初始化器</li>
+</ul>
+<h1 id=可访问性>可访问性</h1>
+<h2 id=友元程序集>友元程序集</h2>
+<p>在一些高级的场景中，添加System.Runtime.CompilerServices.InternalsVisibleTo程序集特性就可以将internal成员提供给其他的友元程序集访问</p>
+<pre><code class=language-c#>[assembly:InternalsVisibleTo(&quot;Friend&quot;)]
+</code></pre>
+<p>如果友元程序集有强名称，必须指定其完整的160字节公钥</p>
+<pre><code class=language-c#>[assembly:InternalsVisibleTo(&quot;StrongFriend, PublicKey=00241ffa...&quot;)]
+
+// 获取强名称程序集的公钥
+string key = string.Join(&quot;&quot;, Assembly.GetExecutingAssembly().GetName().GetPublicKey().Select(b =&gt; b.ToString(&quot;x2&quot;)));
+</code></pre>
+<h1 id=接口>接口</h1>
+<p>显式实现的接口成员不能标识为virtual，也不能实现通常意义的重写，但是它可以被重新实现（reimplemented）。</p>
+<h2 id=在子类中重新实现接口>在子类中重新实现接口</h2>
+<p>子类可以重新实现基类实现的任意一个接口成员。不管基类中该成员是否为virtual，当通过接口调用时，重新实现都能够劫持成员的实现。它对接口成员的隐式和显式实现都有效，但后者效果更好。</p>
+<pre><code class=language-c#>public interface IUndoable {void Undo();}
+
+public class TextBox : IUndoable
+{
+    void IUndoable.Undo() =&gt; Console.WriteLine(&quot;TextBox.Undo&quot;);
+}
+
+public class RichTextBox : TextBox, IUndoable
+{
+    public void Undo() =&gt; Console.WriteLine(&quot;RichTextBox.Undo&quot;);
+}
+
+// 从接口调用重新实现的成员时，调用的是子类的实现
+RichTextBox r = new RichTextBox();
+r.Undo();    // RichTextBox.Undo
+((IUndoable)r).Undo();    // RichTextBox.Undo
+</code></pre>
+<p>通过重新实现来劫持调用的方式仅在通过接口调用成员时有效，而从基类调用时无效。这个特性通常不尽人意，因为它有二义性。因此，重新实现主要适合于重写显式实现的接口成员</p>
+<h2 id=接口重新实现的替代方法>接口重新实现的替代方法</h2>
+<p>即使是显式实现的成员，接口重新实现还是容易出问题，这是因为</p>
+<ul>
+<li>子类无法调用基类的方法</li>
+<li>定义基类时不能预测方法是否会重新实现，或无法接受重新实现后的潜在问题</li>
+</ul>
+<p>重新实现是子类未知时的最不理想的方法。更好的选择是在定义基类时不允许使用重新实现，有两种方法可以做到</p>
+<ul>
+<li>当隐式实现成员时，如果需要将其标记为virtual</li>
+<li>当显式实现成员时，如果能够预测子类可能要重写某些逻辑，则使用下面的模式</li>
+</ul>
+<pre><code class=language-c#>public class TextBox : IUndoable
+{
+    void IUndoable.Undo() =&gt; Undo();
+    protected virtual void Undo() =&gt; Console.WriteLine(&quot;TextBox.Undo&quot;);
+}
+
+public class RichTextBox : TextBox
+{
+    protected override void Undo() =&gt; Console.WriteLine(&quot;RichTextBox.Undo&quot;);
+}
+</code></pre>
+<h2 id=接口与装箱>接口与装箱</h2>
+<p>将结构体转换为接口会引发装箱。而调用结构体的隐式实现接口成员不会引发装箱。</p>
+<pre><code class=language-c#>interface I {void Foo();}
+struct S : I {void Foo();}
+
+S s = new S();
+s.Foo();  // 没有装箱
+
+I i = s;  // 装箱
+i.Foo();
+</code></pre>
+<h1 id=枚举类型>枚举类型</h1>
+<h1 id=阅读书本>阅读书本</h1>
+<p><a href=https://weread.qq.com/web/reader/710327c0718f6368710b285kc81322c012c81e728d9d180>C# 7.0核心技术指南（原书第7版）</a></p>
+</div>
+<div class=my-4>
+<a href=https://www.zling.site/tags/csharp/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#CSharp</a>
+</div>
+<div class=py-2>
+<div class="flex flex-col md:flex-row items-center my-8">
+<a href=https://www.zling.site/authors/zemelling/ class="w-24 h-24 md:mr-4">
+<img src=https://www.zling.site/images/%E5%A4%A7%E6%88%B7%E7%88%B1.jpg class="w-full bg-primary-bg rounded-full" alt=Avatar>
+</a>
+<div class="w-full md:w-auto mt-4 md:mt-0">
+<a href=https://www.zling.site/authors/zemelling/ class="block font-bold text-lg pb-1 mb-2 border-b">Zemel Ling</a>
+<span class="block pb-2">Late equals never.</span>
+<a href=https://github.com/ZemelLing class=mr-1>
+<i class="fab fa-github"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+<div>
+</div>
+<div class="md:text-right mt-4 md:mt-0">
+<span class="block font-bold">下一页</span>
+<a href=https://www.zling.site/posts/%E4%BD%BF%E7%94%A8activator%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B/ class=block>使用Activator动态创建实例</a>
+</div>
+</div>
+</div>
+<div class=col-span-2>
+<div class="sticky top-16 z-10 hidden lg:block px-6 py-4 bg-primary-bg">
+<span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#数字字面量的改进>数字字面量的改进</a></li>
+<li><a href=#解构器>解构器</a></li>
+</ul>
+<ul>
+<li><a href=#重载构造器>重载构造器</a></li>
+<li><a href=#当构造器调用另一个构造器时被调用的构造器先执行>当构造器调用另一个构造器时，被调用的构造器先执行。</a></li>
+<li><a href=#参量>参量</a></li>
+<li><a href=#静态构造器>静态构造器</a>
+<ul>
+<li><a href=#静态构造器和字段初始化顺序>静态构造器和字段初始化顺序</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href=#new和重写的区别>new和重写的区别</a></li>
+<li><a href=#构造器和继承>构造器和继承</a>
+<ul>
+<li><a href=#构造器和字段初始化的顺序>构造器和字段初始化的顺序</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href=#装箱和拆箱的缺点>装箱和拆箱的缺点</a></li>
+<li><a href=#gettype和typeof>GetType和typeof</a></li>
+</ul>
+<ul>
+<li><a href=#结构体的构造语义>结构体的构造语义</a></li>
+<li><a href=#其他>其他</a></li>
+</ul>
+<ul>
+<li><a href=#友元程序集>友元程序集</a></li>
+</ul>
+<ul>
+<li><a href=#在子类中重新实现接口>在子类中重新实现接口</a></li>
+<li><a href=#接口重新实现的替代方法>接口重新实现的替代方法</a></li>
+<li><a href=#接口与装箱>接口与装箱</a></li>
+</ul>
+</nav>
+</div>
+<script>window.addEventListener('DOMContentLoaded',()=>{enableStickyToc()})</script>
+</div>
+<div class="col-span-2 lg:col-span-6 bg-secondary-bg rounded p-6">
+<h2 class="text-lg font-semibold mb-4">相关</h2>
+<div class=content>
+<a href=https://www.zling.site/posts/%E4%BD%BF%E7%94%A8activator%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B/>使用Activator动态创建实例</a>
+<br>
+<a href=https://www.zling.site/posts/csharp%E8%B0%83%E7%94%A8%E9%9D%9E%E6%89%98%E7%AE%A1c++%E6%97%B6%E4%BD%BF%E7%94%A8%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/>CSharp调用非托管C++时使用回调函数遇到的问题</a>
+<br>
+<a href=https://www.zling.site/posts/csharp%E7%9A%84environment%E7%B1%BB/>CSharp的Environment类</a>
+<br>
+<a href=https://www.zling.site/posts/csharp%E8%BF%9E%E6%8E%A5mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%96%B9%E6%B3%95/>CSharp连接MySql数据库的方法</a>
+<br>
+<a href=https://www.zling.site/posts/csharp%E4%B8%AD%E7%9A%84socket%E7%BC%96%E7%A8%8B/>CSharp中的Socket编程</a>
+<br>
+<a href=https://www.zling.site/posts/csharp%E4%B8%AD%E7%9A%84%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B/>CSharp中的压缩和解压</a>
+<br>
+</div>
+</div>
+</div>
+<script>document.addEventListener('DOMContentLoaded',()=>{hljs.initHighlightingOnLoad()})</script>
+</div>
+</div>
+</main>
+<footer class=pl-scrollbar>
+<div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+<p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.zling.site/>Zemel Ling</a> | <a href=https://beian.miit.gov.cn>闽ICP备2021013106号</a>
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p>
+</div></div>
+</footer>
+</body>
+</html>
