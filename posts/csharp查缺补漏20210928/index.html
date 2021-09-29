@@ -19,7 +19,7 @@
 <link rel=apple-touch-icon sizes=180x180 href=https://www.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
 <meta name=description content="c# 7.0 特性 数字字面量的改进 数字字面量可以使用下划线来改善可读性、它们称为数字分隔符而被编译器忽略 int million = 1_000_000; var b = 0b1010_1011_1100_1101_1110_1111; // 二进制字面量可以使用0b前缀进行标识 解">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://www.zling.site/posts/"},{"@type":"ListItem","position":2,"name":"CSharp查缺补漏20210928","item":"https://www.zling.site/posts/csharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F20210928/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.zling.site/posts/csharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F20210928/"},"headline":"CSharp查缺补漏20210928 | 🦁泽梅尔的驻留地","datePublished":"2021-09-28T15:52:28+08:00","dateModified":"2021-09-28T15:52:28+08:00","wordCount":1936,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://www.zling.site/dahuai_samll.png"}},"description":"c# 7.0 特性 数字字面量的改进 数字字面量可以使用下划线来改善可读性、它们称为数字分隔符而被编译器忽略 int million = 1_000_000; var b = 0b1010_1011_1100_1101_1110_1111; \/\/ 二进制字面量可以使用0b前缀进行标识 解"}</script><meta property="og:title" content="CSharp查缺补漏20210928 | 🦁泽梅尔的驻留地">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.zling.site/posts/csharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F20210928/"},"headline":"CSharp查缺补漏20210928 | 🦁泽梅尔的驻留地","datePublished":"2021-09-28T15:52:28+08:00","dateModified":"2021-09-28T15:52:28+08:00","wordCount":3560,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://www.zling.site/dahuai_samll.png"}},"description":"c# 7.0 特性 数字字面量的改进 数字字面量可以使用下划线来改善可读性、它们称为数字分隔符而被编译器忽略 int million = 1_000_000; var b = 0b1010_1011_1100_1101_1110_1111; \/\/ 二进制字面量可以使用0b前缀进行标识 解"}</script><meta property="og:title" content="CSharp查缺补漏20210928 | 🦁泽梅尔的驻留地">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://www.zling.site/dahuai_samll.png">
 <meta property="og:url" content="https://www.zling.site/posts/csharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F20210928/">
@@ -84,7 +84,7 @@
 </div>
 <div class="mr-6 my-2">
 <i class="fas fa-clock mr-1"></i>
-<span>4分钟阅读时长</span>
+<span>8分钟阅读时长</span>
 </div>
 <div class="mr-6 my-2">
 <i class="fas fa-folder mr-1"></i>
@@ -92,14 +92,14 @@
 </div>
 </div>
 <div class=content>
-<h1 id=c-70-特性>c# 7.0 特性</h1>
-<h2 id=数字字面量的改进>数字字面量的改进</h2>
+<h2 id=c-70-特性>c# 7.0 特性</h2>
+<h3 id=数字字面量的改进>数字字面量的改进</h3>
 <p>数字字面量可以使用下划线来改善可读性、它们称为数字分隔符而被编译器忽略</p>
 <pre><code class=language-C#>int million = 1_000_000;
 
 var b = 0b1010_1011_1100_1101_1110_1111; // 二进制字面量可以使用0b前缀进行标识
 </code></pre>
-<h2 id=解构器>解构器</h2>
+<h3 id=解构器>解构器</h3>
 <p>解构方法的名字必须为Deconstruct，并且拥有一个或多个out参数</p>
 <pre><code class=language-c#>class Rectangle
 {
@@ -124,12 +124,12 @@ var rect = new Rectangle(3, 4);
 (var w, var h) = rect; // 解构器支持隐式推断
 
 </code></pre>
-<h1 id=类>类</h1>
-<h2 id=重载构造器>重载构造器</h2>
+<h2 id=类>类</h2>
+<h3 id=重载构造器>重载构造器</h3>
 <p>当构造器调用另一个构造器时，被调用的构造器先执行。</p>
-<h2 id=当构造器调用另一个构造器时被调用的构造器先执行>当构造器调用另一个构造器时，被调用的构造器先执行。</h2>
+<h3 id=当构造器调用另一个构造器时被调用的构造器先执行>当构造器调用另一个构造器时，被调用的构造器先执行。</h3>
 <p>当构造器调用另一个构造器时，被调用的构造器先执行。</p>
-<h2 id=参量>参量</h2>
+<h3 id=参量>参量</h3>
 <p>常量是一种值永远不会改变的静态字段。常量会在编译时静态赋值，编译器会在常量使用点上直接替换该值（类似于C++的宏）。</p>
 <pre><code class=language-c#>public static double Circumference(double radius)
 {
@@ -143,7 +143,7 @@ public static double Circumference(double radius)
     return 6.2831583071795862 * radius;
 }
 </code></pre>
-<h2 id=静态构造器>静态构造器</h2>
+<h3 id=静态构造器>静态构造器</h3>
 <p>每个类型的静态构造器只会执行一次，而不是每个实例执行一次。一个类型只能定义一个静态构造器，名称必须和类型同名，且没有参数</p>
 <p>运行时将在类型使用之前调用静态构造器，以下两种行为可以触发静态构造器执行：</p>
 <ul>
@@ -154,8 +154,8 @@ public static double Circumference(double radius)
 <h3 id=静态构造器和字段初始化顺序>静态构造器和字段初始化顺序</h3>
 <p>静态字段初始化器会在调用静态构造器前运行。如果类型没有静态构造器，字段会在类型被使用之前或者在运行时中更早的时间进行初始化。</p>
 <p>静态字段初始化器按照字段声明的先后顺序运行。</p>
-<h1 id=继承>继承</h1>
-<h2 id=new和重写的区别>new和重写的区别</h2>
+<h2 id=继承>继承</h2>
+<h3 id=new和重写的区别>new和重写的区别</h3>
 <pre><code class=language-c#>public class BaseClass
 {
     public virtual void Foo() {Console.WriteLine(&quot;BaseClass.Foo&quot;);}
@@ -182,12 +182,12 @@ BaseClass b2 = h;
 h.Foo();    // Hider.Foo
 b2.Foo();    // BaseClass.Foo
 </code></pre>
-<h2 id=构造器和继承>构造器和继承</h2>
+<h3 id=构造器和继承>构造器和继承</h3>
 <p>子类必须声明自己的构造器。派生类可以访问基类的构造器，但是并非自动继承。</p>
 <p>基类的构造器总是先执行，这保证了基类的初始化发生在子类特定的初始化之前。</p>
 <p>如果子类的构造器省略base关键字，那么基类的无参数构造器将被隐式调用。</p>
 <p>如果基类没有可访问的无参数的构造器，子类的构造器中就必须使用base关键字。</p>
-<h3 id=构造器和字段初始化的顺序>构造器和字段初始化的顺序</h3>
+<h4 id=构造器和字段初始化的顺序>构造器和字段初始化的顺序</h4>
 <ul>
 <li>1 从子类到基类
 <ul>
@@ -221,28 +221,28 @@ public class SubClass : BaseClass
     }
 }
 </code></pre>
-<h1 id=object类型>Object类型</h1>
-<h2 id=装箱和拆箱的缺点>装箱和拆箱的缺点</h2>
+<h2 id=object类型>Object类型</h2>
+<h3 id=装箱和拆箱的缺点>装箱和拆箱的缺点</h3>
 <ul>
 <li>开销大，存在内存复制操作</li>
 <li>拆箱时如果类型错误，只会在运行时发现</li>
 </ul>
-<h2 id=gettype和typeof>GetType和typeof</h2>
+<h3 id=gettype和typeof>GetType和typeof</h3>
 <ul>
 <li>GetType在运行时计算而typeof在编译时静态计算（如果是用泛型类型参数，那么它将由即时编译器解析）</li>
 </ul>
-<h1 id=结构体>结构体</h1>
-<h2 id=结构体的构造语义>结构体的构造语义</h2>
+<h2 id=结构体>结构体</h2>
+<h3 id=结构体的构造语义>结构体的构造语义</h3>
 <ul>
 <li>结构体隐式包含一个无法重写的无参数构造器，将字段按位置为0。</li>
 <li>定义结构体的构造器时，必须显式为每一个字段赋值</li>
 </ul>
-<h2 id=其他>其他</h2>
+<h3 id=其他>其他</h3>
 <ul>
 <li>结构体不支持字段初始化器</li>
 </ul>
-<h1 id=可访问性>可访问性</h1>
-<h2 id=友元程序集>友元程序集</h2>
+<h2 id=可访问性>可访问性</h2>
+<h3 id=友元程序集>友元程序集</h3>
 <p>在一些高级的场景中，添加System.Runtime.CompilerServices.InternalsVisibleTo程序集特性就可以将internal成员提供给其他的友元程序集访问</p>
 <pre><code class=language-c#>[assembly:InternalsVisibleTo(&quot;Friend&quot;)]
 </code></pre>
@@ -252,9 +252,9 @@ public class SubClass : BaseClass
 // 获取强名称程序集的公钥
 string key = string.Join(&quot;&quot;, Assembly.GetExecutingAssembly().GetName().GetPublicKey().Select(b =&gt; b.ToString(&quot;x2&quot;)));
 </code></pre>
-<h1 id=接口>接口</h1>
+<h2 id=接口>接口</h2>
 <p>显式实现的接口成员不能标识为virtual，也不能实现通常意义的重写，但是它可以被重新实现（reimplemented）。</p>
-<h2 id=在子类中重新实现接口>在子类中重新实现接口</h2>
+<h3 id=在子类中重新实现接口>在子类中重新实现接口</h3>
 <p>子类可以重新实现基类实现的任意一个接口成员。不管基类中该成员是否为virtual，当通过接口调用时，重新实现都能够劫持成员的实现。它对接口成员的隐式和显式实现都有效，但后者效果更好。</p>
 <pre><code class=language-c#>public interface IUndoable {void Undo();}
 
@@ -274,7 +274,7 @@ r.Undo();    // RichTextBox.Undo
 ((IUndoable)r).Undo();    // RichTextBox.Undo
 </code></pre>
 <p>通过重新实现来劫持调用的方式仅在通过接口调用成员时有效，而从基类调用时无效。这个特性通常不尽人意，因为它有二义性。因此，重新实现主要适合于重写显式实现的接口成员</p>
-<h2 id=接口重新实现的替代方法>接口重新实现的替代方法</h2>
+<h3 id=接口重新实现的替代方法>接口重新实现的替代方法</h3>
 <p>即使是显式实现的成员，接口重新实现还是容易出问题，这是因为</p>
 <ul>
 <li>子类无法调用基类的方法</li>
@@ -296,7 +296,7 @@ public class RichTextBox : TextBox
     protected override void Undo() =&gt; Console.WriteLine(&quot;RichTextBox.Undo&quot;);
 }
 </code></pre>
-<h2 id=接口与装箱>接口与装箱</h2>
+<h3 id=接口与装箱>接口与装箱</h3>
 <p>将结构体转换为接口会引发装箱。而调用结构体的隐式实现接口成员不会引发装箱。</p>
 <pre><code class=language-c#>interface I {void Foo();}
 struct S : I {void Foo();}
@@ -307,8 +307,77 @@ s.Foo();  // 没有装箱
 I i = s;  // 装箱
 i.Foo();
 </code></pre>
-<h1 id=枚举类型>枚举类型</h1>
-<h1 id=阅读书本>阅读书本</h1>
+<h2 id=泛型>泛型</h2>
+<h3 id=泛型约束>泛型约束</h3>
+<pre><code>where T : base-class  // 基类约束
+where T : interface  // 接口约束
+where T : class  // 引用类型约束
+where T : struct  // 值类型约束
+where T : new()  // 无参构造函数约束
+where U : T  // 裸类型约束，U必须从T派生
+</code></pre>
+<h3 id=协变>协变</h3>
+<p>假定A可以转换为B，如果<code>X&lt;A></code>可以转换为<code>X&lt;B></code>那么称X有一个协变类型参数。</p>
+<p>数组支持协变。</p>
+<p>不管是类型参数还是数组，协变（和逆变）仅仅对于引用转换有效，而对装箱转换无效。因此，如果书写了一个接受<code>IPoppable&lt;object></code>类型参数的方法，你可以使用<code>IPoppable&lt;string></code>调用它，但不能是<code>IPoppable&lt;int></code></p>
+<h3 id=逆变>逆变</h3>
+<p>通过前面的介绍我们已经知道，假设A可以隐式引用转换为B，如果<code>X&lt;A></code>允许引用类型转换为<code>X&lt;B></code>，则类型X具有协变类型参数。而逆变的转换方向正好相反，即从<code>X&lt;B></code>转换到<code>X&lt;A></code>。它仅在类型参数出现在输入位置上，并用in修饰符标记才行得通。</p>
+<p>即使T含有相反的可变性标记，<code>Stack&lt;T></code>类可以同时实现<code>IPushable&lt;T></code>和<code>IPoppable&lt;T></code>。由于只能通过接口而不是类实现可变性，因此在进行可变性转换之前，必须首先选定IPoppable或者IPushable接口。而选定的接口会限制操作在合适的可变性规则下执行。</p>
+<h2 id=委托>委托</h2>
+<p>委托是不可变的，因此调用+=和-=的实质是创建一个新的委托实例，并把它赋值给已有变量</p>
+<p>如果一个多播委托拥有非void的返回类型，则调用者将从最后一个触发的方法接收返回值。前面的方法仍然调用，但是返回值都会被丢弃。</p>
+<p>如果委托实例指向相同的目标方法，则认为它们是等价的</p>
+<p>如果多播委托按照相同的顺序引用相同的方法，则认为它们是等价的。</p>
+<h3 id=实例目标方法和静态目标方法>实例目标方法和静态目标方法</h3>
+<p>将一个实例方法赋值给委托对象时，后者不但要维护方法的引用，还需要维护方法所属的实例的引用。System.Delegate类的Target属性代表这个实例（如果委托引用的是一个静态方法，则该属性值为null）。</p>
+<h3 id=委托与接口>委托与接口</h3>
+<p>能用委托解决的问题，都可以用接口解决。</p>
+<p>如果以下一个或多个条件成立，委托可能是比接口更好的选择：</p>
+<ul>
+<li>接口内仅定义了一个方法</li>
+<li>需要多播能力</li>
+<li>订阅者需要多次实现接口</li>
+</ul>
+<h3 id=泛型委托类型的参数协变>泛型委托类型的参数协变</h3>
+<p>如果我们要定义一个泛型委托类型，那么最好参考如下的准则：</p>
+<ul>
+<li>将只用于返回值类型的类型参数标记为协变（out）</li>
+<li>将只用于参数的任意类型参数标记为逆变（in）</li>
+</ul>
+<h2 id=lambda表达式>Lambda表达式</h2>
+<p>Lambda表达式是一种可以替代委托实例的匿名方法。编译器会立即将Lambda表达式转换为以下两种形式之一：</p>
+<ul>
+<li>一个委托实例。</li>
+<li>一个类型为Expression<tdelegate> 的表达式树。该表达式树将Lambda表达式内部的代码表现为一个可遍历的对象模型，因此Lambda表达式的解释可以延迟到运行时。</li>
+</ul>
+<p>Lambda表达式捕获的变量会在真正调用委托时赋值，而不是在捕获时赋值。</p>
+<p>捕获变量的生命周期延伸到了和委托的生命周期一致。</p>
+<h3 id=局部方法和lambda的比较>局部方法和Lambda的比较</h3>
+<ul>
+<li>局部方法无须使用奇怪的技巧就可以实现递归（调用自己）。</li>
+<li>局部方法避免了定义杂乱的委托类型。</li>
+<li>局部方法的开销更小。</li>
+</ul>
+<h2 id=可枚举类型和迭代器>可枚举类型和迭代器</h2>
+<p>迭代器是枚举器的生产者</p>
+<p>yield return语句则表示“这是当前枚举器产生的下一个元素”</p>
+<h3 id=迭代器语义>迭代器语义</h3>
+<p>迭代器是包含一个或者多个yield语句的方法、属性或者索引器。迭代器必须返回以下四个接口之一（否则编译器会产生相应错误）：</p>
+<pre><code class=language-c#>// Enumerable interfaces
+System.Collections.IEnumerable
+System.Collections.Generic.IEnumerable&lt;T&gt;
+
+// Enumerator interfaces 
+System.Collections.IEnumerator
+System.Collections.Generic.IEnumerator&lt;T&gt;
+</code></pre>
+<p>yield break语句表明迭代器块不再返回更多的元素而是提前退出。</p>
+<p>yield return语句不能出现在带catch子句的try语句块中, yield return语句也不能出现在catch或者finally语句块中。但是可以在只带有finally块的try语句块中使用yield语句</p>
+<h2 id=匿名类型>匿名类型</h2>
+<p>在同一个程序集内声明的两个匿名类型实例，如果它们的元素名称和类型是相同的，那么它们在内部就是相同的类型</p>
+<h2 id=元组>元组</h2>
+<p>元组是值类型，并且它是可变（可读可写）的元素</p>
+<h2 id=阅读书本>阅读书本</h2>
 <p><a href=https://weread.qq.com/web/reader/710327c0718f6368710b285kc81322c012c81e728d9d180>C# 7.0核心技术指南（原书第7版）</a></p>
 </div>
 <div class=my-4>
@@ -344,19 +413,22 @@ i.Foo();
 <div class="sticky-toc hidden lg:block px-6 pb-6">
 <nav id=TableOfContents>
 <ul>
+<li><a href=#c-70-特性>c# 7.0 特性</a>
+<ul>
 <li><a href=#数字字面量的改进>数字字面量的改进</a></li>
 <li><a href=#解构器>解构器</a></li>
 </ul>
+</li>
+<li><a href=#类>类</a>
 <ul>
 <li><a href=#重载构造器>重载构造器</a></li>
 <li><a href=#当构造器调用另一个构造器时被调用的构造器先执行>当构造器调用另一个构造器时，被调用的构造器先执行。</a></li>
 <li><a href=#参量>参量</a></li>
-<li><a href=#静态构造器>静态构造器</a>
-<ul>
+<li><a href=#静态构造器>静态构造器</a></li>
 <li><a href=#静态构造器和字段初始化顺序>静态构造器和字段初始化顺序</a></li>
 </ul>
 </li>
-</ul>
+<li><a href=#继承>继承</a>
 <ul>
 <li><a href=#new和重写的区别>new和重写的区别</a></li>
 <li><a href=#构造器和继承>构造器和继承</a>
@@ -365,21 +437,58 @@ i.Foo();
 </ul>
 </li>
 </ul>
+</li>
+<li><a href=#object类型>Object类型</a>
 <ul>
 <li><a href=#装箱和拆箱的缺点>装箱和拆箱的缺点</a></li>
 <li><a href=#gettype和typeof>GetType和typeof</a></li>
 </ul>
+</li>
+<li><a href=#结构体>结构体</a>
 <ul>
 <li><a href=#结构体的构造语义>结构体的构造语义</a></li>
 <li><a href=#其他>其他</a></li>
 </ul>
+</li>
+<li><a href=#可访问性>可访问性</a>
 <ul>
 <li><a href=#友元程序集>友元程序集</a></li>
 </ul>
+</li>
+<li><a href=#接口>接口</a>
 <ul>
 <li><a href=#在子类中重新实现接口>在子类中重新实现接口</a></li>
 <li><a href=#接口重新实现的替代方法>接口重新实现的替代方法</a></li>
 <li><a href=#接口与装箱>接口与装箱</a></li>
+</ul>
+</li>
+<li><a href=#泛型>泛型</a>
+<ul>
+<li><a href=#泛型约束>泛型约束</a></li>
+<li><a href=#协变>协变</a></li>
+<li><a href=#逆变>逆变</a></li>
+</ul>
+</li>
+<li><a href=#委托>委托</a>
+<ul>
+<li><a href=#实例目标方法和静态目标方法>实例目标方法和静态目标方法</a></li>
+<li><a href=#委托与接口>委托与接口</a></li>
+<li><a href=#泛型委托类型的参数协变>泛型委托类型的参数协变</a></li>
+</ul>
+</li>
+<li><a href=#lambda表达式>Lambda表达式</a>
+<ul>
+<li><a href=#局部方法和lambda的比较>局部方法和Lambda的比较</a></li>
+</ul>
+</li>
+<li><a href=#可枚举类型和迭代器>可枚举类型和迭代器</a>
+<ul>
+<li><a href=#迭代器语义>迭代器语义</a></li>
+</ul>
+</li>
+<li><a href=#匿名类型>匿名类型</a></li>
+<li><a href=#元组>元组</a></li>
+<li><a href=#阅读书本>阅读书本</a></li>
 </ul>
 </nav>
 </div>
