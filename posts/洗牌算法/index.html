@@ -94,7 +94,7 @@
 <pre><code class=language-c#>public static void Shuffle&lt;T&gt;(IList&lt;T&gt; items)
 {
     var rn = new Random((int) DateTime.Now.Ticks);
-    for (var i = items.Count - 1; i &gt;= 0; i++)
+    for (var i = items.Count - 1; i &gt;= 0; i--)
     {
         Swap(items, i, rn.Next(i + 1));
     }
