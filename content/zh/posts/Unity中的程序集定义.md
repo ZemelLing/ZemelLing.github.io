@@ -38,6 +38,13 @@ Unity 使用程序集定义和程序集引用（Assembly References）组织代�
 
 可以通过程序集定义资源设置程序集的引用关系。
 
+使用程序集定义的选项控制项目中使用的程序集之间的引用。程序集定义设置包括：
+
+* [Auto Referenced] – 预定义程序集是否引用相应程序集
+* [Assembly Definition References] – 对使用程序集定义创建的其他项目程序集的引用
+* [Override References] + [Assembly References] – 对预编译（插件）程序集的引用
+* [No Engine References] – 对 UnityEngine 程序集的引用
+
 ### 默认引用
 
 预定义程序集将引用所有其他程序集（程序集定义资源和预编译程序集），而程序集定义资源又引用所有预编译程序集。
