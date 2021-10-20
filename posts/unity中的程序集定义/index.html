@@ -19,7 +19,7 @@
 <link rel=apple-touch-icon sizes=180x180 href=https://www.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
 <meta name=description content="程序集定义（Assembly Definitions） Unity 使用程序集定义和程序集引用（Assembly References）组织代码结构，同时 Unity 默认使用预">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://www.zling.site/posts/"},{"@type":"ListItem","position":2,"name":"Unity中的程序集定义","item":"https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84%E7%A8%8B%E5%BA%8F%E9%9B%86%E5%AE%9A%E4%B9%89/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84%E7%A8%8B%E5%BA%8F%E9%9B%86%E5%AE%9A%E4%B9%89/"},"headline":"Unity中的程序集定义 | 🦁泽梅尔的驻留地","datePublished":"2021-04-05T13:15:45+08:00","dateModified":"2021-08-29T13:09:56+08:00","wordCount":871,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://www.zling.site/dahuai_samll.png"}},"description":"程序集定义（Assembly Definitions） Unity 使用程序集定义和程序集引用（Assembly References）组织代码结构，同时 Unity 默认使用预"}</script><meta property="og:title" content="Unity中的程序集定义 | 🦁泽梅尔的驻留地">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84%E7%A8%8B%E5%BA%8F%E9%9B%86%E5%AE%9A%E4%B9%89/"},"headline":"Unity中的程序集定义 | 🦁泽梅尔的驻留地","datePublished":"2021-04-05T13:15:45+08:00","dateModified":"2021-08-29T13:09:56+08:00","wordCount":983,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://www.zling.site/dahuai_samll.png"}},"description":"程序集定义（Assembly Definitions） Unity 使用程序集定义和程序集引用（Assembly References）组织代码结构，同时 Unity 默认使用预"}</script><meta property="og:title" content="Unity中的程序集定义 | 🦁泽梅尔的驻留地">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://www.zling.site/dahuai_samll.png">
 <meta property="og:url" content="https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84%E7%A8%8B%E5%BA%8F%E9%9B%86%E5%AE%9A%E4%B9%89/">
@@ -116,6 +116,13 @@
 <h2 id=引用references和依赖dependencies>引用（References）和依赖（Dependencies）</h2>
 <p>当类型 A 使用到类型 B 时，可称类型 A <em><strong>依赖</strong></em> 与类型 B，于此同时，如果 A 和 B 分属不同的程序集，则程序集 A 必须 <em><strong>引用</strong></em> 程序集 B，否则类型 A 就无法使用类型 B，这就是引用和依赖的区别与联系。</p>
 <p>可以通过程序集定义资源设置程序集的引用关系。</p>
+<p>使用程序集定义的选项控制项目中使用的程序集之间的引用。程序集定义设置包括：</p>
+<ul>
+<li>[Auto Referenced] – 预定义程序集是否引用相应程序集</li>
+<li>[Assembly Definition References] – 对使用程序集定义创建的其他项目程序集的引用</li>
+<li>[Override References] + [Assembly References] – 对预编译（插件）程序集的引用</li>
+<li>[No Engine References] – 对 UnityEngine 程序集的引用</li>
+</ul>
 <h3 id=默认引用>默认引用</h3>
 <p>预定义程序集将引用所有其他程序集（程序集定义资源和预编译程序集），而程序集定义资源又引用所有预编译程序集。</p>
 <p><img src=https://docs.unity3d.com/cn/2020.3/uploads/Main/AssemblyDependencies.png alt=默认引用关系></p>
