@@ -18,7 +18,7 @@
 <link rel=icon type=image/png sizes=32x32 href=https://www.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_32x32_fill_box_center_3.png>
 <link rel=apple-touch-icon sizes=180x180 href=https://www.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
 <meta name=description content="Zemel Ling's blog in web.">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"使用Docker运行MongoDB","description":"Use Docker-Compose version: '3.1' services: mongo: image: mongo restart: always environment: MONGO_INITDB_ROOT_USERNAME: root MONGO_INITDB_ROOT_PASSWORD: example volumes: - db_store:/data/db ports: - 27017:27017 volumes: db_store: {}","url":"https://www.zling.site/posts/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Cmongodb/"},{"@type":"ListItem","position":2,"name":"英语中的词组记录","description":"set out 出发 be（am/is/are）away 离开 be动词带领的词组通常表示在某种状态,与 leave 的区别是 leave 是瞬间动词，无持续性。be away 表状态，可持续，可与一段","url":"https://www.zling.site/posts/%E8%8B%B1%E8%AF%AD%E4%B8%AD%E7%9A%84%E8%AF%8D%E7%BB%84%E8%AE%B0%E5%BD%95/"},{"@type":"ListItem","position":3,"name":"英语中谓语动词的时态","description":"时态的种类 时态 过去 现在 将来 过去将来 一般 * * * * 进行 * * 完成 * * 完成进行 星号表示重点时态 一般过去时 形式：过去式 did 用法：表示过去的事（无关现在） 否定/疑问","url":"https://www.zling.site/posts/%E8%8B%B1%E8%AF%AD%E4%B8%AD%E8%B0%93%E8%AF%AD%E5%8A%A8%E8%AF%8D%E7%9A%84%E6%97%B6%E6%80%81/"},{"@type":"ListItem","position":4,"name":"Unity中的资源系统","description":"资源 Unity通过将资源的唯一 ID 写入与资源同名的 .meta 文件来确保对资源的唯一引用。 新增的资源 Unity 都会创建与之对应的 .meta 文件 Unity 读取并处理 Assets 文件夹中的任何文件，并","url":"https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90%E7%B3%BB%E7%BB%9F/"}]}</script><meta property="og:title" content="文章 | 🦁泽梅尔的驻留地">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"使用Docker运行Consul","description":"单节点 开发模式 mkdir -p /data/consul-data mkdir -p /data/consul-conf docker run -d -p 8500:8500 -p 8600:8600/udp -v /data/consul-data:/consul/data -v /data/consul-conf:/consul/config --name=consul_server consul agent -dev -ui -node=consul-server -bootstrap-expect=1 -client=0.0.0.0 -data-dir /consul/data -config-dir /consul/config","url":"https://www.zling.site/posts/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Cconsul/"},{"@type":"ListItem","position":2,"name":"使用Docker运行Redis","description":"Use Command docker run -d --restart=always --name redis -p 6379:6379 redis --requirepass 123456","url":"https://www.zling.site/posts/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Credis/"},{"@type":"ListItem","position":3,"name":"使用Docker运行MongoDB","description":"Use Docker-Compose version: '3.1' services: mongo: image: mongo restart: always environment: MONGO_INITDB_ROOT_USERNAME: root MONGO_INITDB_ROOT_PASSWORD: example volumes: - db_store:/data/db ports: - 27017:27017 volumes: db_store: {}","url":"https://www.zling.site/posts/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Cmongodb/"},{"@type":"ListItem","position":4,"name":"英语中的词组记录","description":"set out 出发 be（am/is/are）away 离开 be动词带领的词组通常表示在某种状态,与 leave 的区别是 leave 是瞬间动词，无持续性。be away 表状态，可持续，可与一段","url":"https://www.zling.site/posts/%E8%8B%B1%E8%AF%AD%E4%B8%AD%E7%9A%84%E8%AF%8D%E7%BB%84%E8%AE%B0%E5%BD%95/"}]}</script><meta property="og:title" content="文章 | 🦁泽梅尔的驻留地">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://www.zling.site/dahuai_samll.png">
 <meta property="og:url" content="https://www.zling.site/posts/">
@@ -26,7 +26,7 @@
 <meta property="og:locale" content="zh">
 <meta property="og:locale:alternate" content="en">
 <meta property="og:site_name" content="🦁泽梅尔的驻留地">
-<meta property="og:updated_time" content="2021-10-10T16:17:16+08:00">
+<meta property="og:updated_time" content="2021-10-25T11:18:17+08:00">
 <meta property="article:section" content="posts">
 <link rel=alternate type=application/rss+xml href=https://www.zling.site/posts/index.xml title=🦁泽梅尔的驻留地>
 <body class="flex flex-col min-h-screen">
@@ -88,6 +88,58 @@
 <div class="flex flex-col-reverse lg:flex-row justify-between">
 <div class=w-full>
 <div class=mb-4>
+<a href=https://www.zling.site/posts/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Cconsul/ class="font-bold text-xl hover:text-eureka">使用Docker运行Consul</a>
+</div>
+<div class=content>
+单节点 开发模式 mkdir -p /data/consul-data mkdir -p /data/consul-conf docker run -d -p 8500:8500 -p 8600:8600/udp -v /data/consul-data:/consul/data -v /data/consul-conf:/consul/config --name=consul_server consul agent -dev -ui -node=consul-server -bootstrap-expect=1 -client=0.0.0.0 -data-dir /consul/data -config-dir /consul/config
+</div>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2021-04-23</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>1分钟阅读时长</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=https://www.zling.site/categories/docker/ class=hover:text-eureka>docker</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
+<a href=https://www.zling.site/posts/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Credis/ class="font-bold text-xl hover:text-eureka">使用Docker运行Redis</a>
+</div>
+<div class=content>
+Use Command docker run -d --restart=always --name redis -p 6379:6379 redis --requirepass 123456
+</div>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2021-04-23</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>1分钟阅读时长</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-folder mr-1"></i>
+<a href=https://www.zling.site/categories/docker/ class=hover:text-eureka>docker</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=py-6>
+<div class="flex flex-col-reverse lg:flex-row justify-between">
+<div class=w-full>
+<div class=mb-4>
 <a href=https://www.zling.site/posts/%E4%BD%BF%E7%94%A8docker%E8%BF%90%E8%A1%8Cmongodb/ class="font-bold text-xl hover:text-eureka">使用Docker运行MongoDB</a>
 </div>
 <div class=content>
@@ -131,58 +183,6 @@ set out 出发 be（am/is/are）away 离开 be动词带领的词组通常表示�
 <div class="mr-6 my-2">
 <i class="fas fa-folder mr-1"></i>
 <a href=https://www.zling.site/categories/english/ class=hover:text-eureka>english</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://www.zling.site/posts/%E8%8B%B1%E8%AF%AD%E4%B8%AD%E8%B0%93%E8%AF%AD%E5%8A%A8%E8%AF%8D%E7%9A%84%E6%97%B6%E6%80%81/ class="font-bold text-xl hover:text-eureka">英语中谓语动词的时态</a>
-</div>
-<div class=content>
-时态的种类 时态 过去 现在 将来 过去将来 一般 * * * * 进行 * * 完成 * * 完成进行 星号表示重点时态 一般过去时 形式：过去式 did 用法：表示过去的事（无关现在） 否定/疑问
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-04-21</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>2分钟阅读时长</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=https://www.zling.site/categories/english/ class=hover:text-eureka>english</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90%E7%B3%BB%E7%BB%9F/ class="font-bold text-xl hover:text-eureka">Unity中的资源系统</a>
-</div>
-<div class=content>
-资源 Unity通过将资源的唯一 ID 写入与资源同名的 .meta 文件来确保对资源的唯一引用。 新增的资源 Unity 都会创建与之对应的 .meta 文件 Unity 读取并处理 Assets 文件夹中的任何文件，并
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-04-15</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>5分钟阅读时长</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=https://www.zling.site/categories/unity/ class=hover:text-eureka>unity</a>
 </div>
 </div>
 </div>
