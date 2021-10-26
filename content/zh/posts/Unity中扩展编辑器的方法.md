@@ -61,3 +61,37 @@ featuredImage:
   需要继承 Editor 类型，重写 OnSceneGUI 方法，使用 Handles、GUI、GUILayout等类绘制。还要为类打上 CustomEditor 特性
   ### 常驻辅助UI
   重写SceneView.onSceneGUIDelegate，在Handles.BeginGUI()和Handles.EndGUI()中间绘制完成
+  ### 禁用选中对象
+
+  直接在Scene视图中很容易选择到子节点，此时可以给它绑定一个[SelectionBase]标记，这样该脚本下的所有节点都会定位到绑定这个标记的对象身上
+
+## 拓展 Game 视图
+
+在脚本类上标记[ExecuteInEditMode]，表示此脚本可以在编辑模式中生效。
+
+## MenuItem菜单
+
+  ### 覆盖系统菜单
+  只要确保 MenuItem 特性的路径与要覆盖的系统菜单路径一致就行。
+  ### 自定义菜单
+  MenuItem 的路径自定义就行，当然可以使用 priority 排序。
+  ### 原生自定义菜单
+  EditorUtility.DisplayCustomMenu()
+  ### 拓展全局自定义快捷键
+  * %：表示Windows 下的 Ctrl键和macOS下的Command键。
+  * #：表示Shift键。
+  * &：表示Alt键。
+  * LEFT/RIGHT/UP/DOWN：表示左、右、上、下4个方向键。
+  * F1…F12：表示F1至F12菜单键。
+  * HOME、END、PGUP和PGDN键。
+
+## 面板拓展
+  ### Inspector面板
+  ### EditorWindows窗口
+  继承 EditorWindow
+  ### EditorWindows下拉菜单
+  继承 EidtorWindow 的同时继承 IHasCustomMenu
+  ### 预览窗口
+  继承 ObjectPreview,设置[CustomPreview]特性。
+  ### 获取预览信息
+  
