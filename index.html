@@ -1,345 +1,448 @@
-<!doctype html><html lang=zh class=dark><meta charset=utf-8>
-<meta name=viewport content="width=device-width">
-<title>🦁泽梅尔的驻留地</title>
-<meta name=generator content="Hugo Eureka 0.8.2">
-<link rel=stylesheet href=https://www.zling.site/css/eureka.min.css>
-<script defer src=https://www.zling.site/js/eureka.min.js></script>
-<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
-<link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'">
-<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin>
-<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
-<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script>
-<script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script>
-<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
-<script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js integrity="sha256-Zmpaaj+GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE=" crossorigin></script>
-<link rel=icon type=image/png sizes=32x32 href=https://www.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_32x32_fill_box_center_3.png>
-<link rel=apple-touch-icon sizes=180x180 href=https://www.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
-<meta name=description content="Zemel Ling's blog in web.">
-<meta property="og:title" content="🦁泽梅尔的驻留地">
+<!doctype html><html lang=zh-cn>
+<head>
+<meta name=generator content="Hugo 0.88.1">
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=referrer content="no-referrer-when-downgrade">
+<title>泽梅尔的驻留地 | 专注于游戏开发</title>
+<meta property="og:title" content="泽梅尔的驻留地 | 专注于游戏开发">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://www.zling.site/dahuai_samll.png">
+<meta name=Keywords content="csharp,unity,游戏开发,手游,单机,博客,lua,typescript">
+<meta name=description content="致力于开发好玩有趣的游戏">
 <meta property="og:url" content="https://www.zling.site/">
-<meta property="og:description" content="Zemel Ling's blog in web.">
-<meta property="og:locale" content="zh">
-<meta property="og:locale:alternate" content="en">
-<meta property="og:site_name" content="🦁泽梅尔的驻留地">
-<meta property="og:updated_time" content="2021-10-25T11:18:17+08:00">
-<meta property="article:section" content>
-<link rel=alternate type=application/rss+xml href=https://www.zling.site/index.xml title=🦁泽梅尔的驻留地>
-<body class="flex flex-col min-h-screen">
-<header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
-<div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");(storageColorScheme=='Auto'&&window.matchMedia("(prefers-color-scheme: light)").matches||storageColorScheme=="Light")&&document.getElementsByTagName('html')[0].classList.remove('dark')</script>
-<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
-<a href=/ class="mr-6 text-primary-text text-xl font-bold">🦁泽梅尔的驻留地</a>
-<button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
-<i class="fas fa-bars"></i>
-</button>
-<div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
-<div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
-<a href=/#about class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">👨‍🚀关于我</a>
-<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">📕文章</a>
-<a href=/docs/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">📁文档</a>
+<link rel="shortcut icon" href=/favicon.ico type=image/x-icon>
+<link rel=stylesheet href=/css/normalize.css>
+<link rel=stylesheet href=/css/style.css>
+<link rel=alternate type=application/rss+xml href=https://www.zling.site/index.xml title=泽梅尔的驻留地>
+<script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js></script>
+<link href=https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css rel=stylesheet>
+<link rel=stylesheet href=/css/douban.css>
+<link rel=stylesheet href=/css/other.css>
+</head>
+<body>
+<header id=header class=clearfix>
+<div class=container>
+<div class=col-group>
+<div class=site-name>
+<h1>
+<a id=logo href=https://www.zling.site>
+泽梅尔的驻留地
+</a>
+</h1>
+<p class=description>专注于游戏开发</p>
 </div>
-<div class=flex>
-<div class="relative pt-4 md:pt-0">
-<div class="cursor-pointer hover:text-eureka" id=lightDarkMode>
-<i class="fas fa-moon"></i>
-</div>
-<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open>
-</div>
-<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions>
-<span class="px-4 py-1 hover:text-eureka" name=Light>浅色</span>
-<span class="px-4 py-1 hover:text-eureka" name=Dark>深色</span>
-<span class="px-4 py-1 hover:text-eureka" name=Auto>自动</span>
-</div>
-</div>
-<div class="relative pt-4 pl-4 md:pt-0">
-<div class="cursor-pointer hover:text-eureka" id=languageMode>
-<i class="fas fa-globe"></i>
-<span class=pl-1>简体中文</span>
-</div>
-<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open-lang>
-</div>
-<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=languageOptions>
-<a class="px-4 py-1 hover:text-eureka" href=https://www.zling.site/>简体中文</a>
-<a class="px-4 py-1 hover:text-eureka" href=https://www.zling.site/en/>English</a>
-</div>
-</div>
-</div>
-</div>
-<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile>
-</div>
+<div>
+<nav id=nav-menu class=clearfix>
+<a class=current href=https://www.zling.site>首页</a>
+<a href=https://www.zling.site/archives/ title=归档>归档</a>
+<a href=https://www.zling.site/about/ title=关于>关于</a>
 </nav>
-<script>let element=document.getElementById('lightDarkMode');storageColorScheme=='Auto'?(element.firstElementChild.classList.remove('fa-moon'),element.firstElementChild.setAttribute("data-icon",'adjust'),element.firstElementChild.classList.add('fa-adjust'),document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)})):storageColorScheme=="Light"&&(element.firstElementChild.classList.remove('fa-moon'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger(),switchLanguage()})</script>
+</div>
+</div>
 </div>
 </header>
-<main class="flex-grow pt-16">
-<div class="pl-scrollbar bg-secondary-bg">
-<div class="max-w-screen-xl mx-auto">
-<div id=about class="lg:w-3/4 mx-auto px-6 md:px-8 xl:px-12 py-12">
-<div class="flex flex-col md:flex-row items-center justify-center mb-12">
-<div class="flex-none w-48 mx-auto md:ml-0 md:mr-8 md:pr-8 md:border-r">
-<img src=https://www.zling.site/images/%E5%A4%A7%E6%88%B7%E7%88%B1.jpg class=rounded-full alt=Avatar>
+<div id=body>
+<div class=container>
+<div class=col-group>
+<div class=col-8 id=main>
+<div class=res-cons>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84IMGUI/ title=Unity中的IMGUI>Unity中的IMGUI</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年10月25日
+</date>
+<div class=post-meta>
+<span>|</span>
+<span class=meta-category><a href=/categories/unity>unity</a></span>
+</div>
+<div class=post-content>
+什么是 IMGUI 即时模式 GUI 系统（也称为 IMGUI）是一个完全独立的功能系统，不同于 Unity 基于游戏对象的主 UI 系统，IMGUI 需在实现脚本上调用 OnGUI 函数，并在其中实现绘制 UI 的代码。 IMGUI 作用 创建游戏内调试显示和工具。 为脚本组件创建自定义检视面板。 创建新的编辑器窗口和工具以扩展 Unity 本身。 控件 Label Button RepeatButton TextField TextArea Toggle ToolBar……
+</div>
+<p class=readmore><a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84IMGUI/>阅读全文</a></p>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/CSharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F%E4%B9%8B%E9%87%8D%E5%86%99%E5%92%8C%E8%A6%86%E7%9B%96%E7%9A%84%E5%8C%BA%E5%88%AB/ title=CSharp查缺补漏之重写(override)和覆盖(new)的区别>CSharp查缺补漏之重写(override)和覆盖(new)的区别</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年10月25日
+</date>
+<div class=post-meta>
+<span>|</span>
+<span class=meta-category><a href=/categories/CSharp>CSharp</a></span>
+</div>
+<div class=post-content>
+不管是重写还是覆盖都不会影响父类自身的功能（废话，肯定的嘛，除非代码被改）。 当用子类创建父类的时候，如 C1 c3 = new C2()，重写会改变父类的功能，即调用子类的功能；而覆盖不会，仍然调用父类功能。 虚方法、实方法都可以被覆盖（new），抽象方法，接口 不可以。 抽象方法，接口，标记为virt……
+</div>
+<p class=readmore><a href=https://www.zling.site/post/CSharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F%E4%B9%8B%E9%87%8D%E5%86%99%E5%92%8C%E8%A6%86%E7%9B%96%E7%9A%84%E5%8C%BA%E5%88%AB/>阅读全文</a></p>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/%E6%B4%97%E7%89%8C%E7%AE%97%E6%B3%95/ title=洗牌算法>洗牌算法</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年10月10日
+</date>
+<div class=post-meta>
+<span>|</span>
+<span class=meta-category><a href=/categories/algorithm>algorithm</a></span>
+</div>
+<div class=post-content>
+暴力洗牌 n个元素共有n!个排列，暴力枚举每种情况，从中获取的一种作为洗牌结果。O(n!)复杂度。 Knuth洗牌算法 1 2 3 4 5 6 7 8 public static void Shuffle&lt;T>(IList&lt;T> items) { var rn = new Random((int) DateTime.Now.Ticks); for (var i = items.Count - 1; i >= 0; i--) { Swap(items, i, rn.Next(i + 1)); } }……
+</div>
+<p class=readmore><a href=https://www.zling.site/post/%E6%B4%97%E7%89%8C%E7%AE%97%E6%B3%95/>阅读全文</a></p>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/CSharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F20210928/ title=CSharp查缺补漏20210928>CSharp查缺补漏20210928</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年9月28日
+</date>
+<div class=post-meta>
+<span>|</span>
+<span class=meta-category><a href=/categories/CSharp>CSharp</a></span>
+</div>
+<div class=post-content>
+c# 7.0 特性 数字字面量的改进 数字字面量可以使用下划线来改善可读性、它们称为数字分隔符而被编译器忽略 1 2 3 int million = 1_000_000; var b = 0b1010_1011_1100_1101_1110_1111; // 二进制字面量可以使用0b前缀进行标识 解构器 解构方法的名字必须为Deconstruct，并且拥有一个或多个out参数 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 class Rectangle { public readonly float Width, Height; public……
+</div>
+<p class=readmore><a href=https://www.zling.site/post/CSharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F20210928/>阅读全文</a></p>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/%E4%BD%BF%E7%94%A8Activator%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B/ title=使用Activator动态创建实例>使用Activator动态创建实例</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年9月27日
+</date>
+<div class=post-meta>
+<span>|</span>
+<span class=meta-category><a href=/categories/CSharp>CSharp</a></span>
+</div>
+<div class=post-content>
+Activator Activator 包含能够创建本地或远程类型对象或获取对现有远程对象的引用的方法。 重要的方法 CreateInstance 此方法通过调用与给定参数最匹配的类构造函数创建类的实例。默认情况下，如果被创建实例的类没有Public的构造函数或找不到匹配的构造函数，此方法将抛出异常。……
+</div>
+<p class=readmore><a href=https://www.zling.site/post/%E4%BD%BF%E7%94%A8Activator%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B/>阅读全文</a></p>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/Unity%E4%B9%8B%E5%8A%A8%E6%80%81%E5%B0%86%E5%9C%BA%E6%99%AF%E6%B7%BB%E5%8A%A0%E5%88%B0BuildSettings%E4%B8%AD/ title=Unity之动态将场景添加到BuildSettings中>Unity之动态将场景添加到BuildSettings中</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年9月11日
+</date>
+<div class=post-meta>
+<span>|</span>
+<span class=meta-category><a href=/categories/unity>unity</a></span>
+</div>
+<div class=post-content>
+代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 #region 将场景添加到 Build Settings // 场景存放目录 var sceneDir = $"{Application.dataPath}/Scenes"; var sceneFiles = Directory.GetFiles(sceneDir, "*.unity", SearchOption.AllDirectories); var scenes = new EditorBuildSettingsScene[sceneFiles.Length]; for (var i = 0; i &lt; sceneFiles.Length; i++) { // 替换斜杠 var sceneFile = sceneFiles[i].Replace("\\", "/"); // 使用相对路径 var assetsFolderIndex = sceneFile.IndexOf("Assets", StringComparison.Ordinal); sceneFile = sceneFile.Substring(assetsFolderIndex); var scene = new EditorBuildSettingsScene(sceneFile, true); scenes[i] = scene; } EditorBuildSettings.scenes = scenes; #endregion……
+</div>
+<p class=readmore><a href=https://www.zling.site/post/Unity%E4%B9%8B%E5%8A%A8%E6%80%81%E5%B0%86%E5%9C%BA%E6%99%AF%E6%B7%BB%E5%8A%A0%E5%88%B0BuildSettings%E4%B8%AD/>阅读全文</a></p>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/UGUI%E4%B9%8BCanvas/ title=UGUI之Canvas>UGUI之Canvas</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年9月8日
+</date>
+<div class=post-meta>
+<span>|</span>
+<span class=meta-category><a href=/categories/unity>unity</a></span>
+<span class=meta-category><a href=/categories/ugui>ugui</a></span>
+</div>
+<div class=post-content>
+Canvas Canvas 是UGUI中用于显示其他UI元素的基础，其附加了 Canvas 组件，在场景中可以有多个 Canvas 游戏对象，同时允许 Canvas 嵌套。 Canvas 组件的重要属性 渲染模式 Screen Space - Overlay 此模式下UI内容紧贴屏幕。 Screen Space - Camera 此模式下 UI 内容面向指定的摄像机一定距离显示。 World Space 此模式下 UI 内容与场景中的其他游戏物体一样。 Canvas Scale 组件 控制画布内……
+</div>
+<p class=readmore><a href=https://www.zling.site/post/UGUI%E4%B9%8BCanvas/>阅读全文</a></p>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8Addressable/ title=Unity中使用Addressable>Unity中使用Addressable</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年9月6日
+</date>
+<div class=post-meta>
+<span>|</span>
+<span class=meta-category><a href=/categories/unity>unity</a></span>
+</div>
+<div class=post-content>
+使用步骤 标记资源为Addressable 方式一：在资源的Inspector界面 方式二：在 Addressables Groups 窗口 构建可寻址内容(Addressable Content) 方式一：使用 Editor 在 Addressables Groups 窗口右上角选择 Build > New Build > Default Build Script. 方式二：使用脚本 API AddressableAssetSettings.BuildPlayerContent() 使用 Addressable 资源 方式一：通过 address 加载或实例化资源 加载资源 Addressables.LoadAssetAsync&lt;GameObject>("AssetAddress"); 实例化资源 Addressables.InstantiateAsync("AssetAddress"); 示例： 1 2 3……
+</div>
+<p class=readmore><a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8Addressable/>阅读全文</a></p>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/Unity%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9Prefab%E6%9C%AA%E8%83%BD%E4%BF%9D%E5%AD%98%E7%9A%84%E9%97%AE%E9%A2%98/ title=Unity代码修改Prefab未能保存的问题>Unity代码修改Prefab未能保存的问题</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年9月6日
+</date>
+<div class=post-meta>
+<span>|</span>
+<span class=meta-category><a href=/categories/unity>unity</a></span>
+</div>
+<div class=post-content>
+解决办法 使用 EditorUtility.SetDirty(thePrefabObjectOrComponent); 将其设置为Dirty，之后就可以保存了。……
+</div>
+<p class=readmore><a href=https://www.zling.site/post/Unity%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9Prefab%E6%9C%AA%E8%83%BD%E4%BF%9D%E5%AD%98%E7%9A%84%E9%97%AE%E9%A2%98/>阅读全文</a></p>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8CustomEditor%E8%87%AA%E5%AE%9A%E4%B9%89%E8%84%9A%E6%9C%AC%E7%9A%84Inspector%E9%9D%A2%E6%9D%BF/ title=Unity中使用CustomEditor自定义脚本的Inspector面板>Unity中使用CustomEditor自定义脚本的Inspector面板</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年9月5日
+</date>
+<div class=post-meta>
+<span>|</span>
+<span class=meta-category><a href=/categories/unity>unity</a></span>
+</div>
+<div class=post-content>
+自定义脚本 1 2 3 4 5 6 7 8 9 10 using UnityEngine; public class LookAtPoint : MonoBehaviour { public Vector3 lookAtPoint = Vector3.zero; void Update() { transform.LookAt(lookAtPoint); } } 使用 CustomEditor 特性 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 using UnityEngine; using UnityEditor; [CustomEditor(typeof(LookAtPoint))] // 指定为哪个组件自定义编辑器界面 [CanEditMultipleObjects] // 指示Unity可以为多个对象的同一组件同时编辑 public class LookAtPointEditor : Editor { SerializedProperty lookAtPoint;……
+</div>
+<p class=readmore><a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8CustomEditor%E8%87%AA%E5%AE%9A%E4%B9%89%E8%84%9A%E6%9C%AC%E7%9A%84Inspector%E9%9D%A2%E6%9D%BF/>阅读全文</a></p>
+</article>
+<ol class=page-navigator>
+<li class=current>
+<a href=https://www.zling.site/>1</a>
+</li>
+<li>
+<a href=https://www.zling.site/page/2/>2</a>
+</li>
+<li>
+<a href=https://www.zling.site/page/3/>3</a>
+</li>
+<li>
+<span>...</span>
+</li>
+<li>
+<a href=https://www.zling.site/page/11/>11</a>
+</li>
+<li class=next>
+<a href=https://www.zling.site/page/2/>下一页</a>
+</li>
+</ol>
+</div>
+<footer id=footer>
+<div>
+&copy; 2021 <a href=https://www.zling.site>泽梅尔的驻留地 By ZemelLing</a>
+| <a rel=nofollow target=_blank href=http://beian.miit.gov.cn/>闽ICP备2021013106号</a>
+</div>
+<br>
+<div>
+<div class=github-badge>
+<a href=https://gohugo.io/ target=_black rel=nofollow><span class=badge-subject>Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+</div>
+<div class=github-badge>
+<a href=https://www.flysnow.org/ target=_black><span class=badge-subject>Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+</div>
+<div class=github-badge>
+<a href=https://github.com/flysnow-org/maupassant-hugo target=_black><span class=badge-subject>Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
 </div>
-<div class="flex-grow mt-4 md:mt-0">
-<div class="text-3xl py-4">Zemel Ling</div>
-<div class="w-3/12 xl:w-2/12 border-b"></div>
-<div class="flex items-center pt-4">
-<i class="fas fa-user"></i>
-<div class="flex flex-wrap">
-<span class=pl-4>程序员</span>
-<a href class=pl-4></a>
 </div>
-</div>
-<div class="py-8 text-lg leading-normal">
-Late equals never.
-</div>
-</div>
-<div class="flex md:flex-col justify-center items-end ml-8">
-<div class="pb-2 pr-4 md:pr-0 pt-4 md:pt-0">
-<a href=https://github.com/ZemelLing><i class="fab fa-github"></i></a>
-</div>
-</div>
-</div>
-<div class=content>
-<h2 id=自我介绍>自我介绍</h2>
-<p>只搞游戏开发，其他勿扰。</p>
-</div>
-</div>
-</div>
-</div>
-<div class="pl-scrollbar bg-primary-bg">
-<div class="max-w-screen-xl mx-auto">
-<div id=pages class="lg:w-3/4 mx-auto px-6 md:px-8 xl:px-12 py-12">
-<h2 class="font-bold text-3xl my-4"></h2>
-<div class="overflow-hidden divide-y">
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://www.zling.site/posts/unity%E4%B8%AD%E7%9A%84imgui/ class="font-bold text-xl hover:text-eureka">Unity中的IMGUI</a>
-</div>
-<div class=content>
-什么是 IMGUI 即时模式 GUI 系统（也称为 IMGUI）是一个完全独立的功能系统，不同于 Unity 基于游戏对象的主 UI 系统，IMGUI 需在实现脚本上调用 OnGUI 函数，并在其中实现绘
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-10-25</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>2分钟阅读时长</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=https://www.zling.site/categories/unity/ class=hover:text-eureka>unity</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://www.zling.site/posts/csharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F%E4%B9%8B%E9%87%8D%E5%86%99%E5%92%8C%E8%A6%86%E7%9B%96%E7%9A%84%E5%8C%BA%E5%88%AB/ class="font-bold text-xl hover:text-eureka">CSharp查缺补漏之重写(override)和覆盖(new)的区别</a>
-</div>
-<div class=content>
-不管是重写还是覆盖都不会影响父类自身的功能（废话，肯定的嘛，除非代码被改）。 当用子类创建父类的时候，如 C1 c3 = new C2()，重写会改变父类的功能，即调用子
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-10-25</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>1分钟阅读时长</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=https://www.zling.site/categories/csharp/ class=hover:text-eureka>CSharp</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://www.zling.site/posts/%E6%B4%97%E7%89%8C%E7%AE%97%E6%B3%95/ class="font-bold text-xl hover:text-eureka">洗牌算法</a>
-</div>
-<div class=content>
-暴力洗牌 n个元素共有n!个排列，暴力枚举每种情况，从中获取的一种作为洗牌结果。O(n!)复杂度。 Knuth洗牌算法 public static void Shuffle&lt;T>(IList&lt;T> items) { var rn = new Random((int) DateTime.Now.Ticks); for (var i = items.Count -
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-10-10</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>1分钟阅读时长</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=https://www.zling.site/categories/algorithm/ class=hover:text-eureka>algorithm</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://www.zling.site/posts/csharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F20210928/ class="font-bold text-xl hover:text-eureka">CSharp查缺补漏20210928</a>
-</div>
-<div class=content>
-c# 7.0 特性 数字字面量的改进 数字字面量可以使用下划线来改善可读性、它们称为数字分隔符而被编译器忽略 int million = 1_000_000; var b = 0b1010_1011_1100_1101_1110_1111; // 二进制字面量可以使用0b前缀进行标识 解
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-09-28</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>9分钟阅读时长</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=https://www.zling.site/categories/csharp/ class=hover:text-eureka>CSharp</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://www.zling.site/posts/%E4%BD%BF%E7%94%A8activator%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B/ class="font-bold text-xl hover:text-eureka">使用Activator动态创建实例</a>
-</div>
-<div class=content>
-Activator Activator 包含能够创建本地或远程类型对象或获取对现有远程对象的引用的方法。 重要的方法 CreateInstance 此方法通过调用与给定参数最匹配的类构造函数创建类的实例。默认情况下，如
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-09-27</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>1分钟阅读时长</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=https://www.zling.site/categories/csharp/ class=hover:text-eureka>CSharp</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://www.zling.site/posts/unity%E4%B9%8B%E5%8A%A8%E6%80%81%E5%B0%86%E5%9C%BA%E6%99%AF%E6%B7%BB%E5%8A%A0%E5%88%B0buildsettings%E4%B8%AD/ class="font-bold text-xl hover:text-eureka">Unity之动态将场景添加到BuildSettings中</a>
-</div>
-<div class=content>
-代码 #region 将场景添加到 Build Settings // 场景存放目录 var sceneDir = $"{Application.dataPath}/Scenes"; var sceneFiles = Directory.GetFiles(sceneDir, "*.unity", SearchOption.AllDirectories); var scenes = new EditorBuildSettingsScene[sceneFiles.Length]; for (var i = 0; i &lt; sceneFiles.Length; i++) { // 替换斜杠 var sceneFile = sceneFiles[i].Replace("\\", "/"); // 使用相对路径 var assetsFolderIndex = sceneFile.IndexOf("Assets", StringComparison.Ordinal); sceneFile = sceneFile.Substring(assetsFolderIndex); var scene = new EditorBuildSettingsScene(sceneFile, true); scenes[i]
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-09-11</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>1分钟阅读时长</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=https://www.zling.site/categories/unity/ class=hover:text-eureka>unity</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://www.zling.site/posts/ugui%E4%B9%8Bcanvas/ class="font-bold text-xl hover:text-eureka">UGUI之Canvas</a>
-</div>
-<div class=content>
-Canvas Canvas 是UGUI中用于显示其他UI元素的基础，其附加了 Canvas 组件，在场景中可以有多个 Canvas 游戏对象，同时允许 Canvas 嵌套。 Canvas 组件的重要属性 渲染模式 Screen Space - Overlay 此模式下UI
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-09-08</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>1分钟阅读时长</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=https://www.zling.site/categories/unity/ class=hover:text-eureka>unity</a>
-<span>, </span>
-<a href=https://www.zling.site/categories/ugui/ class=hover:text-eureka>ugui</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=https://www.zling.site/posts/unity%E4%B8%AD%E4%BD%BF%E7%94%A8addressable/ class="font-bold text-xl hover:text-eureka">Unity中使用Addressable</a>
-</div>
-<div class=content>
-使用步骤 标记资源为Addressable 方式一：在资源的Inspector界面 方式二：在 Addressables Groups 窗口 构建可寻址内容(Addressable Content) 方式一：使用 Editor
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2021-09-06</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>1分钟阅读时长</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=https://www.zling.site/categories/unity/ class=hover:text-eureka>unity</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="pt-2 hover:text-eureka">
-<a href=https://www.zling.site/posts/ class=font-semibold>阅读更多</a>
-<i class="fas fa-caret-right ml-1"></i>
-</div>
-</div>
-</div>
-</div>
-</main>
-<footer class=pl-scrollbar>
-<div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-<p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.zling.site/>Zemel Ling</a> | <a href=https://beian.miit.gov.cn>闽ICP备2021013106号</a>
-&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p>
-</div></div>
 </footer>
+<a id=rocket href=#top></a>
+<script type=text/javascript src="/js/totop.js?v=0.0.0" async></script>
+<script type=text/javascript src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js async></script>
+<script src=/js/douban.js></script>
+</div>
+<div id=secondary>
+<section class=widget>
+<form id=search action=https://www.zling.site/search/ method=get accept-charset=utf-8 target=_blank _lpchecked=1>
+<input type=text name=q maxlength=20 placeholder=Search>
+<input type=hidden name=sitesearch value=https://www.zling.site>
+<button type=submit class="submit icon-search"></button>
+</form>
+</section>
+<section class=widget>
+<h3 class=widget-title>最近文章</h3>
+<ul class=widget-list>
+<li>
+<a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84IMGUI/ title=Unity中的IMGUI>Unity中的IMGUI</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/CSharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F%E4%B9%8B%E9%87%8D%E5%86%99%E5%92%8C%E8%A6%86%E7%9B%96%E7%9A%84%E5%8C%BA%E5%88%AB/ title=CSharp查缺补漏之重写(override)和覆盖(new)的区别>CSharp查缺补漏之重写(override)和覆盖(new)的区别</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/%E6%B4%97%E7%89%8C%E7%AE%97%E6%B3%95/ title=洗牌算法>洗牌算法</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/CSharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F20210928/ title=CSharp查缺补漏20210928>CSharp查缺补漏20210928</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/%E4%BD%BF%E7%94%A8Activator%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B/ title=使用Activator动态创建实例>使用Activator动态创建实例</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/Unity%E4%B9%8B%E5%8A%A8%E6%80%81%E5%B0%86%E5%9C%BA%E6%99%AF%E6%B7%BB%E5%8A%A0%E5%88%B0BuildSettings%E4%B8%AD/ title=Unity之动态将场景添加到BuildSettings中>Unity之动态将场景添加到BuildSettings中</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/UGUI%E4%B9%8BCanvas/ title=UGUI之Canvas>UGUI之Canvas</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8Addressable/ title=Unity中使用Addressable>Unity中使用Addressable</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/Unity%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9Prefab%E6%9C%AA%E8%83%BD%E4%BF%9D%E5%AD%98%E7%9A%84%E9%97%AE%E9%A2%98/ title=Unity代码修改Prefab未能保存的问题>Unity代码修改Prefab未能保存的问题</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8CustomEditor%E8%87%AA%E5%AE%9A%E4%B9%89%E8%84%9A%E6%9C%AC%E7%9A%84Inspector%E9%9D%A2%E6%9D%BF/ title=Unity中使用CustomEditor自定义脚本的Inspector面板>Unity中使用CustomEditor自定义脚本的Inspector面板</a>
+</li>
+</ul>
+</section>
+<section class=widget>
+<h3 class=widget-title><a href=/categories/>分类</a></h3>
+<ul class=widget-list>
+<li><a href=https://www.zling.site/categories/CSharp/>CSharp (10)</a></li>
+<li><a href=https://www.zling.site/categories/algorithm/>algorithm (2)</a></li>
+<li><a href=https://www.zling.site/categories/aspnetcore/>aspnetcore (1)</a></li>
+<li><a href=https://www.zling.site/categories/c++/>c++ (1)</a></li>
+<li><a href=https://www.zling.site/categories/CSharp/>CSharp (3)</a></li>
+<li><a href=https://www.zling.site/categories/datagrip/>datagrip (1)</a></li>
+<li><a href=https://www.zling.site/categories/design-pattern/>design pattern (9)</a></li>
+<li><a href=https://www.zling.site/categories/docker/>docker (7)</a></li>
+<li><a href=https://www.zling.site/categories/english/>english (13)</a></li>
+<li><a href=https://www.zling.site/categories/excel/>excel (1)</a></li>
+<li><a href=https://www.zling.site/categories/game-design/>game design (1)</a></li>
+<li><a href=https://www.zling.site/categories/game-development/>game development (1)</a></li>
+<li><a href=https://www.zling.site/categories/hugo/>hugo (1)</a></li>
+<li><a href=https://www.zling.site/categories/jira/>jira (1)</a></li>
+<li><a href=https://www.zling.site/categories/linux/>linux (1)</a></li>
+<li><a href=https://www.zling.site/categories/lua/>lua (3)</a></li>
+<li><a href=https://www.zling.site/categories/markdown/>markdown (1)</a></li>
+<li><a href=https://www.zling.site/categories/math/>math (1)</a></li>
+<li><a href=https://www.zling.site/categories/mysql/>mysql (2)</a></li>
+<li><a href=https://www.zling.site/categories/nuget/>nuget (1)</a></li>
+<li><a href=https://www.zling.site/categories/problem/>problem (1)</a></li>
+<li><a href=https://www.zling.site/categories/protobuf/>protobuf (1)</a></li>
+<li><a href=https://www.zling.site/categories/rider/>rider (1)</a></li>
+<li><a href=https://www.zling.site/categories/serilog/>serilog (1)</a></li>
+<li><a href=https://www.zling.site/categories/ugui/>ugui (1)</a></li>
+<li><a href=https://www.zling.site/categories/unity/>unity (32)</a></li>
+</ul>
+</section>
+<section class=widget>
+<h3 class=widget-title><a href=/tags/>标签</a></h3>
+<div class=tagcloud>
+<a href=https://www.zling.site/tags/2d/>2d</a>
+<a href=https://www.zling.site/tags/CSharp/>CSharp</a>
+<a href=https://www.zling.site/tags/algorithm/>algorithm</a>
+<a href=https://www.zling.site/tags/android/>android</a>
+<a href=https://www.zling.site/tags/aspnetcore/>aspnetcore</a>
+<a href=https://www.zling.site/tags/assembly/>assembly</a>
+<a href=https://www.zling.site/tags/assetbundle/>assetbundle</a>
+<a href=https://www.zling.site/tags/attribute/>attribute</a>
+<a href=https://www.zling.site/tags/binary-serialize/>binary serialize</a>
+<a href=https://www.zling.site/tags/bridge/>bridge</a>
+<a href=https://www.zling.site/tags/c++/>c++</a>
+<a href=https://www.zling.site/tags/caddy/>caddy</a>
+<a href=https://www.zling.site/tags/calculus/>calculus</a>
+<a href=https://www.zling.site/tags/camera/>camera</a>
+<a href=https://www.zling.site/tags/component/>component</a>
+<a href=https://www.zling.site/tags/compression/>compression</a>
+<a href=https://www.zling.site/tags/consul/>consul</a>
+<a href=https://www.zling.site/tags/CSharp/>CSharp</a>
+<a href=https://www.zling.site/tags/data-save/>data save</a>
+<a href=https://www.zling.site/tags/datagrip/>datagrip</a>
+<a href=https://www.zling.site/tags/debian/>debian</a>
+<a href=https://www.zling.site/tags/decompression/>decompression</a>
+<a href=https://www.zling.site/tags/design-pattern/>design pattern</a>
+<a href=https://www.zling.site/tags/docker/>docker</a>
+<a href=https://www.zling.site/tags/english/>english</a>
+<a href=https://www.zling.site/tags/event/>event</a>
+<a href=https://www.zling.site/tags/excel/>excel</a>
+<a href=https://www.zling.site/tags/facade/>facade</a>
+<a href=https://www.zling.site/tags/game-design/>game design</a>
+<a href=https://www.zling.site/tags/game-development/>game development</a>
+<a href=https://www.zling.site/tags/grammar/>grammar</a>
+<a href=https://www.zling.site/tags/gui/>gui</a>
+<a href=https://www.zling.site/tags/hotfix/>hotfix</a>
+<a href=https://www.zling.site/tags/hugo/>hugo</a>
+<a href=https://www.zling.site/tags/io/>io</a>
+<a href=https://www.zling.site/tags/jira/>jira</a>
+<a href=https://www.zling.site/tags/json/>json</a>
+<a href=https://www.zling.site/tags/lighting/>lighting</a>
+<a href=https://www.zling.site/tags/linux/>linux</a>
+<a href=https://www.zling.site/tags/log/>log</a>
+<a href=https://www.zling.site/tags/lua/>lua</a>
+<a href=https://www.zling.site/tags/markdown/>markdown</a>
+<a href=https://www.zling.site/tags/math/>math</a>
+<a href=https://www.zling.site/tags/mediator/>mediator</a>
+<a href=https://www.zling.site/tags/mongodb/>mongodb</a>
+<a href=https://www.zling.site/tags/mysql/>mysql</a>
+<a href=https://www.zling.site/tags/network/>network</a>
+<a href=https://www.zling.site/tags/nexus3/>nexus3</a>
+<a href=https://www.zling.site/tags/nuget/>nuget</a>
+<a href=https://www.zling.site/tags/phrase/>phrase</a>
+<a href=https://www.zling.site/tags/problem/>problem</a>
+<a href=https://www.zling.site/tags/protobuf/>protobuf</a>
+<a href=https://www.zling.site/tags/redis/>redis</a>
+<a href=https://www.zling.site/tags/render/>render</a>
+<a href=https://www.zling.site/tags/rider/>rider</a>
+<a href=https://www.zling.site/tags/scene/>scene</a>
+<a href=https://www.zling.site/tags/serialize/>serialize</a>
+<a href=https://www.zling.site/tags/serilog/>serilog</a>
+<a href=https://www.zling.site/tags/shuffle/>shuffle</a>
+<a href=https://www.zling.site/tags/socket/>socket</a>
+<a href=https://www.zling.site/tags/sort-algorithm/>sort algorithm</a>
+<a href=https://www.zling.site/tags/sprites/>sprites</a>
+<a href=https://www.zling.site/tags/state/>state</a>
+<a href=https://www.zling.site/tags/thread/>thread</a>
+<a href=https://www.zling.site/tags/tilemap/>tilemap</a>
+<a href=https://www.zling.site/tags/ugui/>ugui</a>
+<a href=https://www.zling.site/tags/unity/>unity</a>
+<a href=https://www.zling.site/tags/unity-api/>unity api</a>
+<a href=https://www.zling.site/tags/vs/>vs</a>
+<a href=https://www.zling.site/tags/xml/>xml</a>
+<a href=https://www.zling.site/tags/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/>渲染管线</a>
+<a href=https://www.zling.site/tags/%E7%94%BB%E8%B4%A8/>画质</a>
+</div>
+</section>
+<section class=widget>
+<h3 class=widget-title>友情链接</h3>
+<ul class=widget-list>
+<li>
+<a target=_blank href=https://www.flysnow.org/ title=飞雪无情的博客>飞雪无情的博客</a>
+</li>
+<li>
+<a target=_blank href=http://www.hariogame.com/ title=哈里奥游戏工作室>哈里奥游戏工作室</a>
+</li>
+</ul>
+</section>
+<section class=widget>
+<h3 class=widget-title>其它</h3>
+<ul class=widget-list>
+<li><a href=https://www.zling.site/index.xml>文章 RSS</a></li>
+</ul>
+</section>
+</div>
+</div>
+</div>
+</div>
 </body>
 </html>

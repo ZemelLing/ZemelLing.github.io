@@ -1,0 +1,624 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=referrer content="no-referrer-when-downgrade">
+<title>Unity中的资源系统 | 泽梅尔的驻留地</title>
+<meta property="og:title" content="Unity中的资源系统 - 泽梅尔的驻留地">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2021-04-15T12:15:15+08:00">
+<meta property="article:modified_time" content="2021-08-29T13:09:56+08:00">
+<meta name=Keywords content="csharp,unity,游戏开发,手游,单机,博客,lua,typescript">
+<meta name=description content="Unity中的资源系统">
+<meta name=author content="ZemelLing">
+<meta property="og:url" content="https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90%E7%B3%BB%E7%BB%9F/">
+<link rel="shortcut icon" href=/favicon.ico type=image/x-icon>
+<link rel=stylesheet href=/css/normalize.css>
+<link rel=stylesheet href=/css/style.css>
+<script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js></script>
+<link href=https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css rel=stylesheet>
+<link rel=stylesheet href=/css/douban.css>
+<link rel=stylesheet href=/css/other.css>
+</head>
+<body>
+<header id=header class=clearfix>
+<div class=container>
+<div class=col-group>
+<div class=site-name>
+<a id=logo href=https://www.zling.site>
+泽梅尔的驻留地
+</a>
+<p class=description>专注于游戏开发</p>
+</div>
+<div>
+<nav id=nav-menu class=clearfix>
+<a class=current href=https://www.zling.site>首页</a>
+<a href=https://www.zling.site/archives/ title=归档>归档</a>
+<a href=https://www.zling.site/about/ title=关于>关于</a>
+</nav>
+</div>
+</div>
+</div>
+</header>
+<div id=body>
+<div class=container>
+<div class=col-group>
+<div class=col-8 id=main>
+<div class=res-cons>
+<style type=text/css>.post-toc{position:fixed;width:200px;margin-left:-210px;padding:5px 10px;font-family:Athelas,STHeiti,Microsoft Yahei,serif;font-size:12px;border:1px solid rgba(0,0,0,7%);border-radius:5px;background-color:rgba(255,255,255,.98);background-clip:padding-box;-webkit-box-shadow:1px 1px 2px rgba(0,0,0,.125);box-shadow:1px 1px 2px rgba(0,0,0,.125);word-wrap:break-word;white-space:nowrap;-webkit-box-sizing:border-box;box-sizing:border-box;z-index:999;cursor:pointer;max-height:70%;overflow-y:auto;overflow-x:hidden}.post-toc .post-toc-title{width:100%;margin:0 auto;font-size:20px;font-weight:400;text-transform:uppercase;text-align:center}.post-toc .post-toc-content{font-size:15px}.post-toc .post-toc-content>nav>ul{margin:10px 0}.post-toc .post-toc-content ul{padding-left:20px;list-style:square;margin:.5em;line-height:1.8em}.post-toc .post-toc-content ul ul{padding-left:15px;display:none}@media print,screen and (max-width:1057px){.post-toc{display:none}}</style>
+<div class=post-toc style=position:absolute;top:188px>
+<h2 class=post-toc-title>文章目录</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#资源>资源</a></li>
+<li><a href=#源资源和-artifact>源资源和 Artifact</a>
+<ul>
+<li><a href=#源资源数据库>源资源数据库</a></li>
+<li><a href=#artifact-数据库>Artifact 数据库</a></li>
+</ul>
+</li>
+<li><a href=#assetbundle>AssetBundle</a>
+<ul>
+<li><a href=#assetbundle-工作流程>AssetBundle 工作流程</a></li>
+<li><a href=#加载-assetbundle-的-api>加载 AssetBundle 的 API</a></li>
+<li><a href=#管理已加载的-assetbundle>管理已加载的 AssetBundle</a></li>
+<li><a href=#assetbundle-的原理>AssetBundle 的原理</a></li>
+<li><a href=#assetbundle-分组策略>AssetBundle 分组策略</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<script type=text/javascript>$(document).ready(function(){var a=$(".post-toc"),b,c,d;a.length&&(b=$("#main").offset().left,b<220&&a.css({width:b-10,"margin-left":0-b}),c=a.offset().top-20,d={start:{position:"absolute",top:c},process:{position:"fixed",top:20}},$(window).scroll(function(){var b=$(window).scrollTop();b<c?a.css(d.start):a.css(d.process)}))})</script>
+<article class=post>
+<header>
+<h1 class=post-title>Unity中的资源系统</h1>
+</header>
+<date class="post-meta meta-date">
+2021年4月15日
+</date>
+<div class=post-meta>
+<span>|</span>
+<span class=meta-category><a href=/categories/unity>unity</a></span>
+</div>
+<div class=post-meta>
+<span id=busuanzi_container_page_pv>|<span id=busuanzi_value_page_pv></span><span>
+阅读</span></span>
+</div>
+<div class=clear style=display:none>
+<div class=toc-article>
+<div class=toc-title>文章目录</div>
+</div>
+</div>
+<div class=post-content>
+<h2 id=资源>资源</h2>
+<ul>
+<li>Unity通过将资源的唯一 ID 写入与资源同名的 .meta 文件来确保对资源的唯一引用。</li>
+<li>新增的资源 Unity 都会创建与之对应的 .meta 文件</li>
+<li>Unity 读取并处理 Assets 文件夹中的任何文件，并将其转换成可直接用于游戏内容的数据格式，存储在 Libraray 文件夹中，而原文件仍然保留在 Assets 文件夹中</li>
+<li>.meta 文件不止包含资源 ID 同时也包含资源导入设置的数据。</li>
+<li>备份项目或将项目添加到版本控制库时，应包括 Unity 主项目文件夹，其中包含 Assets 和 ProjectSettings 文件夹。Unity 依靠这些文件夹中的信息来重新导入您的资源并重新构建您的游戏或应用程序。不得备份 Library 和 Temp 文件夹，也不要将其置于版本控制下。</li>
+</ul>
+<h2 id=源资源和-artifact>源资源和 Artifact</h2>
+<p>Unity 在 Library 文件夹中保留两个数据库文件，它们统称为资源数据库。这两个数据库可以跟踪有关源资源文件和 Artifact（这是有关导入结果的信息）的信息。</p>
+<h3 id=源资源数据库>源资源数据库</h3>
+<p>源资源数据库包含有关源资源文件的元数据信息，Unity 将这些信息用来确定文件是否被修改，从而决定是否应该重新导入文件。这些信息中包括诸如上次修改日期、文件内容哈希、GUID 和其他元数据信息之类的信息。</p>
+<h3 id=artifact-数据库>Artifact 数据库</h3>
+<p>Artifact 是导入过程的结果。Artifact 数据库包含有关每个源资源的导入结果的信息。每个 Artifact 都包含导入依赖项信息、Artifact 元数据信息和 Artifact 文件列表。</p>
+<p>注意：数据库文件位于项目的 Library 文件夹中，因此应从版本控制系统中将这些文件排除。可以在以下位置找到它们：</p>
+<p>源资源数据库：Library\SourceAssetDB
+Artifact 数据库：Library\ArtifactDB</p>
+<h2 id=assetbundle>AssetBundle</h2>
+<p>AssetBundle 是一个存档文件，包含可在运行时由 Unity 加载的特定于平台的非代码资源（比如模型、纹理、预制件、音频剪辑甚至整个场景）。AssetBundle 可以表示彼此之间的依赖关系；例如，一个 AssetBundle 中的材质可以引用另一个 AssetBundle 中的纹理。为了提高通过网络传输的效率，可以根据用例要求（LZMA 和 LZ4）选用内置算法选择来压缩 AssetBundle。AssetBundle 可用于可下载内容（DLC），减小初始安装大小，加载针对最终用户平台优化的资源，以及减轻运行时内存压力。</p>
+<ul>
+<li>AssetBundle 可以包含类的实例序列化后的数据，例如 ScriptableObject。AssetBundle 在加载时可查找类然后使用序列化的数据去赋值（反序列化）。</li>
+</ul>
+<h3 id=assetbundle-工作流程>AssetBundle 工作流程</h3>
+<h4 id=为-assetbundle-分配资源>为 AssetBundle 分配资源</h4>
+<ol>
+<li>从 Project 视图中选择要为捆绑包分配的资源。</li>
+<li>在 Inspector 中检查对象。</li>
+<li>在 Inspector 底部，有一个用于分配 AssetBundle 和变体的部分。可使用左侧下拉选单分配 AssetBundle，而使用右侧下拉选单分配变量（变体）。</li>
+<li>单击左侧下拉选单的 None 以显示当前注册的 AssetBundle 名称。</li>
+<li>单击 New 以创建新的 AssetBundle</li>
+<li>输入所需的 AssetBundle 名称。注意：AssetBundle 名称支持某种类型的文件夹结构，具体取决于您输入的内容。要添加子文件夹，请用 / 分隔文件夹名称。例如，使用 AssetBundle 名称 environment/forest 在 environment 子文件夹下创建名为 forest 的捆绑包</li>
+<li>一旦选择或创建了 AssetBundle 名称，便可以重复此过程在右侧下拉选单中分配或创建变体名称（如果需要）。构建 AssetBundle 不需要变体名称</li>
+</ol>
+<h4 id=构建-assetbundle>构建 AssetBundle</h4>
+<p>在 Assets 文件夹中创建一个名为 Editor 的文件夹，并将包含以下内容的脚本放在该文件夹中：</p>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#><span style=color:#000;font-weight:700>using</span> <span style=color:#555>UnityEditor</span>;
+<span style=color:#000;font-weight:700>using</span> <span style=color:#555>System.IO</span>;
+
+<span style=color:#000;font-weight:700>public</span> <span style=color:#000;font-weight:700>class</span> <span style=color:#458;font-weight:700>CreateAssetBundles</span>
+{
+<span style=color:teal>    [MenuItem(&#34;Assets/Build AssetBundles&#34;)]</span>
+    <span style=color:#000;font-weight:700>static</span> <span style=color:#000;font-weight:700>void</span> BuildAllAssetBundles()
+    {
+        <span style=color:#458;font-weight:700>string</span> assetBundleDirectory = <span style=color:#d14>&#34;Assets/AssetBundles&#34;</span>;
+        <span style=color:#000;font-weight:700>if</span>(!Directory.Exists(assetBundleDirectory))
+        {
+            Directory.CreateDirectory(assetBundleDirectory);
+        }
+        BuildPipeline.BuildAssetBundles(assetBundleDirectory, 
+                                        BuildAssetBundleOptions.None, 
+                                        BuildTarget.StandaloneWindows);
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=加载-assetbundle-和资源>加载 AssetBundle 和资源</h4>
+<p>如果您想从本地存储中加载，请使用 AssetBundle.LoadFromFile API，如下所示：</p>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#><span style=color:#000;font-weight:700>public</span> <span style=color:#000;font-weight:700>class</span> <span style=color:#458;font-weight:700>LoadFromFileExample</span> : MonoBehaviour {
+    <span style=color:#000;font-weight:700>void</span> Start() {
+        <span style=color:#458;font-weight:700>var</span> myLoadedAssetBundle 
+            = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, <span style=color:#d14>&#34;myassetBundle&#34;</span>));
+        <span style=color:#000;font-weight:700>if</span> (myLoadedAssetBundle == <span style=color:#000;font-weight:700>null</span>) {
+            Debug.Log(<span style=color:#d14>&#34;Failed to load AssetBundle!&#34;</span>);
+            <span style=color:#000;font-weight:700>return</span>;
+        }
+        <span style=color:#458;font-weight:700>var</span> prefab = myLoadedAssetBundle.LoadAsset&lt;GameObject&gt;(<span style=color:#d14>&#34;MyObject&#34;</span>);
+        Instantiate(prefab);
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>从远处服务器加载:</p>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>IEnumerator InstantiateObject()
+{
+    <span style=color:#458;font-weight:700>string</span> url = <span style=color:#d14>&#34;file:///&#34;</span> + Application.dataPath + <span style=color:#d14>&#34;/AssetBundles/&#34;</span> + assetBundleName;        
+    <span style=color:#458;font-weight:700>var</span> request 
+        = UnityEngine.Networking.UnityWebRequestAssetBundle.GetAssetBundle(url, <span style=color:#099>0</span>);
+    <span style=color:#000;font-weight:700>yield</span> <span style=color:#000;font-weight:700>return</span> request.Send();
+    AssetBundle bundle = UnityEngine.Networking.DownloadHandlerAssetBundle.GetContent(request);
+    GameObject cube = bundle.LoadAsset&lt;GameObject&gt;(<span style=color:#d14>&#34;Cube&#34;</span>);
+    GameObject sprite = bundle.LoadAsset&lt;GameObject&gt;(<span style=color:#d14>&#34;Sprite&#34;</span>);
+    Instantiate(cube);
+    Instantiate(sprite);
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=加载-assetbundle-的-api>加载 AssetBundle 的 API</h3>
+<h4 id=assetbundleloadfrommemoryasync>AssetBundle.LoadFromMemoryAsync</h4>
+<p>此函数采用包含 AssetBundle 数据的字节数组。也可以根据需要传递 CRC 值。如果捆绑包采用的是 LZMA 压缩方式，将在加载时解压缩 AssetBundle。LZ4 压缩包则会以压缩状态加载。</p>
+<p>以下是如何使用此方法的一个示例：</p>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#><span style=color:#000;font-weight:700>using</span> <span style=color:#555>UnityEngine</span>;
+<span style=color:#000;font-weight:700>using</span> <span style=color:#555>System.Collections</span>;
+<span style=color:#000;font-weight:700>using</span> <span style=color:#555>System.IO</span>;
+
+<span style=color:#000;font-weight:700>public</span> <span style=color:#000;font-weight:700>class</span> <span style=color:#458;font-weight:700>Example</span> : MonoBehaviour
+{
+    IEnumerator LoadFromMemoryAsync(<span style=color:#458;font-weight:700>string</span> path)
+    {
+        AssetBundleCreateRequest createRequest = AssetBundle.LoadFromMemoryAsync(File.ReadAllBytes(path));
+        <span style=color:#000;font-weight:700>yield</span> <span style=color:#000;font-weight:700>return</span> createRequest;
+        AssetBundle bundle = createRequest.assetBundle;
+        <span style=color:#458;font-weight:700>var</span> prefab = bundle.LoadAsset&lt;GameObject&gt;(<span style=color:#d14>&#34;MyObject&#34;</span>);
+        Instantiate(prefab);
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=assetbundleloadfromfile>AssetBundle.LoadFromFile</h4>
+<p>从本地存储中加载未压缩的捆绑包时，此 API 非常高效。如果捆绑包未压缩或采用了数据块 (LZ4) 压缩方式，LoadFromFile 将直接从磁盘加载捆绑包。使用此方法加载完全压缩的 (LZMA) 捆绑包将首先解压缩捆绑包，然后再将其加载到内存中。</p>
+<p>如何使用 LoadFromFile 的一个示例：</p>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#><span style=color:#000;font-weight:700>using</span> <span style=color:#555>System.IO</span>;
+<span style=color:#000;font-weight:700>using</span> <span style=color:#555>UnityEngine</span>;
+
+<span style=color:#000;font-weight:700>public</span> <span style=color:#000;font-weight:700>class</span> <span style=color:#458;font-weight:700>LoadFromFileExample</span> : MonoBehaviour
+{
+    <span style=color:#000;font-weight:700>void</span> Start()
+    {
+        <span style=color:#458;font-weight:700>var</span> myLoadedAssetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, <span style=color:#d14>&#34;myassetBundle&#34;</span>));
+
+        <span style=color:#000;font-weight:700>if</span> (myLoadedAssetBundle == <span style=color:#000;font-weight:700>null</span>)
+        {
+            Debug.Log(<span style=color:#d14>&#34;Failed to load AssetBundle!&#34;</span>);
+            <span style=color:#000;font-weight:700>return</span>;
+        }
+        <span style=color:#458;font-weight:700>var</span> prefab = myLoadedAssetBundle.LoadAsset&lt;GameObject&gt;(<span style=color:#d14>&#34;MyObject&#34;</span>);
+        Instantiate(prefab);
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=unitywebrequestassetbundle>UnityWebRequestAssetBundle</h4>
+<p>使用此 API 时，先要使用 UnityWebRequestAssetBundle.GetAssetBundle 创建 Web 请求。然后将请求传递给 DownloadHandlerAssetBundle.GetContent(UnityWebRequestAssetBundle) 以获取 AssetBundle 对象。</p>
+<p>下载捆绑包后，还可以在 DownloadHandlerAssetBundle 类上使用 assetBundle 属性，从而以 AssetBundle.LoadFromFile 的效率加载 AssetBundle。</p>
+<p>以下示例说明了如何加载包含两个游戏对象的 AssetBundle 并实例化这些游戏对象。要开始这个过程，我们只需要调用 StartCoroutine(InstantiateObject());</p>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>IEnumerator InstantiateObject()
+{
+    <span style=color:#458;font-weight:700>string</span> uri = <span style=color:#d14>&#34;file:///&#34;</span> + Application.dataPath + <span style=color:#d14>&#34;/AssetBundles/&#34;</span> + assetBundleName; 
+    UnityEngine.Networking.UnityWebRequestAssetBundle request 
+        = UnityEngine.Networking.UnityWebRequestAssetBundle.GetAssetBundle(uri, <span style=color:#099>0</span>);
+    <span style=color:#000;font-weight:700>yield</span> <span style=color:#000;font-weight:700>return</span> request.SendWebRequest();
+    AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(request);
+    GameObject cube = bundle.LoadAsset&lt;GameObject&gt;(<span style=color:#d14>&#34;Cube&#34;</span>);
+    GameObject sprite = bundle.LoadAsset&lt;GameObject&gt;(<span style=color:#d14>&#34;Sprite&#34;</span>);
+    Instantiate(cube);
+    Instantiate(sprite);
+}
+</code></pre></td></tr></table>
+</div>
+</div><h5 id=从-assetbundle-处加载资源>从 AssetBundle 处加载资源</h5>
+<p>LoadAsset、LoadAllAssets、LoadAssetAsync 和 LoadAllAssetsAsync 用于加载资源。</p>
+<h5 id=从-assetbundle-处加载清单>从 AssetBundle 处加载清单</h5>
+<p>清单类型为 AssetBundleManifest，可使用加载资源的接口加载清单。清单用于加载 AssetBundle 依赖的其他资源。</p>
+<p>首先要加载AssetBundle所在根目录同名的AssetBundle，例如：打包时将所有AB放到 AssetBundles 文件夹下，此时就要先加载名为 AssetBundles 的 AB。</p>
+<p>然后，通过以下语句加载清单, LoadAsset 的参数必须是 AssetBundleManifest</p>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#><span style=color:#458;font-weight:700>var</span> manifest = ab.LoadAsset&lt;AssetBundleManifest&gt;(<span style=color:#d14>&#34;AssetBundleManifest&#34;</span>);
+</code></pre></td></tr></table>
+</div>
+</div><p>最后就可以通过 manifest 获取指定 AB 包的依赖</p>
+<h5 id=assetbundle-的卸载>AssetBundle 的卸载</h5>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#>AssetBundle.Unload(<span style=color:#000;font-weight:700>true</span>);
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>true 表示现在AB包所有资源，推荐使用true。</li>
+<li>false 表示只卸载未使用的资源，但这容易导致内存泄漏。</li>
+</ul>
+<h3 id=管理已加载的-assetbundle>管理已加载的 AssetBundle</h3>
+<p>建议使用 Addressable Asset system 管理 AssetBundle</p>
+<h3 id=assetbundle-的原理>AssetBundle 的原理</h3>
+<p>AssetBundle 有 head 和 body ，head 存放 AB 的描述信息，body 存放打包的资源，根据不同的打包格式，其解压行为不同。</p>
+<h3 id=assetbundle-分组策略>AssetBundle 分组策略</h3>
+<ol>
+<li>经常更新的资源放一个包，与不经常更新的包分离。</li>
+<li>把需要同时更新的资源放同一包。</li>
+<li>共享资源放一包</li>
+<li>同一资源的不同版本，通过后缀区分</li>
+</ol>
+</div>
+<div class=post-archive>
+<ul class=post-copyright>
+<li><strong>原文作者：</strong><a rel=author href=https://www.zling.site>ZemelLing</a></li>
+<li style=word-break:break-all><strong>原文链接：</strong><a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90%E7%B3%BB%E7%BB%9F/>https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90%E7%B3%BB%E7%BB%9F/</a></li>
+<li><strong>版权声明：</strong>本作品采用<a rel=license href=https://creativecommons.org/licenses/by-nc-nd/4.0/>知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+</ul>
+</div>
+<br>
+<div class=post-archive>
+<h2>See Also</h2>
+<ul class=listing>
+<li><a href=/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8ILRuntime%E8%BF%9B%E8%A1%8C%E7%83%AD%E6%9B%B4%E6%96%B0/>Unity中使用ILRuntime进行热更新</a></li>
+<li><a href=/post/Unity%E4%B8%AD%E4%BA%8B%E4%BB%B6%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/>Unity中事件函数的执行顺序</a></li>
+<li><a href=/post/Unity%E4%B8%AD%E5%BC%95%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E7%A8%8B%E5%BA%8F%E9%9B%86/>Unity中引用第三方程序集</a></li>
+<li><a href=/post/Unity%E4%B8%AD%E7%9A%84%E9%A1%B9%E7%9B%AE%E8%AE%BE%E7%BD%AE%E8%AF%B4%E6%98%8E/>Unity中的项目设置说明</a></li>
+<li><a href=/post/Unity%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E6%96%87%E4%BB%B6%E5%A4%B9%E5%92%8C%E8%84%9A%E6%9C%AC%E7%BC%96%E8%AF%91%E9%A1%BA%E5%BA%8F/>Unity中的特殊文件夹和脚本编译顺序</a></li>
+</ul>
+</div>
+<div class="post-meta meta-tags">
+<ul class=clearfix>
+<li><a href=/tags/unity>unity</a></li>
+<li><a href=/tags/assetbundle>assetbundle</a></li>
+</ul>
+</div>
+</article>
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//yourdiscussshortname.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<footer id=footer>
+<div>
+&copy; 2021 <a href=https://www.zling.site>泽梅尔的驻留地 By ZemelLing</a>
+| <a rel=nofollow target=_blank href=http://beian.miit.gov.cn/>闽ICP备2021013106号</a>
+</div>
+<br>
+<div>
+<div class=github-badge>
+<a href=https://gohugo.io/ target=_black rel=nofollow><span class=badge-subject>Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
+</div>
+<div class=github-badge>
+<a href=https://www.flysnow.org/ target=_black><span class=badge-subject>Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
+</div>
+<div class=github-badge>
+<a href=https://github.com/flysnow-org/maupassant-hugo target=_black><span class=badge-subject>Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
+</div>
+</div>
+</footer>
+<script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$']],processEscapes:!0}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script src=https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js></script>
+<a id=rocket href=#top></a>
+<script type=text/javascript src="/js/totop.js?v=0.0.0" async></script>
+<script type=text/javascript src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js async></script>
+<script src=/js/douban.js></script>
+</div>
+<div id=secondary>
+<section class=widget>
+<form id=search action=https://www.zling.site/search/ method=get accept-charset=utf-8 target=_blank _lpchecked=1>
+<input type=text name=q maxlength=20 placeholder=Search>
+<input type=hidden name=sitesearch value=https://www.zling.site>
+<button type=submit class="submit icon-search"></button>
+</form>
+</section>
+<section class=widget>
+<h3 class=widget-title>最近文章</h3>
+<ul class=widget-list>
+<li>
+<a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84IMGUI/ title=Unity中的IMGUI>Unity中的IMGUI</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/CSharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F%E4%B9%8B%E9%87%8D%E5%86%99%E5%92%8C%E8%A6%86%E7%9B%96%E7%9A%84%E5%8C%BA%E5%88%AB/ title=CSharp查缺补漏之重写(override)和覆盖(new)的区别>CSharp查缺补漏之重写(override)和覆盖(new)的区别</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/%E6%B4%97%E7%89%8C%E7%AE%97%E6%B3%95/ title=洗牌算法>洗牌算法</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/CSharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F20210928/ title=CSharp查缺补漏20210928>CSharp查缺补漏20210928</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/%E4%BD%BF%E7%94%A8Activator%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B/ title=使用Activator动态创建实例>使用Activator动态创建实例</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/Unity%E4%B9%8B%E5%8A%A8%E6%80%81%E5%B0%86%E5%9C%BA%E6%99%AF%E6%B7%BB%E5%8A%A0%E5%88%B0BuildSettings%E4%B8%AD/ title=Unity之动态将场景添加到BuildSettings中>Unity之动态将场景添加到BuildSettings中</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/UGUI%E4%B9%8BCanvas/ title=UGUI之Canvas>UGUI之Canvas</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8Addressable/ title=Unity中使用Addressable>Unity中使用Addressable</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/Unity%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9Prefab%E6%9C%AA%E8%83%BD%E4%BF%9D%E5%AD%98%E7%9A%84%E9%97%AE%E9%A2%98/ title=Unity代码修改Prefab未能保存的问题>Unity代码修改Prefab未能保存的问题</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8CustomEditor%E8%87%AA%E5%AE%9A%E4%B9%89%E8%84%9A%E6%9C%AC%E7%9A%84Inspector%E9%9D%A2%E6%9D%BF/ title=Unity中使用CustomEditor自定义脚本的Inspector面板>Unity中使用CustomEditor自定义脚本的Inspector面板</a>
+</li>
+</ul>
+</section>
+<section class=widget>
+<h3 class=widget-title><a href=/categories/>分类</a></h3>
+<ul class=widget-list>
+<li><a href=https://www.zling.site/categories/CSharp/>CSharp (10)</a></li>
+<li><a href=https://www.zling.site/categories/algorithm/>algorithm (2)</a></li>
+<li><a href=https://www.zling.site/categories/aspnetcore/>aspnetcore (1)</a></li>
+<li><a href=https://www.zling.site/categories/c++/>c++ (1)</a></li>
+<li><a href=https://www.zling.site/categories/CSharp/>CSharp (3)</a></li>
+<li><a href=https://www.zling.site/categories/datagrip/>datagrip (1)</a></li>
+<li><a href=https://www.zling.site/categories/design-pattern/>design pattern (9)</a></li>
+<li><a href=https://www.zling.site/categories/docker/>docker (7)</a></li>
+<li><a href=https://www.zling.site/categories/english/>english (13)</a></li>
+<li><a href=https://www.zling.site/categories/excel/>excel (1)</a></li>
+<li><a href=https://www.zling.site/categories/game-design/>game design (1)</a></li>
+<li><a href=https://www.zling.site/categories/game-development/>game development (1)</a></li>
+<li><a href=https://www.zling.site/categories/hugo/>hugo (1)</a></li>
+<li><a href=https://www.zling.site/categories/jira/>jira (1)</a></li>
+<li><a href=https://www.zling.site/categories/linux/>linux (1)</a></li>
+<li><a href=https://www.zling.site/categories/lua/>lua (3)</a></li>
+<li><a href=https://www.zling.site/categories/markdown/>markdown (1)</a></li>
+<li><a href=https://www.zling.site/categories/math/>math (1)</a></li>
+<li><a href=https://www.zling.site/categories/mysql/>mysql (2)</a></li>
+<li><a href=https://www.zling.site/categories/nuget/>nuget (1)</a></li>
+<li><a href=https://www.zling.site/categories/problem/>problem (1)</a></li>
+<li><a href=https://www.zling.site/categories/protobuf/>protobuf (1)</a></li>
+<li><a href=https://www.zling.site/categories/rider/>rider (1)</a></li>
+<li><a href=https://www.zling.site/categories/serilog/>serilog (1)</a></li>
+<li><a href=https://www.zling.site/categories/ugui/>ugui (1)</a></li>
+<li><a href=https://www.zling.site/categories/unity/>unity (32)</a></li>
+</ul>
+</section>
+<section class=widget>
+<h3 class=widget-title><a href=/tags/>标签</a></h3>
+<div class=tagcloud>
+<a href=https://www.zling.site/tags/2d/>2d</a>
+<a href=https://www.zling.site/tags/CSharp/>CSharp</a>
+<a href=https://www.zling.site/tags/algorithm/>algorithm</a>
+<a href=https://www.zling.site/tags/android/>android</a>
+<a href=https://www.zling.site/tags/aspnetcore/>aspnetcore</a>
+<a href=https://www.zling.site/tags/assembly/>assembly</a>
+<a href=https://www.zling.site/tags/assetbundle/>assetbundle</a>
+<a href=https://www.zling.site/tags/attribute/>attribute</a>
+<a href=https://www.zling.site/tags/binary-serialize/>binary serialize</a>
+<a href=https://www.zling.site/tags/bridge/>bridge</a>
+<a href=https://www.zling.site/tags/c++/>c++</a>
+<a href=https://www.zling.site/tags/caddy/>caddy</a>
+<a href=https://www.zling.site/tags/calculus/>calculus</a>
+<a href=https://www.zling.site/tags/camera/>camera</a>
+<a href=https://www.zling.site/tags/component/>component</a>
+<a href=https://www.zling.site/tags/compression/>compression</a>
+<a href=https://www.zling.site/tags/consul/>consul</a>
+<a href=https://www.zling.site/tags/CSharp/>CSharp</a>
+<a href=https://www.zling.site/tags/data-save/>data save</a>
+<a href=https://www.zling.site/tags/datagrip/>datagrip</a>
+<a href=https://www.zling.site/tags/debian/>debian</a>
+<a href=https://www.zling.site/tags/decompression/>decompression</a>
+<a href=https://www.zling.site/tags/design-pattern/>design pattern</a>
+<a href=https://www.zling.site/tags/docker/>docker</a>
+<a href=https://www.zling.site/tags/english/>english</a>
+<a href=https://www.zling.site/tags/event/>event</a>
+<a href=https://www.zling.site/tags/excel/>excel</a>
+<a href=https://www.zling.site/tags/facade/>facade</a>
+<a href=https://www.zling.site/tags/game-design/>game design</a>
+<a href=https://www.zling.site/tags/game-development/>game development</a>
+<a href=https://www.zling.site/tags/grammar/>grammar</a>
+<a href=https://www.zling.site/tags/gui/>gui</a>
+<a href=https://www.zling.site/tags/hotfix/>hotfix</a>
+<a href=https://www.zling.site/tags/hugo/>hugo</a>
+<a href=https://www.zling.site/tags/io/>io</a>
+<a href=https://www.zling.site/tags/jira/>jira</a>
+<a href=https://www.zling.site/tags/json/>json</a>
+<a href=https://www.zling.site/tags/lighting/>lighting</a>
+<a href=https://www.zling.site/tags/linux/>linux</a>
+<a href=https://www.zling.site/tags/log/>log</a>
+<a href=https://www.zling.site/tags/lua/>lua</a>
+<a href=https://www.zling.site/tags/markdown/>markdown</a>
+<a href=https://www.zling.site/tags/math/>math</a>
+<a href=https://www.zling.site/tags/mediator/>mediator</a>
+<a href=https://www.zling.site/tags/mongodb/>mongodb</a>
+<a href=https://www.zling.site/tags/mysql/>mysql</a>
+<a href=https://www.zling.site/tags/network/>network</a>
+<a href=https://www.zling.site/tags/nexus3/>nexus3</a>
+<a href=https://www.zling.site/tags/nuget/>nuget</a>
+<a href=https://www.zling.site/tags/phrase/>phrase</a>
+<a href=https://www.zling.site/tags/problem/>problem</a>
+<a href=https://www.zling.site/tags/protobuf/>protobuf</a>
+<a href=https://www.zling.site/tags/redis/>redis</a>
+<a href=https://www.zling.site/tags/render/>render</a>
+<a href=https://www.zling.site/tags/rider/>rider</a>
+<a href=https://www.zling.site/tags/scene/>scene</a>
+<a href=https://www.zling.site/tags/serialize/>serialize</a>
+<a href=https://www.zling.site/tags/serilog/>serilog</a>
+<a href=https://www.zling.site/tags/shuffle/>shuffle</a>
+<a href=https://www.zling.site/tags/socket/>socket</a>
+<a href=https://www.zling.site/tags/sort-algorithm/>sort algorithm</a>
+<a href=https://www.zling.site/tags/sprites/>sprites</a>
+<a href=https://www.zling.site/tags/state/>state</a>
+<a href=https://www.zling.site/tags/thread/>thread</a>
+<a href=https://www.zling.site/tags/tilemap/>tilemap</a>
+<a href=https://www.zling.site/tags/ugui/>ugui</a>
+<a href=https://www.zling.site/tags/unity/>unity</a>
+<a href=https://www.zling.site/tags/unity-api/>unity api</a>
+<a href=https://www.zling.site/tags/vs/>vs</a>
+<a href=https://www.zling.site/tags/xml/>xml</a>
+<a href=https://www.zling.site/tags/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/>渲染管线</a>
+<a href=https://www.zling.site/tags/%E7%94%BB%E8%B4%A8/>画质</a>
+</div>
+</section>
+<section class=widget>
+<h3 class=widget-title>友情链接</h3>
+<ul class=widget-list>
+<li>
+<a target=_blank href=https://www.flysnow.org/ title=飞雪无情的博客>飞雪无情的博客</a>
+</li>
+<li>
+<a target=_blank href=http://www.hariogame.com/ title=哈里奥游戏工作室>哈里奥游戏工作室</a>
+</li>
+</ul>
+</section>
+<section class=widget>
+<h3 class=widget-title>其它</h3>
+<ul class=widget-list>
+<li><a href=https://www.zling.site/index.xml>文章 RSS</a></li>
+</ul>
+</section>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
