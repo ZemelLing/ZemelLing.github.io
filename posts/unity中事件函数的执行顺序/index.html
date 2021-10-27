@@ -19,7 +19,7 @@
 <link rel=apple-touch-icon sizes=180x180 href=https://www.zling.site/dahuai_samll_hu748c515f1bdb2c1f9ec985baae37b97d_3583_180x180_fill_box_center_3.png>
 <meta name=description content="阶段 主要阶段 初始化阶段，包含 Awake() Start() 物理系统更新阶段，包含 FixedUpdate()、动画更新、OnTriggerXXX、OnCollisionXXX，物">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://www.zling.site/posts/"},{"@type":"ListItem","position":2,"name":"Unity中事件函数的执行顺序","item":"https://www.zling.site/posts/unity%E4%B8%AD%E4%BA%8B%E4%BB%B6%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.zling.site/posts/unity%E4%B8%AD%E4%BA%8B%E4%BB%B6%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/"},"headline":"Unity中事件函数的执行顺序 | 🦁泽梅尔的驻留地","datePublished":"2021-04-14T09:37:25+08:00","dateModified":"2021-08-29T13:09:56+08:00","wordCount":474,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://www.zling.site/dahuai_samll.png"}},"description":"阶段 主要阶段 初始化阶段，包含 Awake() Start() 物理系统更新阶段，包含 FixedUpdate()、动画更新、OnTriggerXXX、OnCollisionXXX，物"}</script><meta property="og:title" content="Unity中事件函数的执行顺序 | 🦁泽梅尔的驻留地">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.zling.site/posts/unity%E4%B8%AD%E4%BA%8B%E4%BB%B6%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/"},"headline":"Unity中事件函数的执行顺序 | 🦁泽梅尔的驻留地","datePublished":"2021-04-14T09:37:25+08:00","dateModified":"2021-08-29T13:09:56+08:00","wordCount":796,"author":{"@type":"Person","name":["zemelling"]},"publisher":{"@type":"Person","name":"Zemel Ling","logo":{"@type":"ImageObject","url":"https://www.zling.site/dahuai_samll.png"}},"description":"阶段 主要阶段 初始化阶段，包含 Awake() Start() 物理系统更新阶段，包含 FixedUpdate()、动画更新、OnTriggerXXX、OnCollisionXXX，物"}</script><meta property="og:title" content="Unity中事件函数的执行顺序 | 🦁泽梅尔的驻留地">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://www.zling.site/dahuai_samll.png">
 <meta property="og:url" content="https://www.zling.site/posts/unity%E4%B8%AD%E4%BA%8B%E4%BB%B6%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/">
@@ -84,7 +84,7 @@
 </div>
 <div class="mr-6 my-2">
 <i class="fas fa-clock mr-1"></i>
-<span>1分钟阅读时长</span>
+<span>2分钟阅读时长</span>
 </div>
 <div class="mr-6 my-2">
 <i class="fas fa-folder mr-1"></i>
@@ -132,6 +132,20 @@
 <ul>
 <li>OnApplicationPause 在帧的结尾处调用此函数（在正常帧更新之间有效检测到暂停）。在调用 OnApplicationPause 之后，将发出一个额外帧，从而允许游戏显示图形来指示暂停状态。</li>
 </ul>
+<h2 id=脚本>脚本</h2>
+<h3 id=脚本执行顺序>脚本执行顺序</h3>
+<p>脚本既可以在运行时动态添加在游戏对象上，也可以运行游戏前预制挂在游戏对象上。动态添加的脚本按添加的先后顺序决定执行顺序。但是静态脚本因为提前挂在了游戏对象上，所以初始化的顺序就不一样了。在Script Execution Order中可以设置脚本的执行顺序。</p>
+<p>Awake适合做初始化，Start适合安全的访问其他脚本数据。</p>
+<p>避免无效的生命周期函数。</p>
+<h3 id=脚本序列化>脚本序列化</h3>
+<h3 id=scriptableobject>ScriptableObject</h3>
+<p>开发中有时候需要序列化一些编辑器数据，仅仅是数据，完全没必要依赖游戏对象使用游戏脚本，此时ScriptableObject就是最佳选择了。</p>
+<h3 id=自定义脚本特性attribute>自定义脚本特性(Attribute)</h3>
+<p>分别继承 PropertyAttribute和PropertyDrawer</p>
+<h3 id=customyieldinstruction>CustomYieldInstruction</h3>
+<p>继承 CustomYieldInstruction 可实现自定义协程。</p>
+<h3 id=工作线程>工作线程</h3>
+<p>使用 Job System 系统</p>
 </div>
 <div class=my-4>
 <a href=https://www.zling.site/tags/unity/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#unity</a>
@@ -175,6 +189,16 @@
 <li><a href=#编辑器editor>编辑器（Editor）</a></li>
 <li><a href=#首次更新帧之前>首次更新帧之前</a></li>
 <li><a href=#帧之间>帧之间</a></li>
+</ul>
+</li>
+<li><a href=#脚本>脚本</a>
+<ul>
+<li><a href=#脚本执行顺序>脚本执行顺序</a></li>
+<li><a href=#脚本序列化>脚本序列化</a></li>
+<li><a href=#scriptableobject>ScriptableObject</a></li>
+<li><a href=#自定义脚本特性attribute>自定义脚本特性(Attribute)</a></li>
+<li><a href=#customyieldinstruction>CustomYieldInstruction</a></li>
+<li><a href=#工作线程>工作线程</a></li>
 </ul>
 </li>
 </ul>
