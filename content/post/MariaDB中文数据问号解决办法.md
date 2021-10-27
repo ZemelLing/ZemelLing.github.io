@@ -2,6 +2,8 @@
 title: "MariaDB中文数据问号解决办法"
 date: 2021-07-02T12:51:41+08:00
 draft: false
+tags: ["mariadb",]
+categories: ["mariadb",]
 series:
 description:
 toc: true

@@ -2,6 +2,8 @@
 title: "使用Frp实现内网穿透"
 date: 2021-07-02T12:46:26+08:00
 draft: false
+tags: ["frp", "内网穿透"]
+categories: ["内网穿透",]
 series:
 description:
 toc: true

@@ -2,8 +2,8 @@
 title: "CSharp调用非托管C++时使用回调函数遇到的问题"
 date: 2021-06-07T16:36:57+08:00
 draft: false
-tags: ["c++", "CSharp"]
-categories: ["CSharp", "c++"]
+tags: ["c++", "csharp"]
+categories: ["csharp", "c++"]
 series:
 description:
 toc: true

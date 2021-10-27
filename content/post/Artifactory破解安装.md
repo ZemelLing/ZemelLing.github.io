@@ -2,6 +2,8 @@
 title: "Artifactory破解安装"
 date: 2021-07-02T12:39:58+08:00
 draft: false
+tags: ["artifactory", "docker"]
+categories: ["artifactory",]
 series:
 description:
 toc: true

@@ -2,6 +2,8 @@
 title: "CSharp中发送HTTP请求的方法"
 date: 2021-07-02T12:49:27+08:00
 draft: false
+tags: ["csharp", "http"]
+categories: ["csharp",]
 series:
 description:
 toc: true

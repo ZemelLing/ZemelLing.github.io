@@ -2,6 +2,8 @@
 title: "使用acmesh申请LetsEncrypt泛域名证书"
 date: 2021-07-02T12:43:35+08:00
 draft: false
+tags: ["web", "certificate"]
+categories: ["web",]
 series:
 description:
 toc: true
