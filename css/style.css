@@ -1115,4 +1115,20 @@ table tr th, table tr td {
 .github-badge .bg-lightgrey,.github-badge .bg-lightgray {
   background-color: #9f9f9f !important; 
 }
-  
+
+/*
+social
+*/
+.social-links {
+    text-align: center;
+    float: right;
+}
+.social-links .iconfont {
+    font-size: 24px;
+}
+.social-links .iconfont + .iconfont {
+    margin-left: 10px;
+}
+.social-links .iconfont:hover {
+    color: #c05b4d;
+}  
