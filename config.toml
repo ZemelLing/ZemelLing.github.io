@@ -37,6 +37,12 @@ disqusShortname = "yourdiscussshortname"  ## 是否开启disqus评论，不要�
   beian = "闽ICP备2021013106号"
   fancybox = true # 点击放大图片
 
+## 社交信息
+
+[[params.social]]
+  font = "github"
+  url = "https://github.com/zemelling"
+
 ## 友情链接，可以多个
 
 [[params.links]]
