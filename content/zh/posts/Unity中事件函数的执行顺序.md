@@ -50,3 +50,28 @@ featuredImage:
 
 * OnApplicationPause 在帧的结尾处调用此函数（在正常帧更新之间有效检测到暂停）。在调用 OnApplicationPause 之后，将发出一个额外帧，从而允许游戏显示图形来指示暂停状态。
 
+## 脚本
+
+### 脚本执行顺序
+
+脚本既可以在运行时动态添加在游戏对象上，也可以运行游戏前预制挂在游戏对象上。动态添加的脚本按添加的先后顺序决定执行顺序。但是静态脚本因为提前挂在了游戏对象上，所以初始化的顺序就不一样了。在Script Execution Order中可以设置脚本的执行顺序。
+
+Awake适合做初始化，Start适合安全的访问其他脚本数据。
+
+避免无效的生命周期函数。
+
+### 脚本序列化
+
+### ScriptableObject
+
+开发中有时候需要序列化一些编辑器数据，仅仅是数据，完全没必要依赖游戏对象使用游戏脚本，此时ScriptableObject就是最佳选择了。
+
+### 自定义脚本特性(Attribute)
+分别继承 PropertyAttribute和PropertyDrawer
+
+### CustomYieldInstruction
+继承 CustomYieldInstruction 可实现自定义协程。
+
+### 工作线程
+
+使用 Job System 系统
