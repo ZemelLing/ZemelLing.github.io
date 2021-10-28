@@ -53,6 +53,42 @@
 <article class=post>
 <header>
 <h1 class=post-title>
+<a href=https://www.zling.site/post/%E6%97%A5%E5%BF%97%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/ title=日志依赖注入报错的问题>日志依赖注入报错的问题</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年8月8日
+</date>
+<div class=post-meta>
+<span>|</span>
+<span class=meta-category><a href=/categories/problem>problem</a></span>
+</div>
+<div class=post-content>
+依赖注入时报如下错误的解决办法 1 System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'Some.Class'. 解决办法: 主要是由于构造函数依赖注入时使用了 ILogger 而不是 ILogger&lt;> 导致的，故改为 ILogger&lt;> 即可。……
+</div>
+<p class=readmore><a href=https://www.zling.site/post/%E6%97%A5%E5%BF%97%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/>阅读全文</a></p>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/Ubuntu%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/ title=Ubuntu使用记录>Ubuntu使用记录</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年7月12日
+</date>
+<div class=post-meta>
+<span>|</span>
+<span class=meta-category><a href=/categories/linux>linux</a></span>
+</div>
+<div class=post-content>
+查看硬盘状况 sudo fdisk -l 使用 fdisk 分区 sudo fdisk /dev/sdb 格式化分区 sudo mkfs -t ext4 /dev/sdb1 挂载硬盘 创建挂载点，新建目录 mkdir ~/disk1 挂载 sudo mount /dev/sdb1 ~/disk1 自动挂载 查找硬盘 UUID ls -l /dev/disk/by-uuid/ 修改 /etc/fstab 文件，实现自动挂载 UUID=b543f8f7-579c-45b5-96d6-31de6fa1a55e /home/lgd/disk1 ext4 defaults 1 2……
+</div>
+<p class=readmore><a href=https://www.zling.site/post/Ubuntu%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/>阅读全文</a></p>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
 <a href=https://www.zling.site/post/MariaDB%E4%B8%AD%E6%96%87%E6%95%B0%E6%8D%AE%E9%97%AE%E5%8F%B7%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/ title=MariaDB中文数据问号解决办法>MariaDB中文数据问号解决办法</a>
 </h1>
 </header>
@@ -194,43 +230,6 @@ Jira 安装 安装环境及软件 Windows Server 2016 MariaDB 10.3.14 Jira 8.1.0
 </div>
 <p class=readmore><a href=https://www.zling.site/post/Unity%E4%B8%AD%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%BA%A7%E7%94%9F%E7%A2%B0%E6%92%9E%E7%9A%84%E6%9D%A1%E4%BB%B6/>阅读全文</a></p>
 </article>
-<article class=post>
-<header>
-<h1 class=post-title>
-<a href=https://www.zling.site/post/CSharp%E8%B0%83%E7%94%A8%E9%9D%9E%E6%89%98%E7%AE%A1C++%E6%97%B6%E4%BD%BF%E7%94%A8%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/ title=CSharp调用非托管C++时使用回调函数遇到的问题>CSharp调用非托管C++时使用回调函数遇到的问题</a>
-</h1>
-</header>
-<date class="post-meta meta-date">
-2021年6月7日
-</date>
-<div class=post-meta>
-<span>|</span>
-<span class=meta-category><a href=/categories/csharp>csharp</a></span>
-<span class=meta-category><a href=/categories/c++>c++</a></span>
-</div>
-<div class=post-content>
-如果该回调函数会被定时调用时，C#代码需要将回调函数对应的委托实例化成一个静态变量后使用，以避免 GC 将委托释放导致的异常问题。 参考：https://stackoverflow.com/questions/61985465/passing-c-sharp-callback-metho……
-</div>
-<p class=readmore><a href=https://www.zling.site/post/CSharp%E8%B0%83%E7%94%A8%E9%9D%9E%E6%89%98%E7%AE%A1C++%E6%97%B6%E4%BD%BF%E7%94%A8%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/>阅读全文</a></p>
-</article>
-<article class=post>
-<header>
-<h1 class=post-title>
-<a href=https://www.zling.site/post/%E8%8B%B1%E8%AF%AD%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E5%8F%A5%E5%BC%8F/ title=英语中的特殊句式>英语中的特殊句式</a>
-</h1>
-</header>
-<date class="post-meta meta-date">
-2021年6月4日
-</date>
-<div class=post-meta>
-<span>|</span>
-<span class=meta-category><a href=/categories/english>english</a></span>
-</div>
-<div class=post-content>
-强调句 It is &mldr; that &mldr; I want to go to America this summer. => It is America that I want to go to this summer. 不能强调动词 / 形容词 倒装句 主谓倒装 全部倒装 谓语动词全在主语前 Here comes the bus. 部分倒装 Only on one occasion have I felt frightened.……
-</div>
-<p class=readmore><a href=https://www.zling.site/post/%E8%8B%B1%E8%AF%AD%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E5%8F%A5%E5%BC%8F/>阅读全文</a></p>
-</article>
 <ol class=page-navigator>
 <li class=prev>
 <a href=https://www.zling.site/page/2/>上一页</a>
@@ -305,6 +304,12 @@ Jira 安装 安装环境及软件 Windows Server 2016 MariaDB 10.3.14 Jira 8.1.0
 <h3 class=widget-title>最近文章</h3>
 <ul class=widget-list>
 <li>
+<a href=https://www.zling.site/post/Ubuntu%E4%B8%AD%E9%85%8D%E7%BD%AESVN%E6%9C%8D%E5%8A%A1%E5%99%A8/ title=Ubuntu中配置SVN服务器>Ubuntu中配置SVN服务器</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84UGUI/ title=Unity中的UGUI>Unity中的UGUI</a>
+</li>
+<li>
 <a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84IMGUI/ title=Unity中的IMGUI>Unity中的IMGUI</a>
 </li>
 <li>
@@ -328,12 +333,6 @@ Jira 安装 安装环境及软件 Windows Server 2016 MariaDB 10.3.14 Jira 8.1.0
 <li>
 <a href=https://www.zling.site/post/Unity%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9Prefab%E6%9C%AA%E8%83%BD%E4%BF%9D%E5%AD%98%E7%9A%84%E9%97%AE%E9%A2%98/ title=Unity代码修改Prefab未能保存的问题>Unity代码修改Prefab未能保存的问题</a>
 </li>
-<li>
-<a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8CustomEditor%E8%87%AA%E5%AE%9A%E4%B9%89%E8%84%9A%E6%9C%AC%E7%9A%84Inspector%E9%9D%A2%E6%9D%BF/ title=Unity中使用CustomEditor自定义脚本的Inspector面板>Unity中使用CustomEditor自定义脚本的Inspector面板</a>
-</li>
-<li>
-<a href=https://www.zling.site/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/ title=设计模式之工厂方法模式>设计模式之工厂方法模式</a>
-</li>
 </ul>
 </section>
 <section class=widget>
@@ -352,7 +351,7 @@ Jira 安装 安装环境及软件 Windows Server 2016 MariaDB 10.3.14 Jira 8.1.0
 <li><a href=https://www.zling.site/categories/game-development/>game development (1)</a></li>
 <li><a href=https://www.zling.site/categories/hugo/>hugo (1)</a></li>
 <li><a href=https://www.zling.site/categories/jira/>jira (1)</a></li>
-<li><a href=https://www.zling.site/categories/linux/>linux (1)</a></li>
+<li><a href=https://www.zling.site/categories/linux/>linux (3)</a></li>
 <li><a href=https://www.zling.site/categories/lua/>lua (3)</a></li>
 <li><a href=https://www.zling.site/categories/mariadb/>mariadb (1)</a></li>
 <li><a href=https://www.zling.site/categories/markdown/>markdown (1)</a></li>
@@ -363,10 +362,10 @@ Jira 安装 安装环境及软件 Windows Server 2016 MariaDB 10.3.14 Jira 8.1.0
 <li><a href=https://www.zling.site/categories/protobuf/>protobuf (1)</a></li>
 <li><a href=https://www.zling.site/categories/rider/>rider (1)</a></li>
 <li><a href=https://www.zling.site/categories/serilog/>serilog (1)</a></li>
-<li><a href=https://www.zling.site/categories/ubuntu/>ubuntu (1)</a></li>
 <li><a href=https://www.zling.site/categories/unity/>unity (30)</a></li>
 <li><a href=https://www.zling.site/categories/web/>web (1)</a></li>
 <li><a href=https://www.zling.site/categories/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/>内网穿透 (1)</a></li>
+<li><a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/>游戏开发 (1)</a></li>
 </ul>
 </section>
 <section class=widget>

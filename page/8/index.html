@@ -53,6 +53,42 @@
 <article class=post>
 <header>
 <h1 class=post-title>
+<a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BA%8B%E4%BB%B6%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/ title=Unity中事件函数的执行顺序>Unity中事件函数的执行顺序</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年4月14日
+</date>
+<div class=post-meta>
+<span>|</span>
+<span class=meta-category><a href=/categories/unity>unity</a></span>
+</div>
+<div class=post-content>
+阶段 主要阶段 初始化阶段，包含 Awake() Start() 物理系统更新阶段，包含 FixedUpdate()、动画更新、OnTriggerXXX、OnCollisionXXX，物理系统可能一帧内更新多次。 输入事件，OnMouseXXX 游戏逻辑阶段，Update、从协程恢复、动画更新、LateUpdate 游戏……
+</div>
+<p class=readmore><a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BA%8B%E4%BB%B6%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/>阅读全文</a></p>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/ title=设计模式之单例模式>设计模式之单例模式</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年4月13日
+</date>
+<div class=post-meta>
+<span>|</span>
+<span class=meta-category><a href=/categories/design-pattern>design pattern</a></span>
+</div>
+<div class=post-content>
+简述 单例模式用于生成特定类在程序的完整生命周期中唯一的实例化对象。 实现方式 方式一 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 public class Singleton { private static Singleton _instance; public static Singleton Instance { get { if(_instance == null) _instance = new Singleton(); return _instance; } } private Singleton() { //TODO anything } } 懒汉式或者说是延迟加载的主要问题在于线程不安全，在多线程环境下，容易创建多个实例，也就无法保证类实……
+</div>
+<p class=readmore><a href=https://www.zling.site/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/>阅读全文</a></p>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
 <a href=https://www.zling.site/post/CSharp%E7%9A%84Environment%E7%B1%BB/ title=CSharp的Environment类>CSharp的Environment类</a>
 </h1>
 </header>
@@ -194,42 +230,6 @@ MySql 中的DataType 类型 含义 范围 数值类型 INT 整数 -2147483647 ~ 
 </div>
 <p class=readmore><a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84%E7%A8%8B%E5%BA%8F%E9%9B%86%E5%AE%9A%E4%B9%89/>阅读全文</a></p>
 </article>
-<article class=post>
-<header>
-<h1 class=post-title>
-<a href=https://www.zling.site/post/%E4%BD%BF%E7%94%A8Excel%E7%94%9F%E6%88%90xml/ title=使用Excel生成xml>使用Excel生成xml</a>
-</h1>
-</header>
-<date class="post-meta meta-date">
-2021年4月4日
-</date>
-<div class=post-meta>
-<span>|</span>
-<span class=meta-category><a href=/categories/excel>excel</a></span>
-</div>
-<div class=post-content>
-制作 XML 模板 1 2 3 4 5 6 7 8 9 10 11 12 13 &lt;?xml version="1.0" encoding="UTF-8"?> &lt;root> &lt;item ID=""> &lt;surname>&lt;/surname> &lt;man>&lt;/man> &lt;woman>&lt;/woman> &lt;/item> &lt;item ID=""> &lt;surname>&lt;/surname> &lt;man>&lt;/man> &lt;woman>&lt;/woman> &lt;/item> &lt;/root> 在 Excel 选项中启用开发工具 Excel 映射 XML 模板 然后映射元素，填充数据 使用开发工具的 XML 导出，即可生成 XML 文件……
-</div>
-<p class=readmore><a href=https://www.zling.site/post/%E4%BD%BF%E7%94%A8Excel%E7%94%9F%E6%88%90xml/>阅读全文</a></p>
-</article>
-<article class=post>
-<header>
-<h1 class=post-title>
-<a href=https://www.zling.site/post/Unity%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/ title=Unity中获取对象的方法>Unity中获取对象的方法</a>
-</h1>
-</header>
-<date class="post-meta meta-date">
-2021年4月4日
-</date>
-<div class=post-meta>
-<span>|</span>
-<span class=meta-category><a href=/categories/unity>unity</a></span>
-</div>
-<div class=post-content>
-直接关联 在脚本中创建public的想要关联的游戏对象类型的变量，随后在inspector中关联对应的游戏对象即可 1 2 3 4 5 6 public class Enemy : MonoBehaviour { public GameObject player; // 其他变量和函数... } 子游戏对象 使用父游戏对象的变换组件来检索子游戏对象（因为所有游戏对象都具有隐式变换） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15……
-</div>
-<p class=readmore><a href=https://www.zling.site/post/Unity%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/>阅读全文</a></p>
-</article>
 <ol class=page-navigator>
 <li class=prev>
 <a href=https://www.zling.site/page/7/>上一页</a>
@@ -304,6 +304,12 @@ MySql 中的DataType 类型 含义 范围 数值类型 INT 整数 -2147483647 ~ 
 <h3 class=widget-title>最近文章</h3>
 <ul class=widget-list>
 <li>
+<a href=https://www.zling.site/post/Ubuntu%E4%B8%AD%E9%85%8D%E7%BD%AESVN%E6%9C%8D%E5%8A%A1%E5%99%A8/ title=Ubuntu中配置SVN服务器>Ubuntu中配置SVN服务器</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84UGUI/ title=Unity中的UGUI>Unity中的UGUI</a>
+</li>
+<li>
 <a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84IMGUI/ title=Unity中的IMGUI>Unity中的IMGUI</a>
 </li>
 <li>
@@ -327,12 +333,6 @@ MySql 中的DataType 类型 含义 范围 数值类型 INT 整数 -2147483647 ~ 
 <li>
 <a href=https://www.zling.site/post/Unity%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9Prefab%E6%9C%AA%E8%83%BD%E4%BF%9D%E5%AD%98%E7%9A%84%E9%97%AE%E9%A2%98/ title=Unity代码修改Prefab未能保存的问题>Unity代码修改Prefab未能保存的问题</a>
 </li>
-<li>
-<a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8CustomEditor%E8%87%AA%E5%AE%9A%E4%B9%89%E8%84%9A%E6%9C%AC%E7%9A%84Inspector%E9%9D%A2%E6%9D%BF/ title=Unity中使用CustomEditor自定义脚本的Inspector面板>Unity中使用CustomEditor自定义脚本的Inspector面板</a>
-</li>
-<li>
-<a href=https://www.zling.site/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/ title=设计模式之工厂方法模式>设计模式之工厂方法模式</a>
-</li>
 </ul>
 </section>
 <section class=widget>
@@ -351,7 +351,7 @@ MySql 中的DataType 类型 含义 范围 数值类型 INT 整数 -2147483647 ~ 
 <li><a href=https://www.zling.site/categories/game-development/>game development (1)</a></li>
 <li><a href=https://www.zling.site/categories/hugo/>hugo (1)</a></li>
 <li><a href=https://www.zling.site/categories/jira/>jira (1)</a></li>
-<li><a href=https://www.zling.site/categories/linux/>linux (1)</a></li>
+<li><a href=https://www.zling.site/categories/linux/>linux (3)</a></li>
 <li><a href=https://www.zling.site/categories/lua/>lua (3)</a></li>
 <li><a href=https://www.zling.site/categories/mariadb/>mariadb (1)</a></li>
 <li><a href=https://www.zling.site/categories/markdown/>markdown (1)</a></li>
@@ -362,10 +362,10 @@ MySql 中的DataType 类型 含义 范围 数值类型 INT 整数 -2147483647 ~ 
 <li><a href=https://www.zling.site/categories/protobuf/>protobuf (1)</a></li>
 <li><a href=https://www.zling.site/categories/rider/>rider (1)</a></li>
 <li><a href=https://www.zling.site/categories/serilog/>serilog (1)</a></li>
-<li><a href=https://www.zling.site/categories/ubuntu/>ubuntu (1)</a></li>
 <li><a href=https://www.zling.site/categories/unity/>unity (30)</a></li>
 <li><a href=https://www.zling.site/categories/web/>web (1)</a></li>
 <li><a href=https://www.zling.site/categories/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/>内网穿透 (1)</a></li>
+<li><a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/>游戏开发 (1)</a></li>
 </ul>
 </section>
 <section class=widget>

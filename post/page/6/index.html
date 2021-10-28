@@ -51,6 +51,42 @@
 <article class=post>
 <header>
 <h1 class=post-title>
+<a href=https://www.zling.site/post/%E4%BD%BF%E7%94%A8Serilog%E4%BD%9C%E4%B8%BA%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/ title=使用Serilog作为日志系统>使用Serilog作为日志系统</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年5月3日
+</date>
+<div class=post-meta>
+<span>|</span>
+<span class=meta-category><a href=/categories/serilog>serilog</a></span>
+</div>
+<div class=post-content>
+使用 简单使用 1 2 3 4 5 6 7 8 9 10 11 12 13 14 using System; using Serilog; namespace LogDemo { class Program { static void Main(string[] args) { Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger(); Log.Information("The global logger has been configured"); } } } 通过设置 Log 类的静态成员 Logger 后，就可以使用 Log 类的静态方法输出日志。 完整用法（包括文件输出） 添加 Nuget 包 Serilog Serilog.Sinks.Console Serilog.Sinks.File code 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 using System; using Serilog; namespace SerilogExample {……
+</div>
+<p class=readmore><a href=https://www.zling.site/post/%E4%BD%BF%E7%94%A8Serilog%E4%BD%9C%E4%B8%BA%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F/>阅读全文</a></p>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8FBridge/ title=设计模式之桥接模式（Bridge）>设计模式之桥接模式（Bridge）</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年5月2日
+</date>
+<div class=post-meta>
+<span>|</span>
+<span class=meta-category><a href=/categories/design-pattern>design pattern</a></span>
+</div>
+<div class=post-content>
+桥接模式 定义 将抽象和实现分离，以达到二者独立进化的目的。 UML 代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 public abstract class Implementor { public abstract void OperatorImp(); } public class ConcreteImplementor1 : Implementor { public override void OperatorImp() { Debug.Log($"执行{nameof(ConcreteI……
+</div>
+<p class=readmore><a href=https://www.zling.site/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8FBridge/>阅读全文</a></p>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
 <a href=https://www.zling.site/post/%E4%BD%BF%E7%94%A8Docker%E9%83%A8%E7%BD%B2Nexus3/ title=使用Docker部署Nexus3>使用Docker部署Nexus3</a>
 </h1>
 </header>
@@ -192,42 +228,6 @@
 </div>
 <p class=readmore><a href=https://www.zling.site/post/%E8%8B%B1%E8%AF%AD%E4%B8%AD%E8%B0%93%E8%AF%AD%E5%8A%A8%E8%AF%8D%E7%9A%84%E6%83%85%E6%80%81/>阅读全文</a></p>
 </article>
-<article class=post>
-<header>
-<h1 class=post-title>
-<a href=https://www.zling.site/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8FState/ title=设计模式之状态模式（State）>设计模式之状态模式（State）</a>
-</h1>
-</header>
-<date class="post-meta meta-date">
-2021年4月26日
-</date>
-<div class=post-meta>
-<span>|</span>
-<span class=meta-category><a href=/categories/design-pattern>design pattern</a></span>
-</div>
-<div class=post-content>
-定义 让一个对象的行为随着内部状态的变更而改变，而该对象就像是换了类一样。 UML Code 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 using UnityEngine; public class Context { private State _state; public void Request(int value) { _state.Handle(value); } public void SetState(State state) { Debug.Log($"Context.SetState:{state}"); _state = state; } } public abstract class State……
-</div>
-<p class=readmore><a href=https://www.zling.site/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8FState/>阅读全文</a></p>
-</article>
-<article class=post>
-<header>
-<h1 class=post-title>
-<a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84RuntimeRuntimeInitializeOnLoadMethodAttribute/ title=Unity中的RuntimeRuntimeInitializeOnLoadMethodAttribute>Unity中的RuntimeRuntimeInitializeOnLoadMethodAttribute</a>
-</h1>
-</header>
-<date class="post-meta meta-date">
-2021年4月26日
-</date>
-<div class=post-meta>
-<span>|</span>
-<span class=meta-category><a href=/categories/unity>unity</a></span>
-</div>
-<div class=post-content>
-被此特性标注的方法将在 Awake 方法之后被 Unity 循环调用，而且被此特性标记的所有方法，它们之间的执行顺序不是固定的。 示例： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 using UnityEngine; public class MyTest : MonoBehaviour { [RuntimeInitializeOnLoadMethod] static void OnRuntimeMethodLoad() { Debug.Log("After Scene is loaded and game is running"); } [RuntimeInitializeOnLoadMethod] static void OnSecondRuntimeMethodLoad() { Debug.Log("SecondMethod After Scene is loaded and game is running."); } private void Awake() { Debug.Log("Awake method"); } private void Start() { Debug.Log("Start method"); } } 结果：……
-</div>
-<p class=readmore><a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84RuntimeRuntimeInitializeOnLoadMethodAttribute/>阅读全文</a></p>
-</article>
 <ol class=page-navigator>
 <li class=prev>
 <a href=https://www.zling.site/post/page/5/>上一页</a>
@@ -302,6 +302,12 @@
 <h3 class=widget-title>最近文章</h3>
 <ul class=widget-list>
 <li>
+<a href=https://www.zling.site/post/Ubuntu%E4%B8%AD%E9%85%8D%E7%BD%AESVN%E6%9C%8D%E5%8A%A1%E5%99%A8/ title=Ubuntu中配置SVN服务器>Ubuntu中配置SVN服务器</a>
+</li>
+<li>
+<a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84UGUI/ title=Unity中的UGUI>Unity中的UGUI</a>
+</li>
+<li>
 <a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84IMGUI/ title=Unity中的IMGUI>Unity中的IMGUI</a>
 </li>
 <li>
@@ -325,12 +331,6 @@
 <li>
 <a href=https://www.zling.site/post/Unity%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9Prefab%E6%9C%AA%E8%83%BD%E4%BF%9D%E5%AD%98%E7%9A%84%E9%97%AE%E9%A2%98/ title=Unity代码修改Prefab未能保存的问题>Unity代码修改Prefab未能保存的问题</a>
 </li>
-<li>
-<a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8CustomEditor%E8%87%AA%E5%AE%9A%E4%B9%89%E8%84%9A%E6%9C%AC%E7%9A%84Inspector%E9%9D%A2%E6%9D%BF/ title=Unity中使用CustomEditor自定义脚本的Inspector面板>Unity中使用CustomEditor自定义脚本的Inspector面板</a>
-</li>
-<li>
-<a href=https://www.zling.site/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/ title=设计模式之工厂方法模式>设计模式之工厂方法模式</a>
-</li>
 </ul>
 </section>
 <section class=widget>
@@ -349,7 +349,7 @@
 <li><a href=https://www.zling.site/categories/game-development/>game development (1)</a></li>
 <li><a href=https://www.zling.site/categories/hugo/>hugo (1)</a></li>
 <li><a href=https://www.zling.site/categories/jira/>jira (1)</a></li>
-<li><a href=https://www.zling.site/categories/linux/>linux (1)</a></li>
+<li><a href=https://www.zling.site/categories/linux/>linux (3)</a></li>
 <li><a href=https://www.zling.site/categories/lua/>lua (3)</a></li>
 <li><a href=https://www.zling.site/categories/mariadb/>mariadb (1)</a></li>
 <li><a href=https://www.zling.site/categories/markdown/>markdown (1)</a></li>
@@ -360,10 +360,10 @@
 <li><a href=https://www.zling.site/categories/protobuf/>protobuf (1)</a></li>
 <li><a href=https://www.zling.site/categories/rider/>rider (1)</a></li>
 <li><a href=https://www.zling.site/categories/serilog/>serilog (1)</a></li>
-<li><a href=https://www.zling.site/categories/ubuntu/>ubuntu (1)</a></li>
 <li><a href=https://www.zling.site/categories/unity/>unity (30)</a></li>
 <li><a href=https://www.zling.site/categories/web/>web (1)</a></li>
 <li><a href=https://www.zling.site/categories/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/>内网穿透 (1)</a></li>
+<li><a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/>游戏开发 (1)</a></li>
 </ul>
 </section>
 <section class=widget>
