@@ -3,7 +3,7 @@ title: "使用Docker运行MongoDB"
 date: 2021-04-23T12:37:29+08:00
 draft: false
 tags: ["docker", "mongodb"]
-categories: ["docker",]
+categories: ["其他方面",]
 series:
 description:
 toc: true

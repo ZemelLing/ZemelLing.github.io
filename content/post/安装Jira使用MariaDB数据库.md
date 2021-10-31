@@ -2,8 +2,8 @@
 title: "安装Jira使用MariaDB数据库"
 date: 2021-07-02T12:40:56+08:00
 draft: false
-tags: ["jira",]
-categories: ["jira",]
+tags: ["jira", "MariaDB"]
+categories: ["其他方面",]
 series:
 description:
 toc: true

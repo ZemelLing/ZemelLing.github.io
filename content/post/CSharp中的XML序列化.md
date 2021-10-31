@@ -3,7 +3,7 @@ title: "CSharp中的XML序列化"
 date: 2021-04-24T22:04:09+08:00
 draft: false
 tags: ["csharp", "xml"]
-categories: ["csharp",]
+categories: ["编程语言",]
 series:
 description:
 toc: true

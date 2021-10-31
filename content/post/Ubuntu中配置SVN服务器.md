@@ -3,7 +3,7 @@ title: "Ubuntu中配置SVN服务器"
 date: 2021-10-28T21:42:14+08:00
 draft: false
 tags: ["ubuntu", "linux"]
-categories: ["linux", ]
+categories: ["其他方面", ]
 ---
 
 ## 安装SVN服务器及创建仓库

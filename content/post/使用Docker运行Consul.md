@@ -3,7 +3,7 @@ title: "使用Docker运行Consul"
 date: 2021-04-23T16:16:07+08:00
 draft: false
 tags: ["docker", "consul"]
-categories: ["docker",]
+categories: ["其他方面",]
 series:
 description:
 toc: true

@@ -3,7 +3,7 @@ title: "Unity中使用Addressable"
 date: 2021-09-06T18:56:37+08:00
 draft: false
 tags: ["unity", "data save"]
-categories: ["unity",]
+categories: ["游戏开发",]
 series:
 description:
 toc: true

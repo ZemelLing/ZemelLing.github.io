@@ -3,7 +3,7 @@ title: "AspNetCore控制器的Action返回结果类型"
 date: 2021-07-02T12:48:31+08:00
 draft: false
 tags: ["csharp", "aspnetcore"]
-categories: ["aspnetcore",]
+categories: ["其他方面",]
 series:
 description:
 toc: true

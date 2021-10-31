@@ -3,7 +3,7 @@ title: "设计模式之策略模式（Strategy）"
 date: 2021-05-06T17:06:53+08:00
 draft: false
 tags: ["design pattern",]
-categories: ["design pattern",]
+categories: ["编程基础",]
 series:
 description:
 toc: true

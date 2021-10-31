@@ -3,7 +3,7 @@ title: "Ubuntu使用记录"
 date: 2021-07-12T12:55:26+08:00
 draft: false
 tags: ["ubuntu", "linux"]
-categories: ["linux", ]
+categories: ["其他方面", ]
 series:
 description:
 toc: true

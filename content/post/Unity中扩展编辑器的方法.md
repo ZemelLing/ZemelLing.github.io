@@ -3,7 +3,7 @@ title: "Unity中扩展编辑器的方法"
 date: 2021-10-24T11:26:36+08:00
 draft: true
 tags: ["unity", "editor"]
-categories: ["unity",]
+categories: ["游戏开发",]
 series:
 description:
 toc: true

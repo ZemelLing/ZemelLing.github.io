@@ -3,7 +3,7 @@ title: "Unity中的特殊文件夹和脚本编译顺序"
 date: 2021-04-05T13:24:47+08:00
 draft: false
 tags: ["unity",]
-categories: ["unity",]
+categories: ["游戏开发",]
 series:
 description:
 toc: true

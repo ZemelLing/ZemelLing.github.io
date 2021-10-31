@@ -3,7 +3,7 @@ title: "Lua学习记录（一）"
 date: 2021-08-18T22:20:23+08:00
 draft: false
 tags: ["lua",]
-categories: ["lua",]
+categories: ["编程语言",]
 series:
 description:
 toc: true

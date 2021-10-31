@@ -3,7 +3,7 @@ title: "Unity中的Sprites"
 date: 2021-05-17T20:32:36+08:00
 draft: false
 tags: ["unity", "sprites", "2d"]
-categories: ["unity",]
+categories: ["游戏开发",]
 series:
 description:
 toc: true

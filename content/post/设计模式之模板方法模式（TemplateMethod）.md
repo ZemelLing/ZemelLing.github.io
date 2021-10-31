@@ -3,7 +3,7 @@ title: "设计模式之模板方法模式（TemplateMethod）"
 date: 2021-05-10T11:36:42+08:00
 draft: false
 tags: ["design pattern", "bridge"]
-categories: ["design pattern",]
+categories: ["编程基础",]
 series:
 description:
 toc: true

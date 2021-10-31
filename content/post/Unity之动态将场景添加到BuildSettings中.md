@@ -3,7 +3,7 @@ title: "Unity之动态将场景添加到BuildSettings中"
 date: 2021-09-11T19:07:09+08:00
 draft: false
 tags: ["unity",]
-categories: ["unity",]
+categories: ["游戏开发",]
 series:
 description:
 toc: true

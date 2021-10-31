@@ -3,7 +3,7 @@ title: "Unity中的渲染管线"
 date: 2021-03-31T16:30:07+08:00
 draft: false
 tags: ["unity", "渲染管线", "画质"]
-categories: ["unity",]
+categories: ["游戏开发",]
 series:
 description:
 toc: true

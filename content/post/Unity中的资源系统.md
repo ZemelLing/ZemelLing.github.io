@@ -3,7 +3,7 @@ title: "Unity中的资源系统"
 date: 2021-04-15T12:15:15+08:00
 draft: false
 tags: ["unity", "assetbundle"]
-categories: ["unity",]
+categories: ["游戏开发",]
 series:
 description:
 toc: true

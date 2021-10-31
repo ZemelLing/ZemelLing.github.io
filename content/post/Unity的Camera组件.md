@@ -3,7 +3,7 @@ title: "Unity的Camera组件"
 date: 2021-03-27T14:04:16+08:00
 draft: false
 tags: ["unity", "camera"]
-categories: ["unity",]
+categories: ["游戏开发",]
 series:
 description:
 toc: true

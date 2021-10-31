@@ -3,7 +3,7 @@ title: "MySql的用法记录"
 date: 2021-04-06T22:12:49+08:00
 draft: false
 tags: ["mysql", ]
-categories: ["mysql", ]
+categories: ["其他方面", ]
 series:
 description:
 toc: true

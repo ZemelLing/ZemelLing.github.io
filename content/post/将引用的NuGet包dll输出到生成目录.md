@@ -3,7 +3,7 @@ title: "将引用的NuGet包dll输出到生成目录"
 date: 2021-08-10T10:58:20+08:00
 draft: false
 tags: ["nuget","vs"]
-categories: ["nuget",]
+categories: ["问题记录",]
 series:
 description:
 toc: true

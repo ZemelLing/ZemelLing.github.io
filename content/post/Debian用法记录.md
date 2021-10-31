@@ -3,7 +3,7 @@ title: "Debian用法记录"
 date: 2021-05-01T10:17:40+08:00
 draft: false
 tags: ["linux", "debian"]
-categories: ["linux",]
+categories: ["其他方面",]
 series:
 description:
 toc: true

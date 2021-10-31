@@ -3,7 +3,7 @@ title: "Docker常用命令"
 date: 2021-04-30T17:40:59+08:00
 draft: false
 tags: ["docker",]
-categories: ["docker",]
+categories: ["其他方面",]
 series:
 description:
 toc: true

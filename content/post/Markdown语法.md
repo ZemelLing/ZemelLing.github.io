@@ -3,7 +3,7 @@ title: "Markdown语法"
 date: 2021-03-26T10:16:51+08:00
 draft: false
 tags: ["markdown", ]
-categories: ["markdown",]
+categories: ["其他方面",]
 series:
 description:
 toc: true

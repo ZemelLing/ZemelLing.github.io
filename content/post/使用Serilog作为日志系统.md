@@ -3,7 +3,7 @@ title: "使用Serilog作为日志系统"
 date: 2021-05-03T22:21:58+08:00
 draft: false
 tags: ["serilog", "log"]
-categories: ["serilog",]
+categories: ["其他方面",]
 series:
 description:
 toc: true

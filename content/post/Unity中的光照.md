@@ -3,7 +3,7 @@ title: "Unity中的光照"
 date: 2021-04-02T16:11:55+08:00
 draft: false
 tags: ["unity", "lighting"]
-categories: ["unity",]
+categories: ["游戏开发",]
 series:
 description:
 toc: true

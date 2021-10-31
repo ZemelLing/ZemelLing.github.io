@@ -3,7 +3,7 @@ title: "CSharp中的压缩和解压"
 date: 2021-04-05T17:28:17+08:00
 draft: false
 tags: ["csharp", "io", "compression", "decompression"]
-categories: ["csharp",]
+categories: ["编程语言",]
 series:
 description:
 toc: true

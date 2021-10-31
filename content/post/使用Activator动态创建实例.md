@@ -3,7 +3,7 @@ title: "使用Activator动态创建实例"
 date: 2021-09-27T11:07:17+08:00
 draft: false
 tags: ["csharp", ]
-categories: ["csharp",]
+categories: ["编程语言",]
 series:
 description:
 toc: true

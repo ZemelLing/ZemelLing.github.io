@@ -3,7 +3,7 @@ title: "Unity中的欧拉角和四元数"
 date: 2021-06-01T17:18:09+08:00
 draft: false
 tags: ["unity",]
-categories: ["unity",]
+categories: ["游戏开发",]
 series:
 description:
 toc: true

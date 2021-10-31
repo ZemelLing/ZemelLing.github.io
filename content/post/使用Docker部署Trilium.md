@@ -3,7 +3,7 @@ title: "使用Docker部署Trilium"
 date: 2021-03-25T13:26:38+08:00
 draft: false
 tags: ["docker",]
-categories: ["docker",]
+categories: ["其他方面",]
 series:
 description:
 toc: true

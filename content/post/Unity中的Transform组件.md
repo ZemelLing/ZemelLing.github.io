@@ -3,7 +3,7 @@ title: "Unity中的Transform组件"
 date: 2021-09-05T11:24:21+08:00
 draft: false
 tags: ["unity", "component",]
-categories: ["unity",]
+categories: ["游戏开发",]
 series:
 description:
 toc: true

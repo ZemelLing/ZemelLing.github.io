@@ -3,7 +3,7 @@ title: "Lua名词解释"
 date: 2021-10-31T08:52:28+08:00
 draft: false
 tags: ["lua",]
-categories: ["lua",]
+categories: ["游戏开发",]
 ---
 
 ## Lua

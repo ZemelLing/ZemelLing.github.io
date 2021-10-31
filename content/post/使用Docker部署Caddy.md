@@ -3,7 +3,7 @@ title: "使用Docker部署Caddy"
 date: 2021-03-24T18:32:49+08:00
 draft: false
 tags: ["docker", "caddy"]
-categories: ["docker",]
+categories: ["其他方面",]
 series:
 description:
 toc: true

@@ -3,7 +3,7 @@ title: "Unity中UGUI的自适应"
 date: 2021-04-03T14:35:22+08:00
 draft: false
 tags: ["unity", "ugui"]
-categories: ["unity",]
+categories: ["游戏开发",]
 series:
 description:
 toc: true

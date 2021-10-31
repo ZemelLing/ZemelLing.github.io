@@ -3,7 +3,7 @@ title: "使用Docker部署Nexus3"
 date: 2021-05-01T18:35:28+08:00
 draft: false
 tags: ["docker", "nexus3"]
-categories: ["docker",]
+categories: ["其他方面",]
 series:
 description:
 toc: true

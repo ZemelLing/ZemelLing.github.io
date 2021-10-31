@@ -3,7 +3,7 @@ title: "CSharp中用线程安全的方式引发事件"
 date: 2021-05-29T23:47:02+08:00
 draft: false
 tags: ["csharp", "event", "thread"]
-categories: ["csharp",]
+categories: ["编程语言",]
 series:
 description:
 toc: true

@@ -3,7 +3,7 @@ title: "使用hugo搭建静态博客"
 date: 2021-03-23T22:36:20+08:00
 draft: false
 tags: ["hugo",]
-categories: ["hugo",]
+categories: ["其他方面",]
 series:
 description:
 toc: true

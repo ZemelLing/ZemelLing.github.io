@@ -3,7 +3,7 @@ title: "Rider用法记录"
 date: 2021-04-06T12:31:02+08:00
 draft: false
 tags: ["rider", ]
-categories: ["rider", ]
+categories: ["其他方面", ]
 series:
 description:
 toc: true

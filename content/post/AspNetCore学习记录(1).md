@@ -3,7 +3,7 @@ title: "AspNetCore学习记录(1)"
 date: 2021-03-26T22:19:59+08:00
 draft: false
 tags: ["aspnetcore", "csharp"]
-categories: ["aspnetcore",]
+categories: ["其他方面",]
 series:
 description:
 toc: true

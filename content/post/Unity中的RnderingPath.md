@@ -3,7 +3,7 @@ title: "Unity中的RnderingPath"
 date: 2021-03-27T19:06:07+08:00
 draft: false
 tags: ["unity", "render"]
-categories: ["unity",]
+categories: ["游戏开发",]
 series:
 description:
 toc: true

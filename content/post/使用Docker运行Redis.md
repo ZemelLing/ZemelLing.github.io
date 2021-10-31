@@ -3,7 +3,7 @@ title: "使用Docker运行Redis"
 date: 2021-04-23T14:43:14+08:00
 draft: false
 tags: ["docker", "redis"]
-categories: ["docker",]
+categories: ["其他方面",]
 series:
 description:
 toc: true

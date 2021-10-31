@@ -3,7 +3,7 @@ title: "Unity的RuntimeInitializeOnLoadMethodAttribute特性"
 date: 2021-09-01T15:27:16+08:00
 draft: false
 tags: ["unity", "attribute"]
-categories: ["unity",]
+categories: ["游戏开发",]
 series:
 description:
 toc: true

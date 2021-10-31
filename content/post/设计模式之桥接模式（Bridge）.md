@@ -3,7 +3,7 @@ title: "设计模式之桥接模式（Bridge）"
 date: 2021-05-02T10:39:22+08:00
 draft: false
 tags: ["design pattern", "bridge"]
-categories: ["design pattern",]
+categories: ["编程基础",]
 series:
 description:
 toc: true

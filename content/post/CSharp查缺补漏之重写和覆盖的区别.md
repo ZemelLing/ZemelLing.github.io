@@ -3,7 +3,7 @@ title: "CSharp查缺补漏之重写(override)和覆盖(new)的区别"
 date: 2021-10-25T09:54:30+08:00
 draft: false
 tags: ["csharp", ]
-categories: ["csharp",]
+categories: ["编程语言",]
 series:
 description:
 toc: true

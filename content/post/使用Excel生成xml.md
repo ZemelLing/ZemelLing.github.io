@@ -3,7 +3,7 @@ title: "使用Excel生成xml"
 date: 2021-04-04T22:45:07+08:00
 draft: false
 tags: ["excel", "xml"]
-categories: ["excel",]
+categories: ["其他方面",]
 series:
 description:
 toc: true
