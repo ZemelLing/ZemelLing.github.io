@@ -55,6 +55,11 @@ disqusShortname = "yourdiscussshortname"  ## 是否开启disqus评论，不要�
   name = "哈里奥游戏工作室"
   url = "http://www.hariogame.com/"
 
+[[params.links]]
+  title = "一位JAVA程序员"
+  name = "Siahk"
+  url = "https://siahk.github.io/"
+
 ## 侧边栏广告位
 ##[[params.ads]]
   ##title = "【2019双12】ALL IN CLoud 低至1折"
