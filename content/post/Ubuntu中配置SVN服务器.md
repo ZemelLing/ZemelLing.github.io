@@ -67,3 +67,26 @@ svnserve -d -r /home/pi/svn
 然后检查是否启动
 ps -ef |grep svnserve
 ```
+
+## 多版本库
+
+```shell
+svnadmin create /home/pi/svn/repo1  // 这是创建了一个版本库
+svnadmin create /home/pi/svn/repo2  // 这是创建了另一个版本库
+
+// 当有多个版本库时，启动命令需要类似于下面
+svnserve -d -r /home/pi/svn
+
+// 同时每个版本库conf中的authz需要更改为，类似如下：
+[repo1:/]
+dengfu = rw
+
+// 其他还是一样
+
+// 权限问题
+sudo chmod -R o+rw /disk1/svn
+
+// svn: E220001: Item is not readable
+anon-access = none
+auth-access = write
+```
