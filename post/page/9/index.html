@@ -59,7 +59,7 @@
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/unity>unity</a></span>
+<span class=meta-category><a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a></span>
 </div>
 <div class=post-content>
 程序集定义（Assembly Definitions） Unity 使用程序集定义和程序集引用（Assembly References）组织代码结构，同时 Unity 默认使用预定义的程序集，Assembly-CSharp.dll，来组织代码。 但是这种结构并不适合中大型项目，单一程序集将导致代码结构不够清晰……
@@ -77,7 +77,7 @@
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/excel>excel</a></span>
+<span class=meta-category><a href=/categories/%E5%85%B6%E4%BB%96%E6%96%B9%E9%9D%A2>其他方面</a></span>
 </div>
 <div class=post-content>
 制作 XML 模板 1 2 3 4 5 6 7 8 9 10 11 12 13 &lt;?xml version="1.0" encoding="UTF-8"?> &lt;root> &lt;item ID=""> &lt;surname>&lt;/surname> &lt;man>&lt;/man> &lt;woman>&lt;/woman> &lt;/item> &lt;item ID=""> &lt;surname>&lt;/surname> &lt;man>&lt;/man> &lt;woman>&lt;/woman> &lt;/item> &lt;/root> 在 Excel 选项中启用开发工具 Excel 映射 XML 模板 然后映射元素，填充数据 使用开发工具的 XML 导出，即可生成 XML 文件……
@@ -95,7 +95,7 @@
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/unity>unity</a></span>
+<span class=meta-category><a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a></span>
 </div>
 <div class=post-content>
 直接关联 在脚本中创建public的想要关联的游戏对象类型的变量，随后在inspector中关联对应的游戏对象即可 1 2 3 4 5 6 public class Enemy : MonoBehaviour { public GameObject player; // 其他变量和函数... } 子游戏对象 使用父游戏对象的变换组件来检索子游戏对象（因为所有游戏对象都具有隐式变换） 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15……
@@ -113,7 +113,7 @@
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/unity>unity</a></span>
+<span class=meta-category><a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a></span>
 </div>
 <div class=post-content>
 加载方式 将 Prefab 拖拽到 Inspector 的脚本上 这是最简单的方式，但是在实际项目中通常不使用，因为这种方式不够灵活，拖拽的方式低效，存在大量的隐式耦合。 1 2 3 4 5 6 7 8 9 public class Test : MonoBehaviour { public GameObject prefab; void Start() { var go = GameObject.Instantiate(prefab); } } 将 Prefab 放到 Resources 文件夹下，通过 Resources.Load 方法加载 这种方式实现也很简单，虽然比上一种方式好些，但实际项目中也不……
@@ -131,7 +131,7 @@
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/unity>unity</a></span>
+<span class=meta-category><a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a></span>
 </div>
 <div class=post-content>
 Scene 场景是 Unity 中由于放置游戏对象和UI元素的资源文件。 创建场景 使用新建场景对话框（ New Scene Dialog）根据指定的场景模板创建场景。 使用菜单或项目窗口根据项目基本的场景模板创建场景（这是最常见的方式）。 Scene 模板 加载场景 无论是同步加载还是异步加载，都需要将 Scene 在 BuildSettings 中设置好。 同步加载场景 1 2 3 4……
@@ -149,7 +149,7 @@ Scene 场景是 Unity 中由于放置游戏对象和UI元素的资源文件。 �
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/unity>unity</a></span>
+<span class=meta-category><a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a></span>
 </div>
 <div class=post-content>
 PlayerPrefs PlayerPrefs 是 Unity 中用于存储用户数据的类，且只能够存储一些基本类型数据。 存储路径 存储路径取决于所在操作系统。 Windows: 存在注册表的 HKCU\Software\ExampleCompanyName\ExampleProductName Key 下 Windows Store Apps: 存在 %userprofile%\AppData\Local\Packages[ProductPackageId]\LocalState\playerprefs.dat 文件里 macOS: ~/Library/Preferences/com.ExampleCompanyName.ExampleProductName.plist Linux: ~/.config/unity3d/ExampleCompanyName/ExampleProductName 静态方法 方法名 描述 DeleteAll Removes all keys and values from the preferences. Use with caution. DeleteKey Removes the given key from the PlayerPrefs. If the key does not exist, DeleteKey has no impact. GetFloat Returns the value corresponding to key in the preference file if it exists. GetInt Returns the value corresponding to key in the preference file if it exists. GetString……
@@ -167,7 +167,7 @@ PlayerPrefs PlayerPrefs 是 Unity 中用于存储用户数据的类，且只能�
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/unity>unity</a></span>
+<span class=meta-category><a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a></span>
 </div>
 <div class=post-content>
 设置 Canvas 的缩放模式为 Match Width Or Height 设置 Canvas 的 Match 为 Height（如果为横板游戏的话） 然后设置 UI 组件的锚点……
@@ -185,7 +185,7 @@ PlayerPrefs PlayerPrefs 是 Unity 中用于存储用户数据的类，且只能�
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/unity>unity</a></span>
+<span class=meta-category><a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a></span>
 </div>
 <div class=post-content>
 Unity中的光照类型 直接光照和间接光照 直接光照指照射到物体表面只反射一次后就传入感应器的光照，而间接光照指光线经过多次反射后再传入感应器的关照，这两种光照 Unity 都可以通过计算获取。 实时光照和烘培光照 实时光照指 Unity 在运行时计算光照，而烘培光照指将预计算的光照信息存储后有 Unity 在运行时读取恢……
@@ -203,7 +203,7 @@ Unity中的光照类型 直接光照和间接光照 直接光照指照射到物�
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/unity>unity</a></span>
+<span class=meta-category><a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a></span>
 </div>
 <div class=post-content>
 Android环境配置 添加 Android 开发相关组件 启用 USB 调试 将手机设置为开发者模式，具体机型可能有所不同，但通常都是连续点击设置里的 Build number 多次即可进入开发者模式。之后在开发者选项里启用 USB 调试。 其他 使用自定义的 SDK 路径 可在 Preferences > External tools 里设置自定义的 SDK等路径 调整 Android SDK Api Level Edit > Project Settings > Player 下可设置此选项……
@@ -221,7 +221,7 @@ Android环境配置 添加 Android 开发相关组件 启用 USB 调试 将手�
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/unity>unity</a></span>
+<span class=meta-category><a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a></span>
 </div>
 <div class=post-content>
 一个渲染管线通过执行一系列操作获取场景中需要展示的内容并将其显示到场景中。这些操作包括： 剔除 渲染 后期处理 Unity提供的渲染管线 内置渲染管线 内置渲染管线是 Unity 的旧版渲染管线，并且不是基于可编程渲染管线实现的。 内容渲染管线可通过设置不同的渲染管线进行设置，同时可以通过命令缓存（Com……
@@ -302,6 +302,9 @@ Android环境配置 添加 Android 开发相关组件 启用 USB 调试 将手�
 <h3 class=widget-title>最近文章</h3>
 <ul class=widget-list>
 <li>
+<a href=https://www.zling.site/post/ToLua%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/ title=ToLua项目配置>ToLua项目配置</a>
+</li>
+<li>
 <a href=https://www.zling.site/post/Lua%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/ title=Lua名词解释>Lua名词解释</a>
 </li>
 <li>
@@ -328,48 +331,25 @@ Android环境配置 添加 Android 开发相关组件 启用 USB 调试 将手�
 <li>
 <a href=https://www.zling.site/post/Unity%E4%B9%8B%E5%8A%A8%E6%80%81%E5%B0%86%E5%9C%BA%E6%99%AF%E6%B7%BB%E5%8A%A0%E5%88%B0BuildSettings%E4%B8%AD/ title=Unity之动态将场景添加到BuildSettings中>Unity之动态将场景添加到BuildSettings中</a>
 </li>
-<li>
-<a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8Addressable/ title=Unity中使用Addressable>Unity中使用Addressable</a>
-</li>
 </ul>
 </section>
 <section class=widget>
 <h3 class=widget-title><a href=/categories/>分类</a></h3>
 <ul class=widget-list>
-<li><a href=https://www.zling.site/categories/algorithm/>algorithm (2)</a></li>
-<li><a href=https://www.zling.site/categories/artifactory/>artifactory (1)</a></li>
-<li><a href=https://www.zling.site/categories/aspnetcore/>aspnetcore (2)</a></li>
-<li><a href=https://www.zling.site/categories/c++/>c++ (1)</a></li>
-<li><a href=https://www.zling.site/categories/csharp/>csharp (9)</a></li>
-<li><a href=https://www.zling.site/categories/design-pattern/>design pattern (9)</a></li>
-<li><a href=https://www.zling.site/categories/docker/>docker (7)</a></li>
-<li><a href=https://www.zling.site/categories/english/>english (13)</a></li>
-<li><a href=https://www.zling.site/categories/excel/>excel (1)</a></li>
-<li><a href=https://www.zling.site/categories/game-design/>game design (1)</a></li>
-<li><a href=https://www.zling.site/categories/game-development/>game development (1)</a></li>
-<li><a href=https://www.zling.site/categories/hugo/>hugo (1)</a></li>
-<li><a href=https://www.zling.site/categories/jira/>jira (1)</a></li>
-<li><a href=https://www.zling.site/categories/linux/>linux (3)</a></li>
-<li><a href=https://www.zling.site/categories/lua/>lua (4)</a></li>
-<li><a href=https://www.zling.site/categories/mariadb/>mariadb (1)</a></li>
-<li><a href=https://www.zling.site/categories/markdown/>markdown (1)</a></li>
-<li><a href=https://www.zling.site/categories/math/>math (1)</a></li>
-<li><a href=https://www.zling.site/categories/mysql/>mysql (1)</a></li>
-<li><a href=https://www.zling.site/categories/nuget/>nuget (1)</a></li>
-<li><a href=https://www.zling.site/categories/problem/>problem (1)</a></li>
-<li><a href=https://www.zling.site/categories/protobuf/>protobuf (1)</a></li>
-<li><a href=https://www.zling.site/categories/rider/>rider (1)</a></li>
-<li><a href=https://www.zling.site/categories/serilog/>serilog (1)</a></li>
-<li><a href=https://www.zling.site/categories/unity/>unity (30)</a></li>
-<li><a href=https://www.zling.site/categories/web/>web (1)</a></li>
-<li><a href=https://www.zling.site/categories/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/>内网穿透 (1)</a></li>
-<li><a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/>游戏开发 (1)</a></li>
+<li><a href=https://www.zling.site/categories/%E5%85%B6%E4%BB%96%E6%96%B9%E9%9D%A2/>其他方面 (23)</a></li>
+<li><a href=https://www.zling.site/categories/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/>数学知识 (1)</a></li>
+<li><a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/>游戏开发 (34)</a></li>
+<li><a href=https://www.zling.site/categories/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/>编程基础 (11)</a></li>
+<li><a href=https://www.zling.site/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/>编程语言 (12)</a></li>
+<li><a href=https://www.zling.site/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/>英语学习 (13)</a></li>
+<li><a href=https://www.zling.site/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/>问题记录 (3)</a></li>
 </ul>
 </section>
 <section class=widget>
 <h3 class=widget-title><a href=/tags/>标签</a></h3>
 <div class=tagcloud>
 <a href=https://www.zling.site/tags/2d/>2d</a>
+<a href=https://www.zling.site/tags/mariadb/>mariadb</a>
 <a href=https://www.zling.site/tags/algorithm/>algorithm</a>
 <a href=https://www.zling.site/tags/android/>android</a>
 <a href=https://www.zling.site/tags/artifactory/>artifactory</a>
@@ -431,6 +411,7 @@ Android环境配置 添加 Android 开发相关组件 启用 USB 调试 将手�
 <a href=https://www.zling.site/tags/state/>state</a>
 <a href=https://www.zling.site/tags/thread/>thread</a>
 <a href=https://www.zling.site/tags/tilemap/>tilemap</a>
+<a href=https://www.zling.site/tags/tolua/>tolua</a>
 <a href=https://www.zling.site/tags/ubuntu/>ubuntu</a>
 <a href=https://www.zling.site/tags/ugui/>ugui</a>
 <a href=https://www.zling.site/tags/unity/>unity</a>

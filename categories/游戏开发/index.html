@@ -56,6 +56,42 @@
 <article class=post>
 <header>
 <h1 class=post-title>
+<a href=https://www.zling.site/post/ToLua%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/>ToLua项目配置</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年10月31日
+</date>
+<div class="post-meta meta-category">
+|
+<a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a>
+</div>
+<div class=post-content>
+将 ToLua 下的 Assets 和 Luac53 文件夹复制到自己的工程 前往 https://github.com/topameng/tolua_runtime 将Plugins53文件夹里面的所有tolua相关的runtime底层库，都拷贝覆盖到unity工程的Plugins目录下。 打开unity编辑器，添加“LUAC_5_3”宏，回车等待编辑器编译完毕既是Lua5.3的虚拟机环境。 注意要用lu……
+<p class=readmore><a href=https://www.zling.site/post/ToLua%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/>阅读全文</a></p>
+</div>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/Lua%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/>Lua名词解释</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年10月31日
+</date>
+<div class="post-meta meta-category">
+|
+<a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a>
+</div>
+<div class=post-content>
+Lua lua其实就是为了嵌入其它应用程序而开发的一个脚本语言， lua优势 1）lua是一个免费、小巧、简单、强大、高效、轻量级的嵌入式的脚本语言 2）它是用C语言开发的项目，所以可以在大部分的操作系统上运行 3）lua是目前速度最快的脚本语言，既可以提升语言的灵活性还可以最大限度的保留速度……
+<p class=readmore><a href=https://www.zling.site/post/Lua%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/>阅读全文</a></p>
+</div>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
 <a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84UGUI/>Unity中的UGUI</a>
 </h1>
 </header>
@@ -71,6 +107,149 @@
 <p class=readmore><a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84UGUI/>阅读全文</a></p>
 </div>
 </article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84IMGUI/>Unity中的IMGUI</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年10月25日
+</date>
+<div class="post-meta meta-category">
+|
+<a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a>
+</div>
+<div class=post-content>
+什么是 IMGUI 即时模式 GUI 系统（也称为 IMGUI）是一个完全独立的功能系统，不同于 Unity 基于游戏对象的主 UI 系统，IMGUI 需在实现脚本上调用 OnGUI 函数，并在其中实现绘制 UI 的代码。 IMGUI 作用 创建游戏内调试显示和工具。 为脚本组件创建自定义检视面板。 创建新的编辑器窗口和工具以扩展 Unity 本身。 控件 Label Button RepeatButton TextField TextArea Toggle ToolBar……
+<p class=readmore><a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84IMGUI/>阅读全文</a></p>
+</div>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/Unity%E4%B9%8B%E5%8A%A8%E6%80%81%E5%B0%86%E5%9C%BA%E6%99%AF%E6%B7%BB%E5%8A%A0%E5%88%B0BuildSettings%E4%B8%AD/>Unity之动态将场景添加到BuildSettings中</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年9月11日
+</date>
+<div class="post-meta meta-category">
+|
+<a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a>
+</div>
+<div class=post-content>
+代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 #region 将场景添加到 Build Settings // 场景存放目录 var sceneDir = $"{Application.dataPath}/Scenes"; var sceneFiles = Directory.GetFiles(sceneDir, "*.unity", SearchOption.AllDirectories); var scenes = new EditorBuildSettingsScene[sceneFiles.Length]; for (var i = 0; i &lt; sceneFiles.Length; i++) { // 替换斜杠 var sceneFile = sceneFiles[i].Replace("\\", "/"); // 使用相对路径 var assetsFolderIndex = sceneFile.IndexOf("Assets", StringComparison.Ordinal); sceneFile = sceneFile.Substring(assetsFolderIndex); var scene = new EditorBuildSettingsScene(sceneFile, true); scenes[i] = scene; } EditorBuildSettings.scenes = scenes; #endregion……
+<p class=readmore><a href=https://www.zling.site/post/Unity%E4%B9%8B%E5%8A%A8%E6%80%81%E5%B0%86%E5%9C%BA%E6%99%AF%E6%B7%BB%E5%8A%A0%E5%88%B0BuildSettings%E4%B8%AD/>阅读全文</a></p>
+</div>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8Addressable/>Unity中使用Addressable</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年9月6日
+</date>
+<div class="post-meta meta-category">
+|
+<a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a>
+</div>
+<div class=post-content>
+使用步骤 标记资源为Addressable 方式一：在资源的Inspector界面 方式二：在 Addressables Groups 窗口 构建可寻址内容(Addressable Content) 方式一：使用 Editor 在 Addressables Groups 窗口右上角选择 Build > New Build > Default Build Script. 方式二：使用脚本 API AddressableAssetSettings.BuildPlayerContent() 使用 Addressable 资源 方式一：通过 address 加载或实例化资源 加载资源 Addressables.LoadAssetAsync&lt;GameObject>("AssetAddress"); 实例化资源 Addressables.InstantiateAsync("AssetAddress"); 示例： 1 2 3……
+<p class=readmore><a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8Addressable/>阅读全文</a></p>
+</div>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/Unity%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9Prefab%E6%9C%AA%E8%83%BD%E4%BF%9D%E5%AD%98%E7%9A%84%E9%97%AE%E9%A2%98/>Unity代码修改Prefab未能保存的问题</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年9月6日
+</date>
+<div class="post-meta meta-category">
+|
+<a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a>
+</div>
+<div class=post-content>
+解决办法 使用 EditorUtility.SetDirty(thePrefabObjectOrComponent); 将其设置为Dirty，之后就可以保存了。……
+<p class=readmore><a href=https://www.zling.site/post/Unity%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9Prefab%E6%9C%AA%E8%83%BD%E4%BF%9D%E5%AD%98%E7%9A%84%E9%97%AE%E9%A2%98/>阅读全文</a></p>
+</div>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8CustomEditor%E8%87%AA%E5%AE%9A%E4%B9%89%E8%84%9A%E6%9C%AC%E7%9A%84Inspector%E9%9D%A2%E6%9D%BF/>Unity中使用CustomEditor自定义脚本的Inspector面板</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年9月5日
+</date>
+<div class="post-meta meta-category">
+|
+<a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a>
+</div>
+<div class=post-content>
+自定义脚本 1 2 3 4 5 6 7 8 9 10 using UnityEngine; public class LookAtPoint : MonoBehaviour { public Vector3 lookAtPoint = Vector3.zero; void Update() { transform.LookAt(lookAtPoint); } } 使用 CustomEditor 特性 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 using UnityEngine; using UnityEditor; [CustomEditor(typeof(LookAtPoint))] // 指定为哪个组件自定义编辑器界面 [CanEditMultipleObjects] // 指示Unity可以为多个对象的同一组件同时编辑 public class LookAtPointEditor : Editor { SerializedProperty lookAtPoint;……
+<p class=readmore><a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8CustomEditor%E8%87%AA%E5%AE%9A%E4%B9%89%E8%84%9A%E6%9C%AC%E7%9A%84Inspector%E9%9D%A2%E6%9D%BF/>阅读全文</a></p>
+</div>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84Transform%E7%BB%84%E4%BB%B6/>Unity中的Transform组件</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年9月5日
+</date>
+<div class="post-meta meta-category">
+|
+<a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a>
+</div>
+<div class=post-content>
+Transform组件 在 Unity 场景中的游戏对象都有 Transform 组件，用于存储和操作对象的位置、旋转和缩放，同时 Transform 支持枚举。 重要的属性 属性 说明 childCount 该transform的直接孩子个数 forward 返回归一化向量，该向量在世界空间中为蓝色轴表示 right 红色轴 up 绿色轴 重要的方法 方法 说明 DetachChildren 将当前 Transform 下的孩子与其脱钩 Find 根据给定……
+<p class=readmore><a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84Transform%E7%BB%84%E4%BB%B6/>阅读全文</a></p>
+</div>
+</article>
+<article class=post>
+<header>
+<h1 class=post-title>
+<a href=https://www.zling.site/post/Unity%E7%9A%84RuntimeInitializeOnLoadMethodAttribute%E7%89%B9%E6%80%A7/>Unity的RuntimeInitializeOnLoadMethodAttribute特性</a>
+</h1>
+</header>
+<date class="post-meta meta-date">
+2021年9月1日
+</date>
+<div class="post-meta meta-category">
+|
+<a href=/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91>游戏开发</a>
+</div>
+<div class=post-content>
+RuntimeInitializeOnLoadMethodAttribute 被标记为 RuntimeInitializeOnLoadMethodAttribute 的方法在游戏加载后就被调用，同时在Awake之后调用。 同时需要注意的是，所有被标记为 RuntimeInitializeOnLoadMethodAttribute 的方法，它们之间被调用的顺序是不一定的。 同时该特性还拥有可选参数 loadType，该参数决定了被标记的方法是在场景加载前还是加载后被调用。……
+<p class=readmore><a href=https://www.zling.site/post/Unity%E7%9A%84RuntimeInitializeOnLoadMethodAttribute%E7%89%B9%E6%80%A7/>阅读全文</a></p>
+</div>
+</article>
+<ol class=page-navigator>
+<li class=current>
+<a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/>1</a>
+</li>
+<li>
+<a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/page/2/>2</a>
+</li>
+<li>
+<a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/page/3/>3</a>
+</li>
+<li>
+<a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/page/4/>4</a>
+</li>
+<li class=next>
+<a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/page/2/>下一页</a>
+</li>
+</ol>
 </div>
 <footer id=footer>
 <div>
@@ -107,6 +286,9 @@
 <h3 class=widget-title>最近文章</h3>
 <ul class=widget-list>
 <li>
+<a href=https://www.zling.site/post/ToLua%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/ title=ToLua项目配置>ToLua项目配置</a>
+</li>
+<li>
 <a href=https://www.zling.site/post/Lua%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/ title=Lua名词解释>Lua名词解释</a>
 </li>
 <li>
@@ -133,48 +315,25 @@
 <li>
 <a href=https://www.zling.site/post/Unity%E4%B9%8B%E5%8A%A8%E6%80%81%E5%B0%86%E5%9C%BA%E6%99%AF%E6%B7%BB%E5%8A%A0%E5%88%B0BuildSettings%E4%B8%AD/ title=Unity之动态将场景添加到BuildSettings中>Unity之动态将场景添加到BuildSettings中</a>
 </li>
-<li>
-<a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8Addressable/ title=Unity中使用Addressable>Unity中使用Addressable</a>
-</li>
 </ul>
 </section>
 <section class=widget>
 <h3 class=widget-title><a href=/categories/>分类</a></h3>
 <ul class=widget-list>
-<li><a href=https://www.zling.site/categories/algorithm/>algorithm (2)</a></li>
-<li><a href=https://www.zling.site/categories/artifactory/>artifactory (1)</a></li>
-<li><a href=https://www.zling.site/categories/aspnetcore/>aspnetcore (2)</a></li>
-<li><a href=https://www.zling.site/categories/c++/>c++ (1)</a></li>
-<li><a href=https://www.zling.site/categories/csharp/>csharp (9)</a></li>
-<li><a href=https://www.zling.site/categories/design-pattern/>design pattern (9)</a></li>
-<li><a href=https://www.zling.site/categories/docker/>docker (7)</a></li>
-<li><a href=https://www.zling.site/categories/english/>english (13)</a></li>
-<li><a href=https://www.zling.site/categories/excel/>excel (1)</a></li>
-<li><a href=https://www.zling.site/categories/game-design/>game design (1)</a></li>
-<li><a href=https://www.zling.site/categories/game-development/>game development (1)</a></li>
-<li><a href=https://www.zling.site/categories/hugo/>hugo (1)</a></li>
-<li><a href=https://www.zling.site/categories/jira/>jira (1)</a></li>
-<li><a href=https://www.zling.site/categories/linux/>linux (3)</a></li>
-<li><a href=https://www.zling.site/categories/lua/>lua (4)</a></li>
-<li><a href=https://www.zling.site/categories/mariadb/>mariadb (1)</a></li>
-<li><a href=https://www.zling.site/categories/markdown/>markdown (1)</a></li>
-<li><a href=https://www.zling.site/categories/math/>math (1)</a></li>
-<li><a href=https://www.zling.site/categories/mysql/>mysql (1)</a></li>
-<li><a href=https://www.zling.site/categories/nuget/>nuget (1)</a></li>
-<li><a href=https://www.zling.site/categories/problem/>problem (1)</a></li>
-<li><a href=https://www.zling.site/categories/protobuf/>protobuf (1)</a></li>
-<li><a href=https://www.zling.site/categories/rider/>rider (1)</a></li>
-<li><a href=https://www.zling.site/categories/serilog/>serilog (1)</a></li>
-<li><a href=https://www.zling.site/categories/unity/>unity (30)</a></li>
-<li><a href=https://www.zling.site/categories/web/>web (1)</a></li>
-<li><a href=https://www.zling.site/categories/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/>内网穿透 (1)</a></li>
-<li><a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/>游戏开发 (1)</a></li>
+<li><a href=https://www.zling.site/categories/%E5%85%B6%E4%BB%96%E6%96%B9%E9%9D%A2/>其他方面 (23)</a></li>
+<li><a href=https://www.zling.site/categories/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/>数学知识 (1)</a></li>
+<li><a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/>游戏开发 (34)</a></li>
+<li><a href=https://www.zling.site/categories/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/>编程基础 (11)</a></li>
+<li><a href=https://www.zling.site/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/>编程语言 (12)</a></li>
+<li><a href=https://www.zling.site/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/>英语学习 (13)</a></li>
+<li><a href=https://www.zling.site/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/>问题记录 (3)</a></li>
 </ul>
 </section>
 <section class=widget>
 <h3 class=widget-title><a href=/tags/>标签</a></h3>
 <div class=tagcloud>
 <a href=https://www.zling.site/tags/2d/>2d</a>
+<a href=https://www.zling.site/tags/mariadb/>mariadb</a>
 <a href=https://www.zling.site/tags/algorithm/>algorithm</a>
 <a href=https://www.zling.site/tags/android/>android</a>
 <a href=https://www.zling.site/tags/artifactory/>artifactory</a>
@@ -236,6 +395,7 @@
 <a href=https://www.zling.site/tags/state/>state</a>
 <a href=https://www.zling.site/tags/thread/>thread</a>
 <a href=https://www.zling.site/tags/tilemap/>tilemap</a>
+<a href=https://www.zling.site/tags/tolua/>tolua</a>
 <a href=https://www.zling.site/tags/ubuntu/>ubuntu</a>
 <a href=https://www.zling.site/tags/ugui/>ugui</a>
 <a href=https://www.zling.site/tags/unity/>unity</a>

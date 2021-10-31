@@ -64,7 +64,7 @@
 </date>
 <div class="post-meta meta-category">
 |
-<a href=/categories/csharp>csharp</a>
+<a href=/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80>编程语言</a>
 </div>
 <div class=post-content>
 不管是重写还是覆盖都不会影响父类自身的功能（废话，肯定的嘛，除非代码被改）。 当用子类创建父类的时候，如 C1 c3 = new C2()，重写会改变父类的功能，即调用子类的功能；而覆盖不会，仍然调用父类功能。 虚方法、实方法都可以被覆盖（new），抽象方法，接口 不可以。 抽象方法，接口，标记为virt……
@@ -82,7 +82,7 @@
 </date>
 <div class="post-meta meta-category">
 |
-<a href=/categories/csharp>csharp</a>
+<a href=/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80>编程语言</a>
 </div>
 <div class=post-content>
 c# 7.0 特性 数字字面量的改进 数字字面量可以使用下划线来改善可读性、它们称为数字分隔符而被编译器忽略 1 2 3 int million = 1_000_000; var b = 0b1010_1011_1100_1101_1110_1111; // 二进制字面量可以使用0b前缀进行标识 解构器 解构方法的名字必须为Deconstruct，并且拥有一个或多个out参数 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 class Rectangle { public readonly float Width, Height; public……
@@ -100,7 +100,7 @@ c# 7.0 特性 数字字面量的改进 数字字面量可以使用下划线来�
 </date>
 <div class="post-meta meta-category">
 |
-<a href=/categories/csharp>csharp</a>
+<a href=/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80>编程语言</a>
 </div>
 <div class=post-content>
 Activator Activator 包含能够创建本地或远程类型对象或获取对现有远程对象的引用的方法。 重要的方法 CreateInstance 此方法通过调用与给定参数最匹配的类构造函数创建类的实例。默认情况下，如果被创建实例的类没有Public的构造函数或找不到匹配的构造函数，此方法将抛出异常。……
@@ -118,7 +118,7 @@ Activator Activator 包含能够创建本地或远程类型对象或获取对现
 </date>
 <div class="post-meta meta-category">
 |
-<a href=/categories/problem>problem</a>
+<a href=/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95>问题记录</a>
 </div>
 <div class=post-content>
 依赖注入时报如下错误的解决办法 1 System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'Some.Class'. 解决办法: 主要是由于构造函数依赖注入时使用了 ILogger 而不是 ILogger&lt;> 导致的，故改为 ILogger&lt;> 即可。……
@@ -136,7 +136,7 @@ Activator Activator 包含能够创建本地或远程类型对象或获取对现
 </date>
 <div class="post-meta meta-category">
 |
-<a href=/categories/csharp>csharp</a>
+<a href=/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80>编程语言</a>
 </div>
 <div class=post-content>
 发送 Get 请求 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 // HttpClient is intended to be instantiated once per application, rather than per-use. See Remarks. static readonly HttpClient client = new HttpClient(); static async Task Main() { // Call asynchronous network methods in a try/catch block to handle exceptions. try { HttpResponseMessage response = await client.GetAsync("http://www.contoso.com/"); response.EnsureSuccessStatusCode(); string responseBody = await response.Content.ReadAsStringAsync(); // Above three lines can be replaced with new helper method below // string responseBody = await client.GetStringAsync(uri); Console.WriteLine(responseBody); } catch(HttpRequestException e) { Console.WriteLine("\nException Caught!"); Console.WriteLine("Message :{0} ",e.Message); } } 发送 Post 请求 1 2 3 4 5 6 7 8 9 10 11 using (var httpClient = new HttpClient { BaseAddress = new Uri(cqcPlatformUrl) }) { httpClient.DefaultRequestHeaders.Add("Test", "TestValue");……
@@ -154,7 +154,7 @@ Activator Activator 包含能够创建本地或远程类型对象或获取对现
 </date>
 <div class="post-meta meta-category">
 |
-<a href=/categories/aspnetcore>aspnetcore</a>
+<a href=/categories/%E5%85%B6%E4%BB%96%E6%96%B9%E9%9D%A2>其他方面</a>
 </div>
 <div class=post-content>
 特定类型(Specific type) Action可返回原始类型或复杂类型对象（例如 string 或 自定义类型）。以下代码显示返回自定义的Product类型对象： 1 2 3 [HttpGet] public List&lt;Product> Get() => _repository.GetProducts(); 当同时返回多个对象时，需要返回 ActionResult 类型的对象，将其与前边的多个对象整合。 返回 IEnumerable或 IAsyncEnumer……
@@ -172,8 +172,7 @@ Activator Activator 包含能够创建本地或远程类型对象或获取对现
 </date>
 <div class="post-meta meta-category">
 |
-<a href=/categories/csharp>csharp</a>
-<a href=/categories/c++>c++</a>
+<a href=/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80>编程语言</a>
 </div>
 <div class=post-content>
 如果该回调函数会被定时调用时，C#代码需要将回调函数对应的委托实例化成一个静态变量后使用，以避免 GC 将委托释放导致的异常问题。 参考：https://stackoverflow.com/questions/61985465/passing-c-sharp-callback-metho……
@@ -191,7 +190,7 @@ Activator Activator 包含能够创建本地或远程类型对象或获取对现
 </date>
 <div class="post-meta meta-category">
 |
-<a href=/categories/csharp>csharp</a>
+<a href=/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80>编程语言</a>
 </div>
 <div class=post-content>
 在不考虑线程安全的情况下常常会写如下引发事件的代码: 1 2 3 4 5 6 7 // 版本1 public event EventHandle&lt;EventArgs> Something; protected virtual void OnSomething(EventArgs e) { if(Something != null) Something(this, e); } 以上代码在单线程环境下能够正常运行，但是在多线程环境下就有可能导致问题。虽然对 Something 做了空引用的判断，但是在调用 Something 前有可能被另一个线程从委托链中移除委托，使得 Something 为空，导致空引用调……
@@ -209,7 +208,7 @@ Activator Activator 包含能够创建本地或远程类型对象或获取对现
 </date>
 <div class="post-meta meta-category">
 |
-<a href=/categories/csharp>csharp</a>
+<a href=/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80>编程语言</a>
 </div>
 <div class=post-content>
 可 XML 序列化的内容 公有类的公有可读写属性和字段 接口 ICollection 或 IEnumerable 的实现类 XmlElement 对象 XmlNode 对象 DataSet 对象 XML 使用的 Attribute 通常 Xml 元素的名称由类名或成员名称，但是也可以通过 Attribute 去控制。 XmlArrayAttribute 和 XmlArrayItemAttribute XmlArrayAttribute 和 XmlArrayItemAttribute 用于控制数组的序列化。 XmlArrayAttribute 可以指定数组序列化时的 Xml元素名称。 1 2 3 4 public class Group { [XmlArray("TeamMembers")] public Employee[] Employees; } 1 2 3 4 5 6 7 &lt;Group> &lt;TeamMembers> &lt;!-- 如果没有指定……
@@ -227,7 +226,7 @@ Activator Activator 包含能够创建本地或远程类型对象或获取对现
 </date>
 <div class="post-meta meta-category">
 |
-<a href=/categories/csharp>csharp</a>
+<a href=/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80>编程语言</a>
 </div>
 <div class=post-content>
 1 var ev = Environment.GetEnvironmentVariable("ev");……
@@ -281,6 +280,9 @@ Activator Activator 包含能够创建本地或远程类型对象或获取对现
 <h3 class=widget-title>最近文章</h3>
 <ul class=widget-list>
 <li>
+<a href=https://www.zling.site/post/ToLua%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/ title=ToLua项目配置>ToLua项目配置</a>
+</li>
+<li>
 <a href=https://www.zling.site/post/Lua%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/ title=Lua名词解释>Lua名词解释</a>
 </li>
 <li>
@@ -307,48 +309,25 @@ Activator Activator 包含能够创建本地或远程类型对象或获取对现
 <li>
 <a href=https://www.zling.site/post/Unity%E4%B9%8B%E5%8A%A8%E6%80%81%E5%B0%86%E5%9C%BA%E6%99%AF%E6%B7%BB%E5%8A%A0%E5%88%B0BuildSettings%E4%B8%AD/ title=Unity之动态将场景添加到BuildSettings中>Unity之动态将场景添加到BuildSettings中</a>
 </li>
-<li>
-<a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8Addressable/ title=Unity中使用Addressable>Unity中使用Addressable</a>
-</li>
 </ul>
 </section>
 <section class=widget>
 <h3 class=widget-title><a href=/categories/>分类</a></h3>
 <ul class=widget-list>
-<li><a href=https://www.zling.site/categories/algorithm/>algorithm (2)</a></li>
-<li><a href=https://www.zling.site/categories/artifactory/>artifactory (1)</a></li>
-<li><a href=https://www.zling.site/categories/aspnetcore/>aspnetcore (2)</a></li>
-<li><a href=https://www.zling.site/categories/c++/>c++ (1)</a></li>
-<li><a href=https://www.zling.site/categories/csharp/>csharp (9)</a></li>
-<li><a href=https://www.zling.site/categories/design-pattern/>design pattern (9)</a></li>
-<li><a href=https://www.zling.site/categories/docker/>docker (7)</a></li>
-<li><a href=https://www.zling.site/categories/english/>english (13)</a></li>
-<li><a href=https://www.zling.site/categories/excel/>excel (1)</a></li>
-<li><a href=https://www.zling.site/categories/game-design/>game design (1)</a></li>
-<li><a href=https://www.zling.site/categories/game-development/>game development (1)</a></li>
-<li><a href=https://www.zling.site/categories/hugo/>hugo (1)</a></li>
-<li><a href=https://www.zling.site/categories/jira/>jira (1)</a></li>
-<li><a href=https://www.zling.site/categories/linux/>linux (3)</a></li>
-<li><a href=https://www.zling.site/categories/lua/>lua (4)</a></li>
-<li><a href=https://www.zling.site/categories/mariadb/>mariadb (1)</a></li>
-<li><a href=https://www.zling.site/categories/markdown/>markdown (1)</a></li>
-<li><a href=https://www.zling.site/categories/math/>math (1)</a></li>
-<li><a href=https://www.zling.site/categories/mysql/>mysql (1)</a></li>
-<li><a href=https://www.zling.site/categories/nuget/>nuget (1)</a></li>
-<li><a href=https://www.zling.site/categories/problem/>problem (1)</a></li>
-<li><a href=https://www.zling.site/categories/protobuf/>protobuf (1)</a></li>
-<li><a href=https://www.zling.site/categories/rider/>rider (1)</a></li>
-<li><a href=https://www.zling.site/categories/serilog/>serilog (1)</a></li>
-<li><a href=https://www.zling.site/categories/unity/>unity (30)</a></li>
-<li><a href=https://www.zling.site/categories/web/>web (1)</a></li>
-<li><a href=https://www.zling.site/categories/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/>内网穿透 (1)</a></li>
-<li><a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/>游戏开发 (1)</a></li>
+<li><a href=https://www.zling.site/categories/%E5%85%B6%E4%BB%96%E6%96%B9%E9%9D%A2/>其他方面 (23)</a></li>
+<li><a href=https://www.zling.site/categories/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/>数学知识 (1)</a></li>
+<li><a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/>游戏开发 (34)</a></li>
+<li><a href=https://www.zling.site/categories/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/>编程基础 (11)</a></li>
+<li><a href=https://www.zling.site/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/>编程语言 (12)</a></li>
+<li><a href=https://www.zling.site/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/>英语学习 (13)</a></li>
+<li><a href=https://www.zling.site/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/>问题记录 (3)</a></li>
 </ul>
 </section>
 <section class=widget>
 <h3 class=widget-title><a href=/tags/>标签</a></h3>
 <div class=tagcloud>
 <a href=https://www.zling.site/tags/2d/>2d</a>
+<a href=https://www.zling.site/tags/mariadb/>mariadb</a>
 <a href=https://www.zling.site/tags/algorithm/>algorithm</a>
 <a href=https://www.zling.site/tags/android/>android</a>
 <a href=https://www.zling.site/tags/artifactory/>artifactory</a>
@@ -410,6 +389,7 @@ Activator Activator 包含能够创建本地或远程类型对象或获取对现
 <a href=https://www.zling.site/tags/state/>state</a>
 <a href=https://www.zling.site/tags/thread/>thread</a>
 <a href=https://www.zling.site/tags/tilemap/>tilemap</a>
+<a href=https://www.zling.site/tags/tolua/>tolua</a>
 <a href=https://www.zling.site/tags/ubuntu/>ubuntu</a>
 <a href=https://www.zling.site/tags/ugui/>ugui</a>
 <a href=https://www.zling.site/tags/unity/>unity</a>

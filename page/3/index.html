@@ -53,7 +53,7 @@
 <article class=post>
 <header>
 <h1 class=post-title>
-<a href=https://www.zling.site/post/%E8%87%AA%E5%BB%BAUnityPackageServer/ title=自建UnityPackageServer>自建UnityPackageServer</a>
+<a href=https://www.zling.site/post/%E5%B0%86%E5%BC%95%E7%94%A8%E7%9A%84NuGet%E5%8C%85dll%E8%BE%93%E5%87%BA%E5%88%B0%E7%94%9F%E6%88%90%E7%9B%AE%E5%BD%95/ title=将引用的NuGet包dll输出到生成目录>将引用的NuGet包dll输出到生成目录</a>
 </h1>
 </header>
 <date class="post-meta meta-date">
@@ -61,12 +61,12 @@
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/unity>unity</a></span>
+<span class=meta-category><a href=/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95>问题记录</a></span>
 </div>
 <div class=post-content>
-docker 安装 verdaccio……
+修改项目文件，在 &lt;PropertyGroup> 处添加如下片段： &lt;CopyLocalLockFileAssemblies>true&lt;/CopyLocalLockFileAssemblies>……
 </div>
-<p class=readmore><a href=https://www.zling.site/post/%E8%87%AA%E5%BB%BAUnityPackageServer/>阅读全文</a></p>
+<p class=readmore><a href=https://www.zling.site/post/%E5%B0%86%E5%BC%95%E7%94%A8%E7%9A%84NuGet%E5%8C%85dll%E8%BE%93%E5%87%BA%E5%88%B0%E7%94%9F%E6%88%90%E7%9B%AE%E5%BD%95/>阅读全文</a></p>
 </article>
 <article class=post>
 <header>
@@ -79,7 +79,7 @@ docker 安装 verdaccio……
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/problem>problem</a></span>
+<span class=meta-category><a href=/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95>问题记录</a></span>
 </div>
 <div class=post-content>
 依赖注入时报如下错误的解决办法 1 System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'Some.Class'. 解决办法: 主要是由于构造函数依赖注入时使用了 ILogger 而不是 ILogger&lt;> 导致的，故改为 ILogger&lt;> 即可。……
@@ -97,7 +97,7 @@ docker 安装 verdaccio……
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/linux>linux</a></span>
+<span class=meta-category><a href=/categories/%E5%85%B6%E4%BB%96%E6%96%B9%E9%9D%A2>其他方面</a></span>
 </div>
 <div class=post-content>
 查看硬盘状况 sudo fdisk -l 使用 fdisk 分区 sudo fdisk /dev/sdb 格式化分区 sudo mkfs -t ext4 /dev/sdb1 挂载硬盘 创建挂载点，新建目录 mkdir ~/disk1 挂载 sudo mount /dev/sdb1 ~/disk1 自动挂载 查找硬盘 UUID ls -l /dev/disk/by-uuid/ 修改 /etc/fstab 文件，实现自动挂载 UUID=b543f8f7-579c-45b5-96d6-31de6fa1a55e /home/lgd/disk1 ext4 defaults 1 2……
@@ -115,7 +115,7 @@ docker 安装 verdaccio……
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/mariadb>mariadb</a></span>
+<span class=meta-category><a href=/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95>问题记录</a></span>
 </div>
 <div class=post-content>
 在/etc/mysql/conf.d文件夹下修改如下文件的内容，若文件不存在的话就新建： server.cnf [mysqld] character-set-server=utf8 collation-server=utf8_general_ci client.cnf [client] default-character-set=utf8 最后重启MariaDB服务……
@@ -133,7 +133,7 @@ docker 安装 verdaccio……
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/csharp>csharp</a></span>
+<span class=meta-category><a href=/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80>编程语言</a></span>
 </div>
 <div class=post-content>
 发送 Get 请求 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 // HttpClient is intended to be instantiated once per application, rather than per-use. See Remarks. static readonly HttpClient client = new HttpClient(); static async Task Main() { // Call asynchronous network methods in a try/catch block to handle exceptions. try { HttpResponseMessage response = await client.GetAsync("http://www.contoso.com/"); response.EnsureSuccessStatusCode(); string responseBody = await response.Content.ReadAsStringAsync(); // Above three lines can be replaced with new helper method below // string responseBody = await client.GetStringAsync(uri); Console.WriteLine(responseBody); } catch(HttpRequestException e) { Console.WriteLine("\nException Caught!"); Console.WriteLine("Message :{0} ",e.Message); } } 发送 Post 请求 1 2 3 4 5 6 7 8 9 10 11 using (var httpClient = new HttpClient { BaseAddress = new Uri(cqcPlatformUrl) }) { httpClient.DefaultRequestHeaders.Add("Test", "TestValue");……
@@ -151,7 +151,7 @@ docker 安装 verdaccio……
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/aspnetcore>aspnetcore</a></span>
+<span class=meta-category><a href=/categories/%E5%85%B6%E4%BB%96%E6%96%B9%E9%9D%A2>其他方面</a></span>
 </div>
 <div class=post-content>
 特定类型(Specific type) Action可返回原始类型或复杂类型对象（例如 string 或 自定义类型）。以下代码显示返回自定义的Product类型对象： 1 2 3 [HttpGet] public List&lt;Product> Get() => _repository.GetProducts(); 当同时返回多个对象时，需要返回 ActionResult 类型的对象，将其与前边的多个对象整合。 返回 IEnumerable或 IAsyncEnumer……
@@ -169,7 +169,7 @@ docker 安装 verdaccio……
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F>内网穿透</a></span>
+<span class=meta-category><a href=/categories/%E5%85%B6%E4%BB%96%E6%96%B9%E9%9D%A2>其他方面</a></span>
 </div>
 <div class=post-content>
 使用 Frp 实现内网穿透 Frp 程序下载 https://github.com/fatedier/frp/releases frp 程序分为服务端和客户端，其中 frps 开头文件为服务端， frpc 开头文件为客户端 配置服务端 编辑 frps.ini 配置服务端 [common] bind_port = 7400 #客户端与服务端通信端口，要保持一致 vhost_http_port = 8080 #服务端监听的 http 流量端口 vhost_https_port = 8443 #服务端监听的 https 流量端口 token = 123456 #服务端与客户端验证端口，要保持一致，推荐使用……
@@ -187,7 +187,7 @@ docker 安装 verdaccio……
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/web>web</a></span>
+<span class=meta-category><a href=/categories/%E5%85%B6%E4%BB%96%E6%96%B9%E9%9D%A2>其他方面</a></span>
 </div>
 <div class=post-content>
 使用 acme.sh 申请 Let&rsquo;s Encrypt 泛域名证书 以下申请证书的过程以 NameSilo ，这个域名服务商为例，其它域名服务商的申请细节请结合以下链接参考： https://github.com/Neilpang/acme.sh/wiki/dnsapi 安装 acme.sh curl https://get.acme.sh | sh 获取域名服务商的api key NameSilo https://www.namesilo.com/account_api.php 设置api key 环境变量 以下是 NameSilo 的 api key 设置环境变量的方法，其他域名服务商请参考上方的链接 export Namesilo_Key="xxxxxxxxxxxxxxxx" 申请证书 acme.sh --issue --dns dns_namesilo --dnssleep 900 -d yourdomain -d *.yourdomain 此处要等……
@@ -205,7 +205,7 @@ docker 安装 verdaccio……
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/jira>jira</a></span>
+<span class=meta-category><a href=/categories/%E5%85%B6%E4%BB%96%E6%96%B9%E9%9D%A2>其他方面</a></span>
 </div>
 <div class=post-content>
 Jira 安装 安装环境及软件 Windows Server 2016 MariaDB 10.3.14 Jira 8.1.0 mysql-connector-java-5.1.47-bin.jar 步骤 安装 MariaDB 将 MariaDB 的 zip 安装包解压到指定目录，例如 C:\Program Files\MariaDB 新建数据库存储文件夹，例如 C:\Program Files\MariaDB\DB 以管理员身份运行 CMD，运行如下命令： mysql_install_db.exe &ndash;datadir=C:\Program Files\MariaDB\DB &ndash;service=MariaDB &ndash;password=mima &ndash;service 指定 MariaDB 的服务名 &ndash;password 指定 root 密码 启动 MariaDB 服务 sc start MariaDB 进入到 MariaDB mysql -u root -p 为 Jira 创建专用数据库用户 CREATE USER &lsquo;jira&rsquo;@'%' IDENTIFIED BY &lsquo;some_password&rsquo;; GRANT ALL PRIVILEGES ON . TO &lsquo;jira&rsquo;@'%' WITH GRANT OPTION; FLUSH PRIVILEGES;……
@@ -223,7 +223,7 @@ Jira 安装 安装环境及软件 Windows Server 2016 MariaDB 10.3.14 Jira 8.1.0
 </date>
 <div class=post-meta>
 <span>|</span>
-<span class=meta-category><a href=/categories/artifactory>artifactory</a></span>
+<span class=meta-category><a href=/categories/%E5%85%B6%E4%BB%96%E6%96%B9%E9%9D%A2>其他方面</a></span>
 </div>
 <div class=post-content>
 使用Docker安装Artifactory export JFROG_HOME="/data/jfrog" mkdir -p $JFROG_HOME/artifactory/var/etc/ cd $JFROG_HOME/artifactory/var/etc/ touch ./system.yaml chown -R $UID:$GID $JFROG_HOME/artifactory/var chmod -R 777 $JFROG_HOME/artifactory/var docker run &ndash;name artifactory &ndash;restart always -v $JFROG_HOME/artifactory/var/:/var/opt/jfrog/artifactory -d -p 8081:8081 -p 8082:8082 releases-docker.jfrog.io/jfrog/artifactory-pro:latest 进入Artifatory容器 下载破解jar并运行 /opt/jfrog/artifactory/app/third-party/java/bin/java -jar artifactory-injector-1.1.jar 先破解后生成许可,复制许可 /opt/jfrog/artifactory/app/artifactory/tomcat eyJhcnRpZmFjdG9yeSI6eyJpZCI6IiIsIm93bmVyIjoicjRwMyIsInZhbGlkRnJvbSI6MTYxMzIwMDgxOTUwNiwiZXhwaXJlcyI6NDc2ODg3NDQxOTUwMywidHlwZSI6IkVOVEVSUFJJU0VfUExVUyIsInRyaWFsIjpmYWxzZSwicHJvcGVydGllcyI6e319fQ== 重启容器 访问 http://ip:8082 sudo nano /etc/docker/daemon.json { &ldquo;insecure-registries&rdquo;:[&ldquo;hub.lab.lan:8081&rdquo;] } sudo service docker restart……
@@ -304,6 +304,9 @@ Jira 安装 安装环境及软件 Windows Server 2016 MariaDB 10.3.14 Jira 8.1.0
 <h3 class=widget-title>最近文章</h3>
 <ul class=widget-list>
 <li>
+<a href=https://www.zling.site/post/ToLua%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/ title=ToLua项目配置>ToLua项目配置</a>
+</li>
+<li>
 <a href=https://www.zling.site/post/Lua%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/ title=Lua名词解释>Lua名词解释</a>
 </li>
 <li>
@@ -330,48 +333,25 @@ Jira 安装 安装环境及软件 Windows Server 2016 MariaDB 10.3.14 Jira 8.1.0
 <li>
 <a href=https://www.zling.site/post/Unity%E4%B9%8B%E5%8A%A8%E6%80%81%E5%B0%86%E5%9C%BA%E6%99%AF%E6%B7%BB%E5%8A%A0%E5%88%B0BuildSettings%E4%B8%AD/ title=Unity之动态将场景添加到BuildSettings中>Unity之动态将场景添加到BuildSettings中</a>
 </li>
-<li>
-<a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8Addressable/ title=Unity中使用Addressable>Unity中使用Addressable</a>
-</li>
 </ul>
 </section>
 <section class=widget>
 <h3 class=widget-title><a href=/categories/>分类</a></h3>
 <ul class=widget-list>
-<li><a href=https://www.zling.site/categories/algorithm/>algorithm (2)</a></li>
-<li><a href=https://www.zling.site/categories/artifactory/>artifactory (1)</a></li>
-<li><a href=https://www.zling.site/categories/aspnetcore/>aspnetcore (2)</a></li>
-<li><a href=https://www.zling.site/categories/c++/>c++ (1)</a></li>
-<li><a href=https://www.zling.site/categories/csharp/>csharp (9)</a></li>
-<li><a href=https://www.zling.site/categories/design-pattern/>design pattern (9)</a></li>
-<li><a href=https://www.zling.site/categories/docker/>docker (7)</a></li>
-<li><a href=https://www.zling.site/categories/english/>english (13)</a></li>
-<li><a href=https://www.zling.site/categories/excel/>excel (1)</a></li>
-<li><a href=https://www.zling.site/categories/game-design/>game design (1)</a></li>
-<li><a href=https://www.zling.site/categories/game-development/>game development (1)</a></li>
-<li><a href=https://www.zling.site/categories/hugo/>hugo (1)</a></li>
-<li><a href=https://www.zling.site/categories/jira/>jira (1)</a></li>
-<li><a href=https://www.zling.site/categories/linux/>linux (3)</a></li>
-<li><a href=https://www.zling.site/categories/lua/>lua (4)</a></li>
-<li><a href=https://www.zling.site/categories/mariadb/>mariadb (1)</a></li>
-<li><a href=https://www.zling.site/categories/markdown/>markdown (1)</a></li>
-<li><a href=https://www.zling.site/categories/math/>math (1)</a></li>
-<li><a href=https://www.zling.site/categories/mysql/>mysql (1)</a></li>
-<li><a href=https://www.zling.site/categories/nuget/>nuget (1)</a></li>
-<li><a href=https://www.zling.site/categories/problem/>problem (1)</a></li>
-<li><a href=https://www.zling.site/categories/protobuf/>protobuf (1)</a></li>
-<li><a href=https://www.zling.site/categories/rider/>rider (1)</a></li>
-<li><a href=https://www.zling.site/categories/serilog/>serilog (1)</a></li>
-<li><a href=https://www.zling.site/categories/unity/>unity (30)</a></li>
-<li><a href=https://www.zling.site/categories/web/>web (1)</a></li>
-<li><a href=https://www.zling.site/categories/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/>内网穿透 (1)</a></li>
-<li><a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/>游戏开发 (1)</a></li>
+<li><a href=https://www.zling.site/categories/%E5%85%B6%E4%BB%96%E6%96%B9%E9%9D%A2/>其他方面 (23)</a></li>
+<li><a href=https://www.zling.site/categories/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/>数学知识 (1)</a></li>
+<li><a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/>游戏开发 (34)</a></li>
+<li><a href=https://www.zling.site/categories/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/>编程基础 (11)</a></li>
+<li><a href=https://www.zling.site/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/>编程语言 (12)</a></li>
+<li><a href=https://www.zling.site/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/>英语学习 (13)</a></li>
+<li><a href=https://www.zling.site/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/>问题记录 (3)</a></li>
 </ul>
 </section>
 <section class=widget>
 <h3 class=widget-title><a href=/tags/>标签</a></h3>
 <div class=tagcloud>
 <a href=https://www.zling.site/tags/2d/>2d</a>
+<a href=https://www.zling.site/tags/mariadb/>mariadb</a>
 <a href=https://www.zling.site/tags/algorithm/>algorithm</a>
 <a href=https://www.zling.site/tags/android/>android</a>
 <a href=https://www.zling.site/tags/artifactory/>artifactory</a>
@@ -433,6 +413,7 @@ Jira 安装 安装环境及软件 Windows Server 2016 MariaDB 10.3.14 Jira 8.1.0
 <a href=https://www.zling.site/tags/state/>state</a>
 <a href=https://www.zling.site/tags/thread/>thread</a>
 <a href=https://www.zling.site/tags/tilemap/>tilemap</a>
+<a href=https://www.zling.site/tags/tolua/>tolua</a>
 <a href=https://www.zling.site/tags/ubuntu/>ubuntu</a>
 <a href=https://www.zling.site/tags/ugui/>ugui</a>
 <a href=https://www.zling.site/tags/unity/>unity</a>
