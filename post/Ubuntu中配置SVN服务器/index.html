@@ -59,6 +59,7 @@
 <li><a href=#svn配置文件修改进入到新建仓库下conf文件夹中我们需要配置修改svnserveconfpasswd以及authz三个文件>SVN配置文件修改，进入到新建仓库下conf文件夹中，我们需要配置修改svnserve.conf、passwd以及authz三个文件。</a></li>
 <li><a href=#启动svn服务为了是以后树莓派启动的时候都能启动svn服务我们需要将启动svn服务的指令添加到etcrclocal文件中>启动SVN服务，为了是以后树莓派启动的时候都能启动SVN服务，我们需要将启动SVN服务的指令添加到/etc/rc.local文件中。</a></li>
 <li><a href=#启动服务>启动服务</a></li>
+<li><a href=#多版本库>多版本库</a></li>
 </ul>
 </nav>
 </div>
@@ -189,6 +190,49 @@ svnserve -d -r /home/pi/svn
 ps -ef |grep svnserve
 </code></pre></td></tr></table>
 </div>
+</div><h2 id=多版本库>多版本库</h2>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>svnadmin create /home/pi/svn/repo1  // 这是创建了一个版本库
+svnadmin create /home/pi/svn/repo2  // 这是创建了另一个版本库
+
+// 当有多个版本库时，启动命令需要类似于下面
+svnserve -d -r /home/pi/svn
+
+// 同时每个版本库conf中的authz需要更改为，类似如下：
+<span style=color:#000;font-weight:700>[</span>repo1:/<span style=color:#000;font-weight:700>]</span>
+<span style=color:teal>dengfu</span> <span style=color:#000;font-weight:700>=</span> rw
+
+// 其他还是一样
+
+// 权限问题
+sudo chmod -R o+rw /disk1/svn
+
+// svn: E220001: Item is not readable
+anon-access <span style=color:#000;font-weight:700>=</span> none
+auth-access <span style=color:#000;font-weight:700>=</span> write
+</code></pre></td></tr></table>
+</div>
 </div>
 </div>
 <div class=post-archive>
@@ -258,6 +302,9 @@ ps -ef |grep svnserve
 <h3 class=widget-title>最近文章</h3>
 <ul class=widget-list>
 <li>
+<a href=https://www.zling.site/post/Lua%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/ title=Lua名词解释>Lua名词解释</a>
+</li>
+<li>
 <a href=https://www.zling.site/post/Ubuntu%E4%B8%AD%E9%85%8D%E7%BD%AESVN%E6%9C%8D%E5%8A%A1%E5%99%A8/ title=Ubuntu中配置SVN服务器>Ubuntu中配置SVN服务器</a>
 </li>
 <li>
@@ -284,9 +331,6 @@ ps -ef |grep svnserve
 <li>
 <a href=https://www.zling.site/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8Addressable/ title=Unity中使用Addressable>Unity中使用Addressable</a>
 </li>
-<li>
-<a href=https://www.zling.site/post/Unity%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9Prefab%E6%9C%AA%E8%83%BD%E4%BF%9D%E5%AD%98%E7%9A%84%E9%97%AE%E9%A2%98/ title=Unity代码修改Prefab未能保存的问题>Unity代码修改Prefab未能保存的问题</a>
-</li>
 </ul>
 </section>
 <section class=widget>
@@ -306,7 +350,7 @@ ps -ef |grep svnserve
 <li><a href=https://www.zling.site/categories/hugo/>hugo (1)</a></li>
 <li><a href=https://www.zling.site/categories/jira/>jira (1)</a></li>
 <li><a href=https://www.zling.site/categories/linux/>linux (3)</a></li>
-<li><a href=https://www.zling.site/categories/lua/>lua (3)</a></li>
+<li><a href=https://www.zling.site/categories/lua/>lua (4)</a></li>
 <li><a href=https://www.zling.site/categories/mariadb/>mariadb (1)</a></li>
 <li><a href=https://www.zling.site/categories/markdown/>markdown (1)</a></li>
 <li><a href=https://www.zling.site/categories/math/>math (1)</a></li>
