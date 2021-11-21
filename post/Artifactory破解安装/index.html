@@ -87,9 +87,9 @@ cd $JFROG_HOME/artifactory/var/etc/
 touch ./system.yaml
 chown -R $UID:$GID $JFROG_HOME/artifactory/var
 chmod -R 777 $JFROG_HOME/artifactory/var</p>
-<p>docker run &ndash;name artifactory &ndash;restart always<br>
--v $JFROG_HOME/artifactory/var/:/var/opt/jfrog/artifactory<br>
--d -p 8081:8081 -p 8082:8082<br>
+<p>docker run &ndash;name artifactory &ndash;restart always <br>
+-v $JFROG_HOME/artifactory/var/:/var/opt/jfrog/artifactory <br>
+-d -p 8081:8081 -p 8082:8082 <br>
 releases-docker.jfrog.io/jfrog/artifactory-pro:latest</p>
 </li>
 <li>
