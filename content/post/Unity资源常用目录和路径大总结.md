@@ -6,10 +6,10 @@ tags: ["unity",]
 categories: ["游戏开发",]
 ---
 
-转载自：https://zhuanlan.zhihu.com/p/125109062
-参考1：https://hiramtan.wordpress.com/2017/05/26/unity%E4%B8%8D%E5%90%8C%E5%B9%B3%E5%8F%B0%E4%B8%8B%E7%9A%84%E8%B7%AF%E5%BE%84%E5%92%8C%E8%AF%BB%E5%86%99%E6%9D%83%E9%99%90/
-参考2：http://www.xuanyusong.com/archives/2656
-参考3：http://www.xuanyusong.com/archives/4033
+转载自：[Unity资源常用目录和路径大总结](https://zhuanlan.zhihu.com/p/125109062)
+参考1：[unity不同平台下的路径和读写权限](https://hiramtan.wordpress.com/2017/05/26/unity%E4%B8%8D%E5%90%8C%E5%B9%B3%E5%8F%B0%E4%B8%8B%E7%9A%84%E8%B7%AF%E5%BE%84%E5%92%8C%E8%AF%BB%E5%86%99%E6%9D%83%E9%99%90/)
+参考2：[#你好Unity3D#手机上的路径（来自我的长微博）](http://www.xuanyusong.com/archives/2656)
+参考3：[Unity3D研究院之Android同步方法读取streamingAssets（八十八）](http://www.xuanyusong.com/archives/4033)
 
 ## 一、资源路径
 
