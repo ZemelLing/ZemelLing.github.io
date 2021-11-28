@@ -46,7 +46,7 @@ disqusShortname = "yourdiscussshortname"  ## 是否开启disqus评论，不要�
 ## 友情链接，可以多个
 
 [[params.links]]
-  title = "飞雪无情的博客"
+  title = "飞雪无情的博客(maupassant-hugo作者)"
   name = "飞雪无情的博客"
   url = "https://www.flysnow.org/"
 

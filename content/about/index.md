@@ -4,4 +4,6 @@ date: 2021-03-10 00:13:27
 description: 专注游戏开发
 ---
 
-## 只搞游戏开发，其他勿扰。
+## 专注游戏开发
+
+* [GitHub](https://github.com/zemelling)
