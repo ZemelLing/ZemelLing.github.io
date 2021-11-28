@@ -4,15 +4,15 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=referrer content="no-referrer-when-downgrade">
-<title>Unity中的资源加载 | 泽梅尔的驻留地</title>
-<meta property="og:title" content="Unity中的资源加载 - 泽梅尔的驻留地">
+<title>Unity资源常用目录和路径大总结 | 泽梅尔的驻留地</title>
+<meta property="og:title" content="Unity资源常用目录和路径大总结 - 泽梅尔的驻留地">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2021-04-04T16:18:57+08:00">
-<meta property="article:modified_time" content="2021-08-29T13:09:56+08:00">
+<meta property="article:published_time" content="2021-11-27T19:42:30+08:00">
+<meta property="article:modified_time" content="2021-11-27T19:42:30+08:00">
 <meta name=Keywords content="csharp,unity,游戏开发,手游,单机,博客,lua,typescript">
-<meta name=description content="Unity中的资源加载">
+<meta name=description content="Unity资源常用目录和路径大总结">
 <meta name=author content="ZemelLing">
-<meta property="og:url" content="https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90%E5%8A%A0%E8%BD%BD/">
+<meta property="og:url" content="https://www.zling.site/post/Unity%E8%B5%84%E6%BA%90%E5%B8%B8%E7%94%A8%E7%9B%AE%E5%BD%95%E5%92%8C%E8%B7%AF%E5%BE%84%E5%A4%A7%E6%80%BB%E7%BB%93/">
 <link rel="shortcut icon" href=/favicon.ico type=image/x-icon>
 <link rel=stylesheet href=/css/normalize.css>
 <link rel=stylesheet href=/css/style.css>
@@ -55,12 +55,21 @@
 <div class=post-toc-content>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#加载方式>加载方式</a>
+<li><a href=#一资源路径>一、资源路径</a>
 <ul>
-<li><a href=#将-prefab-拖拽到-inspector-的脚本上>将 Prefab 拖拽到 Inspector 的脚本上</a></li>
-<li><a href=#将-prefab-放到-resources-文件夹下通过-resourcesload-方法加载>将 Prefab 放到 Resources 文件夹下，通过 Resources.Load 方法加载</a></li>
-<li><a href=#使用-assetdatabaseload-方法加载>使用 AssetDataBase.Load 方法加载</a></li>
-<li><a href=#使用-assetbundle-加载>使用 AssetBundle 加载</a></li>
+<li><a href=#unity-editor>Unity Editor</a></li>
+<li><a href=#mac平台>Mac平台</a></li>
+<li><a href=#ios平台>iOS平台</a></li>
+<li><a href=#windows平台>Windows平台</a></li>
+<li><a href=#linux平台>Linux平台</a></li>
+<li><a href=#android平台>Android平台</a></li>
+</ul>
+</li>
+<li><a href=#二unity3d中的资源访问介绍>二、Unity3D中的资源访问介绍</a>
+<ul>
+<li><a href=#resources>Resources</a></li>
+<li><a href=#streamingassets>StreamingAssets</a></li>
+<li><a href=#persistentdatapath>PersistentDataPath</a></li>
 </ul>
 </li>
 </ul>
@@ -70,10 +79,10 @@
 <script type=text/javascript>$(document).ready(function(){var a=$(".post-toc"),b,c,d;a.length&&(b=$("#main").offset().left,b<220&&a.css({width:b-10,"margin-left":0-b}),c=a.offset().top-20,d={start:{position:"absolute",top:c},process:{position:"fixed",top:20}},$(window).scroll(function(){var b=$(window).scrollTop();b<c?a.css(d.start):a.css(d.process)}))})</script>
 <article class=post>
 <header>
-<h1 class=post-title>Unity中的资源加载</h1>
+<h1 class=post-title>Unity资源常用目录和路径大总结</h1>
 </header>
 <date class="post-meta meta-date">
-2021年4月4日
+2021年11月27日
 </date>
 <div class=post-meta>
 <span>|</span>
@@ -83,70 +92,311 @@
 <span id=busuanzi_container_page_pv>|<span id=busuanzi_value_page_pv></span><span>
 阅读</span></span>
 </div>
-<div class=clear style=display:none>
-<div class=toc-article>
-<div class=toc-title>文章目录</div>
-</div>
-</div>
 <div class=post-content>
-<h2 id=加载方式>加载方式</h2>
-<h3 id=将-prefab-拖拽到-inspector-的脚本上>将 Prefab 拖拽到 Inspector 的脚本上</h3>
-<p>这是最简单的方式，但是在实际项目中通常不使用，因为这种方式不够灵活，拖拽的方式低效，存在大量的隐式耦合。</p>
-<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#><span style=color:#000;font-weight:700>public</span> <span style=color:#000;font-weight:700>class</span> <span style=color:#458;font-weight:700>Test</span> : MonoBehaviour
-{
-    <span style=color:#000;font-weight:700>public</span> GameObject prefab;
-    
-    <span style=color:#000;font-weight:700>void</span> Start()
-    {
-        <span style=color:#458;font-weight:700>var</span> go = GameObject.Instantiate(prefab);
-    }
-}
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=将-prefab-放到-resources-文件夹下通过-resourcesload-方法加载>将 Prefab 放到 Resources 文件夹下，通过 Resources.Load 方法加载</h3>
-<p>这种方式实现也很简单，虽然比上一种方式好些，但实际项目中也不大使用，原因在于打包时会将 Resources 下的内容一块打包造成包体过大，同时存在最大容量为2GB的限制。</p>
-<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c# data-lang=c#><span style=color:#000;font-weight:700>public</span> <span style=color:#000;font-weight:700>class</span> <span style=color:#458;font-weight:700>ResourceTest</span> : MonoBehaviour
-{
-    <span style=color:#000;font-weight:700>void</span> Start()
-    {
-        <span style=color:#458;font-weight:700>var</span> prefab = Resources.Load(<span style=color:#d14>&#34;prefab&#34;</span>);
-        <span style=color:#458;font-weight:700>var</span> go = GameObject.Instantiate(prefab);
-    }
-}
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=使用-assetdatabaseload-方法加载>使用 AssetDataBase.Load 方法加载</h3>
-<h3 id=使用-assetbundle-加载>使用 AssetBundle 加载</h3>
+<p>转载自：https://zhuanlan.zhihu.com/p/125109062
+参考1：https://hiramtan.wordpress.com/2017/05/26/unity%E4%B8%8D%E5%90%8C%E5%B9%B3%E5%8F%B0%E4%B8%8B%E7%9A%84%E8%B7%AF%E5%BE%84%E5%92%8C%E8%AF%BB%E5%86%99%E6%9D%83%E9%99%90/
+参考2：http://www.xuanyusong.com/archives/2656
+参考3：http://www.xuanyusong.com/archives/4033</p>
+<h2 id=一资源路径>一、资源路径</h2>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application.dataPath</td>
+<td>包含游戏在目标平台上的数据目录，Android平台不可读写，IOS只读，其他可读可写</td>
+</tr>
+<tr>
+<td>Application.persistentDataPath</td>
+<td>持久化数据文件夹目录，通常用于读写数据。在移动平台，升级应用并不会擦除此目录，但用户可以手动修改。除了 Bundle Identifier 被修改的情况，升级应用不会变更此路径。全平台可读可写</td>
+</tr>
+<tr>
+<td>Application.streamingAssetsPath</td>
+<td>unity编辑器Assets文件夹下创建的StreamingAssets文件夹(Assets\StreamingAssets)，并且打包时将被原封不动的合并到安装包中，且在运行时将被存放于此字段指向的路径。其中 WebGL 和安卓平台不支持访问此路径，这两个平台的此路径将返回 URL，需要使用 UnityWebRequest 进行访问。在大多数平台上此路径只读</td>
+</tr>
+<tr>
+<td>Application.temporaryCachePath</td>
+<td>临时数据的缓存目录</td>
+</tr>
+</tbody>
+</table>
+<h3 id=unity-editor>Unity Editor</h3>
+<table>
+<thead>
+<tr>
+<th>Unity</th>
+<th>路径</th>
+<th>可读</th>
+<th>可写</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application.dataPath</td>
+<td>{path to project folder}/Assets</td>
+<td>是</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>Application.persistentDataPath</td>
+<td>%userprofile%/AppData/LocalLow/{companyname}/{productname}</td>
+<td>是</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>Application.streamingAssetsPath</td>
+<td>{Application.dataPath}/StreamingAssets</td>
+<td>是</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>Application.temporaryCachePath</td>
+<td>%userprofile%/AppData/Local/Temp/{companyname}/{productname}</td>
+<td>是</td>
+<td>是</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id=mac平台>Mac平台</h3>
+<table>
+<thead>
+<tr>
+<th>Unity</th>
+<th>路径</th>
+<th>可读</th>
+<th>可写</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application.dataPath</td>
+<td>{path to player app bundle}/Contents</td>
+<td>是</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>Application.persistentDataPath</td>
+<td>指向用户库目录(user Library folder)，~/Library/Application Support/{companyname}/{productname}</td>
+<td>是</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>Application.streamingAssetsPath</td>
+<td>{Application.dataPath}/Resources/Data/StreamingAssets</td>
+<td>是</td>
+<td>?</td>
+<td>未测试是否可写</td>
+</tr>
+<tr>
+<td>Application.temporaryCachePath</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id=ios平台>iOS平台</h3>
+<table>
+<thead>
+<tr>
+<th>Unity</th>
+<th>路径</th>
+<th>可读</th>
+<th>可写</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application.dataPath</td>
+<td>{path to player app bundle}/{AppName.app}_Data</td>
+<td>是</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>Application.persistentDataPath</td>
+<td>/var/mobile/Containers/Data/Application/{guid}/Documents.</td>
+<td>是</td>
+<td>是</td>
+<td>此处的GUID由Unity根据 Bundle Identifier 生成</td>
+</tr>
+<tr>
+<td>Application.streamingAssetsPath</td>
+<td>{Application.dataPath}/Raw</td>
+<td>是</td>
+<td>否</td>
+<td>参考2</td>
+</tr>
+<tr>
+<td>Application.temporaryCachePath</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id=windows平台>Windows平台</h3>
+<table>
+<thead>
+<tr>
+<th>Unity</th>
+<th>路径</th>
+<th>可读</th>
+<th>可写</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application.dataPath</td>
+<td>{path to executablename_Data folder}</td>
+<td>是</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>Application.persistentDataPath</td>
+<td>%userprofile%/AppData/LocalLow/{companyname}/{productname}</td>
+<td>是</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>Application.streamingAssetsPath</td>
+<td>{Application.dataPath}/StreamingAssets</td>
+<td>是</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>Application.temporaryCachePath</td>
+<td>%userprofile%/AppData/Local/Temp/{companyname}/{productname}</td>
+<td>是</td>
+<td>是</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id=linux平台>Linux平台</h3>
+<table>
+<thead>
+<tr>
+<th>Unity</th>
+<th>路径</th>
+<th>可读</th>
+<th>可写</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application.dataPath</td>
+<td>{path to executablename_Data folder}</td>
+<td>是</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>Application.persistentDataPath</td>
+<td>$XDG_CONFIG_HOME/unity3d 或 $HOME/.config/unity3d</td>
+<td>是</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>Application.streamingAssetsPath</td>
+<td>{Application.dataPath}/StreamingAssets</td>
+<td>是</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>Application.temporaryCachePath</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id=android平台>Android平台</h3>
+<table>
+<thead>
+<tr>
+<th>Unity</th>
+<th>路径</th>
+<th>可读</th>
+<th>可写</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application.dataPath</td>
+<td>通常直接指向apk(/data/app/xxx.xxx.xxx.apk)还有可能指向OBB((Opaque Binary Blob)文件</td>
+<td>否</td>
+<td>否</td>
+<td>详细说明看 参考1</td>
+</tr>
+<tr>
+<td>Application.persistentDataPath</td>
+<td>/storage/emulated/0/Android/data/{packagename}/files</td>
+<td>是</td>
+<td>是</td>
+<td></td>
+</tr>
+<tr>
+<td>Application.streamingAssetsPath</td>
+<td>“jar:file://” + Application.dataPath + “!/assets/”</td>
+<td>是</td>
+<td>否</td>
+<td></td>
+</tr>
+<tr>
+<td>Application.temporaryCachePath</td>
+<td>/storage/emulated/0/Android/data/{packagename}/caches</td>
+<td>是</td>
+<td>是</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id=二unity3d中的资源访问介绍>二、Unity3D中的资源访问介绍</h2>
+<h3 id=resources>Resources</h3>
+<p>是Unity3D系统指定文件夹，如果你新建的文件夹的名字叫Resources，那么里面的内容在打包时都会被打到发布包中。文件夹特点：</p>
+<p>只读，即不能动态修改。所以想要动态更新的资源不要放在这里。
+会将文件夹内的资源打包集成到.asset文件里面。
+主线程加载。
+资源读取使用Resources.Load()。</p>
+<h3 id=streamingassets>StreamingAssets</h3>
+<p>也是Unity3D系统指定文件夹 ，和Resources文件的区别就是Resources文件夹中的内容在打包时会被压缩和加密。而StreamingAsset文件夹中的内容则会原封不动的打入包中，因此StreamingAssets主要用来存放存放打包的AB资源，然后用户安装包之后把这些AB资源是放到手机内。文件夹特点：</p>
+<p>只读，可以放一些压缩的AB资源。
+只能用过WWW类来读取。</p>
+<h3 id=persistentdatapath>PersistentDataPath</h3>
+<p>是可读写路径。在iOS上就是应用程序的沙盒，但是在Android可以是程序的沙盒，也可以是sdcard。并且在Android打包的时候，ProjectSetting页面有一个选项Write Access，可以设置它的路径是沙盒还是sdcard。文件夹特点：</p>
+<p>内容可读写。
+无内容限制。一般是从StreamingAsset中读取二进制文件或者从AssetBundle读取文件来写入PersistentDataPath中。
+一般游戏活动通过WWW动态下载的图片也可以缓存到此目录，方便下次快速打开。</p>
 </div>
 <div class=post-archive>
 <ul class=post-copyright>
 <li><strong>原文作者：</strong><a rel=author href=https://www.zling.site>ZemelLing</a></li>
-<li style=word-break:break-all><strong>原文链接：</strong><a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90%E5%8A%A0%E8%BD%BD/>https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84%E8%B5%84%E6%BA%90%E5%8A%A0%E8%BD%BD/</a></li>
+<li style=word-break:break-all><strong>原文链接：</strong><a href=https://www.zling.site/post/Unity%E8%B5%84%E6%BA%90%E5%B8%B8%E7%94%A8%E7%9B%AE%E5%BD%95%E5%92%8C%E8%B7%AF%E5%BE%84%E5%A4%A7%E6%80%BB%E7%BB%93/>https://www.zling.site/post/Unity%E8%B5%84%E6%BA%90%E5%B8%B8%E7%94%A8%E7%9B%AE%E5%BD%95%E5%92%8C%E8%B7%AF%E5%BE%84%E5%A4%A7%E6%80%BB%E7%BB%93/</a></li>
 <li><strong>版权声明：</strong>本作品采用<a rel=license href=https://creativecommons.org/licenses/by-nc-nd/4.0/>知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
 </ul>
 </div>
@@ -154,11 +404,11 @@
 <div class=post-archive>
 <h2>See Also</h2>
 <ul class=listing>
-<li><a href=/post/Unity%E4%B8%AD%E7%9A%84%E5%9C%BA%E6%99%AF/>Unity中的场景</a></li>
-<li><a href=/post/Unity%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%AD%98%E6%A1%A3%E7%9A%84%E6%96%B9%E5%BC%8F/>Unity中实现存档的方式</a></li>
-<li><a href=/post/Unity%E4%B8%ADUGUI%E7%9A%84%E8%87%AA%E9%80%82%E5%BA%94/>Unity中UGUI的自适应</a></li>
-<li><a href=/post/Unity%E4%B8%AD%E7%9A%84%E5%85%89%E7%85%A7/>Unity中的光照</a></li>
-<li><a href=/post/Unity%E7%9A%84Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/>Unity的Android开发环境配置</a></li>
+<li><a href=/post/Unity%E4%B8%AD%E7%9A%84UGUI/>Unity中的UGUI</a></li>
+<li><a href=/post/Unity%E4%B8%AD%E7%9A%84IMGUI/>Unity中的IMGUI</a></li>
+<li><a href=/post/Unity%E4%B9%8B%E5%8A%A8%E6%80%81%E5%B0%86%E5%9C%BA%E6%99%AF%E6%B7%BB%E5%8A%A0%E5%88%B0BuildSettings%E4%B8%AD/>Unity之动态将场景添加到BuildSettings中</a></li>
+<li><a href=/post/Unity%E4%B8%AD%E4%BD%BF%E7%94%A8Addressable/>Unity中使用Addressable</a></li>
+<li><a href=/post/Unity%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9Prefab%E6%9C%AA%E8%83%BD%E4%BF%9D%E5%AD%98%E7%9A%84%E9%97%AE%E9%A2%98/>Unity代码修改Prefab未能保存的问题</a></li>
 </ul>
 </div>
 <div class="post-meta meta-tags">
