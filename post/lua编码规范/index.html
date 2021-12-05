@@ -55,13 +55,37 @@
 <div class=post-toc-content>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#目的>目的</a></li>
-<li><a href=#编码规范>编码规范</a>
+<li><a href=#程序的版式>程序的版式</a>
 <ul>
-<li><a href=#命名惯例>命名惯例</a></li>
-<li><a href=#分割规范>分割规范</a></li>
-<li><a href=#代码建议>代码建议</a></li>
-<li><a href=#参考资料>参考资料</a></li>
+<li><a href=#空行>空行</a></li>
+<li><a href=#空格>空格</a></li>
+<li><a href=#长行拆分>长行拆分</a></li>
+<li><a href=#使用缩进>使用缩进</a></li>
+<li><a href=#其它>其它</a></li>
+</ul>
+</li>
+<li><a href=#命名规则>命名规则</a>
+<ul>
+<li><a href=#共性规则>共性规则</a></li>
+<li><a href=#文件命名>文件命名</a></li>
+<li><a href=#类的命名>类的命名</a></li>
+<li><a href=#变量命名>变量命名</a></li>
+</ul>
+</li>
+<li><a href=#文件组织>文件组织</a>
+<ul>
+<li><a href=#文件描述>文件描述</a></li>
+<li><a href=#文件中变量的定义>文件中变量的定义</a></li>
+</ul>
+</li>
+<li><a href=#类变量的定义>类变量的定义</a></li>
+<li><a href=#函数的定义规则>函数的定义规则</a></li>
+<li><a href=#注释的使用>注释的使用</a></li>
+<li><a href=#编码技巧>编码技巧</a>
+<ul>
+<li><a href=#在一切能使用local变量时使用local修饰而非global变量重要><strong>在一切能使用local变量时使用local修饰，而非global变量（重要）；</strong></a></li>
+<li><a href=#临时变量的处理>临时变量的处理</a></li>
+<li><a href=#利用逻辑运算的短路效应>利用逻辑运算的短路效应</a></li>
 </ul>
 </li>
 </ul>
@@ -86,59 +110,783 @@
 </div>
 <div class=post-content>
 <blockquote>
-<p>转载自 <a href=https://abaojin.github.io/2020/04/25/lua-coding-standard/>lua 编码规范-abaojin</a></p>
+<p>转载自 <a href=https://zhuanlan.zhihu.com/p/26119366>lua代码规范-大于</a></p>
 </blockquote>
-<h2 id=目的>目的</h2>
-<pre><code>统一编码标准，提高开发效率。
-便于代码阅读，降低维护成本。
+<h2 id=程序的版式>程序的版式</h2>
+<pre><code>Code is read much more often than it is written.
+Programming style is an art.
 </code></pre>
-<h2 id=编码规范>编码规范</h2>
-<h3 id=命名惯例>命名惯例</h3>
+<h3 id=空行>空行</h3>
+<h4 id=需加空行>需加空行</h4>
 <ul>
-<li>所有lua文件命名时使用小写字母、下划线。</li>
-<li>类名、变量名尽可能使用有意义的英文，类名使用帕斯卡命名法，变量名使用骆驼式命名法。</li>
-<li>常量、消息号定义时用大写，单词间 _ 分割 eg:KIND_PET_FOOD。</li>
-<li>函数名使用骆驼式命名法。</li>
+<li>函数之间都要加空行；</li>
+<li>函数内部代码概念与逻辑之间，逻辑段落小节之间，都应该加空行；</li>
+<li>注释行之前；</li>
 </ul>
-<h4 id=解释>解释：</h4>
+<h4 id=不加空行>不加空行</h4>
 <ul>
-<li>骆驼式命名法：第一个单字以小写字母开始；第二个单字的首字母大写或每一个单字的首字母都采用大写字母。</li>
-<li>帕斯卡命名法：和骆驼命名法很像，只有一点区别，就是首字母要大写。(单字之间不以空格断开或连接号)。</li>
+<li>在一个函数体内，逻揖上密切相关的语句之间不加空行；</li>
+<li>多行注释解释参数的时候，注释之间不加空行；</li>
 </ul>
-<h3 id=分割规范>分割规范</h3>
+<h3 id=空格>空格</h3>
+<h4 id=需加空格>需加空格</h4>
 <ul>
-<li>使用空行
+<li>”and“，”or“等关键字前后留一个空格，便于辨析；</li>
+<li>逗号”,“后面要留一个空格；</li>
+<li>赋值操作符、比较操作符、算术操作符如”=“、 “==“、”~=“、”>=“、”&lt;=“、”>“、”&lt;“、”+“、”-“、”*“、”/“、”%“、”“,等二元操作符的前后应当加空格；</li>
+<li>if、for、while等关键字之后如果要加左括号”(“，关键字与左括号之间应留一个空格，以突出关键字；</li>
+</ul>
+<h4 id=不加空格>不加空格</h4>
 <ul>
-<li>在方法之间。</li>
-<li>在方法内部代码的逻辑段落小节之间。</li>
-<li>在注释行之前。</li>
+<li>函数名之后不要留空格，紧跟左括号”(“；</li>
+<li>左括号”(” 向后紧跟，紧跟处不留空格；</li>
+<li>右括号”)“、逗号”,“、分号”;“，向前紧跟，紧跟处不留空格；</li>
+<li>字符串连接符”..“前后不加空格；</li>
+<li>“:“，”.“，”[“，”]“这类操作符前后不加空格；</li>
 </ul>
-</li>
-<li>使用空格符
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>a <span style=color:#000;font-weight:700>&gt;</span> b <span style=color:#000;font-weight:700>and</span> a <span style=color:#000;font-weight:700>or</span> b           <span style=color:#998;font-style:italic>-- 良好的风格</span>
+a <span style=color:#000;font-weight:700>&gt;</span> b  <span style=color:#000;font-weight:700>and</span> a <span style=color:#000;font-weight:700>or</span>  b         <span style=color:#998;font-style:italic>-- 不良的风格</span>
+
+<span style=color:#000;font-weight:700>local</span> a, b, c, max         <span style=color:#998;font-style:italic>-- 良好的风格</span>
+<span style=color:#000;font-weight:700>local</span> a,b,c,max            <span style=color:#998;font-style:italic>-- 不良的风格</span>
+
+<span style=color:#000;font-weight:700>if</span> a <span style=color:#000;font-weight:700>&gt;</span> b <span style=color:#000;font-weight:700>then</span>              <span style=color:#998;font-style:italic>-- 良好的风格</span>
+    max <span style=color:#000;font-weight:700>=</span> a 
+<span style=color:#000;font-weight:700>end</span> 
+<span style=color:#000;font-weight:700>if</span> a<span style=color:#000;font-weight:700>&gt;</span>b <span style=color:#000;font-weight:700>then</span> max<span style=color:#000;font-weight:700>=</span>a <span style=color:#000;font-weight:700>end</span>      <span style=color:#998;font-style:italic>-- 不良的风格</span>
+
+data <span style=color:#000;font-weight:700>=</span> dataTable[index]    <span style=color:#998;font-style:italic>-- 良好的风格</span>
+data <span style=color:#000;font-weight:700>=</span> dataTable [ index ] <span style=color:#998;font-style:italic>-- 不良的风格</span>
+
+<span style=color:#000;font-weight:700>function</span>(posX, posY)       <span style=color:#998;font-style:italic>-- 良好的风格</span>
+<span style=color:#000;font-weight:700>function</span> (posX,posY)       <span style=color:#998;font-style:italic>-- 不良的风格</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=长行拆分>长行拆分</h3>
 <ul>
-<li>运算符和运算符之间，如： c = a + b。</li>
-<li>在参数列表中的逗号后面，如: function m1(year, month)。</li>
-<li>在for语句时，如：for k, v in pairs(t) do。</li>
+<li>代码行最大长度宜控制在70至80个字符以内。代码行不要过长，否则眼睛看不过来，也不便于打印；</li>
+<li>长表达式要在低优先级操作符处拆分成新行，操作符放在新行之首（以便突出操作符）；</li>
 </ul>
-</li>
-<li>不使用空格符
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=color:#998;font-style:italic>-- 良好的风格</span>
+<span style=color:#000;font-weight:700>local</span> newBuindingBtn <span style=color:#000;font-weight:700>=</span> UI.newButton({             
+    text <span style=color:#000;font-weight:700>=</span> btnName,
+    x <span style=color:#000;font-weight:700>=</span> self.x,
+    y <span style=color:#000;font-weight:700>=</span> self.y,
+    parent <span style=color:#000;font-weight:700>=</span> self, 
+    style <span style=color:#000;font-weight:700>=</span> {
+        normal <span style=color:#000;font-weight:700>=</span> ResConfig.png.commonBtnBlue
+    }
+})
+<span style=color:#998;font-style:italic>-- 不良的风格</span>
+<span style=color:#000;font-weight:700>local</span> newBuindingBtn <span style=color:#000;font-weight:700>=</span> UI.newButton({text <span style=color:#000;font-weight:700>=</span> btnName,x <span style=color:#000;font-weight:700>=</span> self.x,y <span style=color:#000;font-weight:700>=</span> self.y,parent <span style=color:#000;font-weight:700>=</span> self, style <span style=color:#000;font-weight:700>=</span> {normal <span style=color:#000;font-weight:700>=</span> ResConfig.png.commonBtnBlue}})
+
+<span style=color:#998;font-style:italic>-- 良好的风格</span>
+<span style=color:#000;font-weight:700>if</span> veryLongerVariable1 <span style=color:#000;font-weight:700>&gt;=</span> veryLongerVariable2
+    <span style=color:#000;font-weight:700>and</span> veryLongerVariable3 <span style=color:#000;font-weight:700>&lt;=</span> veryLongerVariable5
+    <span style=color:#000;font-weight:700>and</span> veryLongerVariable4 <span style=color:#000;font-weight:700>&lt;=</span> veryLongerVariable6 <span style=color:#000;font-weight:700>then</span>
+    doo()
+<span style=color:#000;font-weight:700>end</span>
+<span style=color:#998;font-style:italic>-- 不良的风格</span>
+<span style=color:#000;font-weight:700>if</span> veryLongerVariable1 <span style=color:#000;font-weight:700>&gt;=</span> veryLongerVariable2 <span style=color:#000;font-weight:700>and</span> veryLongerVariable3 <span style=color:#000;font-weight:700>&lt;=</span> veryLongerVariable5 <span style=color:#000;font-weight:700>and</span> veryLongerVariable4 <span style=color:#000;font-weight:700>&lt;=</span> veryLongerVariable6 <span style=color:#000;font-weight:700>then</span>
+        doo()
+<span style=color:#000;font-weight:700>end</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=使用缩进>使用缩进</h3>
 <ul>
-<li>函数定义，如：function test1( a )。</li>
-<li>函数调用，如：test1( 1 )。</li>
+<li>类中的成分；</li>
+<li>方法体或语句块中的成分；</li>
+<li>换行时的非起始行；</li>
 </ul>
-</li>
-<li>使用换行符
+<h3 id=其它>其它</h3>
 <ul>
-<li>禁止在一行中写多条语句。</li>
-<li>一条语句的长度一般超过了80个字符时，应该换行。</li>
+<li>table的数据较多时考虑分行增加可读性</li>
 </ul>
-</li>
-</ul>
-<h3 id=代码建议>代码建议</h3>
-<pre><code>通用逻辑不建议依赖逻辑数据层
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=color:#000;font-weight:700>local</span> a <span style=color:#000;font-weight:700>=</span> {
+    [<span style=color:#099>1</span>] <span style=color:#000;font-weight:700>=</span> <span style=color:#099>8000</span>,
+    [<span style=color:#099>2</span>] <span style=color:#000;font-weight:700>=</span> <span style=color:#099>8001</span>,
+    [<span style=color:#099>3</span>] <span style=color:#000;font-weight:700>=</span> <span style=color:#099>8888</span>
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=命名规则>命名规则</h2>
+<pre><code>三思而命名。
 </code></pre>
-<h3 id=参考资料>参考资料</h3>
-<p><a href=https://github.com/lua/lua>lua源码</a></p>
+<h3 id=共性规则>共性规则</h3>
+<ul>
+<li>命名应当直观且可拼读，可望文知意； *标识符的长度应当符合“min-length && max-information”原则；</li>
+<li>采用英文单词或单词组合，英文单词不要复杂，但用词需准确，切忌使用汉语拼音命名；</li>
+<li>切勿为了避免命名过长而随意截取单词，以丢失可读性；</li>
+<li>所有命名都不要与－x已有的命名风格冲突，例如不要以CC，UI开头；</li>
+</ul>
+<h3 id=文件命名>文件命名</h3>
+<ul>
+<li>所有Lua文件的命名时使用大驼峰法；</li>
+<li>根据文件的特性，一般以文件里的模块名或者类名作为同名文件名；</li>
+<li>确定命名前，请检查下，不要跟其他文件同名；</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>    CCArmature.lua    <span style=color:#998;font-style:italic>-- 不良的风格</span>
+    UILayout.lua      <span style=color:#998;font-style:italic>-- 不良的风格</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=类的命名>类的命名</h3>
+<ul>
+<li>所有类命名时使用大驼峰法，即首字母大写；</li>
+</ul>
+<pre tabindex=0><code>如触摸管理器类，命名为TouchManager
+</code></pre><ul>
+<li>
+<p>类名一般由”名词”或”多名词”组成，不要简写；</p>
+</li>
+<li>
+<p>根据类的特性，加上相关的后缀或者前缀；</p>
+</li>
+</ul>
+<pre tabindex=0><code>后缀：  
+管理类  Manager
+缓存类  Cache
+控制类  Controller
+模块    Module
+网络类  Proxy
+</code></pre><h3 id=变量命名>变量命名</h3>
+<blockquote>
+<p>小驼峰式命名法：第一个单字以小写字母开始；第二个单字的首字母大写，例如：firstName、lastName。</p>
+</blockquote>
+<blockquote>
+<p>大驼峰式命名法：每一个单字的首字母都采用大写字母，例如：FirstName、LastName、CamelCase，也被称为Pascal命名法。</p>
+</blockquote>
+<h4 id=通用规则>通用规则</h4>
+<ul>
+<li>使用 “名词” 或是 “形容词+名词” 命名；</li>
+<li>使用小驼峰法命名；</li>
+<li>为了可读性，尽量避免变量名中出现标号，如value1， value2；</li>
+<li>不要出现仅靠部分字母大小写区分的相似的变量；</li>
+<li>除非是局部变量功能等价全局变量，不然局部变量不要与已有的全局变量同名；</li>
+<li>尽量不要使用已有的类名作为变量名；</li>
+<li>布尔值型变量，通常前缀加上is可以方便理解，比如isRemoved比Removed更加能表示这是一个布尔值变量；</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>        <span style=color:#000;font-weight:700>local</span> data          <span style=color:#998;font-style:italic>-- 良好的风格  </span>
+        <span style=color:#000;font-weight:700>local</span> oldData       <span style=color:#998;font-style:italic>-- 良好的风格 </span>
+        <span style=color:#000;font-weight:700>local</span> newData       <span style=color:#998;font-style:italic>-- 良好的风格     </span>
+        <span style=color:#000;font-weight:700>local</span> pairs <span style=color:#000;font-weight:700>=</span> pairs <span style=color:#998;font-style:italic>-- 良好的风格</span>
+
+        <span style=color:#000;font-weight:700>local</span> posx,posX     <span style=color:#998;font-style:italic>-- 不良的风格 </span>
+        <span style=color:#000;font-weight:700>local</span> btn1,btn2     <span style=color:#998;font-style:italic>-- 不良的风格</span>
+        <span style=color:#000;font-weight:700>local</span> TABLE <span style=color:#000;font-weight:700>=</span> {}    <span style=color:#998;font-style:italic>-- 不良的风格</span>
+        <span style=color:#000;font-weight:700>local</span> uILabel       <span style=color:#998;font-style:italic>-- 不良的风格</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=类的成员变量>类的成员变量</h4>
+<ul>
+<li>类的成员变量以”self.”开头，以区分于局部变量；</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>        <span style=color:#000;font-weight:700>function</span> <span style=color:#900;font-weight:700>init</span>()
+            self.mainPanel <span style=color:#000;font-weight:700>=</span> <span style=color:#000;font-weight:700>false</span> <span style=color:#998;font-style:italic>-- 常用格式</span>
+            topPanel <span style=color:#000;font-weight:700>=</span> <span style=color:#000;font-weight:700>false</span>       <span style=color:#998;font-style:italic>-- 这样是全局变量，占用全局资源，而且难以区分于局部变量 </span>
+            ...
+        <span style=color:#000;font-weight:700>end</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=全局变量>全局变量</h4>
+<ul>
+<li>全局变量使用双下划线(“_“)开头以及结尾，中间的命名以名词拼接，或”形容词＋名词”拼接，不同单词之间用（”“）隔开；</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>__VERSION_CODE__ <span style=color:#000;font-weight:700>=</span> <span style=color:#d14>&#34;1.0.0.0&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>全局变量要有较详细的注释，包括对其功能、取值范围、存取时的注意事项等；</li>
+</ul>
+<h4 id=局部变量>局部变量</h4>
+<ul>
+<li>M常用做模块里面表示模块本身；</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>module(<span style=color:#d14>&#34;MainGame.Module.IntegrationTest.MapModule&#34;</span>, package.seeall)
+<span style=color:#000;font-weight:700>local</span> M <span style=color:#000;font-weight:700>=</span> class(SceneView, <span style=color:#d14>&#34;MapScene&#34;</span>)
+
+<span style=color:#998;font-style:italic>--数据的初始化</span>
+<span style=color:#000;font-weight:700>function</span> <span style=color:#458;font-weight:700>M</span>:<span style=color:#900;font-weight:700>init</span>()
+    ...
+<span style=color:#000;font-weight:700>end</span>
+
+...
+<span style=color:#000;font-weight:700>return</span> M
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>引用进来的类或模块，用大驼峰法命名，引用路径统一带括号；</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>module(<span style=color:#a61717;background-color:#e3d2d2>“</span>MainGame.Module.IntegrationTest.MapModule<span style=color:#a61717;background-color:#e3d2d2>”</span>,package.seeall)
+<span style=color:#000;font-weight:700>local</span> M <span style=color:#000;font-weight:700>=</span> class(SceneView,<span style=color:#a61717;background-color:#e3d2d2>”</span>MapScene<span style=color:#a61717;background-color:#e3d2d2>”</span>) 
+<span style=color:#000;font-weight:700>local</span> Surface <span style=color:#000;font-weight:700>=</span> require(<span style=color:#a61717;background-color:#e3d2d2>“</span>xx.xx<span style=color:#a61717;background-color:#e3d2d2>”</span>) 
+<span style=color:#000;font-weight:700>local</span> TestButtonPanel <span style=color:#000;font-weight:700>=</span> require(<span style=color:#a61717;background-color:#e3d2d2>“</span>xx<span style=color:#a61717;background-color:#e3d2d2>”</span>) 
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=临时变量>临时变量</h4>
+<ul>
+<li>常用下划线”_”作为可以忽略的变量，常使用在循环中；</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=color:#000;font-weight:700>for</span> _,v <span style=color:#000;font-weight:700>in</span> ipairs(t) <span style=color:#000;font-weight:700>do</span>
+    print(v)
+<span style=color:#000;font-weight:700>end</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>i,k,v,t常做临时变量，在表的循环中和函数参数列表中，i常表示ipairs下的数组下标，k常表示pairs下的键，v常表示对应的值，t则表示表；</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=color:#000;font-weight:700>for</span> k,v <span style=color:#000;font-weight:700>in</span> pairs(t)
+    ...
+<span style=color:#000;font-weight:700>end</span>
+<span style=color:#000;font-weight:700>for</span> i,v <span style=color:#000;font-weight:700>in</span> ipairs(t)
+    ...
+<span style=color:#000;font-weight:700>end</span>
+mt.__newindex <span style=color:#000;font-weight:700>=</span> <span style=color:#000;font-weight:700>function</span>(t, k, v)
+    ...
+<span style=color:#000;font-weight:700>end</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=常量事件名的命名>常量，事件名的命名</h4>
+<ul>
+<li>常量，事件名所用单词均大写，单词用下划线(‘_‘)分割；</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=color:#998;font-style:italic>-- 常量 默认宽度</span>
+LIST_DEFAULT_WIDTH <span style=color:#000;font-weight:700>=</span> <span style=color:#099>100</span>
+
+<span style=color:#998;font-style:italic>-- 事件 添加到场景</span>
+ADDED_TO_STAGE <span style=color:#000;font-weight:700>=</span> getId() 
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=枚举的命名>枚举的命名</h4>
+<ul>
+<li>枚举名命名，与类名命名一致；</li>
+<li>枚举值命名，与常量，事件名的命名一致；</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>ControllerViewType <span style=color:#000;font-weight:700>=</span> {
+    SCENE <span style=color:#000;font-weight:700>=</span> <span style=color:#d14>&#34;SCENE&#34;</span>,
+    PANEL <span style=color:#000;font-weight:700>=</span> <span style=color:#d14>&#34;PANEL&#34;</span>,
+    POP <span style=color:#000;font-weight:700>=</span>   <span style=color:#d14>&#34;POP&#34;</span>,
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=文件组织>文件组织</h2>
+<h3 id=文件描述>文件描述</h3>
+<ul>
+<li>文件开头加上此文件的简要功能作用描述；</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>    <span style=color:#998;font-style:italic>-- MapModule.lua</span>
+    <span style=color:#998;font-style:italic>-- Author:xx</span>
+    <span style=color:#998;font-style:italic>-- 20xx年x月x日 xx:xx</span>
+    <span style=color:#998;font-style:italic>-- Using:创建地图 </span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=文件中变量的定义>文件中变量的定义</h3>
+<ul>
+<li>如果在文件中需要多次使用的某些导入文件，可以在文件开头用局部变量存储导入信息，而不是在每次使用的时候都重新导入一次；</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>    <span style=color:#000;font-weight:700>local</span> Surface <span style=color:#000;font-weight:700>=</span> require(<span style=color:#d14>&#34;xx.xx&#34;</span>)
+    <span style=color:#000;font-weight:700>local</span> TestButtonPanel <span style=color:#000;font-weight:700>=</span> require(<span style=color:#d14>&#34;xx&#34;</span>)
+
+    <span style=color:#000;font-weight:700>function</span> <span style=color:#458;font-weight:700>M</span>:<span style=color:#900;font-weight:700>xx</span>()
+        <span style=color:#000;font-weight:700>local</span> testBtn <span style=color:#000;font-weight:700>=</span> TestButtonPanel.newCC()
+        ...
+    <span style=color:#000;font-weight:700>end</span>
+
+    <span style=color:#000;font-weight:700>function</span> <span style=color:#458;font-weight:700>M</span>:<span style=color:#900;font-weight:700>yy</span>()
+        <span style=color:#000;font-weight:700>local</span> panel <span style=color:#000;font-weight:700>=</span> TestButtonPanel.newCC()
+        <span style=color:#000;font-weight:700>local</span> surface <span style=color:#000;font-weight:700>=</span> Surface.newCC()
+        ...
+    <span style=color:#000;font-weight:700>end</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=类变量的定义>类变量的定义</h2>
+<ul>
+<li>类中的成员变量需要在init中先声明，并赋予初始值，不允许不声明直接使用；</li>
+</ul>
+<h2 id=函数的定义规则>函数的定义规则</h2>
+<ul>
+<li>函数的行数过长(大于 100 行)时,尽量拆分为多个子函数；</li>
+<li>函数中一些晦涩的部分,一定要加上注释；</li>
+</ul>
+<h2 id=注释的使用>注释的使用</h2>
+<ul>
+<li>短小的注释用&ndash;；</li>
+<li>注释的位置应与被描述的代码相邻，可以在代码上方或右方，不可放在下方；</li>
+<li>注释原则是有助于对程序的阅读理解，应该是说明为什么做而不仅仅是做什么；</li>
+<li>注释也不宜太多，一般情况下源程序有效注释量在20%以上</li>
+<li>建议注释符号后加空格</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>    <span style=color:#000;font-weight:700>return</span> <span style=color:#000;font-weight:700>nil</span> <span style=color:#998;font-style:italic>-- not found 良好的风格</span>
+    <span style=color:#000;font-weight:700>return</span> <span style=color:#000;font-weight:700>nil</span> <span style=color:#998;font-style:italic>--not found  不良的风格</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>在复杂的end结束的语句中，建议加对应注释</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>    <span style=color:#000;font-weight:700>for</span> i, v <span style=color:#000;font-weight:700>in</span> ipairs(t) <span style=color:#000;font-weight:700>do</span>
+        <span style=color:#000;font-weight:700>if</span> type(v) <span style=color:#000;font-weight:700>==</span> <span style=color:#d14>&#34;string&#34;</span> <span style=color:#000;font-weight:700>then</span>
+            ...lots of code here...
+        <span style=color:#000;font-weight:700>end</span> <span style=color:#998;font-style:italic>-- if string</span>
+    <span style=color:#000;font-weight:700>end</span> <span style=color:#998;font-style:italic>-- for each t</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=编码技巧>编码技巧</h2>
+<h3 id=在一切能使用local变量时使用local修饰而非global变量重要><strong>在一切能使用local变量时使用local修饰，而非global变量（重要）；</strong></h3>
+<ul>
+<li>
+<p>全局变量实际是放入全局表中，每次调用是用传入变量名作为key去获取，而local变量是直接通过lua的堆栈访问的；</p>
+</li>
+<li>
+<p>推荐写法</p>
+<ul>
+<li>在能用局部变量解决的地方，不要使用全局变量，这点很容易被忽略；</li>
+<li>多次重复使用的全局接口，可以用局部变量保存下再使用；</li>
+</ul>
+</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>        <span style=color:#998;font-style:italic>-- 比如需要多重遍历操作一个大表：</span>
+        <span style=color:#998;font-style:italic>-- 写法1:</span>
+        <span style=color:#000;font-weight:700>for</span> k1,v1 <span style=color:#000;font-weight:700>in</span> pairs(tbl) <span style=color:#000;font-weight:700>do</span>
+            <span style=color:#000;font-weight:700>for</span> k2,v2 <span style=color:#000;font-weight:700>in</span> pairs(v1) <span style=color:#000;font-weight:700>do</span>
+                ... 
+            <span style=color:#000;font-weight:700>end</span>
+        <span style=color:#000;font-weight:700>end</span>
+
+        <span style=color:#998;font-style:italic>-- 写法2:</span>
+        <span style=color:#000;font-weight:700>do</span>
+            <span style=color:#000;font-weight:700>local</span> pairs <span style=color:#000;font-weight:700>=</span> pairs
+            <span style=color:#000;font-weight:700>for</span> k1,v1 <span style=color:#000;font-weight:700>in</span> pairs(tbl) <span style=color:#000;font-weight:700>do</span>
+                <span style=color:#000;font-weight:700>for</span> k2,v2 <span style=color:#000;font-weight:700>in</span> pairs(v1) <span style=color:#000;font-weight:700>do</span>
+                    ... 
+                <span style=color:#000;font-weight:700>end</span>
+            <span style=color:#000;font-weight:700>end</span>
+        <span style=color:#000;font-weight:700>end</span>
+
+        <span style=color:#998;font-style:italic>-- 由于pairs是一个全局变量应用的函数，所以写法2在这里有稍微效率上的提升，但要是单层遍历的没有这个效果了。</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>当作常量来多次使用的全局变量应该存为局部变量使用；</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>    <span style=color:#000;font-weight:700>local</span> playerName <span style=color:#000;font-weight:700>=</span> Cache.playerCache.username 
+    ...
+    <span style=color:#000;font-weight:700>local</span> <span style=color:#000;font-weight:700>function</span> <span style=color:#a61717;background-color:#e3d2d2>=</span> <span style=color:#900;font-weight:700>itemTemplate</span>(data)            
+        nameLabel:setText(playerName)
+
+    <span style=color:#000;font-weight:700>local</span> list <span style=color:#000;font-weight:700>=</span> NewList.newCC(,{
+        itemTemplate <span style=color:#000;font-weight:700>=</span> itemTemplate,
+        ... 
+    })
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=临时变量的处理>临时变量的处理</h3>
+<ul>
+<li>字符串的连接 .. 由于字符串的管理机制，字符串在使用..连接时，会产生新的对象。由于lua在VM内对相同的string永远只保留一份唯一copy；</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>    <span style=color:#000;font-weight:700>local</span> description <span style=color:#a61717;background-color:#e3d2d2>＝</span> <span style=color:#d14>&#34;&#34;</span>
+    <span style=color:#000;font-weight:700>for</span> i <span style=color:#000;font-weight:700>=</span> <span style=color:#099>1</span>,<span style=color:#099>20</span> <span style=color:#000;font-weight:700>do</span>
+        description <span style=color:#000;font-weight:700>=</span> description<span style=color:#000;font-weight:700>..</span><span style=color:#d14>&#34;xxx&#34;</span>
+    <span style=color:#000;font-weight:700>end</span>
+    <span style=color:#998;font-style:italic>-- 这样会生成21份string的copy，但实际上我们只需要最后那一份 </span>
+
+    <span style=color:#998;font-style:italic>--如果是轻量级的简单连接还是可以使用的，因为影响不大，但要是大量的类似拼接，推荐使用string.format</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>类似于字符串的管理机制，表也存在类似的临时变量copy：</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>    <span style=color:#998;font-style:italic>-- 函数传参数</span>
+    <span style=color:#000;font-weight:700>function</span> <span style=color:#900;font-weight:700>func</span>({x,y})
+        ...
+    <span style=color:#000;font-weight:700>end</span>
+    <span style=color:#998;font-style:italic>-- 这种传参方式，每次都会生成一份copy，所以推荐以下的用法：</span>
+    <span style=color:#000;font-weight:700>function</span> <span style=color:#900;font-weight:700>func</span>(x,y)
+        ...
+    <span style=color:#000;font-weight:700>end</span>
+
+    <span style=color:#000;font-weight:700>function</span> <span style=color:#900;font-weight:700>func</span>({posX <span style=color:#000;font-weight:700>=</span> x, posY <span style=color:#000;font-weight:700>=</span> y})
+        ...
+    <span style=color:#000;font-weight:700>end</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=利用逻辑运算的短路效应>利用逻辑运算的短路效应</h3>
+<ul>
+<li>and or 的返回值是表达式中的左值或者右值，可用来简化代码</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>    <span style=color:#000;font-weight:700>function</span> <span style=color:#900;font-weight:700>foo</span>(arg)
+        arg <span style=color:#000;font-weight:700>=</span> arg <span style=color:#000;font-weight:700>or</span> <span style=color:#d14>&#34;default&#34;</span>
+        ...
+    <span style=color:#000;font-weight:700>end</span>
+
+    <span style=color:#998;font-style:italic>-- 但要注意当赋值为bool值时候，容易出bug</span>
+
+    a <span style=color:#000;font-weight:700>=</span> a <span style=color:#000;font-weight:700>or</span> <span style=color:#000;font-weight:700>true</span>  <span style=color:#998;font-style:italic>-- 错误的写法，当 a 明确写为 false 的时候，也会被改变成 true 。</span>
+    a <span style=color:#000;font-weight:700>=</span> a <span style=color:#000;font-weight:700>~=</span> <span style=color:#000;font-weight:700>false</span> <span style=color:#998;font-style:italic>-- 正确的写法，当 a 为 nil 的时候，被赋值为 true ；而 false 则不变。</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>另外，巧妙使用 and or 还可以实现类似 C 语言中的 ?: 三元操作：</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>    <span style=color:#000;font-weight:700>function</span> <span style=color:#900;font-weight:700>max</span>(a,b)
+        <span style=color:#000;font-weight:700>return</span> a <span style=color:#000;font-weight:700>&gt;</span> b <span style=color:#000;font-weight:700>and</span> a <span style=color:#000;font-weight:700>or</span> b
+    <span style=color:#000;font-weight:700>end</span>
+
+    <span style=color:#998;font-style:italic>-- 这里相当于 return (a &gt; b) ? a : b;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>设法减少从C向lua传递字符串</li>
+</ul>
+<blockquote>
+<p>字符串常量在 Lua VM 内部工作的非常快，但是一个从 C 向 lua vm 通过 lua_pushstring 之类的 api 传递进 VM 时，至少包含一个再 hash 和匹配的过程。</p>
+</blockquote>
+<ul>
+<li>用#t == 0并不能判断表是否为空，因为#运算符会忽略所有不连续的数字下标和非数字下标</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>    <span style=color:#000;font-weight:700>if</span> next(t) <span style=color:#000;font-weight:700>==</span> <span style=color:#000;font-weight:700>nil</span> <span style=color:#000;font-weight:700>then</span> 
+        <span style=color:#998;font-style:italic>-- 表为空</span>
+        <span style=color:#998;font-style:italic>-- ...</span>
+    <span style=color:#000;font-weight:700>end</span>
+    <span style=color:#998;font-style:italic>-- 因为表的键可能为false，所以必须与nil比较，而不直接使用~next(t)来判断表是否空。</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>更快的插入代码</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>    <span style=color:#998;font-style:italic>-- 更慢，不推荐</span>
+    table.insert(t, value) 
+
+    <span style=color:#998;font-style:italic>-- 更快，推荐</span>
+    t[<span style=color:#000;font-weight:700>#</span>t<span style=color:#000;font-weight:700>+</span><span style=color:#099>1</span>] <span style=color:#000;font-weight:700>=</span> value
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>用do &mldr; end可以来明确限定局部变量的作用域</li>
+</ul>
+<div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua>    <span style=color:#000;font-weight:700>local</span> v
+    <span style=color:#000;font-weight:700>do</span>
+      <span style=color:#000;font-weight:700>local</span> x <span style=color:#000;font-weight:700>=</span> u2<span style=color:#000;font-weight:700>*</span>v3<span style=color:#000;font-weight:700>-</span>u3<span style=color:#000;font-weight:700>*</span>v2
+      <span style=color:#000;font-weight:700>local</span> y <span style=color:#000;font-weight:700>=</span> u3<span style=color:#000;font-weight:700>*</span>v1<span style=color:#000;font-weight:700>-</span>u1<span style=color:#000;font-weight:700>*</span>v3
+      <span style=color:#000;font-weight:700>local</span> z <span style=color:#000;font-weight:700>=</span> u1<span style=color:#000;font-weight:700>*</span>v2<span style=color:#000;font-weight:700>-</span>u2<span style=color:#000;font-weight:700>*</span>v1
+      v <span style=color:#000;font-weight:700>=</span> {x,y,z}
+    <span style=color:#000;font-weight:700>end</span> <span style=color:#998;font-style:italic>-- x,y,z的作用域结束，被系统清理</span>
+
+    <span style=color:#000;font-weight:700>local</span> count
+    <span style=color:#000;font-weight:700>do</span>
+      <span style=color:#000;font-weight:700>local</span> x <span style=color:#000;font-weight:700>=</span> <span style=color:#099>0</span>
+      count <span style=color:#000;font-weight:700>=</span> <span style=color:#000;font-weight:700>function</span>() x <span style=color:#000;font-weight:700>=</span> x <span style=color:#000;font-weight:700>+</span> <span style=color:#099>1</span>; <span style=color:#000;font-weight:700>return</span> x <span style=color:#000;font-weight:700>end</span>
+    <span style=color:#000;font-weight:700>end</span> <span style=color:#998;font-style:italic>-- x的作用域结束，被系统清理</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <div class=post-archive>
 <ul class=post-copyright>
