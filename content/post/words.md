@@ -8,3 +8,5 @@ embark
 advent
 outstanding 
 clarify
+especially 
+prune
