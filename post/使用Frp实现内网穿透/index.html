@@ -1,103 +1,10 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=referrer content="no-referrer-when-downgrade">
-<title>使用Frp实现内网穿透 | 泽梅尔的驻留地</title>
-<meta property="og:title" content="使用Frp实现内网穿透 - 泽梅尔的驻留地">
-<meta property="og:type" content="article">
-<meta property="article:published_time" content="2021-07-02T12:46:26+08:00">
-<meta property="article:modified_time" content="2021-08-29T13:09:56+08:00">
-<meta name=Keywords content="csharp,unity,游戏开发,手游,单机,博客,lua,typescript">
-<meta name=description content="使用Frp实现内网穿透">
-<meta name=author content="ZemelLing">
-<meta property="og:url" content="https://www.zling.site/post/%E4%BD%BF%E7%94%A8Frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
-<link rel="shortcut icon" href=/favicon.ico type=image/x-icon>
-<link rel=stylesheet href=/css/normalize.css>
-<link rel=stylesheet href=/css/style.css>
-<script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js></script>
-<link href=https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css rel=stylesheet>
-<link rel=stylesheet href=/css/douban.css>
-<link rel=stylesheet href=/css/other.css>
-</head>
-<body>
-<header id=header class=clearfix>
-<div class=container>
-<div class=social-links>
-<a href=https://github.com/zemelling target=_blank class="iconfont icon-github" title=github></a>
-</div>
-<div class=col-group>
-<div class=site-name>
-<a id=logo href=https://www.zling.site>
-泽梅尔的驻留地
-</a>
-<p class=description>专注于游戏开发</p>
-</div>
-<div>
-<nav id=nav-menu class=clearfix>
-<a class=current href=https://www.zling.site>首页</a>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=referrer content="no-referrer-when-downgrade"><title>使用Frp实现内网穿透 | 泽梅尔的驻留地</title><meta property="og:title" content="使用Frp实现内网穿透 - 泽梅尔的驻留地"><meta property="og:type" content="article"><meta property="article:published_time" content="2021-07-02T12:46:26+08:00"><meta property="article:modified_time" content="2021-08-29T13:09:56+08:00"><meta name=Keywords content="csharp,unity,游戏开发,手游,单机,博客,lua,typescript"><meta name=description content="使用Frp实现内网穿透"><meta name=author content="ZemelLing"><meta property="og:url" content="https://www.zling.site/post/%E4%BD%BF%E7%94%A8Frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"><link rel="shortcut icon" href=/favicon.ico type=image/x-icon><link rel=stylesheet href=/css/normalize.css><link rel=stylesheet href=/css/style.css><script type=text/javascript src=//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js></script>
+<link href=https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css rel=stylesheet><link rel=stylesheet href=/css/douban.css><link rel=stylesheet href=/css/other.css></head><body><header id=header class=clearfix><div class=container><div class=social-links><a href=https://github.com/zemelling target=_blank class="iconfont icon-github" title=github></a></div><div class=col-group><div class=site-name><a id=logo href=https://www.zling.site>泽梅尔的驻留地</a><p class=description>专注于游戏开发</p></div><div><nav id=nav-menu class=clearfix><a class=current href=https://www.zling.site>首页</a>
 <a href=https://www.zling.site/archives/ title=归档>归档</a>
-<a href=https://www.zling.site/about/ title=关于>关于</a>
-</nav>
-</div>
-</div>
-</div>
-</header>
-<div id=body>
-<div class=container>
-<div class=col-group>
-<div class=col-8 id=main>
-<div class=res-cons>
-<style type=text/css>.post-toc{position:fixed;width:200px;margin-left:-210px;padding:5px 10px;font-family:Athelas,STHeiti,Microsoft Yahei,serif;font-size:12px;border:1px solid rgba(0,0,0,7%);border-radius:5px;background-color:rgba(255,255,255,.98);background-clip:padding-box;-webkit-box-shadow:1px 1px 2px rgba(0,0,0,.125);box-shadow:1px 1px 2px rgba(0,0,0,.125);word-wrap:break-word;white-space:nowrap;-webkit-box-sizing:border-box;box-sizing:border-box;z-index:999;cursor:pointer;max-height:70%;overflow-y:auto;overflow-x:hidden}.post-toc .post-toc-title{width:100%;margin:0 auto;font-size:20px;font-weight:400;text-transform:uppercase;text-align:center}.post-toc .post-toc-content{font-size:15px}.post-toc .post-toc-content>nav>ul{margin:10px 0}.post-toc .post-toc-content ul{padding-left:20px;list-style:square;margin:.5em;line-height:1.8em}.post-toc .post-toc-content ul ul{padding-left:15px;display:none}@media print,screen and (max-width:1057px){.post-toc{display:none}}</style>
-<div class=post-toc style=position:absolute;top:188px>
-<h2 class=post-toc-title>文章目录</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#frp-程序下载>Frp 程序下载</a></li>
-<li><a href=#配置服务端>配置服务端</a></li>
-<li><a href=#配置客户端>配置客户端</a></li>
-<li><a href=#将-frp-设置为开机自启动>将 frp 设置为开机自启动</a>
-<ul>
-<li><a href=#linux>Linux</a></li>
-<li><a href=#windows>Windows</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<script type=text/javascript>$(document).ready(function(){var a=$(".post-toc"),b,c,d;a.length&&(b=$("#main").offset().left,b<220&&a.css({width:b-10,"margin-left":0-b}),c=a.offset().top-20,d={start:{position:"absolute",top:c},process:{position:"fixed",top:20}},$(window).scroll(function(){var b=$(window).scrollTop();b<c?a.css(d.start):a.css(d.process)}))})</script>
-<article class=post>
-<header>
-<h1 class=post-title>使用Frp实现内网穿透</h1>
-</header>
-<date class="post-meta meta-date">
-2021年7月2日
-</date>
-<div class=post-meta>
-<span>|</span>
-<span class=meta-category><a href=/categories/%E5%85%B6%E4%BB%96%E6%96%B9%E9%9D%A2>其他方面</a></span>
-</div>
-<div class=post-meta>
-<span id=busuanzi_container_page_pv>|<span id=busuanzi_value_page_pv></span><span>
-阅读</span></span>
-</div>
-<div class=clear style=display:none>
-<div class=toc-article>
-<div class=toc-title>文章目录</div>
-</div>
-</div>
-<div class=post-content>
-<h1 id=使用-frp-实现内网穿透>使用 Frp 实现内网穿透</h1>
-<h2 id=frp-程序下载>Frp 程序下载</h2>
-<pre><code>https://github.com/fatedier/frp/releases
-</code></pre>
-<p>frp 程序分为服务端和客户端，其中 frps 开头文件为服务端， frpc 开头文件为客户端</p>
-<h2 id=配置服务端>配置服务端</h2>
-<p>编辑 frps.ini 配置服务端</p>
-<pre tabindex=0><code>[common]
+<a href=https://www.zling.site/about/ title=关于>关于</a></nav></div></div></div></header><div id=body><div class=container><div class=col-group><div class=col-8 id=main><div class=res-cons><style type=text/css>.post-toc{position:fixed;width:200px;margin-left:-210px;padding:5px 10px;font-family:Athelas,STHeiti,Microsoft Yahei,serif;font-size:12px;border:1px solid rgba(0,0,0,7%);border-radius:5px;background-color:rgba(255,255,255,.98);background-clip:padding-box;-webkit-box-shadow:1px 1px 2px rgba(0,0,0,.125);box-shadow:1px 1px 2px rgba(0,0,0,.125);word-wrap:break-word;white-space:nowrap;-webkit-box-sizing:border-box;box-sizing:border-box;z-index:999;cursor:pointer;max-height:70%;overflow-y:auto;overflow-x:hidden}.post-toc .post-toc-title{width:100%;margin:0 auto;font-size:20px;font-weight:400;text-transform:uppercase;text-align:center}.post-toc .post-toc-content{font-size:15px}.post-toc .post-toc-content>nav>ul{margin:10px 0}.post-toc .post-toc-content ul{padding-left:20px;list-style:square;margin:.5em;line-height:1.8em}.post-toc .post-toc-content ul ul{padding-left:15px;display:none}@media print,screen and (max-width:1057px){.post-toc{display:none}}</style><div class=post-toc style=position:absolute;top:188px><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#frp-程序下载>Frp 程序下载</a></li><li><a href=#配置服务端>配置服务端</a></li><li><a href=#配置客户端>配置客户端</a></li><li><a href=#将-frp-设置为开机自启动>将 frp 设置为开机自启动</a><ul><li><a href=#linux>Linux</a></li><li><a href=#windows>Windows</a></li></ul></li></ul></nav></div></div><script type=text/javascript>$(document).ready(function(){if(e=$(".post-toc"),e.length){t=$("#main").offset().left,t<220&&e.css({width:t-10,"margin-left":0-t});var e,t,n=e.offset().top-20,s={start:{position:"absolute",top:n},process:{position:"fixed",top:20}};$(window).scroll(function(){var t=$(window).scrollTop();t<n?e.css(s.start):e.css(s.process)})}})</script><article class=post><header><h1 class=post-title>使用Frp实现内网穿透</h1></header><date class="post-meta meta-date">2021年7月2日</date><div class=post-meta><span>|</span>
+<span class=meta-category><a href=/categories/%E5%85%B6%E4%BB%96%E6%96%B9%E9%9D%A2>其他方面</a></span></div><div class=post-meta><span id=busuanzi_container_page_pv>|<span id=busuanzi_value_page_pv></span><span>
+阅读</span></span></div><div class=clear style=display:none><div class=toc-article><div class=toc-title>文章目录</div></div></div><div class=post-content><h1 id=使用-frp-实现内网穿透>使用 Frp 实现内网穿透</h1><h2 id=frp-程序下载>Frp 程序下载</h2><pre><code>https://github.com/fatedier/frp/releases
+</code></pre><p>frp 程序分为服务端和客户端，其中 frps 开头文件为服务端， frpc 开头文件为客户端</p><h2 id=配置服务端>配置服务端</h2><p>编辑 frps.ini 配置服务端</p><pre tabindex=0><code>[common]
 bind_port = 7400  #客户端与服务端通信端口，要保持一致
 vhost_http_port = 8080 #服务端监听的 http 流量端口
 vhost_https_port = 8443 #服务端监听的 https 流量端口
@@ -105,15 +12,8 @@ vhost_https_port = 8443 #服务端监听的 https 流量端口
 token = 123456 #服务端与客户端验证端口，要保持一致，推荐使用 UUID
 
 subdomain_host = yourdomain.com #用于自定义域名访问，在客户端配置 subdomain，可实现子域名访问内网web服务
-</code></pre><blockquote>
-<p>记得要将域名解析到服务端的公网 ip 上</p>
-</blockquote>
-<p>启动 frps</p>
-<pre><code>./frps -c ./frps.ini
-</code></pre>
-<h2 id=配置客户端>配置客户端</h2>
-<p>编辑 frpc.ini 配置客户端</p>
-<pre tabindex=0><code>[common]
+</code></pre><blockquote><p>记得要将域名解析到服务端的公网 ip 上</p></blockquote><p>启动 frps</p><pre><code>./frps -c ./frps.ini
+</code></pre><h2 id=配置客户端>配置客户端</h2><p>编辑 frpc.ini 配置客户端</p><pre tabindex=0><code>[common]
 server_addr = xxx.xxx.xxx.xxx #服务端的公网ip
 server_port = 7400 #客户端与服务端通信端口，要保持一致
 
@@ -127,15 +27,9 @@ protocol = tcp #指定连接协议
 type = http 
 local_port = 80 #客户端本地 web 服务端口
 subdomain = a #子域名
-</code></pre><p>启动 frpc</p>
-<pre><code>./frpc -c ./frpc.ini
-</code></pre>
-<p><strong>之后就可以通过<code>a.yourdomain.com</code>访问内网的 web 服务</strong></p>
-<h2 id=将-frp-设置为开机自启动>将 frp 设置为开机自启动</h2>
-<h3 id=linux>Linux</h3>
-<pre tabindex=0><code>nano /etc/systemd/system/frps.service
-</code></pre><p>在其中填写</p>
-<pre tabindex=0><code>[Unit]
+</code></pre><p>启动 frpc</p><pre><code>./frpc -c ./frpc.ini
+</code></pre><p><strong>之后就可以通过<code>a.yourdomain.com</code>访问内网的 web 服务</strong></p><h2 id=将-frp-设置为开机自启动>将 frp 设置为开机自启动</h2><h3 id=linux>Linux</h3><pre tabindex=0><code>nano /etc/systemd/system/frps.service
+</code></pre><p>在其中填写</p><pre tabindex=0><code>[Unit]
 Description=frps daemon
 
 [Service]
@@ -144,19 +38,11 @@ ExecStart=/usr/bin/frps -c /etc/frps/frps.ini
 
 [Install]
 WantedBy=multi-user.target
-</code></pre><p>执行生效命令</p>
-<pre tabindex=0><code>systemctl start frps
+</code></pre><p>执行生效命令</p><pre tabindex=0><code>systemctl start frps
 systemctl enable frps
 </code></pre><p>之后就能够通过<code>systemctl start frps</code> <code>systemctl restart frps</code> <code>systemctl stop frps</code> 来控制 frps
-frpc 同理</p>
-<h3 id=windows>Windows</h3>
-<p>使用 winsw 将 frpc 设置成服务
-<a href=https://github.com/kohsuke/winsw>https://github.com/kohsuke/winsw</a></p>
-<ul>
-<li>将下载的 WinSW.NET2.exe 或 WinSW.NET4.exe 移动到与 frpc 同一文件夹下，并改名为 winsw.exe</li>
-<li>新建名为 winsw.xml 的 xml 文件，并填写如下内容：</li>
-</ul>
-<pre tabindex=0><code>&lt;service&gt;
+frpc 同理</p><h3 id=windows>Windows</h3><p>使用 winsw 将 frpc 设置成服务
+<a href=https://github.com/kohsuke/winsw>https://github.com/kohsuke/winsw</a></p><ul><li>将下载的 WinSW.NET2.exe 或 WinSW.NET4.exe 移动到与 frpc 同一文件夹下，并改名为 winsw.exe</li><li>新建名为 winsw.xml 的 xml 文件，并填写如下内容：</li></ul><pre tabindex=0><code>&lt;service&gt;
     &lt;id&gt;Frpc&lt;/id&gt;
     &lt;name&gt;Frpc&lt;/name&gt;
     &lt;description&gt;frp client&lt;/description&gt;
@@ -164,127 +50,14 @@ frpc 同理</p>
     &lt;arguments&gt;-c frpc.ini&lt;/arguments&gt;
     &lt;logmode&gt;reset&lt;/logmode&gt;
 &lt;/service&gt;
-</code></pre><ul>
-<li>将 frpc 所在文件夹写入系统变量 Path 中</li>
-<li>运行 cmd 切换至 frpc 所在文件夹，执行<code>winsw.exe install</code></li>
-<li>在<strong>运行</strong>中输入<code>services.msc</code>打开服务，找到 Frpc 服务并启动。</li>
-</ul>
-<p>frps 同理</p>
-</div>
-<div class=post-archive>
-<ul class=post-copyright>
-<li><strong>原文作者：</strong><a rel=author href=https://www.zling.site>ZemelLing</a></li>
-<li style=word-break:break-all><strong>原文链接：</strong><a href=https://www.zling.site/post/%E4%BD%BF%E7%94%A8Frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/>https://www.zling.site/post/%E4%BD%BF%E7%94%A8Frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</a></li>
-<li><strong>版权声明：</strong>本作品采用<a rel=license href=https://creativecommons.org/licenses/by-nc-nd/4.0/>知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
-</ul>
-</div>
-<br>
-<div class=post-archive>
-<h2>See Also</h2>
-<ul class=listing>
-<li><a href=/post/%E4%BD%BF%E7%94%A8acmesh%E7%94%B3%E8%AF%B7LetsEncrypt%E6%B3%9B%E5%9F%9F%E5%90%8D%E8%AF%81%E4%B9%A6/>使用acmesh申请LetsEncrypt泛域名证书</a></li>
-<li><a href=/post/%E5%AE%89%E8%A3%85Jira%E4%BD%BF%E7%94%A8MariaDB%E6%95%B0%E6%8D%AE%E5%BA%93/>安装Jira使用MariaDB数据库</a></li>
-<li><a href=/post/Artifactory%E7%A0%B4%E8%A7%A3%E5%AE%89%E8%A3%85/>Artifactory破解安装</a></li>
-<li><a href=/post/Unity%E4%B8%AD%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%BA%A7%E7%94%9F%E7%A2%B0%E6%92%9E%E7%9A%84%E6%9D%A1%E4%BB%B6/>Unity中游戏对象产生碰撞的条件</a></li>
-<li><a href=/post/CSharp%E8%B0%83%E7%94%A8%E9%9D%9E%E6%89%98%E7%AE%A1C++%E6%97%B6%E4%BD%BF%E7%94%A8%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/>CSharp调用非托管C++时使用回调函数遇到的问题</a></li>
-</ul>
-</div>
-<div class="post-meta meta-tags">
-<ul class=clearfix>
-<li><a href=/tags/frp>frp</a></li>
-<li><a href=/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F>内网穿透</a></li>
-</ul>
-</div>
-</article>
-<div id=disqus_thread></div>
-<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//yourdiscussshortname.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
-</div>
-<footer id=footer>
-<div>
-&copy; 2021 <a href=https://www.zling.site>泽梅尔的驻留地 By ZemelLing</a>
-| <a rel=nofollow target=_blank href=http://beian.miit.gov.cn/>闽ICP备2021013106号</a>
-</div>
-<br>
-<div>
-<div class=github-badge>
-<a href=https://gohugo.io/ target=_black rel=nofollow><span class=badge-subject>Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
-</div>
-<div class=github-badge>
-<a href=https://www.flysnow.org/ target=_black><span class=badge-subject>Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a>
-</div>
-<div class=github-badge>
-<a href=https://github.com/flysnow-org/maupassant-hugo target=_black><span class=badge-subject>Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
-</div>
-</div>
-</footer>
-<script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$']],processEscapes:!0}}</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script src=https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js></script>
+</code></pre><ul><li>将 frpc 所在文件夹写入系统变量 Path 中</li><li>运行 cmd 切换至 frpc 所在文件夹，执行<code>winsw.exe install</code></li><li>在<strong>运行</strong>中输入<code>services.msc</code>打开服务，找到 Frpc 服务并启动。</li></ul><p>frps 同理</p></div><div class=post-archive><ul class=post-copyright><li><strong>原文作者：</strong><a rel=author href=https://www.zling.site>ZemelLing</a></li><li style=word-break:break-all><strong>原文链接：</strong><a href=https://www.zling.site/post/%E4%BD%BF%E7%94%A8Frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/>https://www.zling.site/post/%E4%BD%BF%E7%94%A8Frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</a></li><li><strong>版权声明：</strong>本作品采用<a rel=license href=https://creativecommons.org/licenses/by-nc-nd/4.0/>知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li></ul></div><br><div class=post-archive><h2>See Also</h2><ul class=listing><li><a href=/post/%E4%BD%BF%E7%94%A8acmesh%E7%94%B3%E8%AF%B7LetsEncrypt%E6%B3%9B%E5%9F%9F%E5%90%8D%E8%AF%81%E4%B9%A6/>使用acmesh申请LetsEncrypt泛域名证书</a></li><li><a href=/post/%E5%AE%89%E8%A3%85Jira%E4%BD%BF%E7%94%A8MariaDB%E6%95%B0%E6%8D%AE%E5%BA%93/>安装Jira使用MariaDB数据库</a></li><li><a href=/post/Artifactory%E7%A0%B4%E8%A7%A3%E5%AE%89%E8%A3%85/>Artifactory破解安装</a></li><li><a href=/post/Unity%E4%B8%AD%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%BA%A7%E7%94%9F%E7%A2%B0%E6%92%9E%E7%9A%84%E6%9D%A1%E4%BB%B6/>Unity中游戏对象产生碰撞的条件</a></li><li><a href=/post/CSharp%E8%B0%83%E7%94%A8%E9%9D%9E%E6%89%98%E7%AE%A1C++%E6%97%B6%E4%BD%BF%E7%94%A8%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/>CSharp调用非托管C++时使用回调函数遇到的问题</a></li></ul></div><div class="post-meta meta-tags"><ul class=clearfix><li><a href=/tags/frp>frp</a></li><li><a href=/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F>内网穿透</a></li></ul></div></article><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//yourdiscussshortname.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><footer id=footer><div>&copy; 2023 <a href=https://www.zling.site>泽梅尔的驻留地 By ZemelLing</a>
+| <a rel=nofollow target=_blank href=http://beian.miit.gov.cn/>闽ICP备2021013106号</a></div><br><div><div class=github-badge><a href=https://gohugo.io/ target=_black rel=nofollow><span class=badge-subject>Powered by</span><span class="badge-value bg-blue">Hugo</span></a></div><div class=github-badge><a href=https://www.flysnow.org/ target=_black><span class=badge-subject>Design by</span><span class="badge-value bg-brightgreen">飞雪无情</span></a></div><div class=github-badge><a href=https://github.com/flysnow-org/maupassant-hugo target=_black><span class=badge-subject>Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a></div></div></footer><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[["$","$"]],processEscapes:!0}}</script><script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src=https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js></script>
 <a id=rocket href=#top></a>
-<script type=text/javascript src="/js/totop.js?v=0.0.0" async></script>
+<script type=text/javascript src='/js/totop.js?v=0.0.0' async></script>
 <script type=text/javascript src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js async></script>
-<script src=/js/douban.js></script>
-</div>
-<div id=secondary>
-<section class=widget>
-<form id=search action=https://www.zling.site/search/ method=get accept-charset=utf-8 target=_blank _lpchecked=1>
-<input type=text name=q maxlength=20 placeholder=Search>
+<script src=/js/douban.js></script></div><div id=secondary><section class=widget><form id=search action=https://www.zling.site/search/ method=get accept-charset=utf-8 target=_blank _lpchecked=1><input type=text name=q maxlength=20 placeholder=Search>
 <input type=hidden name=sitesearch value=https://www.zling.site>
-<button type=submit class="submit icon-search"></button>
-</form>
-</section>
-<section class=widget>
-<h3 class=widget-title>最近文章</h3>
-<ul class=widget-list>
-<li>
-<a href=https://www.zling.site/post/lua%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/ title=Lua编码规范>Lua编码规范</a>
-</li>
-<li>
-<a href=https://www.zling.site/post/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B5%84%E6%BA%90%E5%A4%A7%E5%85%A8/ title=游戏服务器资源大全>游戏服务器资源大全</a>
-</li>
-<li>
-<a href=https://www.zling.site/post/Unity%E8%B5%84%E6%BA%90%E5%B8%B8%E7%94%A8%E7%9B%AE%E5%BD%95%E5%92%8C%E8%B7%AF%E5%BE%84%E5%A4%A7%E6%80%BB%E7%BB%93/ title=Unity资源常用目录和路径大总结>Unity资源常用目录和路径大总结</a>
-</li>
-<li>
-<a href=https://www.zling.site/post/ToLua%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/ title=ToLua项目配置>ToLua项目配置</a>
-</li>
-<li>
-<a href=https://www.zling.site/post/Lua%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/ title=Lua名词解释>Lua名词解释</a>
-</li>
-<li>
-<a href=https://www.zling.site/post/Ubuntu%E4%B8%AD%E9%85%8D%E7%BD%AESVN%E6%9C%8D%E5%8A%A1%E5%99%A8/ title=Ubuntu中配置SVN服务器>Ubuntu中配置SVN服务器</a>
-</li>
-<li>
-<a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84UGUI/ title=Unity中的UGUI>Unity中的UGUI</a>
-</li>
-<li>
-<a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84IMGUI/ title=Unity中的IMGUI>Unity中的IMGUI</a>
-</li>
-<li>
-<a href=https://www.zling.site/post/CSharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F%E4%B9%8B%E9%87%8D%E5%86%99%E5%92%8C%E8%A6%86%E7%9B%96%E7%9A%84%E5%8C%BA%E5%88%AB/ title=CSharp查缺补漏之重写(override)和覆盖(new)的区别>CSharp查缺补漏之重写(override)和覆盖(new)的区别</a>
-</li>
-<li>
-<a href=https://www.zling.site/post/%E6%B4%97%E7%89%8C%E7%AE%97%E6%B3%95/ title=洗牌算法>洗牌算法</a>
-</li>
-</ul>
-</section>
-<section class=widget>
-<h3 class=widget-title><a href=/categories/>分类</a></h3>
-<ul class=widget-list>
-<li><a href=https://www.zling.site/categories/%E5%85%B6%E4%BB%96%E6%96%B9%E9%9D%A2/>其他方面 (23)</a></li>
-<li><a href=https://www.zling.site/categories/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/>数学知识 (1)</a></li>
-<li><a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/>游戏开发 (37)</a></li>
-<li><a href=https://www.zling.site/categories/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/>编程基础 (11)</a></li>
-<li><a href=https://www.zling.site/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/>编程语言 (12)</a></li>
-<li><a href=https://www.zling.site/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/>英语学习 (13)</a></li>
-<li><a href=https://www.zling.site/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/>问题记录 (3)</a></li>
-</ul>
-</section>
-<section class=widget>
-<h3 class=widget-title><a href=/tags/>标签</a></h3>
-<div class=tagcloud>
-<a href=https://www.zling.site/tags/2d/>2d</a>
+<button type=submit class="submit icon-search"></button></form></section><section class=widget><h3 class=widget-title>最近文章</h3><ul class=widget-list><li><a href=https://www.zling.site/post/lua%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/ title=Lua编码规范>Lua编码规范</a></li><li><a href=https://www.zling.site/post/%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B5%84%E6%BA%90%E5%A4%A7%E5%85%A8/ title=游戏服务器资源大全>游戏服务器资源大全</a></li><li><a href=https://www.zling.site/post/Unity%E8%B5%84%E6%BA%90%E5%B8%B8%E7%94%A8%E7%9B%AE%E5%BD%95%E5%92%8C%E8%B7%AF%E5%BE%84%E5%A4%A7%E6%80%BB%E7%BB%93/ title=Unity资源常用目录和路径大总结>Unity资源常用目录和路径大总结</a></li><li><a href=https://www.zling.site/post/ToLua%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/ title=ToLua项目配置>ToLua项目配置</a></li><li><a href=https://www.zling.site/post/Lua%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/ title=Lua名词解释>Lua名词解释</a></li><li><a href=https://www.zling.site/post/Ubuntu%E4%B8%AD%E9%85%8D%E7%BD%AESVN%E6%9C%8D%E5%8A%A1%E5%99%A8/ title=Ubuntu中配置SVN服务器>Ubuntu中配置SVN服务器</a></li><li><a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84UGUI/ title=Unity中的UGUI>Unity中的UGUI</a></li><li><a href=https://www.zling.site/post/Unity%E4%B8%AD%E7%9A%84IMGUI/ title=Unity中的IMGUI>Unity中的IMGUI</a></li><li><a href=https://www.zling.site/post/CSharp%E6%9F%A5%E7%BC%BA%E8%A1%A5%E6%BC%8F%E4%B9%8B%E9%87%8D%E5%86%99%E5%92%8C%E8%A6%86%E7%9B%96%E7%9A%84%E5%8C%BA%E5%88%AB/ title=CSharp查缺补漏之重写(override)和覆盖(new)的区别>CSharp查缺补漏之重写(override)和覆盖(new)的区别</a></li><li><a href=https://www.zling.site/post/%E6%B4%97%E7%89%8C%E7%AE%97%E6%B3%95/ title=洗牌算法>洗牌算法</a></li></ul></section><section class=widget><h3 class=widget-title><a href=/categories/>分类</a></h3><ul class=widget-list><li><a href=https://www.zling.site/categories/%E5%85%B6%E4%BB%96%E6%96%B9%E9%9D%A2/>其他方面 (23)</a></li><li><a href=https://www.zling.site/categories/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/>数学知识 (1)</a></li><li><a href=https://www.zling.site/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/>游戏开发 (37)</a></li><li><a href=https://www.zling.site/categories/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/>编程基础 (11)</a></li><li><a href=https://www.zling.site/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/>编程语言 (12)</a></li><li><a href=https://www.zling.site/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/>英语学习 (13)</a></li><li><a href=https://www.zling.site/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/>问题记录 (3)</a></li></ul></section><section class=widget><h3 class=widget-title><a href=/tags/>标签</a></h3><div class=tagcloud><a href=https://www.zling.site/tags/2d/>2d</a>
 <a href=https://www.zling.site/tags/mariadb/>mariadb</a>
 <a href=https://www.zling.site/tags/algorithm/>algorithm</a>
 <a href=https://www.zling.site/tags/android/>android</a>
@@ -358,32 +131,4 @@ frpc 同理</p>
 <a href=https://www.zling.site/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/>内网穿透</a>
 <a href=https://www.zling.site/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/>服务器</a>
 <a href=https://www.zling.site/tags/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/>渲染管线</a>
-<a href=https://www.zling.site/tags/%E7%94%BB%E8%B4%A8/>画质</a>
-</div>
-</section>
-<section class=widget>
-<h3 class=widget-title>友情链接</h3>
-<ul class=widget-list>
-<li>
-<a target=_blank href=https://www.flysnow.org/ title=飞雪无情的博客(maupassant-hugo作者)>飞雪无情的博客</a>
-</li>
-<li>
-<a target=_blank href=http://www.hariogame.com/ title=哈里奥游戏工作室>哈里奥游戏工作室</a>
-</li>
-<li>
-<a target=_blank href=https://siahk.github.io/ title=一位JAVA程序员>Siahk</a>
-</li>
-</ul>
-</section>
-<section class=widget>
-<h3 class=widget-title>其它</h3>
-<ul class=widget-list>
-<li><a href=https://www.zling.site/index.xml>文章 RSS</a></li>
-</ul>
-</section>
-</div>
-</div>
-</div>
-</div>
-</body>
-</html>
+<a href=https://www.zling.site/tags/%E7%94%BB%E8%B4%A8/>画质</a></div></section><section class=widget><h3 class=widget-title>友情链接</h3><ul class=widget-list><li><a target=_blank href=https://www.flysnow.org/ title=飞雪无情的博客(maupassant-hugo作者)>飞雪无情的博客</a></li><li><a target=_blank href=http://www.hariogame.com/ title=哈里奥游戏工作室>哈里奥游戏工作室</a></li><li><a target=_blank href=https://siahk.github.io/ title=一位JAVA程序员>Siahk</a></li></ul></section><section class=widget><h3 class=widget-title>其它</h3><ul class=widget-list><li><a href=https://www.zling.site/index.xml>文章 RSS</a></li></ul></section></div></div></div></div></body></html>
